@@ -3,92 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2005年1月の日記 | ひらたともよし！</title>
+<title>2005年1月の日記 | 平田朋義</title>
 <style>
 :root{
-  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
-  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
-  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+  --bg:#fdfdfb; --ink:#17181c; --muted:#5e6470; --faint:#9aa0ac;
+  --line:#e3e4e8; --blue:#2136c9; --blue-soft:#eceefb;
+  --sans:"Hiragino Sans","Yu Gothic","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
-    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+  :root{ --bg:#121318; --ink:#e8e9ee; --muted:#9aa0b0; --faint:#5e6470;
+    --line:#26282f; --blue:#8b9bff; --blue-soft:#1b2040; }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
-  -webkit-font-smoothing:antialiased}
-a{color:var(--link);text-underline-offset:.18em}
-a:hover{color:var(--accent)}
-.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
-.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
-.site-head .logo:hover{color:var(--accent)}
-.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
-.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
-.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
-.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
-.crumbs a{color:var(--muted);text-decoration:none}
-.crumbs a:hover{color:var(--accent);text-decoration:underline}
-h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
-.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
-.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
-.article p{margin:0 0 1.1em}
-.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-weight:300;line-height:2.0;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+b,strong,h1,h2,h3,h4{font-weight:600}
+.page{max-width:840px;margin:0 auto;padding:0 24px 72px}
+
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;padding:30px 0 26px}
+.site-head .logo{font-weight:700;font-size:1.02rem;letter-spacing:.16em;
+  text-decoration:none;color:var(--ink)}
+.site-head .logo:hover{color:var(--blue)}
+.site-head nav{display:flex;gap:26px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em}
+.site-head nav a{text-decoration:none;color:var(--muted);padding:2px 0;
+  border-bottom:1px solid transparent}
+.site-head nav a:hover{color:var(--blue)}
+.site-head nav a.here{color:var(--blue);border-bottom-color:var(--blue)}
+
+.crumbs{font-family:var(--mono);font-size:.72rem;color:var(--faint);
+  margin:26px 0 0;letter-spacing:.04em}
+.crumbs a{color:var(--faint);text-decoration:none}
+.crumbs a:hover{color:var(--blue);text-decoration:underline}
+
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--blue);margin:34px 0 0}
+h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
+  font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.article h2{font-size:1.22rem;margin:2.4em 0 .7em;line-height:1.6;
+  padding-bottom:.35em;border-bottom:1px solid var(--line)}
+.article h3{font-size:1.02rem;margin:2em 0 .5em}
+.article p{margin:0 0 1.2em}
+.article img{max-width:100%;height:auto;display:block;margin:1.4em 0}
 .article ul,.article ol{padding-left:1.5em}
-.article li{margin:.25em 0}
-.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
-.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
-.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.kids{list-style:none;padding:0;margin:20px 0}
+.article li{margin:.3em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1.2em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 12px;font-size:.9rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2.4em 0}
+
+.kids{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--line)}
 .kids li{margin:0;border-bottom:1px solid var(--line)}
-.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
-.kids a:hover{background:var(--paper)}
-.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
-.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
-  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
-.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
-.card .emoji{font-size:1.6rem}
-.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
-.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
-  text-decoration:none;background:var(--paper)}
-.chips a:hover{border-color:var(--accent)}
-.hero{padding:34px 0 8px}
-.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
-.hero .name .ex{color:var(--accent)}
-.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
-.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
-.diary-years{margin:20px 0}
-.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.kids a{display:block;padding:13px 2px;text-decoration:none;color:var(--ink);font-weight:400}
+.kids a:hover{color:var(--blue);padding-left:8px;transition:padding-left .15s}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted)}
+.kids-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--faint);margin:3.2em 0 0}
+
+/* ---------- index ---------- */
+.hero{padding:56px 0 0}
+.hero .name{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:800;line-height:1.15;
+  letter-spacing:.06em;margin:0}
+.hero .romaji{font-family:var(--mono);font-size:.78rem;letter-spacing:.34em;
+  color:var(--muted);margin:14px 0 0}
+.pi-line{font-family:var(--mono);font-size:.82rem;white-space:nowrap;overflow:hidden;
+  color:var(--faint);margin:34px 0 0;letter-spacing:.1em;
+  -webkit-mask-image:linear-gradient(90deg,#000 72%,transparent);
+  mask-image:linear-gradient(90deg,#000 72%,transparent)}
+.pi-line b{color:var(--blue);font-weight:600}
+.hero .tag{max-width:34em;color:var(--muted);margin:30px 0 0;font-size:.95rem}
+
+.index-list{margin:60px 0 0;border-top:1px solid var(--line)}
+.index-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:6px 18px;
+  align-items:baseline;padding:20px 2px;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink)}
+.index-list .key{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--muted)}
+.index-list .jp{font-size:1.18rem;font-weight:600}
+.index-list .jp .desc{display:block;font-size:.82rem;font-weight:300;color:var(--muted)}
+.index-list .n{font-family:var(--mono);font-size:.78rem;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+.index-list a:hover .jp,.index-list a:hover .key{color:var(--blue)}
+@media (max-width:560px){
+  .index-list a{grid-template-columns:1fr auto}
+  .index-list .key{grid-column:1 / -1}
+}
+
+.elsewhere{margin:58px 0 0}
+.elsewhere-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;color:var(--faint)}
+.elsewhere-links{display:flex;flex-wrap:wrap;gap:4px 26px;margin:10px 0 0;font-size:.88rem}
+.elsewhere-links a{text-decoration:none;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:1px}
+.elsewhere-links a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ---------- diary archive ---------- */
+.diary-years{margin:26px 0}
+.diary-years h2{font-family:var(--mono);font-size:.85rem;letter-spacing:.18em;
+  margin:2.4em 0 .6em;color:var(--muted);border:none;padding:0}
 .diary-months{display:flex;flex-wrap:wrap;gap:8px}
-.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
-  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
-.diary-months a:hover{border-color:var(--accent)}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
-.prevnext a{text-decoration:none}
-footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
-  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-footer.site-foot a{color:var(--muted)}
+.diary-months a{font-family:var(--mono);padding:7px 14px;border:1px solid var(--line);
+  text-decoration:none;font-size:.82rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--blue);color:var(--blue)}
+
+footer.site-foot{margin-top:88px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--faint)}
+footer.site-foot a{color:var(--faint);text-decoration:none}
+footer.site-foot a:hover{color:var(--blue)}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important}
+}
 </style>
 </head>
 <body>
 <div class="page">
 <header class="site-head">
-  <a class="logo" href="../../index.html">ひらたともよし！</a>
-  <nav><a href="../../mywork.html" class="here">つくったもの</a><a href="../../favorites.html" class="">おきにいり</a><a href="../../aboutme.html" class="">じこしょうかい</a><a href="../../announce.html" class="">おしらせ</a></nav>
+  <a class="logo" href="../../index.html">平田朋義</a>
+  <nav><a href="../../mywork.html" class="here">WORKS</a><a href="../../favorites.html" class="">FAVORITES</a><a href="../../aboutme.html" class="">ABOUT</a><a href="../../announce.html" class="">NEWS</a></nav>
 </header>
-<p class="crumbs"><a href="../../index.html">Home</a> › <a href="../../mywork.html">つくったもの</a> › <a href="../../mywork/old-diaries.html">むかしの日記 (2002–2006)</a> › 2005年1月の日記</p>
+<p class="crumbs"><a href="../../index.html">Home</a> / <a href="../../mywork.html">作ったもの</a> / <a href="../../mywork/old-diaries.html">むかしの日記 (2002–2009)</a> / 2005年1月の日記</p>
 <article class="article">
+<p class="eyebrow">WORKS</p>
 <h1>2005年1月の日記</h1>
 <p>一月三十一日（月）</p><p>さらに次の本を購入。</p><p>ベクトル解析30講</p><p>一般相対性理論入門</p><p>量子場の物理</p><p>代数幾何学</p><p>量子宇宙への３つの道</p><p>今日はイレギュラーゼミが一時半から。ポルチンスキー。</p><p>そっれからルネへ、。上にのせた本を買いまくる。このためルネの物理の書籍コーナーは穴だらけ。</p><p>それから、もりせと夕食。タイカレー専門店に食いに行く。良い雰囲気で楽しい。</p><p>お酒を飲んで研究室へ帰る。</p><p>一月三十日（日）</p><p>今日はおきては寝ておきては寝てと十六時間ぐらい寝た。</p><p>映画を二本見た。</p><p>朝四時から見た「ゴジラｖｓヘドラ」</p><p>これはゴジラシリーズ中最高傑作見るべし。</p><p>七十年代当時の厭世観、閉塞感がもう惜しみなく出尽くしていて、サイケデリックでグロテスクの極致。</p><p>主題曲「返せ太陽を」</p><p>鳥も魚も 何処へ行ったの</p><p>蜻蛉も蝶も 何処へ行ったの</p><p>水銀 コバルト カドミウム</p><p>鉛 硫酸 オキシダン</p><p>シアン マンガン マナジューム</p><p>クロム カリウム ストロンチューム</p><p>汚れちまった海</p><p>汚れちまった空</p><p>生き物みんないなくなって</p><p>野も山も黙っちまった</p><p>地球の上に誰も</p><p>誰もいなけりゃ泣く事もできない</p><p>返せ 返せ</p><p>緑を 青空を返せ</p><p>返せ 返せ</p><p>青い海を 返せ</p><p>返せ 返せ</p><p>返せ</p><p>命を太陽を 返せ 返せ</p><p>返せ～！</p><p>夕四時から「ラヂオの時間」を見た。</p><p>普通に面白い映画。</p><p>京都に帰った。</p><p>高校の芸術祭に出演。</p><p>朝八時半の集合はきつい。</p><p>出演は二つでマンドリン部の賛助と、全体合唱。</p><p>リハーサルはマンドリンの次に合唱。一時間ほど待ち時間があったのはかなりの無駄であった。その間マンドリンの練習していればよかった。</p><p>いつもビデオカメラを担いでいるトニー君と再会を果たす。</p><p>ほどなくして本番。非常に楽しかった。やはり人がいっぱいいる中での演奏は心地よい。</p><p>演奏本番の時間は非常に特殊だ。一過性の時間といえばいいのだろうか。この時間を感じれるのが、僕にとっての演奏の醍醐味なのかもしれない。</p><p>終了後は客になる。招待演奏の人はうまいが最初の曲と子犬のワルツはミスタッチと音のとびが目立ったような。</p><p>子犬のワルツは小学校のころ、給食時間でいつもかかっていた。このため、今でもこれを聞くと、胃液が分泌される。これはどうすればなおるのだろうか？</p><p>それから全体合唱に参加。校歌、ハレルヤコーラス、大地賛唱と体力を使う曲三本。</p><p>ハレルヤコーラスは前奏を聞くだけで小躍りしたくなるほど気分が乗る。今回は完璧に歌えた。</p><p>三本歌い終わった後はその場で失神してしまいそうなくらい体力を使い切っていた。</p><p>高校に戻って山村Tと歓談する。</p><p>今回の演奏会で惜しむらくは休憩時間とかリハなどでよいシャッターチャンスを全て逃したことか。</p><p>今日は何もないので朝から欲しい本リストの作成。そして、三時ごろルネに行って、本を買っていく。</p><p>かごを使って本を買うのは初めて。</p><p>以下の本を手に入れた。</p><p>物理学におけるリー代数―アイソスピンから統一理論へ    物理学叢書</p><p>H. ジョージアイ (著), 九後 汰一郎 (翻訳)</p><p>￥4,410 （税込）</p><p> 出版社: 吉岡書店 ;ISBN: 4842702303</p><p>Lie Algebras in Particle Physics (Frontiers in Physics)</p><p>Howard Georgi (著)</p><p>￥6,995（税込</p><p>出版社: Perseus Books (Sd) ; ISBN: 0738202339 ; 2nd 版</p><p>経路積分と対称性の量子的破れ    新物理学選書</p><p>藤川 和男 (著)</p><p>￥6,930 （税込）</p><p>岩波書店 ; ISBN: 4000074156 ; (2001/02)</p><p>共形場理論と1次元量子系    新物理学選書</p><p>川上 則雄 (著), 梁 成吉 (著)</p><p>￥6,720 （税込）</p><p>出版社: 岩波書店 ; ISBN: 4000074113 ; (1997/11)</p><p>基礎物理数学 (Vol.2)    KS理工学専門書</p><p>ジョージ・アルフケン (著), ハンス・ウェーバー (著), 権平 健一郎, 神原 武志, 小山 直人</p><p>価格： ￥5,040 （税込）</p><p>出版社: 講談社 ; ISBN: 406153968X ; 第4版 版 Vol.2 巻</p><p>理工系の基礎数学 (9)</p><p>吉川 圭二 (著)</p><p> 価格： ￥3,465 （税込）</p><p>出版社: 岩波書店 ; ISBN: 4000079794 ; 9 巻</p><p>ワインバーグ場の量子論 (1巻)    物理学叢書 (75)</p><p>S.Weinberg (著), 青山 秀明, 有末 宏明</p><p>価格： ￥4,200 （税込）</p><p>出版社: 吉岡書店 ; ISBN: 4842702621 ; 1巻 巻 (1997/02)</p><p>ワインバーグ場の量子論 (2巻)    物理学叢書 (77)</p><p>S.Weinberg (著), 青山 秀明, 有末 宏明</p><p>価格： ￥4,200 （税込）</p><p>出版社: 吉岡書店 ; ISBN: 4842702656 ; 2巻 巻 (1997/09)</p><p>ワインバーグ 場の量子論〈3巻〉非可換ゲージ理論    物理学叢書</p><p>S. ワインバーグ (著), Steven Weinberg (原著), 青山 秀明 (翻訳), 有末 宏明 (翻訳)価格： ￥4,410 （税込）</p><p>出版社: 吉岡書店 ; ISBN: 4842702699 ; 3巻 巻 (1998/03)</p><p>場の量子論〈4巻〉場の量子論の現代的諸相    物理学叢書</p><p>ワインバーグ (著), Steven Weinberg (原著), 青山 秀明 (翻訳), 有末 宏明 (翻訳)</p><p>価格： ￥4,200 （税込）</p><p>出版社: 吉岡書店 ; ISBN: 4842702710 ; 4巻 巻</p><p>場の量子論〈5巻〉超対称性:構成と超対称標準模型    物理学叢書</p><p>ワインバーグ (著), S. Weinberg (原著), 青山 秀明 (翻訳), 杉山 勝之 (翻訳), 有末 宏明 (翻訳)</p><p>価格： ￥4,410 （税込）</p><p>出版社: 吉岡書店 ; ISBN: 4842702923 ; 5巻 巻 (2001/06)</p><p>ワインバーグ場の量子論〈6巻〉超対称性:非摂動論的効果と拡張    物理学叢書</p><p>ワインバーグ (著), Steven Weinberg (原著), 青山 秀明 (翻訳), 杉山 勝之 (翻訳), 有末 宏明 (翻訳)</p><p>価格： ￥3,780 （税込）</p><p>出版社: 吉岡書店 ;ISBN: 4842702931 ; 6巻 巻 (2003/04)</p><p>大学院素粒子物理〈2〉新領域の開拓</p><p>崎田 文二 (著), 山田 作衛 (著), 江口 徹 (著), 近藤 都登 (著), 戸塚 洋二 (著), 中村 誠太郎 (編集)</p><p> 価格： ￥5,985 （税込）</p><p>出版社: 講談社 ; ISBN: 4061532286 ; 2 巻 (1998/03)</p><p>超弦理論・ブレイン・M理論    シュプリンガー現代理論物理学シリーズ</p><p>太田 信義 (著)</p><p>価格： ￥4,410 （税込）</p><p>出版社: シュプリンガー・フェアラーク東京 ; ISBN: 4431709703 ; (2002/05)</p><p>超弦理論とM理論</p><p>ミチオ カク (著), Michio Kaku (原著), 太田 信義 (翻訳)</p><p>価格： ￥7,140 （税込）</p><p>出版社: シュプリンガー・フェアラーク東京 ; ISBN: 4431708677 ; (2000/09)</p><p>カー・ブラックホールの幾何学</p><p>バレット オニール (著), Barrett O’Neill (原著), 井川 俊彦 (翻訳)</p><p> 価格： ￥5,985 （税込）</p><p>出版社: 共立出版 ; ISBN: 4320017099 ; 版 (2002/10)</p><p>結び目の数学と物理</p><p>L.H. カウフマン (著), Louis H. Kauffman (原著)</p><p>価格： ￥4,515 （税込)</p><p>出版社: 培風館 ; ISBN: 4563002372 ; (1995/10)</p><p>非可換幾何学入門</p><p>A.コンヌ (著), 丸山 文綱</p><p> 価格： ￥6,510 （税込）</p><p>出版社: 岩波書店 ; ISBN: 4000058703 ; (1999/08)</p><p>統計物理学 上 第3版 (1)</p><p>エリ・ランダウ (著), イェー・リフシッツ (著), 小林 秋男 (翻訳)</p><p>価格： ￥4,725 （税込）</p><p>出版社: 岩波書店 ; ISBN: 4000057200 ; 1 巻 (1980/03)</p><p>統計物理学 下 第3版</p><p>エリ・ランダウ (著), イェー・リフシッツ (著), 小林 秋男 (翻訳)</p><p>価格： ￥4,830 （税込）</p><p>出版社: 岩波書店 ; ISBN: 4000057219 ; 下 巻 (2000)</p><p>ファインマン講義重力の理論</p><p>モリニーゴ (著), ワーグナー (著), ファインマン, ハットフィールド, 和田 純夫</p><p> 価格： ￥5,775 （税込）</p><p> 出版社: 岩波書店 ; ISBN: 4000059424 ; (1999/07)</p><p>微分積分・平面曲線    岩波 数学公式</p><p>森口 繁一 (著), 一松 信 (著), 宇田川 〓久 (著)</p><p>価格： ￥2,205 （税込）</p><p>出版社: 岩波書店 ; ISBN: 4000055070 ; 〔新装版〕 版 1 巻 (1987/03)</p><p>特殊函数    岩波 数学公式</p><p>森口 繁一 (著), 一松 信 (著), 宇田川 〓久 (著)</p><p>価格： ￥2,205 （税込）</p><p>出版社: 岩波書店 ; ISBN: 4000055097 ; 3 巻 (1987/03)</p><p>級数・フーリエ解析    岩波 数学公式</p><p>森口 繁一 (著), 一松 信 (著), 宇田川 〓久 (著)</p><p>価格： ￥2,205 （税込）</p><p>出版社: 岩波書店 ; ISBN: 4000055089 ; 〔新装版〕 版 2 巻 (1987/03)</p><p>ゲージ場の理論    岩波講座 現代の物理学</p><p>藤川 和男 (著)</p><p>価格： ￥3,059 （税込）</p><p>出版社: 岩波書店 ; ISBN: 4000104500 ; 20 巻 (1993/09)</p><p>非線形力学の展望〈1〉カオスとゆらぎ</p><p>E.Atlee Jackson (著), 田中 茂 (翻訳), 水谷 正大 (翻訳), 丹羽 敏雄 (翻訳), 森 真 (翻訳)</p><p>価格： ￥8,400 （税込）</p><p>出版社: 共立出版 ; ISBN: 4320033256 ; 1 巻 (1994/12)</p><p>非線形力学の展望〈2〉複雑さと構造</p><p>Edwin Atlee Jackson (著), 田中 茂 (翻訳), 水谷 正大 (翻訳), 丹羽 敏雄 (翻訳), 森 真 (翻訳)</p><p>価格： ￥9,135 （税込）</p><p>出版社: 共立出版 ; ISBN: 4320033264 ; 2 巻 (1995/03)</p><p>物理数学特論 群と物理    パリティ物理学コース</p><p>佐藤 光 (著)</p><p>価格： ￥3,990 （税込）</p><p>出版社: 丸善 ; ISBN: 4621049356 ; (1993/01)</p><p>Supersymmetry and Supergravity (Princeton Series in Physics)</p><p>Julius Wess (著), Jonathan Bagger (著)</p><p> U.S. 定価： $52.50</p><p>価格： ￥6,208 （税込）</p><p>Princeton Univ Pr ; ISBN: 0691025304 ; 2nd Rev. a 版 (1992/03/03)</p><p>Superstring Theory: Loop Amplitudes Anomalies and Phenomenology Vol.2 (Superstring Theory, Phenomenology &amp; Field Theory)</p><p>Michael Green (著), John H. Schwarz (著), Edward Witten (著)</p><p>U.S. 定価： $70.00</p><p>価格： ￥7,525 （税込）</p><p>Cambridge Univ Pr (Txp) ; ISBN: 0521357535 ; Reprint 版 002 巻 (1988/07/01)</p><p>Superstring Theory: Introduction (Cambridge Monographs on Mathematical Physics)</p><p>Michael Green (著), J.H. Schwarz (著), E. Witten (著)</p><p>U.S. 定価： $65.00</p><p>価格： ￥7,686 （税込）</p><p>出版社: Cambridge Univ Pr (Txp) ; ISBN: 0521357527 ; 001 巻 (1988/07/01)</p><p>Quantum Field Theory in a Nutshell</p><p>Anthony Zee (著), A. Zee (著)</p><p> U.S. 定価： $49.50</p><p>価格： ￥5,854 （税込）</p><p>出版社: Princeton Univ Pr ; ISBN: 0691010196 ; (2003/03/01)</p><p>宇宙論入門</p><p>バーバラ ライデン (著), Barbara Ryden (原著), 牧野 伸義 (翻訳)</p><p> 価格： ￥2,940 （税込）</p><p>ピアソンエデュケーション ; ISBN: 4894714434 ; (2003/08)</p><p>ゲージ理論とトポロジー    シュプリンガー現代数学シリーズ</p><p>深谷 賢治 (著), 伊藤 雄二 (編集)</p><p>価格： ￥6,321 （税込）</p><p>出版社: シュプリンガー・フェアラーク東京 ; ISBN: 4431706682 ; (1995/10)</p><p>量子的な微分・積分    量子数理シリーズ</p><p>大森 英樹 (著), 前田 吉昭 (著)</p><p>価格： ￥4,725 （税込）</p><p>出版社: シュプリンガーフェアラーク東京 ; ISBN: 4431710906 ; (2004/04)</p><p>合計額181093円</p><p>十万円以上本を買うのは初めて。</p><p>買い物が終わったらくたくた。疲労が極限までたまっているようだ。明日は演奏会そのために実家に帰る。</p><p>一月二十七日（木）：</p><p>家はやはり寒かった。</p><p>ゼミ。それから、明日の科研費ツアーのための欲しい本リストを作り上げる。</p><p>「使って欲しいお金がまだある。」と言われた。「使って欲しいお金」という言葉を聞いたのは生まれて初めて。</p><p>買う本のリストの総計は十五万円ほどになった。ヘーゲル式に「あれもこれも」とリストに入れる。</p><p>一月二十六日 水曜日</p><p>かわい先生の授業は格子ゲージ理論、U(１)でウィルソンループを計算して本当にクーロン力が出ることを確かめておこう。</p><p>研究室会議、なんと電子辞書も頼めば研究室が買ってくれるらしい。この前買って損した！とりあえず、この機会に本を一気に買ってもらおう。</p><p>今日こそ家に帰るぞと決心して夜十時に勉強は終えて、風呂に入って、マンドリンの練習して、家に着いたのは十二時。</p><p>それから日記を書いていた。就寝二時。久しぶりに早く眠れる。久しぶりに家で寝れる。</p><p>一月二十五日 火曜日</p><p>最バーグゼミは分からない。復習が必要だ。</p><p>今日こそは家に帰るぞと思いたって、夜の十二時に帰ろうとするものの、「エリア８８」を発見してしまい、読みふけって、結局三時半にたこ部屋で寝た。</p><p>一月二十四日 月曜日</p><p>五時の始まりの三十分前に終わった。やれやれ。</p><p>発表はつつがなし。</p><p>終わった。開放された…。つらかった。</p><p>しかし五時から始まるゼミは体力面でも精神面でもきついものがある。</p><p>終わったあと、みんなでカレーを食いに行った。</p><p>開放記念に、今日は休憩。クリア直前で止まっていたドラクエ４(FC版)を立ち上げ、デスピサロ狩りに行った。八逃げで楽勝。</p><p>家に帰る体力が残っていないので学校で泊まる。</p><p>一月二十三日 日曜日</p><p>朝起きて勉強して、十分ぐらい家に帰って、銭湯に行って勉強して学校で寝た。</p><p>なんとか間に合いそうだ。まとめに入る段階でまだ分からない所が出てふたたび考え直しになる所多数。でも、自力で分かるとなかなか快感。</p><p>最後のほうはしんけん何を言っているのか分からない。</p><p>一月二十二日 土曜日</p><p>起きたら十一時だった。適当に食べて、勉強して、電車に乗る。</p><p>そして高校に行く。合唱の練習。各一回ずつしかしなかった。まだ音もとれていないのに…。あとでmidiを見つけて聞いたら、まったく違うように歌っていたようだ。すまない。ちなみに、歌うOBはテノールは僕だけのようだ。かなり目立ちます。良し。</p><p>そして、家でご飯を食らって休むまもなく再び学校へ。そして勉強して学校で寝る。</p><p>一月二十一日 金曜日</p><p>昨日と変わらず。今日も学校で泊まる。銭湯に五時ごろいったような。最近暖かいのかな？水風呂が楽だ。</p><p>一人で研究室で床に寝転がって考えている所を見られてしまった。</p><p>夜十二時ごろ先輩に質問しに言ったら、二時間ぐらいひきとめてしまった。ユークリッド空間での解析力学について。</p><p>質問後、隣の研究室へ行くとk君がいてプログラムを書いていたので。visual C♯の使い方を教わる。これはかなり便利だ、使いやすい、そして面白い。</p><p>今度昔作った、パズルソルバーをwindows programに作り直してみよう。</p><p>一月二十日 木曜日</p><p>あまり記憶に残っていないな。とりあえず、ストリングの予習をしていました。</p><p>今度の今度はだめかもしれない。</p><p>三時までやって、学校で泊まる。</p><p>ｆ先生に聞いて、いきなり出てきた反対称テンソルがどこから出てきたのかを教えてもらう。手で入れたようだ。</p><p>夜、「プランク定数って何ですか？」と三回生の人が質問しに来た。</p><p>一月十九日 水曜日</p><p>一週間更新できなかったのはわけがある！</p><p>この日、「そういえば土曜のストリング発表誰だったっけ？」という話になって？ｓ君が「あ、それ平田君やで。忘れていると思っていたので言わんかった。」</p><p>ということで半死半生で生きていました。今まで生きていた中で、一番つらかったです。ちなみに書かれていた文章は生きていた中で一番意味不明でした。霞をつかむがごとく。</p><p>発表はとりあえず、月曜日に延期してもらう。</p><p>学校で泊まる。</p><p>一月十八日 火曜日</p><p>九時半起床。最バーグウィってんのとりあえず、イントロだけを読む。それ以降は難しい。</p><p>昼ごはんは食欲がないのでカロリーメイト、そしてゼミ。</p><p>ゼミは四時半ごろ終わる。お金を下ろしに銀行に行って。それから図書館に行って、岡本太郎の「<a href="http://www.amazon.co.jp/exec/obidos/ASIN/4334727891/249-0168087-4441147">今日の芸術</a>」の一ページ目を開くと、それはもう引き込まれたかのように最後まで読んでしまった。</p><p>「これからはすべての人が描かなければならない」私も強くそう思う！</p><p>この書は万人に必読の書である！とりあえず、リンクしているアマゾンのページを開いてレビューを見るべし。</p><p>さあ、それから研究室に戻って、ポルチンを読むけど進まない。家に帰ってhpをアップする。</p><p>学校でhpをアップしようとかなり努力したがすべての努力は灰燼に帰した。なにゆえか、防壁のためｆｔｐでアップすることが出来ないようだ。</p><p>一月１７日 月曜日</p><p>今日のデスノートはすごかった！面白すぎる！</p><p>さて、今日の出来事を思い起こそう。今日はほどよく涼しい日であった。</p><p>朝は学校で目覚める。</p><p>朝ごはんはクリームシチューとライスS。昼ごはんは少なめ。夕ご飯はもっと少なめ。食欲がわかないなあ。</p><p>昼にルネに行き、CDRWとビゼーの「アルルの女」を購入。</p><p>夜は七時ごろ銭湯に行く。ついに二、三分連続で水風呂に入れるようになった。一分を超えると後は冷たいとも思わなくなる。</p><p>それから家に帰ってCDを焼こうとするができない。しかたがないのでHP経由でファイルを学校に送った。</p><p>夜十二時に学校を出る。二時に学校で就寝。</p><p>一月十六日 日曜日</p><p>センター試験お疲れ様です。</p><p>当方はずっと学校で特筆すべきことなし。濃厚な時間を生きている受験生をうらやましく思う。</p><p>朝、布団でぼんやりしていると、今この瞬間受験生は本当に存在して、試験をといているのだろうか？といった存在論的懐疑に襲われる。</p><p>朝の十一時におき、松屋で食事。</p><p>途中で家に帰り、個人ファイルを学校のパソコンに移すべく、家のノートでCDを焼こうとする。が、焼けない！なぜだ。</p><p>夕ご飯はカロリーメイトを八本。</p><p>一月十五日 土曜日</p><p>九時から練習。家では太田さんのM理論の本の超対称性部分の読んでいた、あまりよい書き方じゃないなあ。</p><p>で九時から練習。年賀状をその場で書いておぐありさんとかに渡したりする。マジックは筆とは特性が違うので書きにくい。</p><p>で練習。はやっぱりつらい。落ち着きがない僕のような人にとっては。</p><p>練習後雨。今日は暖かい。冬は曇りのときのほうが放射冷却が防がれ暖かくなるらし。</p><p>おぐありさん、まさちゃん、うめさんと僕とでお好み焼きを食いに行く。四人共通の話題がない！</p><p>で、うめさんから今日は合唱の練習があると聞く。もう半分終わっていると思うが、このまま帰るよりは刺激的だろうと思い、高校に戻る。</p><p>合唱の練習は今日は行われてなかったらしい。なぜかというと、センター試験で人が少なすぎるので。ということは、つぎの芸術祭のOB合唱の出演者はほとんど浪人生ってことか。あなどりがたし！</p><p>で今日はきていたOBさんで山村先生を囲む会。窓からは森が見え、新音楽室もなかなかよい。音楽準備室は校長室よりも立派だそうだ。ついでに山村先生は、なんでも鑑定団の先生が骨董の鑑定を頼みに来るほど、骨董に目が利くそうな。</p><p>二十九日の芸術祭のOB合唱は「歌えなくても出てよい」舞台だそうです。これを見ているOBの人、歌いませんか？僕も歌えないけど出ます。</p><p>大地賛唱 ハレルヤ 校歌 の三曲です。</p><p>そして帰る。京都へ。</p><p>一月十四日 金曜日</p><p>夢：砂漠を旅していて、砂嵐に巻き込まれる。と思ったら津波が押し寄せてきた。二メートル程度の高さの屋根に登る。死を覚悟するとかえって心が落ち着いた。波は届かず去っていったのでその間に高台へと避難した。</p><p>場面はかわって、友人と紀伊国屋で鬼ごっこ。僕は本棚の中を透過して上下階に逃げる。</p><p>屋根裏を見るとかなりの手抜き工事を発見。支柱が折れかかっている所もある。鬼ごっこはやめにしてそれを友人に見せる。</p><p>そこから脱出した。途中で対人センサーに引っかかり、パトカーが追いかけてきた。</p><p>逃げながら上空からパトカーを何台か念力でふきとばし、道をふさいでおく。</p><p>地下にもぐる。地下は凍った地底湖があり、スケートで逃げる。一時間ほどすべって地上に出るとそこは長野だった。</p><p>楽しく目が覚める。インスタントンのゼミはなし。</p><p>そして、四時からCFTゼミ。</p><p>面白いことを発見した。</p><p>ｖiをm個のｎ次元ベクトルとする。行列MijをMij＝vi・ｖｊ とする。detMはゼロ以上である。線形代数の復習にお勧めします。ゼロになるのは線形従属のとき。CFTでこれの二次元バージョンをつかっていました。</p><p>九時ごろ急に、明日の高校でのマンドリンの練習は朝の九時から遅刻厳禁というメールが来る。</p><p>やれやれいまから帰れと言うのかよと、冷蔵庫に残していた阪大のセミナーの茶話会で手に入れたワインをコップいっぱい飲んで家に帰ったのであった。</p><p>一月十三日 木曜日</p><p>また日記をさぼってしまった。</p><p>起きて走って学校へ。授業を受けてゼミの発表。</p><p>ゼミの発表はすらすら行ったので嬉しい。発表記念にゼミ後は休んで休む。</p><p>一月十二日 水曜日</p><p>河合先生の授業後、やはりセミナーはなかった。まだ冬休みのようだ。</p><p>朝に研究室にKさんが来てプリンをくれた。うまかった。</p><p>明日の準備を終わらせたのが夜の十時。あと一時間、CFTの勉強に使おうと思ったが、すでに疲労困憊。無理であった。</p><p>一時間ほど仮眠をとり、走って家へ帰る。今日は心地よい寒さ。雪も朝降っていた。</p><p>新しき年の 初めの 初春の 今日降る雪の いやしけ吉事 （大伴家持）</p><p>今日は完全燃焼した。</p><p>一月十一日 火曜日</p><p>今日こそゼミがあると思ってたが、まだ実は冬休みのようだ。</p><p>夜の十二時ごろ終業。三時ごろまで倭くんの「逆転裁判」を一緒に推理した。</p><p>ｋ先生に明日の発表の所で分からない所を質問しに行った。だいぶ分かった。見通しがついた。</p><p>そろそろ木曜の予習飽きてきました。</p><p>たこ部屋で発見した漫画「覚悟のススメ」を読んだ。これは…。侠気と狂気のあふれる奇作であった。テーマは武士道。</p><p>「覚悟のススメ」の熱いお言葉：</p><p>「当方に迎撃の用意あり」「覚悟完了」</p><p>「散は人間ではない！善悪を超えた不退転の決意！」</p><p>「姿など どう変わろうと問題なし！我が身必勝の手段！」</p><p>「覚悟とは本能を凌駕する魂のことなり！正義とは邪悪に挑戦する肉体のことなり！」</p><p>「天国で割腹！」</p><p>「暴力は極力避けるもの 恋は極力秘めるもの」</p><p>といったわけの分からない漫画でした。やたらと男の全裸の多い作品です。</p><p>一月十日 月曜日</p><p>今日は成人式。二十歳の頃、成人式へ行ったが、実につまらなかった思い出がある。ところが今日成人式へ行った友人に聞くと、楽しかったと言う。枚方市の成人式は楽しいらしい。</p><p>大長編の夢を見たが、忘れてしまった。</p><p>朝ごはんは定食屋で食べて昼ごはんはカロリーメイト。夕ご飯は再び定食屋。</p><p>案の定今日が休日と知らない人がたくさん来ていた。</p><p>六時ごろ運動のため家に帰ったがやはり、学校で泊まった。案の定。</p><p>木曜の予習しかしていません。進みません。二時ごろ就寝。</p><p>一月￥九日 日曜日</p><p>タグうちなのでうまく書けているか分かりませんが、まあご愛嬌。</p><p>夢：プールや体育館で空を飛んで遊んでいた。夢はストーリー性があるのもいいがこういう楽しいのが一番だなあ。</p><p>一時半にKさんが研究室へきた。小説「白夜（トルストイ）」「イリュージョン（リチャードパック）」「不思議な少年（マークトウィン）」「人間とは何か？（同）」「ガリヴァー旅行記（スウィフト）」を貸す。</p><p>それからユトリロで食事。いろいろと相談やら話やらを聞く。</p><p>あとでこの前買った「ニーチェ入門」を貸す。</p><p>それから七時半まで研究室へ。</p><p>それからｋ君、ｆ君、ｎ君で新年会。はじめはボールアンドチェインで男三人横に並んで食事。それからｋ君が加わって、ｎ君の部屋で飲み会。NMRの話など。ああ、みんな物理をやっているなあ。僕が普段やっていることは物理というより、場の理論の物理数学だなあ。</p><p>で、研究室に戻る現在二時。いかんなあ。</p><p>おそらくこれを読んでいる人の半分は明日十日が休日ということを知らない！明日休日でもメリットは一つもない。スタッフは来ないは食堂は閉まるはで。</p><p>十一時半に起床。学校でしばらく予習、少し分かってきたがそれと同時に疑問も多数。</p><p>四時から下宿に帰って正月の日記を書く。今書いている時点で七時。</p><p>生活リズムが乱れているので規則正しく生きよう。</p><p>「七時起床、八時半朝食、十二時半昼食一時半まで休憩、六時夕食七時まで休憩、十一時半終業、十二時に日記を書いて一時までに就寝。」としよう。</p><p>さっきまでのを書き終えた後、はるかの作ってくれた鍋をゲストのおかゆちゃんと三人で食べて、出発。</p><p>銭湯に入って学校に戻って、十二時業務停止。二時半就寝。いきなり守れていません。</p><p>一月七日 金曜日</p><p>初夢：要素が汎関数な行列の中に入っていってそこで殺人事件があった。</p><p>早速ゼミが始まった。朝からのゼミはとてもつらい。「異議あり！」とか言いそうになった。</p><p>ええと、それからゼミの予習だがぜんぜん進まない。以上？</p><p>一月六日 木曜日</p><p>宇宙線の秘書さんから「私への年賀状を今日中に提出すること」と言われたので持って行った。</p><p>AZ君が「逆転裁判」のゲームをやっていた。これは非常に面白い。</p><p>簡単に言うと、弁護士になって証人の発言の矛盾を、証拠品をつきつけることで暴き、被疑者を無罪にする推理ゲーム。</p><p>見ていると、日常生活でも「異議あり！」とか「待った」とかいいそうになる。</p><p>あなたもゼミ中とかで使ってみましょう。机をたたいて相手を指差して「異議あり！」と。</p><p>さてその他は一日中SUSYの勉強とゼミの予習。次のゼミの発表の準備だが、予習をしても空をつかむがごとく。つぎに先生に会ったらゆさぶりをかけてみよう。</p><p>学校のパソコンに携帯の写真データをバックアップしてみた。三時たこべやに就寝。あ、まだ今年は一度も下宿にかえってないや。</p><p>一月五日 水曜日</p><p>そろそろ人が地方から帰ってきはじめた。</p><p>三時ごろ<a href="http://kyoto.cool.ne.jp/tamaki20/">巫女をやっている友人</a>を見に平安神宮へ。</p><p>おみくじを売っていたので、200円だして、凶ください！と言ったら本当にくれた。宝物にしよう。</p><p>凶のくじとはどんなんか？今度アップします。呪われているようで素敵です。</p><p>ええと、研究室に帰って含まさんのノートを復習。</p><p>またたこ部屋で寝た。</p><p>今年来た年賀状で一番のインパクトがあったやつ：</p><p>一月二十九日（土）</p><p>一月二十八日（金）：</p><p>一月八日 土曜日</p><p>差出人住所に「ムジョロワ県ホンデロロ市K8-又3」とある。</p><p>しかも、これ出した本人に会ったとき、「住所ここに書いて」とこの年賀状を渡されました。</p><p>一月四日 火曜日</p><p>朝一で実家に戻る。で、九時から高校でマンドリンの練習。飽きたので十時半に帰った。</p><p>それで、おしいまもるの「MAROKO」を見る。非常に特異なアニメであった。おそらく演劇調になるのを狙ったのだろう。</p><p>そして再び京都へ。途中で「ニーチェ入門」と「戦争における殺人の心理」を購入。</p><p>倭くんと二人新年会で、ドラクエ１（FC）を攻略する。これ、異様にしんどい。まったく金と経験がたまらない。</p><p>遊んでいるというより労働している気分にさせられるゲームだ。</p><p>らちがあかないので、パスワードを偽造してクリアした。</p><p>たこべやで泊まる。</p><p>一月三日 月曜日</p><p>早速けんきゅ室へ行く、同じような廃人もとい研究熱心な人たちが数人来ていた。</p><p>三時ごろ、<a href="http://kyoto.cool.ne.jp/tamaki20/">巫女のバイトしている友人</a>を見に平安神宮へ。いなかった…。</p><p>落胆のうちに研究室へ戻る。フクマセンセイのSUSYのノートを読み返す。いくつか疑問は残ったが、SUSYをおおむね理解した。</p><p>それからすぐにお出かけ。</p><p>前に住んでいた家の住人で集まっての新年会。レッドアイは美味しい。</p><p>実家に帰るつもりが、たこ部屋で寝た。</p><p>一月二日 日曜日</p><p>とくに記憶に残る日ではなかった。</p><p>今年の年賀状を公開します。</p><br><p>五枚目の写真に写っているフィルムケースは墨入れです。ふたを閉めると蒸発しないし、こぼれない、持ち運びに楽と便利です。</p><p>参考写真：高一の時に授業で書いた自画像：</p><p>あて先の字がプロの郵便局員の手をしても解読に数日かかるしろものなので、遅着はご了承ください。</p><p>一月一日 土曜日</p><p>昨日の年越し祭りで思ったのだが、やはり、向上心に燃えている人は目が輝いていて、悩んでいるひとは弱い目をしているものだ。</p><p>で初眠りはｋｍさんからの電話で起こされる。</p><p>初詣をしにもう京橋に来ているので、十二時には四条畷駅に来るべしと。</p><p>というわけで、四条畷駅で会う。</p><p>それからドムドム跡地でご飯を食って、四条畷神社へ行って自分に祈る。</p><p>ｋｍさんは家に来て「栞と紙魚子の生首事件」とかを見て帰った。</p><p>今年の目標：自己を律し、他者に寛容に、そして万物をあるがままに愛すること。</p>
 
 </article>
 <footer class="site-foot">
-  <span>© 平田朋義 ・ since 2009</span>
-  <span><a href="../../index.html">ひらたともよし！</a></span>
+  <span>© TOMOYOSHI HIRATA — SINCE 2001</span>
+  <span><a href="../../index.html">HOME</a></span>
 </footer>
 </div>
 </body>

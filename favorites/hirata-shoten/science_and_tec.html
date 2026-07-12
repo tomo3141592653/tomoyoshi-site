@@ -3,92 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>科学／社会 | ひらたともよし！</title>
+<title>科学／社会 | 平田朋義</title>
 <style>
 :root{
-  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
-  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
-  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+  --bg:#fdfdfb; --ink:#17181c; --muted:#5e6470; --faint:#9aa0ac;
+  --line:#e3e4e8; --blue:#2136c9; --blue-soft:#eceefb;
+  --sans:"Hiragino Sans","Yu Gothic","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
-    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+  :root{ --bg:#121318; --ink:#e8e9ee; --muted:#9aa0b0; --faint:#5e6470;
+    --line:#26282f; --blue:#8b9bff; --blue-soft:#1b2040; }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
-  -webkit-font-smoothing:antialiased}
-a{color:var(--link);text-underline-offset:.18em}
-a:hover{color:var(--accent)}
-.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
-.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
-.site-head .logo:hover{color:var(--accent)}
-.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
-.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
-.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
-.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
-.crumbs a{color:var(--muted);text-decoration:none}
-.crumbs a:hover{color:var(--accent);text-decoration:underline}
-h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
-.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
-.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
-.article p{margin:0 0 1.1em}
-.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-weight:300;line-height:2.0;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+b,strong,h1,h2,h3,h4{font-weight:600}
+.page{max-width:840px;margin:0 auto;padding:0 24px 72px}
+
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;padding:30px 0 26px}
+.site-head .logo{font-weight:700;font-size:1.02rem;letter-spacing:.16em;
+  text-decoration:none;color:var(--ink)}
+.site-head .logo:hover{color:var(--blue)}
+.site-head nav{display:flex;gap:26px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em}
+.site-head nav a{text-decoration:none;color:var(--muted);padding:2px 0;
+  border-bottom:1px solid transparent}
+.site-head nav a:hover{color:var(--blue)}
+.site-head nav a.here{color:var(--blue);border-bottom-color:var(--blue)}
+
+.crumbs{font-family:var(--mono);font-size:.72rem;color:var(--faint);
+  margin:26px 0 0;letter-spacing:.04em}
+.crumbs a{color:var(--faint);text-decoration:none}
+.crumbs a:hover{color:var(--blue);text-decoration:underline}
+
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--blue);margin:34px 0 0}
+h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
+  font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.article h2{font-size:1.22rem;margin:2.4em 0 .7em;line-height:1.6;
+  padding-bottom:.35em;border-bottom:1px solid var(--line)}
+.article h3{font-size:1.02rem;margin:2em 0 .5em}
+.article p{margin:0 0 1.2em}
+.article img{max-width:100%;height:auto;display:block;margin:1.4em 0}
 .article ul,.article ol{padding-left:1.5em}
-.article li{margin:.25em 0}
-.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
-.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
-.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.kids{list-style:none;padding:0;margin:20px 0}
+.article li{margin:.3em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1.2em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 12px;font-size:.9rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2.4em 0}
+
+.kids{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--line)}
 .kids li{margin:0;border-bottom:1px solid var(--line)}
-.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
-.kids a:hover{background:var(--paper)}
-.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
-.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
-  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
-.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
-.card .emoji{font-size:1.6rem}
-.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
-.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
-  text-decoration:none;background:var(--paper)}
-.chips a:hover{border-color:var(--accent)}
-.hero{padding:34px 0 8px}
-.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
-.hero .name .ex{color:var(--accent)}
-.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
-.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
-.diary-years{margin:20px 0}
-.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.kids a{display:block;padding:13px 2px;text-decoration:none;color:var(--ink);font-weight:400}
+.kids a:hover{color:var(--blue);padding-left:8px;transition:padding-left .15s}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted)}
+.kids-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--faint);margin:3.2em 0 0}
+
+/* ---------- index ---------- */
+.hero{padding:56px 0 0}
+.hero .name{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:800;line-height:1.15;
+  letter-spacing:.06em;margin:0}
+.hero .romaji{font-family:var(--mono);font-size:.78rem;letter-spacing:.34em;
+  color:var(--muted);margin:14px 0 0}
+.pi-line{font-family:var(--mono);font-size:.82rem;white-space:nowrap;overflow:hidden;
+  color:var(--faint);margin:34px 0 0;letter-spacing:.1em;
+  -webkit-mask-image:linear-gradient(90deg,#000 72%,transparent);
+  mask-image:linear-gradient(90deg,#000 72%,transparent)}
+.pi-line b{color:var(--blue);font-weight:600}
+.hero .tag{max-width:34em;color:var(--muted);margin:30px 0 0;font-size:.95rem}
+
+.index-list{margin:60px 0 0;border-top:1px solid var(--line)}
+.index-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:6px 18px;
+  align-items:baseline;padding:20px 2px;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink)}
+.index-list .key{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--muted)}
+.index-list .jp{font-size:1.18rem;font-weight:600}
+.index-list .jp .desc{display:block;font-size:.82rem;font-weight:300;color:var(--muted)}
+.index-list .n{font-family:var(--mono);font-size:.78rem;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+.index-list a:hover .jp,.index-list a:hover .key{color:var(--blue)}
+@media (max-width:560px){
+  .index-list a{grid-template-columns:1fr auto}
+  .index-list .key{grid-column:1 / -1}
+}
+
+.elsewhere{margin:58px 0 0}
+.elsewhere-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;color:var(--faint)}
+.elsewhere-links{display:flex;flex-wrap:wrap;gap:4px 26px;margin:10px 0 0;font-size:.88rem}
+.elsewhere-links a{text-decoration:none;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:1px}
+.elsewhere-links a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ---------- diary archive ---------- */
+.diary-years{margin:26px 0}
+.diary-years h2{font-family:var(--mono);font-size:.85rem;letter-spacing:.18em;
+  margin:2.4em 0 .6em;color:var(--muted);border:none;padding:0}
 .diary-months{display:flex;flex-wrap:wrap;gap:8px}
-.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
-  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
-.diary-months a:hover{border-color:var(--accent)}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
-.prevnext a{text-decoration:none}
-footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
-  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-footer.site-foot a{color:var(--muted)}
+.diary-months a{font-family:var(--mono);padding:7px 14px;border:1px solid var(--line);
+  text-decoration:none;font-size:.82rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--blue);color:var(--blue)}
+
+footer.site-foot{margin-top:88px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--faint)}
+footer.site-foot a{color:var(--faint);text-decoration:none}
+footer.site-foot a:hover{color:var(--blue)}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important}
+}
 </style>
 </head>
 <body>
 <div class="page">
 <header class="site-head">
-  <a class="logo" href="../../index.html">ひらたともよし！</a>
-  <nav><a href="../../mywork.html" class="">つくったもの</a><a href="../../favorites.html" class="here">おきにいり</a><a href="../../aboutme.html" class="">じこしょうかい</a><a href="../../announce.html" class="">おしらせ</a></nav>
+  <a class="logo" href="../../index.html">平田朋義</a>
+  <nav><a href="../../mywork.html" class="">WORKS</a><a href="../../favorites.html" class="here">FAVORITES</a><a href="../../aboutme.html" class="">ABOUT</a><a href="../../announce.html" class="">NEWS</a></nav>
 </header>
-<p class="crumbs"><a href="../../index.html">Home</a> › <a href="../../favorites.html">おきにいり</a> › <a href="../../favorites/hirata-shoten.html">平田書店</a> › 科学／社会</p>
+<p class="crumbs"><a href="../../index.html">Home</a> / <a href="../../favorites.html">好きなもの</a> / <a href="../../favorites/hirata-shoten.html">平田書店</a> / 科学／社会</p>
 <article class="article">
+<p class="eyebrow">FAVORITES</p>
 <h1>科学／社会</h1>
 <p>グリーン革命 トーマス・フリードマン</p><p>ここ数年で出た最も重要な本の一つ。</p><p>本の構成は以下の通り、</p><p>温暖化問題が非常に危機的であることを示す。</p><p>解決には巨額の公共投資と的確な政策決定が必要なことを示す。</p><p>お手軽なエコなど「グリーンパーティー」にすぎない。</p><p>具体的な政策案を示す。</p><p>グリーン技術を制するものが競争に勝つ世界になることを示す。</p><p>時間がないひとは下巻の最初のグリーン革命後の世界を書いた章だけでも読むことを薦めます。スマートグリッドのいい解説にもなっています。</p><p>こういう環境本はたいてい「いい人」向けで、自己の利益の追求はやめて地球にやさしくなりましょうという主旨の本が多いのに対して、</p><p>この本は、グリーン革命をすれば競争にも勝つし、地球にもやさしくなる、いいこと尽くめですよと説いているのが目から鱗。</p><p>たしかにそう言わなければ人は動かない。</p><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4532314410%2Fhougi-22%2Fref%3Dnosim%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1Zqt0RNAjzcMm_gnjuryVD"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d1K8udSZiRYaH7U_7H5nKHCGxxyezJ6fp8LxOCmZhfsX7saXq2BWfaCh9IVhj6xSZ_GJNJ-045bA2eyCG-Jcah0r85JNJZ-0VRzXx0YBKx6rnR_kcqATpLoffKQ64POgBOJETmM6EE6vCxaGH00XVC5yCEDHBlP2hy2TjzAQUTMVBJuYoei4FukYXu_xD_wC0Hk89Zc7zPgsPuAnJk=w1280" alt="グリーン革命(上)" loading="lazy"></a><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4532314410/hougi-22/ref=nosim/">グリーン革命(上)</a></p><p>posted with <a href="http://www.amazlet.com/browse/ASIN/4532314410/hougi-22/ref=nosim/">amazlet</a> at 09.11.04</p><p>トーマス・フリードマン</p><p>日本経済新聞出版社</p><p>売り上げランキング: 4693</p><p>おすすめ度の平均:</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d1YE7Q1qhO892qphOPC-SwD8yhCIl91L0W8GCJoaqNfrgvQp6Wf-hcobQlLANAtkFQWelLrQbXGcKof2oyUNIH1ZiQ1XkAS2NEdkPs0SZAPGY-NlIBXlD3sYtUo04kP0opTOdaKJPhve1yCk0K979ECRnd5uIWdNSeGJQcUJMDeErk7EstqeWntnU90Rdl8E8B34Sb3N8rX_mh9sxM=w1280" alt="3.5" loading="lazy"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0KFxCL7s-B4qIJEdzTLUKPlB9TUcQmE1L8KwH79sk_rKGQhHPIwcJvdIIO4m0EJvULund6vMtFNbeXK3qIzJnfEMJr7rQc5Eb67sH2vx6UqqhUzRqvYMosNIdqkaA6mRsdYMpd_hxRCc8Fl38Brc6DFBzPbdKpHkIUejQXA9znb2n16U7hyHMo41NzunsADz-9Y8im6vbb4n3a=w1280" alt="4" loading="lazy"><p>やばいぞ地球！</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2kgz9jpiAqtAzKeWcKVBjfnJ9J6bRF4lfYO1R5XB2KCB_Z8YaLn0XHrMOU-6_NxlkhIaVFvrhoylLStbFDqp0pkM8eyC9rh413WMFWv5lLUDDTP-LMunp_Pm-JbpbKyDIzARqWOpHLv2t7rhhlp8hH2fII8CqUJeFcQVuNSW1S9V4FgMGhClrmHTKoi7f_lVnJkJlXi08Nym4sqjc=w1280" alt="3" loading="lazy"><p>今頃省エネだってさ</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d3lFh1DUMUnN-qEkEXVWj3qWuUcZyUO1ruDBqWilwXtXCAxIZJ8FM_-8Z2GxKVXlig4LoNzkNvWNrVsI1fOSukw1WFgtBD-mr5SNeUAeavQaVtKSavmfTUsggWbZ7skHQUgAXZS9CYSsecnskYkFt2UB_OlqczW2ljvY3nMOSF03i82QzrY_9uMD4TIif3JrkpdmTaqA61DHkv9QdE=w1280" alt="5" loading="lazy"><p>クリーンエネルギーの投資は「革命（多大な犠牲が必要）」。覚悟を国民に促している</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d1GirARaFBsaPg3XmVq1BqoCYuBzadbcuYAKj4qFiknE0MxGdOzQt2Ywd9k5M_LLvFx7TfOdGbzUpZJD4h-yHhP6n_lwfTPYeD6HV-qtRxEG62P7s0OPIMHY8F5S3mpUmfuiZ7dXqb4C3nkIHLg5S0SNphKTYFamv625PVZ3cTwArrnZslSW6KV56LBhXhkMm11cXd2L336cRSimhY=w1280" alt="4" loading="lazy"><p>環境問題を様々な側面から分析</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d30TH2qng1kUEUkMAaC-OGK91GKKYgzclHCAbf7RbQJ9IlKWy7dj_dUKO0LToGN7yGWfuf8YoOLG7-Bo3GRBTgJwnx5WeChF3A74-FDF47iK3OuD4Vzjcms7fOSP5RX8guM0FylorJJRhwDje3VS2HVBAdLb3ofc2YVU14-9W67HNO1KqZesq29a8o_mII0vd6W3IrBaYO8xHAv=w1280" alt="3" loading="lazy"><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4532314429%2Fhougi-22%2Fref%3Dnosim%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw0hoZwydJ0L-I2_CMx1iJEZ"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2EdQ1x1BkWw8yPp9ZDzNY9a7jutbVkQX9ajO63SWtfGBIDiaTd-VW95CEoCGwP7jvdeKE_GJ-_mHkOc1-u2CD0hoHaDsXHBw4fj7rgvTe0Ic1tSEXFbkNyvSkUYM7sTVKpGrws3CaxDSwaeLbMzTnXmKjfhcpbi4OTpZi6CVh-bml4M7mcL-ceGAQyh9f_5E-lP_5R9PZwEgxjA_k=w1280" alt="グリーン革命(下)" loading="lazy"></a><p>総論的な上巻、下巻は各論に踏み込めるか?</p><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4532314410/hougi-22/ref=nosim/">Amazon.co.jp で詳細を見る</a></p><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4532314429/hougi-22/ref=nosim/">グリーン革命(下)</a></p><p>posted with <a href="http://www.amazlet.com/browse/ASIN/4532314429/hougi-22/ref=nosim/">amazlet</a> at 09.11.04</p><p>トーマス・フリードマン</p><p>日本経済新聞出版社</p><p>売り上げランキング: 5576</p><p>おすすめ度の平均:</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d1ewwh6kqJyR-5-8cMRmxShn9-U1Kg6GbXI1ucFAsEUnwqQxAeOoTPNCKC-mcQAtUb9R7Rjuv83jME_HTdx7uOih9nj_0FONYAFLk3y7umdjLeBbqSVBYVJ5oLFtDP7ihbfaHgVV3o3f4Vj4ucNbEB74Eq_RGSWCveF0hKJeZ_pxUQSgQi9m6369zphezezVLRO6Wu81JKBVfwL1K0=w1280" alt="4.0" loading="lazy"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0-Nf8ap_8YLAAuNcJ-7emHLvCxjhGQdPqm0U6no4Y8vOWY_SEhF3s5g5QMrQDVXM88kNtfLxiVvAk-NB3i5UCD0eE9sqFeMsS8NBfktkJdF7tVWaxzLHva_p4JsIdpc7rH_Eote4mJ__3u-L-bE6vD8XW35kA37Dvnv4pU-QqKyMvlMLqYUnqvWcv3Y5jjyZPRK19GXq_J76MhlLs=w1280" alt="5" loading="lazy"><p>エネルギー問題に対して希望を感じさせる</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0sxEQlOFydk6373rRuGkh_3HPH4QwhMvyUzI2XvERfDCWBMWoV50M_lKL1eJEM0WVWBtssNSMYBKXK2j2VI7D8oC8N1efXT1_qEYBjNaOsVto56RhvMkfJoKOF9Sb12yKryCUyTWDB6yeeZoNmoJYN0HbWJORoMo8ULyL7ijndyl8POv5MLY1CTKqRNF5BriVGEYi-0JpoW-2r9vE=w1280" alt="4" loading="lazy"><p>これからの時代の流れが見えてくる</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d13rH4iRFyCGTaJtTjhagR1TSRTEJwW_OGspuLJxsAHRu4HDE8ymbWGQsJc90u3wZxdDcB46PegAeeGVx9V62FHaPALN2awY16lQL5A2qvrPGmoHOee_eISf82MI7nJA0YgD2xpcxCLBVfxYaXmmDbJx-0wthb7NUsV_gCEsTruzV25dbIHxvo558vC8IidrIWSNFZHxm2XkpT7aak=w1280" alt="3" loading="lazy"><p>上巻に引き続き、グリーンニューディールでアメリカ復興を！な内容。</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0ioIw1-vPfEE2TamUt3bGpVgCEL4ejADjoU19IGHxpHkFcwjsTmfGYC94qn8q7T4lBatGJqq45ejyPW8BPvcp7OeEGSi7cqzNShQ2SHuptAUrtm4icwz3lkuCdJ4GGUkr6E6oMcmNPKkBiz3eRMKGwpIFrBMNB7WqDk-zXH9nwa4DZ7c_MtYAF3vWaZegAIQA9nC6b4ik7Jbf_0Tg=w1280" alt="4" loading="lazy"><p>アルカイダにグリーンで勝つ（第１４章）が隠れた主題では？</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d1UF17NO3h9ljjm6556RHJN6IfJlbf_k3q3lAeHd7PQbsZJ1ra3WRkqMIfgm8PcykXMzDwEqNY57TEsNu9d-3jVPwxZ-q7ZEuv7dwMf56HgjY0w8BL3LpRkxVeDfyi7UR4-rMAK14gO3C5A9X9Mr882MDbf09qwshc4BIkn_GItIZfoOdEPAjhokmKr0UX5qrzEnR6jb8lKQOsc2nk=w1280" alt="5" loading="lazy"><p>緑が満ち溢れる世界・・・</p><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4532314429/hougi-22/ref=nosim/">Amazon.co.jp で詳細を見る</a></p><p>チョコレートからヘロインまでードラッグカルチャーのすべて A.ワイル W.ローセン</p><p>ここでのドラッグとは精神に作用する薬とか食べ物のことである。</p><p>この本ではその作用や歴史、社会的位置などについて客観的に記されている。</p><p>ドラッグを薦める本ではないことに注意。</p><p>ちなみにこの本で最大のページ数を使われてい解説されているドラッグはなにかというと、</p><p>みんなが愛用してやまない「アルコール」「タバコ」「カフェイン」である。</p><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F480748611X%2Fhougi-22%2Fref%3Dnosim%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw32bdYWvF5Q5WJQrxbDt1OG"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d3EUYOXi0Pe1YcVR48rDQXAwlfD-5GpflHxwXeqolsy-sDCiKWWyewFo_pdARhCcpR7yWsyYvgnNTF3hJlIccnq-tk-LulVNmI7c1YExjiZlNkwr65UBUTZlJ1W8TvKYLY7KVhWNM0aJMMKGb8Ix7dsEi6XgtoBK32kND1w167nYQiCZ7T5CtM5cpEK5hqlp1Qc9JubxqVIzy5k=w1280" alt="チョコレートからヘロインまで―ドラッグカルチャーのすべて" loading="lazy"></a><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/480748611X/hougi-22/ref=nosim/">チョコレートからヘロインまで―ドラッグカルチャーのすべて</a></p><p>posted with <a href="http://www.amazlet.com/browse/ASIN/480748611X/hougi-22/ref=nosim/">amazlet</a> at 09.11.04</p><p>A.ワイル W.ローセン</p><p>第三書館</p><p>売り上げランキング: 164653</p><p>おすすめ度の平均:</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d1tH4PpVGXla-YJ72_ABNf6SgoseKfvXAIwPSazqhkNUzDgDn8oODwB8XLNk4cFu8O9MCxLRwthBdBZPX0QzfBEem2ETdAROBKrVGFoggyxvlxPKheo5InlT8mrpeOXN4hZrHLZKd03aeOfwfMvduZxGFM6nv95zeOhlwNCnzeZIqcCcDUCsstZou7HVyKDCoHFBDmmidpvqDdtRy8=w1280" alt="4.5" loading="lazy"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d3C3bULJy_PJm4HGmuHGINzFnpjCho24GI0NLrWelMrCw01-4kzznv2KA0w8l-DT27susfZAlYw7VmbH64CFfPm6Dayk8MQ_dr_pFkQLrxJV_7anDUNP06q7hDNW6FsqW6q__JNIIbPuFGYzdOZwVxINatCsVg84_fZrCLkpQ_uADE4hsP_6UcHILbzWOo_-ZgEeP-yOh23pS07qrw=w1280" alt="4" loading="lazy"><p>ドラッグカルチャー概論としては最適</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2U5cv0wPeoqZ5b3UfWvFZy_zSlRITaK56c2Bk6FSHCoZz_IVq7wHUKWGNWapo8IFuk52oD1QBdbjrKb-wcTz234Iu1Zx_PaAfJexZB5H7kf_ksaT-Q9-7-6IUERAbn7PjIjA3-htJ3eaXEPrxcwGOSNx5PPO0CIrKdvVvQH9EEnNfAwO8839PFdMkfW4iLyAhT8Gxg7YuE_WJSxM4=w1280" alt="4" loading="lazy"><p>ドラッグとの対峙の第一歩としては、オススメ</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d3HUz3Qz7tUwen1fE3bXFDxOUUNj_UwK6yp2J7igBCrXMu7WTMnrA96I13R8FzquxhUX1OyqUURdVX_JwmgQNQLdYPIs8tCb7VZEjLWL0xNiKTsqWHD3_kO4F1WeANwzuRXkxb1MCxB9teifejIFUuv5S1E4KNu02i34FA5WmBLc2yI_1c8QbZ1wxCpaFFs4aAqjcA4QazuQEw6=w1280" alt="3" loading="lazy"><p>・・・</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0GQBLfrKYBpX3dJY8mERsISEi3Rsoe8w6td8fulT7nvAGW80nk5rDgaiL_F5XVEfW2szBAgQyiW9VPfKyWxbrLfR53Vg-fEonm43S1HLfKHElTiiT93Z_U_XgQSFR6kOveloLt2-FA2vqypJeU9tSWeaRSYEZHkN7DK7epGQMVGcXlVn-kOXT-EeiVQXl8nWZpXFDF9WYfWque=w1280" alt="5" loading="lazy"><p>美品</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0azrwmByzXSbLnfAD43cXqBQZF8r5kBu4J1dvxjYyWdBM6pS9IcC-f7XycAwo7Ax7jSZj_ss4nLVFYSzXQlYDPDR6nI4up_pxIgcXCvnKxxshc8txqSdRVef7AyqQuIEEovQ6wi9XXPGOHsD01HykeiKTvkRCeCNCSDBy612jEojoGOm2S8eIXaYaHquIw2rGr9QM29Z1CCmdPKZ0=w1280" alt="5" loading="lazy"><p>著名人のドラッグ体験記満載！資料満載で引用文献として最適！</p><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/480748611X/hougi-22/ref=nosim/">Amazon.co.jp で詳細を見る</a></p><p>アフターマン 人類滅亡後の地球を支配する動物世界 ドゥーガル・ディクソン</p><p>人類絶滅後5000万年後の世界の動物図鑑。進化学と生態学を基に発想豊かに構想している。</p><p>5000万年後の動物世界は実際これと同じぐらい奇妙な世界であろう。</p><p>このような素晴らしい本を復刊してくれてうれしく思う。</p><p>この書物には2億年後の世界を描いた「フューチャーイズワイルド」という続編と、</p><p>人間が全ての動物のニッチを埋めた世界「<a href="http://omoro.cside9.com/manafter2/p1.htm">マンアフターマン</a>」という兄弟本が存在する。</p><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4478860467%2Fhougi-22%2Fref%3Dnosim%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw3SBRIFb9Ayw-8oPa33AKE6"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d3SczV37YzpAEh6nf1bDY7iryx2NIHZYBEAfO4mJQGiTRzucVlbKFnbwuVhFjnV3emTbDaUTRS6QYpG8WcvLErrwZ9kLkliRUZCJA3akZWiIJJ5bK4gkGvsn-itG1zM8hjYAbivyNB8ZKxtG4E2RYt_w9evcDm4JQdXTkA=w1280" alt="アフターマン 人類滅亡後の地球を支配する動物世界" loading="lazy"></a><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4478860467/hougi-22/ref=nosim/">アフターマン 人類滅亡後の地球を支配する動物世界</a></p><p>posted with <a href="http://www.amazlet.com/browse/ASIN/4478860467/hougi-22/ref=nosim/">amazlet</a> at 09.10.26</p><p>ドゥーガル・ディクソン</p><p>ダイヤモンド社</p><p>売り上げランキング: 59160</p><p>おすすめ度の平均:</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2PsBo21Ye8ipacGbj5sVX4puvdi9uTd9Clwkw6lUpR8uuGSuBgkItSY7T77aZn-QTYh_K5xPeto8Dx0PoDp2GMKweuiqreeptmQ9xxCdKqaA2UDeGIiLT6NPUwh2f1griOig3VAkX-1o4QMYQcW0IA41yIWWj3bqjfYlL9-NawZy1s68Eba__YTSgXoSnL6CA5-yrfJRMFQbPl=w1280" alt="4.5" loading="lazy"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d1Gwfl-LSGh0pEvwngVc4zXEexZDix1bqhFRidcPGWtQs9cfe-nLBR1m8WVoJOjAzCNqVyBJcWHOhZ2rBoY1Ph2zxTagdZKERQNWouNNGgC_s9_gLcDohbK0s3zD87W2yPgC9A5XsESdjY7ARVPEes4k6waoC5XFTTb1ai2MsWisnC6U9cLIxO7M9HJzpBZyN3UrYm4i_b_u7hMU8o=w1280" alt="5" loading="lazy"><p>地球の創造力に乾杯！</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d1YaAhB5Y_wQGBVs77MjjKqYJravJZ2iBVBcGEeqRkGqI8gPZrVceSQzX4uD-7xkplo95UgNvl5lky-8JIFWfyKYbPiSPdPCw2rz8za0rM9RTxjWHKqsNs_MOCUWvCDcXqgmvFd6sQ8DRDtV9J3T82reSs8q1E2ON8pcsBNDJyzFp8SbHIAIxy_LcxKiQiZITsqF2M_Z9jhjVsFBsY=w1280" alt="5" loading="lazy"><p>人類っていったい・・・・</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0UezuHSAqoB-qaUTk39teOFDwjfkeqaRiGlp1D97buHwav9PdUrDKNKWsKjgnm2WRCis9lUH0mq_7gAYKucPR28HDcrnGnwWYZ5fcbH4DSu9opEjE7734GfhpIWZVJ4QxTsqLMuks519fNfbD12wqzjzY_-cHtbZjCegtwoiFhK17_F0e2tsWNNc6uh-VhG_hK5pXr36py-WSQuPc=w1280" alt="5" loading="lazy"><p>本当に実在する（であろう）動物と錯覚してしまうほど面白い！</p><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4478860467/hougi-22/ref=nosim/">Amazon.co.jp で詳細を見る</a></p><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4478860459%2Fhougi-22%2Fref%3Dnosim%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw12xYPEYnr0K_AglaFY8rFE"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0tLOvzHymjMiD3qGg2J68s0Qg81681NsLI9jLp3opJLXU0Y_z62cMoAKcrbHBj9_LR4gxDqwa6cXBtQ8PRLHE1Rf0OZg4aVkqnaTTYgzpQ5ezpy8elf9ERhiu3fRfT6bkN5K3JMaVuV9koU6ytP5-l3UA9ljnrBsyrNDg8VKxmieKm-hkfQnNP1HX_2Bn1yw7XMJeMnlxZ5MV3FNI=w1280" alt="フューチャー・イズ・ワイルド" loading="lazy"></a><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4478860459/hougi-22/ref=nosim/">フューチャー・イズ・ワイルド</a></p><p>posted with <a href="http://www.amazlet.com/browse/ASIN/4478860459/hougi-22/ref=nosim/">amazlet</a> at 09.10.26</p><p>ドゥーガル・ディクソン ジョン・アダムス 松井 孝典 土屋 晶子</p><p>ダイヤモンド社</p><p>売り上げランキング: 16637</p><p>おすすめ度の平均:</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d1bkKeTOo8fIiiS_3D8AA8Ji5b8ihpbweBoHBV4aGPyMOtbFQ4O-8FTeq-mItORA6m5YVhxyr-K0aDMDy7dDS1DeaKWYTzkq2mI0ahgZJA44eD-BCNNRHafi5GphGnZdluI-pNmrjdNpyqPPF3KY1UR3FEsYVHiJZgLtcCPs3RY6kYShPSY_fPwanHQMpRzNnfulvvWLdKXgi8H=w1280" alt="4.0" loading="lazy"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d3SU2zIB7srjdlNVCR7-xwgmL-AD1_7M4-2IpbAU1-FDQX6GUeQI3aJhI7IxzrzcVEGsohBCvBDckDvou-dE9MKA9nt3yfOYY1Vp2zd699MN0mOXgc95TlwdtLqePecc7NmNeodpTqvJUvksbkIXLdiUfjRhvqFGv9DyjytfTxz4CBYWjxsi9_dpre6i1Cs_mZBN-fORcHiNRLU=w1280" alt="5" loading="lazy"><p>すばらしい3D</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2O-TBgE19cDog6f7gZhLOMGpuuNcuJdlHMc3XzPHc5wHqhWsm7lXPuGIPbidvltGFba_aUY5gfBZWfBtCF3KR9FoVCKff1XtW6cq3kQDmzP6XebiAFYOVnH3sPlVvQU6fw3MSZ5NaUsjlDTyLC2TvzjEVeftq9dRA6nNa91BO-zAltqZxRSv6fl_h4Tt0jLQiDzBfVIL5hdA82=w1280" alt="5" loading="lazy"><p>プレートテクトロニクスと進化論、考古学が相俟った壮大すぎるスペクタクル！</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0qCz-BmTRWd8YH0zGEFTo6FBC688OcHaFJincb7reZK3bmIgNhkivM2f_8LPqU-D5gxA72KvnkVSIr582NuS1lBgRh9BWAEKZY2yIaxytNOdsyJwvC_RgvWu7wkDlO3CwJuMPVVqBT3csG-PrV3b7xXOqC4hM7LlKQj5-qWdP-nE4q2gisRTp2ahaXnGbpvd1ODNXJovuxrpp8SS4=w1280" alt="4" loading="lazy"><p>生命は想像も及ばないほどワイルド</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d05SrS_K3PIKnaF1RbtOACCP8xKmD5fl9lAqqHRR8ZNXImaLhsl2OhocjDHHKwhtiQuix9YTDo2HZGeGJV8f_BxF4SiE6XVeGPzmXC7qXnIt0Cpk5LBWa3lXxEj2c6Lh-YPZalRXQXNnRJBaSYgpqOLYYlqwDL5QHUytd9lblsbtlXDK0O4pqeReckUYXBIcXzethFG2SU-aVxa=w1280" alt="5" loading="lazy"><p>2億年も先!!</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2WrREKKyOjCHwThgbE175jU9v_A4qE6S2Qu-pwkmTz3bzZOYzk721o6Beq58IhMQEAC-GBs_Un5Yl6VvMhqia85xRTYN674nnz29cu6FkfKy3SJXOmMLkXTrcTEYmXOGW1G78OxLgIF04miQg1IMFj8CghmLZ4pChfLPcbxFRZ00oybtRMkfwAh_wDmaIBm_4Wg_IYyyo-vWy8=w1280" alt="5" loading="lazy"><p>科学的SF！</p><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4478860459/hougi-22/ref=nosim/">Amazon.co.jp で詳細を見る</a></p><p>不死テクノロジー—科学がSFを超える日 (単行本) エド レジス</p><p>オカルト本ではありません。太陽系改造、人体の不死化、心のアップロード、人工生物、ナノテクノロジー（今あるささやかな微少加工技術ではなく、分子配列を直接コントロールして土から牛肉を作るような技術）など、１００年後、１０００年後を見通した科学と科学者の本。子供のときに読んで、非常に影響を受けた本。先端の十歩先の科学のネタ本。</p><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4875022158%2Fhougi-22%2Fref%3Dnosim%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1kGU7jjwVoqmDpHMe1rl_h"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2IQIw8uhTeYxVps7qYkLB2BHy2DLJj8AhPBbrewv_XPOW9lejkvpuzUCBDavkmxKnf42PzKH7eGcJdo1ruZo3sblPcd0sj0vw7dIVObBG1SO_UUzfa3sIjaiUl5ciS4mGFrNeaQBHaWr640ZjGpq44OgcgbjfkOPrKyR5YAUmqJlL5O5ci-YUt_uVXkwFrv4n-KN56z1BZIjJr=w1280" alt="不死テクノロジー―科学がSFを超える日" loading="lazy"></a><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4875022158/hougi-22/ref=nosim/">不死テクノロジー―科学がSFを超える日</a></p><p>posted with <a href="http://www.amazlet.com/browse/ASIN/4875022158/hougi-22/ref=nosim/">amazlet</a> at 09.10.25</p><p>エド レジス</p><p>工作舎</p><p>売り上げランキング: 109007</p><p>おすすめ度の平均:</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d3L0Fsoc99ySIi9r_JVPV44nqUtiyvZLeccAqpmI0iIk9HxK2v3jrk8V9TIY0_zrbmXSmrp6ScB9ySntcMUwqo42V4t8O8Byk81bTICJbv-8CnTh5yr6B6VIPT-C7SBLVptRM-e99KLkIfv4tKlX7cHc3W4TjG3oaDh9vEubqqnRGPKLbljLZy8wTYLma8C_aicnRW89_aQMLn6dyM=w1280" alt="5.0" loading="lazy"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0oiVywaKqQOUCciIv8hopLf0qX5-JKdoVnWGYA89SFtjlNraFabUC1v1ZOVxKKGymnp-wXdq7uI-KDHefRnpYT_bSyxyujsY5aR0KQDbC_ZacL9TGbwKrcBXUnAzxe40r-YUqXHuwR9QfcestrdR8zkbVitYrqzNPfwIk_9pg5rAYyKN7-O4LWxZmUL00MvsMjN9cKen-XrOaUz5U=w1280" alt="5" loading="lazy"><p>どんな人が読むんでしょうか？こういう本て</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2vNErqgIi5p3yIQPunZjfNtYp4pxqpNFAiu3f2Dc4g-QAowG_w72Qu2THv0276tvsX3HCtyGMwbiZK6MM9TdBAZv4sp43wArgOcg0oX9Mt-z561Y7ZMxkyZjZKcDUYFA2gExLfWyWe_l8jvfYmeD0oYGFAqwTHzS-H2V51dkvkHjMEVcoWInpDrUzfwQG0Z-wb5Qj0us6K-56e=w1280" alt="5" loading="lazy"><p>絶版になる前に必読！</p><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4875022158/hougi-22/ref=nosim/">Amazon.co.jp で詳細を見る</a></p><p>文明崩壊 滅亡と存続の命運を分けるもの ジャレド・ダイアモンド</p><p>この本で作者は過去の崩壊した文明を調査し、文明崩壊には共通のプロセスが存在することを示している。</p><p>そして、我々の文明もまた同じ道を辿っていることを警告している。</p><p>「古代人は自然と共生していた。」という言説が嘘であり、彼らもまた我々と同じ問題点を抱えた人間達であることが分かる。</p><p>環境破壊と資源の使い切りから社会崩壊を迎えたイースター島やマヤの最後には戦慄を感じる。</p><p>下巻ではアフリカ、オーストラリア、中国に見られる問題点を描く。</p><p>過去や遠くの地の失敗を知ることができるのが我々の持っている強みであり、これを生かして社会が失敗しない道を選択して欲しいというのが作者の願いである。</p><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4794214642%2Fhougi-22%2Fref%3Dnosim%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw2l4sVcXPRyZBliOshIjfCp"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2_lLI8qo8f-f9Jq9yDOMUXYjwR6VRV6M-Pgkxgo8evN0F-vlLw81cbraxWicVRgqF5QjiulHeQyjsGOupLqjeIh_OLVJKgAL2vlFdTwBuPCucOnAJH8DnZePTQuTCztfpPV-bjx1z5krsq4n1YeXQSU30kBxzs_rCBV8s=w1280" alt="文明崩壊 滅亡と存続の命運を分けるもの (上)" loading="lazy"></a><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4794214642/hougi-22/ref=nosim/">文明崩壊 滅亡と存続の命運を分けるもの (上)</a></p><p>posted with <a href="http://www.amazlet.com/browse/ASIN/4794214642/hougi-22/ref=nosim/">amazlet</a> at 09.10.25</p><p>ジャレド・ダイアモンド</p><p>草思社</p><p>売り上げランキング: 6717</p><p>おすすめ度の平均:</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d37OnEt5OV86n0qMRUa72Mk8z0qVqIrsalrxOuSkJMoIiJ03H0nlSDZXVmQUdTeCsRnRa_WeFbDOMiv7ZhK4M040eAaMKbv7RZHmTHTW09srXXlj1iOTCJ36zYKVnFYU-GsHvLzyqgiyE1AMIaBSNY7pMmqzYIeG8OgJqUkrfkksQ0l7bdOE4FPrNEePaOcYqUJ9WtAGx_vW1gQ=w1280" alt="4.5" loading="lazy"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2vTkUW6uMawa-8gcJxGYSAHQk2NFIkDQ8NBMo0Doe4v_JD6_1875QfOcepCjB8DnOlQN1pRzaKz34SlKu31JB6r2GoBPjpt2CJ54OLhkJCHL9mIo6nJetHRaYSJ-UnC4qXvb-aEbAPMQOFCLXgoh2b4FhlDEEWuhfxXENn_Q9PoZGDTAUqxOomMC7HbPPC2lO5AmMXH5aDtC9RjsM=w1280" alt="4" loading="lazy"><p>知的好奇心を刺激する、ミクロコスモスからグローバル化世界へ（上巻は過去を検証する）</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d3jN4ErlXIQfxXR4E9qvRBgakwt_Fp3ZGpa1fRFBSuKckuyB1o0vLxrheIZTwfRQvdT0-UJsrMQ81UxO07mvnnuMZrroxbtNSul04pJ3DyaO7EFq4R6KghysL1psmFqZX5ZzqWLSdR8IXCZ4GwNLN7AR3psgG-kNCyCZ10E3c9gRhMYJdfjBeA7v5vvGUabIn8IHUIHPGYalmAHuy0=w1280" alt="3" loading="lazy"><p>大作です</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2QFyZDy_NYPB8cHz6O8Dnp55RUj-RKVXflHUZSz-LiR92_T9g5iHaRMQkq2xO4IDHqm5oOFmIkfuPK90B3MsvMuQ_7z1T0hq6VAe5bCw3FnmUEP6e7lh5tdPChqbQ0ypRr3Btqw6ktwBKtJmI-2GzvZThYeBd2vHzT19qeso7IZznKqIWWKnKzDjjStaA5O1YZWFh2XLxdqAtUglA=w1280" alt="4" loading="lazy"><p>オーストラリアと中国はもうダメかもしれない</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0LsnDaAaa-t2P5nrfelaxmklO3IJ8naoX7EqPTj2oT82YWeF_kGZfSiaY3t5NCK0kjzdiuD4ziop8nmK4oQHoJ0MpqM7ddKLe2Q8x61RxFg0_h1D6A6JXjQ0ratr5fIQV3tbQBcwLfnc2cV0_ZjodarToxxiYKHCpiqdN49DX3CBarRlYugBDlihkqA2CYuM5FBOXqvsm4aNh8=w1280" alt="5" loading="lazy"><p>最後の木を切り倒したとき，そのイースター島の住民はどのように思ったのか？</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d3FmPd45DgscWbKRKYmRy7ZVSuF9WVbRrzOC3LjsAf7i7bzrCNybL4xIemN3abP0Off5YaqglKT5twLNuQvXTPDOlfLG7Qy5JHDX2pIMdLDwd-vMRZgUxyDTU7fqees7mucGsTD3aQzjn7rmv2V1DkrDreEOxz0uKCOdJoov3ljtxuA4v0fnn9cQ0lcMR_zoxL1V2oUFmGBYz-UD6E=w1280" alt="5" loading="lazy"><p>崩壊する文明と存続する文明の境界にあるもの</p><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4794214642/hougi-22/ref=nosim/">Amazon.co.jp で詳細を見る</a></p><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F4794214650%2Fhougi-22%2Fref%3Dnosim%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw1vz5aICmPSZ-o5Ka4DlYbE"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d1xi6FlISeBWoUTIMK1TDgNbor_Qvd0YO3aA8-Pzc92pk-sNWxJ8FWAnJbzLQnuFs-W4l3ElKjFMogLG9uLBq1HpVywelnNMtfDjpW1-opVQ1zmZVHd3PHU4ScDsAvQ2OjlwJqO35oI6JcessL6tSaGrIgQSik-W6cB4fo=w1280" alt="文明崩壊 滅亡と存続の命運を分けるもの (下)" loading="lazy"></a><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4794214650/hougi-22/ref=nosim/">文明崩壊 滅亡と存続の命運を分けるもの (下)</a></p><p>posted with <a href="http://www.amazlet.com/browse/ASIN/4794214650/hougi-22/ref=nosim/">amazlet</a> at 09.10.25</p><p>ジャレド・ダイアモンド</p><p>草思社</p><p>売り上げランキング: 17239</p><p>おすすめ度の平均:</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d3rKLdPz9sTPDEvNmsdtdNUaA_ptO04DKO8I4RUxjyh2RdF8O3wBjLZ1_LFEKNg4bFQYJRs604G9M7GOYSEmT7HxIZwleV3_B9bTYNaa5J5wZ4BptAyGEa4x6qLisx7Uqw2j7aSQKUi-vV1XSPNFq_7BiuEu8yQNaOW_v3Nc2jAG29jbLGq83-dv4pWy9Xeu_u29evXziBAKkNkNF8=w1280" alt="4.5" loading="lazy"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2udeYU7RX5fItoQDbOCr7sEAn0KH-Z0dmgJGYIPJIepKsg6DGK3yQTl3OwMbHUBAwg-nK6zWs0y4PA7PGtAsrxSiUOnVF3E4c4zifuQs1dOrXG7IV2KdB1spPzccwa9iXUxhc78_s7GFnKGD3Yjy2Wfd4u4JL68mQaN0HknWC0CZ3YNuXdKOdPb48SEoRBUqcUTeOnsAy_NxCeEDg=w1280" alt="4" loading="lazy"><p>知的好奇心を刺激する、ミクロコスモスからグローバル化世界へ（下巻は人類の未来への警鐘）</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0mvQ4Uikbpgb3lKR6OWd2G7XCmRjr2GCtwME6OpoTHKdVCs_QEUPCQvkWYfiaopYNNuoWXyy_LkJkEqGGP_Hp3OKsvBL2cwSbSh6Gp9Wx4nqqVRF8PN8ei81gYbpBVCSO-qxD8c2Tj8Yzkz-yCMSpIMiax1JLHJ0pva-Cdydxgqdb8T6_wZZ5OX1ulezEktLKlR3lF0GCF1KOM0VE=w1280" alt="4" loading="lazy"><p>文明の崩壊を考察し、導いた結論は…</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d3vrrbsc5u5TaNFpt2-nzmzozH_B-PNEpeydWNJkg6awGb1LVF96aW0yHCoZBSIzeSHOHinVVJDfKdQlI2c_X-z2ganAr7eIN-Jm_XbGiZyI-H7TL9u75bw_O9en0zEZ9mJZ-GcO6G18Mfwc2IF-iJjr2ZHrckRt_F3d8wiO2bYNUWptQNM7C9tDtdftRtA7gf46MpaDy0u6aWPlXE=w1280" alt="5" loading="lazy"><p>過去に学ぶということが、今のわれわれにとって重要であり、これが人類にとって貴重な財産であると思った。</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0s2ef5-5PTKUF3diGswEFR8V8FOZU6993OnXZKD51CdlgUmDTrVQSZ-5oPhbb1b2RE6880Npza4tAUgBdKVtcTYTQit6QIicudZSCaSxHVVyQO8mGVMA7msYhcikWVMut_IZ-TxDtJuwBG6a3iIHLY0fPJriofOKp0lFUl2aZ3QQat4FJO0GI4aQURcTUyvQBFHuYQxuyotO6r_dY=w1280" alt="5" loading="lazy"><p>地球という井戸の中の蛙</p><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4794214650/hougi-22/ref=nosim/">Amazon.co.jp で詳細を見る</a></p><p>深海の生き物 衝撃ファイル</p><p>深海の生物のイラストと解説文集。６００円の価格で非常に高いクオリティーを誇っている。</p><p>表紙のイラストはあれだけど、中身のイラストは「変ないきもの」を思わせるシンプルで美しいものであり、</p><p>解説文はウィットに富んでいて面白い。</p><a href="http://www.google.com/url?q=http%3A%2F%2Fwww.amazon.co.jp%2Fexec%2Fobidos%2FASIN%2F479666940X%2Fhougi-22%2Fref%3Dnosim%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw3SxA-_X2qZhJ71j3eR3pLI"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d0cIrxX2JBVEZ3z7vTOrWbRinDVCS3cxSmbsHwX0x7aeqHxoQ7Maa-OrHHQ61829LTN-shIPBJXerhFu_kYemlWKKsv3Y81GSrJOAxzZaEFYWi3USrIBPxivXlk2cgCGLXOHKD659LDtrFGf7eZDl5_-RJ-YZwk3UfIOM-ZYe6TzszQyrWKmQovZWCrnsXuuKPBLBI_yAWQ34sXHS0=w1280" alt="深海の生きもの 衝撃ファイル" loading="lazy"></a><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/479666940X/hougi-22/ref=nosim/">深海の生きもの 衝撃ファイル</a></p><p>posted with <a href="http://www.amazlet.com/browse/ASIN/479666940X/hougi-22/ref=nosim/">amazlet</a> at 09.10.26</p><p>クリエイティブ・スイート</p><p>宝島社</p><p>売り上げランキング: 26914</p><p>おすすめ度の平均:</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d2OT0ImE6DYrF6Hq2sf6Q7tTlAzpQ_5FcSLnOtpfhoGDYiE_ltDsbk8i5wMxyjQ_x8JYSguwuRqUgt6aRrT0iQYuuJN7vNUCSRcHdib5rTyJy7qPpZocaFR4jI9MwE9rzEwjr7CDUm4l1LUOs3-v0uuDTuHO_n3L2jvzjUH_zJYVd-py3dJcfGxdBNhujYQGLK4fD4FEFBt6WYpD48=w1280" alt="3.0" loading="lazy"><img src="https://sites.google.com/sitesv-images-rt/ACHe0d1GzWQcQdtC9Ly5It5E3Z3IMIEfGkjvH1rI2zYzqU939iB6VO_xWLPlZm5CXxViUblbsmoofqKKa-4Czbm_Ey2XIv3wvWhV3SujbcQ156V-FKJZCBS87v6jB8HO79zrFrdx_JrWfKyrUBJilFAQWpl5qeUhPoNdv2o2xBv4iEWXwcAPLvqyBdrmDyMXAFreAWJIcu2WsBGc_PH-=w1280" alt="3" loading="lazy"><p>絵だけなのが残念</p><p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/479666940X/hougi-22/ref=nosim/">Amazon.co.jp で詳細を見る</a></p>
 
 </article>
 <footer class="site-foot">
-  <span>© 平田朋義 ・ since 2009</span>
-  <span><a href="../../index.html">ひらたともよし！</a></span>
+  <span>© TOMOYOSHI HIRATA — SINCE 2001</span>
+  <span><a href="../../index.html">HOME</a></span>
 </footer>
 </div>
 </body>

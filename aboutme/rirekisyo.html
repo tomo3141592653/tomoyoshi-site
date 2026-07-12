@@ -3,92 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>履歴書/エントリーシート | ひらたともよし！</title>
+<title>履歴書/エントリーシート | 平田朋義</title>
 <style>
 :root{
-  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
-  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
-  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+  --bg:#fdfdfb; --ink:#17181c; --muted:#5e6470; --faint:#9aa0ac;
+  --line:#e3e4e8; --blue:#2136c9; --blue-soft:#eceefb;
+  --sans:"Hiragino Sans","Yu Gothic","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
-    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+  :root{ --bg:#121318; --ink:#e8e9ee; --muted:#9aa0b0; --faint:#5e6470;
+    --line:#26282f; --blue:#8b9bff; --blue-soft:#1b2040; }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
-  -webkit-font-smoothing:antialiased}
-a{color:var(--link);text-underline-offset:.18em}
-a:hover{color:var(--accent)}
-.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
-.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
-.site-head .logo:hover{color:var(--accent)}
-.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
-.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
-.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
-.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
-.crumbs a{color:var(--muted);text-decoration:none}
-.crumbs a:hover{color:var(--accent);text-decoration:underline}
-h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
-.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
-.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
-.article p{margin:0 0 1.1em}
-.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-weight:300;line-height:2.0;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+b,strong,h1,h2,h3,h4{font-weight:600}
+.page{max-width:840px;margin:0 auto;padding:0 24px 72px}
+
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;padding:30px 0 26px}
+.site-head .logo{font-weight:700;font-size:1.02rem;letter-spacing:.16em;
+  text-decoration:none;color:var(--ink)}
+.site-head .logo:hover{color:var(--blue)}
+.site-head nav{display:flex;gap:26px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em}
+.site-head nav a{text-decoration:none;color:var(--muted);padding:2px 0;
+  border-bottom:1px solid transparent}
+.site-head nav a:hover{color:var(--blue)}
+.site-head nav a.here{color:var(--blue);border-bottom-color:var(--blue)}
+
+.crumbs{font-family:var(--mono);font-size:.72rem;color:var(--faint);
+  margin:26px 0 0;letter-spacing:.04em}
+.crumbs a{color:var(--faint);text-decoration:none}
+.crumbs a:hover{color:var(--blue);text-decoration:underline}
+
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--blue);margin:34px 0 0}
+h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
+  font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.article h2{font-size:1.22rem;margin:2.4em 0 .7em;line-height:1.6;
+  padding-bottom:.35em;border-bottom:1px solid var(--line)}
+.article h3{font-size:1.02rem;margin:2em 0 .5em}
+.article p{margin:0 0 1.2em}
+.article img{max-width:100%;height:auto;display:block;margin:1.4em 0}
 .article ul,.article ol{padding-left:1.5em}
-.article li{margin:.25em 0}
-.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
-.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
-.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.kids{list-style:none;padding:0;margin:20px 0}
+.article li{margin:.3em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1.2em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 12px;font-size:.9rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2.4em 0}
+
+.kids{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--line)}
 .kids li{margin:0;border-bottom:1px solid var(--line)}
-.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
-.kids a:hover{background:var(--paper)}
-.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
-.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
-  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
-.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
-.card .emoji{font-size:1.6rem}
-.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
-.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
-  text-decoration:none;background:var(--paper)}
-.chips a:hover{border-color:var(--accent)}
-.hero{padding:34px 0 8px}
-.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
-.hero .name .ex{color:var(--accent)}
-.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
-.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
-.diary-years{margin:20px 0}
-.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.kids a{display:block;padding:13px 2px;text-decoration:none;color:var(--ink);font-weight:400}
+.kids a:hover{color:var(--blue);padding-left:8px;transition:padding-left .15s}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted)}
+.kids-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--faint);margin:3.2em 0 0}
+
+/* ---------- index ---------- */
+.hero{padding:56px 0 0}
+.hero .name{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:800;line-height:1.15;
+  letter-spacing:.06em;margin:0}
+.hero .romaji{font-family:var(--mono);font-size:.78rem;letter-spacing:.34em;
+  color:var(--muted);margin:14px 0 0}
+.pi-line{font-family:var(--mono);font-size:.82rem;white-space:nowrap;overflow:hidden;
+  color:var(--faint);margin:34px 0 0;letter-spacing:.1em;
+  -webkit-mask-image:linear-gradient(90deg,#000 72%,transparent);
+  mask-image:linear-gradient(90deg,#000 72%,transparent)}
+.pi-line b{color:var(--blue);font-weight:600}
+.hero .tag{max-width:34em;color:var(--muted);margin:30px 0 0;font-size:.95rem}
+
+.index-list{margin:60px 0 0;border-top:1px solid var(--line)}
+.index-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:6px 18px;
+  align-items:baseline;padding:20px 2px;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink)}
+.index-list .key{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--muted)}
+.index-list .jp{font-size:1.18rem;font-weight:600}
+.index-list .jp .desc{display:block;font-size:.82rem;font-weight:300;color:var(--muted)}
+.index-list .n{font-family:var(--mono);font-size:.78rem;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+.index-list a:hover .jp,.index-list a:hover .key{color:var(--blue)}
+@media (max-width:560px){
+  .index-list a{grid-template-columns:1fr auto}
+  .index-list .key{grid-column:1 / -1}
+}
+
+.elsewhere{margin:58px 0 0}
+.elsewhere-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;color:var(--faint)}
+.elsewhere-links{display:flex;flex-wrap:wrap;gap:4px 26px;margin:10px 0 0;font-size:.88rem}
+.elsewhere-links a{text-decoration:none;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:1px}
+.elsewhere-links a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ---------- diary archive ---------- */
+.diary-years{margin:26px 0}
+.diary-years h2{font-family:var(--mono);font-size:.85rem;letter-spacing:.18em;
+  margin:2.4em 0 .6em;color:var(--muted);border:none;padding:0}
 .diary-months{display:flex;flex-wrap:wrap;gap:8px}
-.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
-  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
-.diary-months a:hover{border-color:var(--accent)}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
-.prevnext a{text-decoration:none}
-footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
-  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-footer.site-foot a{color:var(--muted)}
+.diary-months a{font-family:var(--mono);padding:7px 14px;border:1px solid var(--line);
+  text-decoration:none;font-size:.82rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--blue);color:var(--blue)}
+
+footer.site-foot{margin-top:88px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--faint)}
+footer.site-foot a{color:var(--faint);text-decoration:none}
+footer.site-foot a:hover{color:var(--blue)}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important}
+}
 </style>
 </head>
 <body>
 <div class="page">
 <header class="site-head">
-  <a class="logo" href="../index.html">ひらたともよし！</a>
-  <nav><a href="../mywork.html" class="">つくったもの</a><a href="../favorites.html" class="">おきにいり</a><a href="../aboutme.html" class="here">じこしょうかい</a><a href="../announce.html" class="">おしらせ</a></nav>
+  <a class="logo" href="../index.html">平田朋義</a>
+  <nav><a href="../mywork.html" class="">WORKS</a><a href="../favorites.html" class="">FAVORITES</a><a href="../aboutme.html" class="here">ABOUT</a><a href="../announce.html" class="">NEWS</a></nav>
 </header>
-<p class="crumbs"><a href="../index.html">Home</a> › <a href="../aboutme.html">じこしょうかい</a> › 履歴書/エントリーシート</p>
+<p class="crumbs"><a href="../index.html">Home</a> / <a href="../aboutme.html">自己紹介</a> / 履歴書/エントリーシート</p>
 <article class="article">
+<p class="eyebrow">ABOUT</p>
 <h1>履歴書/エントリーシート</h1>
 <p>2010年度新卒採用に向けていろいろ履歴書とかエントリーシートとか書きました。ここではそれを公開します。小さな会社に関しては（その会社の）プライバシー保護のため社名を伏字にします。大きな会社（１０００人規模以上）に関しては社名に公共性があると考え、伏字にしません。あと誇張しているところとかありますが、これも生きるためなのでご了承ください。</p><ul><li><p>履歴書雛形</p></li><li><p>アカリク（修士博士のための就職紹介サービス）用</p><ul><li><p>これで通りました。</p></li></ul></li><li><p>時計.doc</p><ul><li><p>ＩＴベンチャーのＷ社。時計の定義を記し、まったく新しい原理で動く時計を設計しなさいという採用問題。</p></li><li><p>この試験は通ったけど次で落とされました。</p></li></ul></li><li><p><a href="../aboutme/rirekisyo/kodenshirireki-sho.html">コーデンシ履歴書</a></p><ul><li><p>光半導体技術の会社。書類と筆記であっさり落ちました。郵便が間に合わなかったので手で投函しに行ったのはいい思い出。</p></li></ul></li><li><p>三洋電機エントリーシート.doc</p><ul><li><p>webフォームのための下書き。これは通ったけど、研究概要を提出して落とされました。</p></li></ul></li><li><p><a href="../aboutme/rirekisyo/sanyo.html">三洋電機履歴書</a></p><ul><li><p>エントリーシートを書くのにどうして履歴書が必要なんだろうと思った。</p></li></ul></li><li><p>日立への志望動機.doc</p><ul><li><p>これは通ったけど、その後部署を決めるジョブマッチングの面接後、連絡なし。連絡なしとか腹立つぜ。</p></li></ul></li><li><p><a href="../aboutme/rirekisyo/mitsubishijuukou-puranto-rireki-sho.html">三菱重工プラント履歴書</a></p><ul><li><p>石油プラントとか、ガスタービンとかでかいものを作る会社。巨大装置っていいなとというぐらいの気持ちで受けました。書類は通ったけど、面接で「これから脱石油社会になると思いますが、どうするんですか？」と聞いたら、面接官が怒って落ちました。説明会から広島行きの旅費を出してくれたいい会社。みんなも受けるといいよ。広島は特に見たいものがないので、岡山県物して帰りました。</p></li></ul></li><li><p><a href="../aboutme/rirekisyo/handoutai-enerugi-kenkyuujo-rireki-sho.html">半導体エネルギー研究所履歴書</a></p><ul><li><p>曲がるコンピューターとかの研究開発して特許でかせいでいる会社。研究内容が非常にユニークで面白い。書類や試験は通ったけど、面接と作文で落ちた。面接官との会話から考えると、たぶん協調性がない人と思われたっぽい。そんなことないのにな。いい会社なのでこれからも応援していきたい。</p></li></ul></li><li><p><a href="../aboutme/rirekisyo/erupida.html">エルピーダメモリー履歴書</a></p><ul><li><p>一回めの面接は非常に好印象だったけど、二回目で落ちました。初期に受けた会社。</p></li><li><p>理由は志望動機があいまいだったこと。ここはいい会社だったので、もったいないことをした。面接練習ぐらいしましょう。</p></li><li><p>というかいろいろ出遅れた就職活動だった。ちゃんと年内からやっておきましょう。</p></li><li><p>ちなみに誤字脱字は紙に書き写す段階でちゃんと直してます。</p></li></ul></li><li><p><a href="../aboutme/rirekisyo/touyou-hai-tekku.html">東洋ハイテック志望動機</a></p><ul><li><p>粉体技術の会社。別の会社の説明会で粘性がほとんど０の粉体の実験を見て感動したので志望。あと電池に応用が利くのもよい。会長面接までいって落ちた。</p></li><li><p>会長からは「年を取った後、理想の死に方」を聞かれた。旅先で死ぬことと答えた。本当の答えは戦場で流れ弾とか、好きな人に殺されるとか、ぼくを憎んでいる人に殺されるとか、動物に食われるとか、なんだけど言えなかった。家族にみとられて死ぬってのは好きじゃないって答えたら落ちた。</p></li><li><p>何はともあれ粉体技術は大切。がんばってほしい会社。</p></li></ul></li><li><p><a href="../aboutme/rirekisyo/ekusenshibou-douki.html">Ｅ社志望動機</a></p><ul><li><p>名古屋にある電気技術系の派遣会社。途中でやめようかなと思ったけど、社長が圧倒的なカリスマを持っているので受けた。ここに限らずし中規模の会社の社長は圧倒的なカリスマを備えている人が多い気がする。</p></li><li><p>試験で電気技術系の問題がたくさんでて解けなかった。終わった後、予想得点を書けって欄があって、ひょっとしてそれを当てれた人が高評価なしくみなのかもしれない。</p></li></ul></li><li><p><a href="../aboutme/rirekisyo/fujidenki-shisutemuzu-jiko-apiru.html">富士電機システムズ自己アピール</a></p><ul><li><p>たぶん一番最初に書いた自己ＰＲ。最初はこれを書くだけでも、三日ぐらいかかりました。</p></li><li><p>全てのコピペ文のオリジナル。ちなみにこの会社は書類を送っても返事をくれませんでした。一回電話しても選考中で決まり次第返信すると言われたきりです。</p></li></ul></li><li><p>サンディスク履歴書</p><ul><li><p>ＵＳＢメモリーとか作っているところ説明会に行ったものの、音楽ファイルをminidiskで売る事業や、新原理の記憶媒体を研究していない点が微妙だったので辞退。</p></li></ul></li><li><p><a href="../aboutme/rirekisyo/fujitsuu.html">富士通エントリーシート</a></p><ul><li><p>期限に間に合わず未提出。締め切りは守りましょう。</p></li></ul></li></ul><p>あとはファイル紛失</p><p>就職活動反省点</p><p>締切を守る。企業情報はよくよく調べておく。早くから始める。早期の段階では志望業種を絞りすぎずたくさんまわる。リクナビ、マイナビは毎日見る（人気企業はあっというまに説明会が埋まるから）。面接練習は受ける。面接のＦＡＱは作っておく（もちろん丸暗記する必要はない）。</p><p>選考が進んでいても、説明会とエントリーシート書きを怠らない。とにもかくにもタスク管理能力が重要。</p><a href="https://drive.google.com/folderview?id=1R7lCBydLHlsIVQDwCQZzot-_R9TFHiGj">https://drive.google.com/folderview?id=1R7lCBydLHlsIVQDwCQZzot-_R9TFHiGj</a>
-<h2 class="h2line">このセクションのページ</h2><ul class="kids"><li><a href="../aboutme/rirekisyo/ekusenshibou-douki.html">Ｅ社志望動機</a></li><li><a href="../aboutme/rirekisyo/erupida.html">エルピーダメモリー履歴書</a></li><li><a href="../aboutme/rirekisyo/fujidenki-shisutemuzu-jiko-apiru.html">富士電機システムズ自己アピール</a></li><li><a href="../aboutme/rirekisyo/fujitsuu.html">富士通</a></li><li><a href="../aboutme/rirekisyo/handoutai-enerugi-kenkyuujo-rireki-sho.html">半導体エネルギー研究所履歴書</a></li><li><a href="../aboutme/rirekisyo/kodenshirireki-sho.html">コーデンシ履歴書</a></li><li><a href="../aboutme/rirekisyo/mitsubishijuukou-puranto-rireki-sho.html">三菱重工プラント履歴書</a></li><li><a href="../aboutme/rirekisyo/sanyo.html">三洋電機履歴書</a></li><li><a href="../aboutme/rirekisyo/sundiskrirekisyo.html">サンディスク履歴書</a></li><li><a href="../aboutme/rirekisyo/touyou-hai-tekku.html">東洋ハイテック志望動機</a></li></ul>
+<p class="kids-head">INDEX</p><ul class="kids"><li><a href="../aboutme/rirekisyo/ekusenshibou-douki.html">Ｅ社志望動機</a></li><li><a href="../aboutme/rirekisyo/erupida.html">エルピーダメモリー履歴書</a></li><li><a href="../aboutme/rirekisyo/fujidenki-shisutemuzu-jiko-apiru.html">富士電機システムズ自己アピール</a></li><li><a href="../aboutme/rirekisyo/fujitsuu.html">富士通</a></li><li><a href="../aboutme/rirekisyo/handoutai-enerugi-kenkyuujo-rireki-sho.html">半導体エネルギー研究所履歴書</a></li><li><a href="../aboutme/rirekisyo/kodenshirireki-sho.html">コーデンシ履歴書</a></li><li><a href="../aboutme/rirekisyo/mitsubishijuukou-puranto-rireki-sho.html">三菱重工プラント履歴書</a></li><li><a href="../aboutme/rirekisyo/sanyo.html">三洋電機履歴書</a></li><li><a href="../aboutme/rirekisyo/sundiskrirekisyo.html">サンディスク履歴書</a></li><li><a href="../aboutme/rirekisyo/touyou-hai-tekku.html">東洋ハイテック志望動機</a></li></ul>
 </article>
 <footer class="site-foot">
-  <span>© 平田朋義 ・ since 2009</span>
-  <span><a href="../index.html">ひらたともよし！</a></span>
+  <span>© TOMOYOSHI HIRATA — SINCE 2001</span>
+  <span><a href="../index.html">HOME</a></span>
 </footer>
 </div>
 </body>

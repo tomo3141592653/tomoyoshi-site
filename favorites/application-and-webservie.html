@@ -3,92 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Application and Web service | ひらたともよし！</title>
+<title>Application and Web service | 平田朋義</title>
 <style>
 :root{
-  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
-  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
-  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+  --bg:#fdfdfb; --ink:#17181c; --muted:#5e6470; --faint:#9aa0ac;
+  --line:#e3e4e8; --blue:#2136c9; --blue-soft:#eceefb;
+  --sans:"Hiragino Sans","Yu Gothic","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
-    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+  :root{ --bg:#121318; --ink:#e8e9ee; --muted:#9aa0b0; --faint:#5e6470;
+    --line:#26282f; --blue:#8b9bff; --blue-soft:#1b2040; }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
-  -webkit-font-smoothing:antialiased}
-a{color:var(--link);text-underline-offset:.18em}
-a:hover{color:var(--accent)}
-.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
-.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
-.site-head .logo:hover{color:var(--accent)}
-.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
-.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
-.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
-.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
-.crumbs a{color:var(--muted);text-decoration:none}
-.crumbs a:hover{color:var(--accent);text-decoration:underline}
-h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
-.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
-.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
-.article p{margin:0 0 1.1em}
-.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-weight:300;line-height:2.0;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+b,strong,h1,h2,h3,h4{font-weight:600}
+.page{max-width:840px;margin:0 auto;padding:0 24px 72px}
+
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;padding:30px 0 26px}
+.site-head .logo{font-weight:700;font-size:1.02rem;letter-spacing:.16em;
+  text-decoration:none;color:var(--ink)}
+.site-head .logo:hover{color:var(--blue)}
+.site-head nav{display:flex;gap:26px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em}
+.site-head nav a{text-decoration:none;color:var(--muted);padding:2px 0;
+  border-bottom:1px solid transparent}
+.site-head nav a:hover{color:var(--blue)}
+.site-head nav a.here{color:var(--blue);border-bottom-color:var(--blue)}
+
+.crumbs{font-family:var(--mono);font-size:.72rem;color:var(--faint);
+  margin:26px 0 0;letter-spacing:.04em}
+.crumbs a{color:var(--faint);text-decoration:none}
+.crumbs a:hover{color:var(--blue);text-decoration:underline}
+
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--blue);margin:34px 0 0}
+h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
+  font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.article h2{font-size:1.22rem;margin:2.4em 0 .7em;line-height:1.6;
+  padding-bottom:.35em;border-bottom:1px solid var(--line)}
+.article h3{font-size:1.02rem;margin:2em 0 .5em}
+.article p{margin:0 0 1.2em}
+.article img{max-width:100%;height:auto;display:block;margin:1.4em 0}
 .article ul,.article ol{padding-left:1.5em}
-.article li{margin:.25em 0}
-.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
-.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
-.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.kids{list-style:none;padding:0;margin:20px 0}
+.article li{margin:.3em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1.2em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 12px;font-size:.9rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2.4em 0}
+
+.kids{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--line)}
 .kids li{margin:0;border-bottom:1px solid var(--line)}
-.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
-.kids a:hover{background:var(--paper)}
-.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
-.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
-  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
-.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
-.card .emoji{font-size:1.6rem}
-.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
-.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
-  text-decoration:none;background:var(--paper)}
-.chips a:hover{border-color:var(--accent)}
-.hero{padding:34px 0 8px}
-.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
-.hero .name .ex{color:var(--accent)}
-.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
-.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
-.diary-years{margin:20px 0}
-.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.kids a{display:block;padding:13px 2px;text-decoration:none;color:var(--ink);font-weight:400}
+.kids a:hover{color:var(--blue);padding-left:8px;transition:padding-left .15s}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted)}
+.kids-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--faint);margin:3.2em 0 0}
+
+/* ---------- index ---------- */
+.hero{padding:56px 0 0}
+.hero .name{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:800;line-height:1.15;
+  letter-spacing:.06em;margin:0}
+.hero .romaji{font-family:var(--mono);font-size:.78rem;letter-spacing:.34em;
+  color:var(--muted);margin:14px 0 0}
+.pi-line{font-family:var(--mono);font-size:.82rem;white-space:nowrap;overflow:hidden;
+  color:var(--faint);margin:34px 0 0;letter-spacing:.1em;
+  -webkit-mask-image:linear-gradient(90deg,#000 72%,transparent);
+  mask-image:linear-gradient(90deg,#000 72%,transparent)}
+.pi-line b{color:var(--blue);font-weight:600}
+.hero .tag{max-width:34em;color:var(--muted);margin:30px 0 0;font-size:.95rem}
+
+.index-list{margin:60px 0 0;border-top:1px solid var(--line)}
+.index-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:6px 18px;
+  align-items:baseline;padding:20px 2px;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink)}
+.index-list .key{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--muted)}
+.index-list .jp{font-size:1.18rem;font-weight:600}
+.index-list .jp .desc{display:block;font-size:.82rem;font-weight:300;color:var(--muted)}
+.index-list .n{font-family:var(--mono);font-size:.78rem;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+.index-list a:hover .jp,.index-list a:hover .key{color:var(--blue)}
+@media (max-width:560px){
+  .index-list a{grid-template-columns:1fr auto}
+  .index-list .key{grid-column:1 / -1}
+}
+
+.elsewhere{margin:58px 0 0}
+.elsewhere-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;color:var(--faint)}
+.elsewhere-links{display:flex;flex-wrap:wrap;gap:4px 26px;margin:10px 0 0;font-size:.88rem}
+.elsewhere-links a{text-decoration:none;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:1px}
+.elsewhere-links a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ---------- diary archive ---------- */
+.diary-years{margin:26px 0}
+.diary-years h2{font-family:var(--mono);font-size:.85rem;letter-spacing:.18em;
+  margin:2.4em 0 .6em;color:var(--muted);border:none;padding:0}
 .diary-months{display:flex;flex-wrap:wrap;gap:8px}
-.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
-  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
-.diary-months a:hover{border-color:var(--accent)}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
-.prevnext a{text-decoration:none}
-footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
-  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-footer.site-foot a{color:var(--muted)}
+.diary-months a{font-family:var(--mono);padding:7px 14px;border:1px solid var(--line);
+  text-decoration:none;font-size:.82rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--blue);color:var(--blue)}
+
+footer.site-foot{margin-top:88px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--faint)}
+footer.site-foot a{color:var(--faint);text-decoration:none}
+footer.site-foot a:hover{color:var(--blue)}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important}
+}
 </style>
 </head>
 <body>
 <div class="page">
 <header class="site-head">
-  <a class="logo" href="../index.html">ひらたともよし！</a>
-  <nav><a href="../mywork.html" class="">つくったもの</a><a href="../favorites.html" class="here">おきにいり</a><a href="../aboutme.html" class="">じこしょうかい</a><a href="../announce.html" class="">おしらせ</a></nav>
+  <a class="logo" href="../index.html">平田朋義</a>
+  <nav><a href="../mywork.html" class="">WORKS</a><a href="../favorites.html" class="here">FAVORITES</a><a href="../aboutme.html" class="">ABOUT</a><a href="../announce.html" class="">NEWS</a></nav>
 </header>
-<p class="crumbs"><a href="../index.html">Home</a> › <a href="../favorites.html">おきにいり</a> › Application and Web service</p>
+<p class="crumbs"><a href="../index.html">Home</a> / <a href="../favorites.html">好きなもの</a> / Application and Web service</p>
 <article class="article">
+<p class="eyebrow">FAVORITES</p>
 <h1>Application and Web service</h1>
 <ul><li><p>メールは<a href="http://mail.google.com/mail/">gmail</a>。他に選択肢は考えられない。iphone使用者はgmailがすぐに届くようにgPushアプリをインストールすると便利。</p></li><li><p>ブラウザは<a href="http://mozilla.jp/firefox/">Firefox</a>か<a href="http://www.fenrir.co.jp/sleipnir/">sleipnir</a>。アドオンをたくさん入れて、最高のブラウザを作りたい人はFirefox、最初からある程度そろったものが欲しい人はsleipnir。Opera、crome、sleipnirのどれを選ぶかはほとんど趣味の問題。<a href="https://addons.mozilla.org/ja/firefox/collection/2d531e07-9647-a716-06b6-3d516c74c5e7?show=15&amp;page=2">これ</a>が僕のFirefoxアドオン集。</p></li><li><p>写真管理は<a href="http://picasa.google.co.jp/">Picasa</a>。PC上にあるすべての写真を一括して表示してくれる。web albumも非常に簡単に作れる。画像を縮小するだけの作業なら縮小専用がお勧め。</p></li><li><p>メモをするならEvernote。テキストや写真や手書きのメモ、名刺などを管理するのに使う。</p></li><li><p>テキストエディターは秀丸か（有料）。</p></li><li><p>スケジュール帳はgoogle calender。iphoneなら同期できる。携帯からでも多分みれる。</p></li><li><p>ソーシャルブックマーク（Web上の気になる記事などをスクラップブックするもの）はdeli.cio.usかはてなブックマーク。</p><ul><li><p>日本語サイトならはてなブックマークの方が使いやすいかも。</p></li></ul></li><li><p>HPを作るならこのGoogle site。CSSには対応していないので、高度なウェブサイト作りには使えないが、最小限の努力（ブログを書くぐらいの手間）でそれなりのもの（このページみたいなもの）はできる。複数人で管理するのにも便利。</p></li><li><p>To do listは何を使えばいいのかわからない。僕はPC上ではto doリストは管理せずに、iphone の To Doを使っている。極めてシンプルだけどそれがよい。</p></li><li><p>音楽はiTunes。iTunes Storeはかなり革新的。</p></li><li><p>RSSリーダー（ブログ等の更新チェッカー）はGoogle readerといいたいけど、他のRSSリーダーを使ったことがない。</p></li><li><p>tex editorはLab editor（有料）。</p></li><li><p>乗り換え案内はGoogleで「四条畷から京橋」というふうに検索するのが一番早い。</p></li><li><p>Excel Wordを買えない人は、Star Suite。</p></li><li><p>Skypeは便利。Skype同士会話は無料。Skypeから一般電話の電話料金も格安。</p></li><li><p>WinMergeは二つの文章間の相違点を教えてくれる。</p><ul><li><p>有料と書いた以外はすべて無料です。</p></li></ul></li></ul>
 
 </article>
 <footer class="site-foot">
-  <span>© 平田朋義 ・ since 2009</span>
-  <span><a href="../index.html">ひらたともよし！</a></span>
+  <span>© TOMOYOSHI HIRATA — SINCE 2001</span>
+  <span><a href="../index.html">HOME</a></span>
 </footer>
 </div>
 </body>

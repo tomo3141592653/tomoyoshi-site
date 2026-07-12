@@ -3,92 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2003年9月の日記 | ひらたともよし！</title>
+<title>2003年9月の日記 | 平田朋義</title>
 <style>
 :root{
-  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
-  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
-  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+  --bg:#fdfdfb; --ink:#17181c; --muted:#5e6470; --faint:#9aa0ac;
+  --line:#e3e4e8; --blue:#2136c9; --blue-soft:#eceefb;
+  --sans:"Hiragino Sans","Yu Gothic","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
-    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+  :root{ --bg:#121318; --ink:#e8e9ee; --muted:#9aa0b0; --faint:#5e6470;
+    --line:#26282f; --blue:#8b9bff; --blue-soft:#1b2040; }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
-  -webkit-font-smoothing:antialiased}
-a{color:var(--link);text-underline-offset:.18em}
-a:hover{color:var(--accent)}
-.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
-.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
-.site-head .logo:hover{color:var(--accent)}
-.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
-.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
-.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
-.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
-.crumbs a{color:var(--muted);text-decoration:none}
-.crumbs a:hover{color:var(--accent);text-decoration:underline}
-h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
-.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
-.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
-.article p{margin:0 0 1.1em}
-.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-weight:300;line-height:2.0;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+b,strong,h1,h2,h3,h4{font-weight:600}
+.page{max-width:840px;margin:0 auto;padding:0 24px 72px}
+
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;padding:30px 0 26px}
+.site-head .logo{font-weight:700;font-size:1.02rem;letter-spacing:.16em;
+  text-decoration:none;color:var(--ink)}
+.site-head .logo:hover{color:var(--blue)}
+.site-head nav{display:flex;gap:26px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em}
+.site-head nav a{text-decoration:none;color:var(--muted);padding:2px 0;
+  border-bottom:1px solid transparent}
+.site-head nav a:hover{color:var(--blue)}
+.site-head nav a.here{color:var(--blue);border-bottom-color:var(--blue)}
+
+.crumbs{font-family:var(--mono);font-size:.72rem;color:var(--faint);
+  margin:26px 0 0;letter-spacing:.04em}
+.crumbs a{color:var(--faint);text-decoration:none}
+.crumbs a:hover{color:var(--blue);text-decoration:underline}
+
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--blue);margin:34px 0 0}
+h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
+  font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.article h2{font-size:1.22rem;margin:2.4em 0 .7em;line-height:1.6;
+  padding-bottom:.35em;border-bottom:1px solid var(--line)}
+.article h3{font-size:1.02rem;margin:2em 0 .5em}
+.article p{margin:0 0 1.2em}
+.article img{max-width:100%;height:auto;display:block;margin:1.4em 0}
 .article ul,.article ol{padding-left:1.5em}
-.article li{margin:.25em 0}
-.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
-.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
-.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.kids{list-style:none;padding:0;margin:20px 0}
+.article li{margin:.3em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1.2em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 12px;font-size:.9rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2.4em 0}
+
+.kids{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--line)}
 .kids li{margin:0;border-bottom:1px solid var(--line)}
-.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
-.kids a:hover{background:var(--paper)}
-.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
-.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
-  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
-.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
-.card .emoji{font-size:1.6rem}
-.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
-.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
-  text-decoration:none;background:var(--paper)}
-.chips a:hover{border-color:var(--accent)}
-.hero{padding:34px 0 8px}
-.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
-.hero .name .ex{color:var(--accent)}
-.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
-.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
-.diary-years{margin:20px 0}
-.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.kids a{display:block;padding:13px 2px;text-decoration:none;color:var(--ink);font-weight:400}
+.kids a:hover{color:var(--blue);padding-left:8px;transition:padding-left .15s}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted)}
+.kids-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--faint);margin:3.2em 0 0}
+
+/* ---------- index ---------- */
+.hero{padding:56px 0 0}
+.hero .name{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:800;line-height:1.15;
+  letter-spacing:.06em;margin:0}
+.hero .romaji{font-family:var(--mono);font-size:.78rem;letter-spacing:.34em;
+  color:var(--muted);margin:14px 0 0}
+.pi-line{font-family:var(--mono);font-size:.82rem;white-space:nowrap;overflow:hidden;
+  color:var(--faint);margin:34px 0 0;letter-spacing:.1em;
+  -webkit-mask-image:linear-gradient(90deg,#000 72%,transparent);
+  mask-image:linear-gradient(90deg,#000 72%,transparent)}
+.pi-line b{color:var(--blue);font-weight:600}
+.hero .tag{max-width:34em;color:var(--muted);margin:30px 0 0;font-size:.95rem}
+
+.index-list{margin:60px 0 0;border-top:1px solid var(--line)}
+.index-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:6px 18px;
+  align-items:baseline;padding:20px 2px;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink)}
+.index-list .key{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--muted)}
+.index-list .jp{font-size:1.18rem;font-weight:600}
+.index-list .jp .desc{display:block;font-size:.82rem;font-weight:300;color:var(--muted)}
+.index-list .n{font-family:var(--mono);font-size:.78rem;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+.index-list a:hover .jp,.index-list a:hover .key{color:var(--blue)}
+@media (max-width:560px){
+  .index-list a{grid-template-columns:1fr auto}
+  .index-list .key{grid-column:1 / -1}
+}
+
+.elsewhere{margin:58px 0 0}
+.elsewhere-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;color:var(--faint)}
+.elsewhere-links{display:flex;flex-wrap:wrap;gap:4px 26px;margin:10px 0 0;font-size:.88rem}
+.elsewhere-links a{text-decoration:none;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:1px}
+.elsewhere-links a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ---------- diary archive ---------- */
+.diary-years{margin:26px 0}
+.diary-years h2{font-family:var(--mono);font-size:.85rem;letter-spacing:.18em;
+  margin:2.4em 0 .6em;color:var(--muted);border:none;padding:0}
 .diary-months{display:flex;flex-wrap:wrap;gap:8px}
-.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
-  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
-.diary-months a:hover{border-color:var(--accent)}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
-.prevnext a{text-decoration:none}
-footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
-  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-footer.site-foot a{color:var(--muted)}
+.diary-months a{font-family:var(--mono);padding:7px 14px;border:1px solid var(--line);
+  text-decoration:none;font-size:.82rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--blue);color:var(--blue)}
+
+footer.site-foot{margin-top:88px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--faint)}
+footer.site-foot a{color:var(--faint);text-decoration:none}
+footer.site-foot a:hover{color:var(--blue)}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important}
+}
 </style>
 </head>
 <body>
 <div class="page">
 <header class="site-head">
-  <a class="logo" href="../../index.html">ひらたともよし！</a>
-  <nav><a href="../../mywork.html" class="here">つくったもの</a><a href="../../favorites.html" class="">おきにいり</a><a href="../../aboutme.html" class="">じこしょうかい</a><a href="../../announce.html" class="">おしらせ</a></nav>
+  <a class="logo" href="../../index.html">平田朋義</a>
+  <nav><a href="../../mywork.html" class="here">WORKS</a><a href="../../favorites.html" class="">FAVORITES</a><a href="../../aboutme.html" class="">ABOUT</a><a href="../../announce.html" class="">NEWS</a></nav>
 </header>
-<p class="crumbs"><a href="../../index.html">Home</a> › <a href="../../mywork.html">つくったもの</a> › <a href="../../mywork/old-diaries.html">むかしの日記 (2002–2006)</a> › 2003年9月の日記</p>
+<p class="crumbs"><a href="../../index.html">Home</a> / <a href="../../mywork.html">作ったもの</a> / <a href="../../mywork/old-diaries.html">むかしの日記 (2002–2009)</a> / 2003年9月の日記</p>
 <article class="article">
+<p class="eyebrow">WORKS</p>
 <h1>2003年9月の日記</h1>
 <p>九月三十日（火）</p><p>朝は倫理学の本を読む。</p><p>キューブリック監督の「シャイニング」を見る。美しく恐ろしかった。対称的な構図や、不思議な音楽選択、目が冴えるよ うな色彩表現がいかにもキューブリック的であった。ただ同氏の「2001年宇宙の旅」や「博士の異常な愛情」や「時計仕掛けのオレンジ」といった大傑作に はおよばない。メイキングもついていたが、狂う役の役者が撮影前に、「死神よ来たれ。死神よ来たれ。」と叫んで気合を入れているのが凄かった。なんでも狂 う役をするのに、精神科医の指導を受けたそうな。</p><p>ある家族が人里はなれた山奥のいわくつきのホテルに冬の間の管理人として雇われるという話。五ヵ月間禁酒した主人公が「悪魔に魂を売ってでも一杯のビールが欲しい。」とつぶやくのが印象的。</p><p>これでキューブリックの代表作でみていないのは「ロリータ」と「バリ―ロンドン」だけになる。近いうちに「ロリータ」を見よう。</p><p>それから、学校に向かう。ミチオカクの本を読む。全然進まないよ。あっというまに図書館は閉館時間になる。</p><p>帰る前に久し振りにpigeonさんに会ったので長く話をする。つまるところ愚痴を聞いてもらう。</p><p>帰ったら、お客が来ていた。京都市の教育委員会のえらい人他だった。「タイムマシンはできるか」など聞かれた。みんなどうして答えれない質問をするのだろうか？もっと簡単な質問「人工衛星はなぜ落ちてこないのか？」といった質問をして欲しい。</p><p>住民会議をして寝る。勉強できなかった一日だなあ。明日から学校だ。あまり生活は変わらないだろうが。</p><p>九月二十九日（月）</p><p>七時半起床、一時間ほどの仮眠をはさんで一時半まで次の自主ゼミの範囲のぺスキンを勉強。すると一時半にomo君から連絡がくる。「ゼミ来ないの？」と。</p><p>あ！P1のゼミは今日からだと言うことを忘れてました。急いでいくが、三十分ほど遅刻。昼ご飯はカロリーメイトと牛乳 で済ます。カロリーメイトの欠点は繊維がないことと、カロリーが少なすぎることである。土曜日に食いだめをしたからよいものを、一食分が200kcalな どあまりに少なすぎる。</p><p>P1のゼミは四時半まで。今日はかわいせんせいが、時間反転変換についてみっちりやってくれた。特にスピンの変換の一般論 C|m&gt;=(-1)s-m|-m&gt; をやってくれた。</p><p>その後、四時半から十一時半までP1の部屋でomo君と勉強する。ミチオカクの繰り込みを読むが、正直難しい。夕ご飯 は六時に取る。夕食時に数学の人に「量子化ってなに？」と聞かれたので「帽子をつけること」と答えた。（後で「物理量をヒルベルト空間の線形演算子とする こと」に訂正した。）</p><p>九時ごろ紅茶を買いに生協に行くと、あさかわせんせいと原子核理論のおねえさまがいた。 あさかわせんせいに「君はすごい字を書くね。」と言われた。また「二回目のレポートはゴミ箱から取ってきたような紙に書いてあったね。」とも言われた。</p><p>omoくんに「ルベーグ積分って何？」と聞かれたので記憶を振りしぼって答えた。「まずは1次元で『長さ』を定義しましょう…。」</p><p>御所に自転車を置いて帰ってきたので、家に着くのは日を越してしまった。毎日これぐらい学校にいることにしよう。</p><p>シャム双生児について少し調べものをして、日記を書いて寝る。</p><p>九月二十八日（日）</p><p>九時間ほど寝た。起きてからもぼんやりと過ごす。黒沢清監督の「回路」をDVDで見た。恐怖映画なのだが、全く恐怖は感じなかった。残念。映像のセンスは良だが、感動するほどではなかった。映画館で見なければこのタイプの映画は分らないのだろう。</p><p>Dirac括弧がくご先生の本を読んで大体分ってきた。拘束系でのポアソン括弧を全空間での座標を用いて書こうというのが目的のようだ。そしてこれがゲージ理論に重要な理由もおぼろげながらわかってきた。</p><p>だらけた日だった。</p><p>九月二十七日（土）</p><p>最近は秋晴れと秋雨が交互に繰り返します。今日は秋晴れ。</p><p>昼までに本日のゼミの予習を終わらせる。そしてゼミ。さくさく進んでDirac場の量子化が終わる。「こんなことなら最初からこの教科書を使っていればよかった。前期進まなかったのはかわいせんせいのせいだ。」という意見がでる。</p><p>ゼミが終わり僕はギタマンの同窓会のために京橋に向かう。そして同窓会。構成は数え忘れを気にしなければ、僕の代が男二人、次の代が男女一人ずつ、次の代が男四人女三人、その次の代が女一人。</p><p>半年に一回同窓会をしています。一次会、しみこさんを端に追い詰め話をする。そしてたくさん食べてたくさん飲む。このために今日は朝昼ともにほとんど食べてこなかったのだ。</p><p>二次会、ちなみさんを端に追い詰め話をする。話は次第にマニアックな方向に走り、「ジョジョの奇妙な冒険」について「欲しいスタンドは？」なんて話になる。ちなみさんは「<a href="http://spw.at.infoseek.co.jp/stand-a.htm#echoes">エコーズ</a>」だった、何に使うのでしょう？何はともあれ、たくさん話せて楽しかった。</p><p>この同窓会で小耳にはさんだ話だが、「大阪人は皆、道頓堀に飛び込んだ」と東京の人は思っているらしい。</p><p>終電に乗って帰る。</p><p>今日はたくさんの人に会っていささか疲れました。</p><p>九月26日（金）</p><p>御所に自転車をおいて歩いていこうとすると、偶然御所の中の拾翠亭が公開されていた。まさに日本美の極み。拝観料百円で金曜日土曜日はいつでもあいているというのでちょくちょくこれから行こうと思う。人はまばらで昼寝している人もいた。</p><p>今日はたぶんぺスキンを読みました。八時まで図書館に残る。今日も図書館で寝てしまった。</p><p>映画が見たくなった。どんな映画を見たいかと自問すると「感動はいらない。ただ恐怖が欲しい」と言うことになったので、近所のレンタルビデオやに借りに行くがあまりいいのがないので断念する。</p><p> 今日、東京大学の辞退届を書きました。筆と墨汁を探すのに半時間ほど費やしてしまった。</p><p>できたのがこんな感じの辞退届け。受理されなかったらどうしよう。</p><p>九月二十五日（木）</p><p>五時起床。ゼミの予習の為PeskinのQFTを読む。ぎりぎりで今日の分は読み終わる。</p><p>一時から四時までゼミとしよう。その後、やる気が出なく、北部食堂にとどまる。</p><p>食事後、総人の図書館に行き、ラブクラフトの「クトリュフの叫び声」を読む。正直つまらない。読み終わるとともに強制睡眠モードに入り、閉館まで寝る。</p><p>家に帰ってからミチオカクの本で繰り込みの部分を読む。その後、Toefluの勉強を一時間ほどして睡眠に入る。最近寝てばっかりだなあ。</p><p>九月二十四日（水）</p><p>大学に勉強しに行くが、気圧が急激に低くなったため軽い高山病を起こしダウン。図書館閉館時間が過ぎ、ふらふらと出るとまつきよさんに遭遇。休息をとるべき場所として、理学部二号館のソファーに案内される。</p><p>そこでしばらく横になり、体力回復を待つ。</p><p>生協に行ってご飯を食べて、リポビタンDを買う。レジがM川嬢だったので少し恥かしかった。</p><p>そして、リポDの力によりて、家まで到着。十一時に寝た。</p><p>九月二十三日（火）</p><p>えにしありて畷高100周年記念祭典に合唱者として参加することになりました。やまむらせんせいに「お前は絶対にこいよ。」と言われたのです。</p><p>練習日が今日だということを忘れていたため、昨日は京都に帰ってしまった。損してしまった。</p><p>で、音楽室に集合。ありさんちゅきさんまつぼくんなどの人がいた。まずはパート分け。僕は音楽選択でなかったので自分がテノールなのかバスなのか知らない。</p><p>やまむら先生「自分のパートが分らない人？」</p><p>僕だけ手を上げる。</p><p>「じゃあ、おまえ返事しろ。」</p><p>「はい。」</p><p>「よし、お前はテノールや。」</p><p>…こんな簡単に決められていいのでしょうか？</p><p>歌う曲は、「<a href="http://www1.linkclub.or.jp/%7Eaishin/Chorus/DAITI.html">大地讃訟</a>」「 <a href="http://12121.hostinguk.com/Glory.htm">Land of hope and glory</a> (威風堂々)」「校歌」。</p><p>んで、練習。初めて伝説のやまむら節を聞くことができて嬉しい。「ここはヤーパララパーパやない、ヤンパンパンパンパッッパや。」とオーバーアクションで説明してくれます。</p><p>練習後はうさやんの家にまつぼとGO。風邪らしいので、見舞いにジンジャエールを二本買っていくぜ。うさやんのHP用のジャバスクリプトを書くのに九時までかかり、超絶に家庭団欒と病気療養の邪魔をする。HPに金と時間をかけてはいけないということを学ぶ。</p><p>帰りは父の車で。冬用の毛布を運んでもらった。</p><p>九月二十二日（月）</p><p>起きたら十一時。八時間睡眠。久し振りの快眠であった。</p><p>今日はまさちゃんさんと、試写会に。見たのは「リーグオブレジェンド」原題はThe League of Exrtaordinary Gentlemen 僕なら「超人同盟」とでも邦題をつけるね。透明人間やネモ船長とかジキルハイド氏などの十九世紀小説の超人がリーグを組むと言う内容。期待通りのB級映画だった。B級映画は楽しいなあ。</p><p>今まで見た中で最強のB級映画は？「アトミックトレイン」です。詳しいことは</p><p><a href="http://www.jttk.zaq.ne.jp/ndjamena/diary2001_2.htm">http://www.jttk.zaq.ne.jp/ndjamena/diary2001_2.htm</a></p><p><a href="http://www2.plala.or.jp/okiraku/siul/eiga.htm">http://www2.plala.or.jp/okiraku/siul/eiga.htm</a></p><p><a href="http://p-grp.nucleng.kyoto-u.ac.jp/%7Ehonda/movie.html">http://p-grp.nucleng.kyoto-u.ac.jp/~honda/movie.html</a></p><p><a href="http://kishima1.hp.infoseek.co.jp/torein.html">http://kishima1.hp.infoseek.co.jp/torein.html</a></p><p>等のレビューを見てください。この映画の素晴らしさが分ります。</p><p>九月二一日（日）</p><p>やっぱり寝て三時間で目が覚めてしまった。それでも頑張って寝て朝に起きると、体がフーリエ変換を受けた気分だった。</p><p>今日は大原に自転車で行きました。虎猫くんと九時に北部で待ち合わせ。三十分全速でこいだためこの時点で既に疲れてます。雨が降りそうなのでレインコートを購入。</p><p>「なんでレインコートを着てまで、大原に行くんだったっけ？」</p><p>「修行じゃない？」</p><p>といった感じで大原にGO。坂道がきつい。パワーを全開にして坂道をこぐこと一時間二十分。途中でこけたりもしたけ ど、無事に大原に到着。意外に近い。ちょうど台風が近づいているらしいので風がビュービュー、半袖の肌には寒い。この日は寒さに苦しめられる一日となりま した。</p><p>バス停に着いたときに妖しい感じの女子高生がいた。平日に一人で制服でこんなところで何をしているのだろうか？謎だけが残った。</p><p>三千院に行く。広い。</p><p>そしてご飯。寒いので窓を閉めて食べていたのに窓を開けられてしまった。ここで、ハプニング。お金を払ったら財布には200円ぐらいになってしまった。</p><p>お次は音無しの滝に行く。馬鹿写真を撮るために、命をかける。なぜこんな所で命をかけないといけないのだろうか？</p><p>そしてお次は実光院に行く。入ったときにはだれもいなくていい感じである。庭を鑑賞。秋海堂のピンクの花が美しい。</p><p>ここらでもういい時間なので御土産にしばずけを買って戻る。帰りは危険なほどのスピードが出る。風を切って進むは心底気持ちいい。三十分で帰れた。</p><p>虎猫君の家に行く。僕は乳酸が頭に回ってきてぐったりする。</p><p>つぎにK君の家に行く。Y.O K 虎猫 僕の四人で阪神優勝を記念してご飯を食べる。しばずけ200ｇを四人でわけて食べる。普通の家なら一ヶ月はもちそうな量を全部食べてしまう。</p><p>生物や化学では朝八時研究室に入って、帰るのは十二時や一時になるらしい。僕もそれぐらい頑張らんと行かんなあ、と思った。</p><p>K君の家を出てY.Oの家で話をして、そして帰る。帰ったら三時だった。</p><p>九月二十日（土）</p><p>最近、睡眠が悪い。まず、寝て三時間ぐらい経つと必ず目覚めてしまいます。そして、朝起きると何故かぐったりしています。なんでだろう。</p><p>今日は十時には大学につく。しかし、図書館が開いていない。しかたがないのでP1の部屋で勉強する。P1にある水道の 蛇口からは赤い水が出て、それはとても飲めたものじゃない。しかし、コーヒーメーカを使ってその水でコーヒーを作ると飲めるコーヒーができてしまう。コー ヒーメーカーは一度水を蒸気にしてから、蒸気を粉にかけて抽出しているから水に含まれる不純物はコーヒーに入らないからだと思われる。なら、その不純物は どこかにたまっているはずだ。実際コーヒーメーカの注水口を匂ってみると強い金属臭がしたこれは洗ってとれるのだろうか？</p><p>P1の自主ゼミが始まる。食事が遅れて遅れてしまった。今日は自由スカラー場。あまり困難なく終わる。</p><p>早めに帰って、「ゲージ場の量子論」を読む。やっぱりあんまり進まない。しかし、式と図がみごとに対応しているのが面 白い。「真空泡グラフの除くダイアグラムの和」のlogを取ったら「連結ダイアグラムの和」になって、さらにそれをルジャンドル変換したら「線を一本切っ ても連結なダイアグラムの和」になったりするところが素敵。11時に就寝。</p><p>九月十九日(金)</p><p>梅田の大丸に行って、ピカソ展を見る。あまり良い作品は来ていなかった。家庭教師のお礼としてもらった、仕立券を持って服を仕立てに行く。すごく面倒だった。</p><p>節約の為に梅田から淀屋橋まで歩いた。淀屋橋が思っていたのと違った為にあったため、かなり彷徨うことになってしまった。</p><p>「ゲージ場の量子論」の摂動論を読む。そして、明日のゼミの予習のためにぺスキンの「quantum field theory」を読んだ。空間的に離れた場所での場の演算子が交換することの証明が簡素で非常に分りやすかった。</p><p>九月十八日（木）</p><p>夢：ある友人がある犯罪をしているということを、偶然耳にしそして私は苦悩する。これ以上詳しいことは書けない夢。</p><p>朝早くおきたけど、昨日寝たのが一時なのに四時におきたけど、二時間ぐらい勉強した後、気分が悪くなってダウン。起きたら１０時。</p><p>くご先生の本でファインマンダイアグラムの所を読んだのさ。さくさく読めてびっくりなのさ。</p><p>今日は高校の友人がドラゴンヘッドを返しにくると言うので実家に帰る。帰ると四条畷に五時半。ギタマンの高校二年生にon the way to home で会う、OB演奏会の写真を見せる。</p><p>彼女と別れて100ｍ行くと、文中の高校生にすれ違う。名前忘れた。走っていた。30ｃｍぐらい通り過ぎて、「久し振り！」と声をかけると彼女はくるりと振り返り、「ごめんなさい」と言い、そのまま走っていった。何がごめんなさいなのだろうか？</p><p>家に着く。ネットで検索すると四条畷図書館に「ドリアングレイの肖像」があった。さらにもう少し検索すると。なんと「暗黒神話大系」が大阪府下で唯一四条畷図書館にそろっている。京大の図書館にもなかったのに。</p><p>検索結果<a href="http://mmpt03.library.pref.osaka.jp/cgi/SearchCore.cgi">http://mmpt03.library.pref.osaka.jp/cgi/SearchCore.cgi</a></p><p>おそらく四条畷市民の誰かが注文したのであろう。友だちになれそうな人だ。</p><p>四条畷図書館には走っていく。「神様のパズル」があったので借りる。</p><p>帰りに、文中の高校生さのまに会った。で、歩きながらしゃべった。会話ははずむ。</p><p>帰ってから、神様のパズルを読む。小説読みながらこんなにドキドキしたのは久し振りだ。</p><p>公式な紹介文を引用すると</p><p>卒業ゼミに素粒子物理学研究室を選択した留年寸前の僕が担当教授から命じられたのは、不登校の女子学生・穂瑞沙羅華をゼミに参加させるよ うにとの無理難題。なにしろ穂瑞ときたら、精子バンクを利用して生まれた天才児で、建設中の巨大加速器「むげん」の発案者でありながら、その天才さゆえに 大学側も持て余し気味という問題児なのだから。案の定、僕を鼻であしらう穂瑞だったが、一人の老聴講生・橋詰さんの発した究極の疑問「宇宙を作ることはで きるのか？」をぶつけてみたところ、なんとそれを討論テーマとしてゼミに現れたのだ！ 僕は穂瑞と同じチームで、宇宙が作れることを立証しなければならな いことになるのだが……。「宇宙の作り方」という壮大なテーマを、みずみずしく軽やかに描き切った大型ＳＦ！</p><p>小説内に「ルミノシティ」「重ヒッグス粒子（重ってなんだ？）」「カーブラックホール（しかもしばしばKBHと略される）」「ワインバーグサラム理論」「TOE（Theorｙ of everything つまり究極の統一理論）」なんて単語がばんばん出てくるので嬉しくなります。しかもこの天才少女、作中でTOE（つまり統一理論）つくっちゃって、「近似としてM理論を内包している」なんて会話がでてくるので楽しくなります。舞台はK大理学部物理学科。</p><p>あ、もちろん、かたぎの人にも楽しめる作品となっています。</p><p>  ドラゴンヘッドを持った友人を待ったが来ない。約束の時間+1.5時間であきらめる。</p><p>で、うさやんのおうちにOB演の写真を見せに行く。</p><p>なぜ普通の日の日記なのにこんなに長くなったのだろう？</p><p>九月十七日（水）</p><p>朝は低血圧でダウン。</p><p>今日も御所から学校まで走ったが、荷物が重すぎて苦しかった。</p><p>「経路積分」を読む。今日はファインマン則の導出や自己エネルギーによるプロパゲータの極に対する補正など。ツリーダ イアグラムだけでは古典極限しかでないといことが分った。くりこみの章も読んだがこれまた釈然としなかった。場の理論の勉強は未だ暗闇を歩くが如く。井戸 は水がでるまで掘らねば。</p><p>東大も受かっていた。（母からの電話で知った。）早めに辞退届を出さねば。困っているであろう誰かのために。</p><p>九月十六日（火）</p><p>くご先生に、院試の成績と合格したサブグループを聞きにいった。</p><p>成績 723点 総合2位</p><p>合格したグループは物理学教室</p><p>でした。</p><p>拘束系の量子化が分らないとというと「ゲージ場の量子論」という本を薦められた。</p><p>今日勉強したこと：古典的ヤンミルズ場 ゲージ群が非可換であることはすなわちゲージ粒子が電荷をもっているということらしい。</p><p>あと生成汎関数について：四点関数を既約部分に分解する計算は絵を書くだけで出来るということを発見した。</p><p>今日も勉強がすすまない。何がだめだったのだろうか？雑用が多かったのがその原因だろうか？</p><p>九月十五日（月）</p><p>十二時間ほど寝る。起きたら昼の十二時。それからもぼおっとする。これほどぼおっとする日は何年ぶりのことやら。あまりぼおっとしすぎると、頭が溶けていく感覚がします。</p><p>映画HEROを見る。感想は後日。</p><p>その後、三条河原町から走って帰る。</p><p>HEROの感想</p><p>漢文の世界を映像化したといった感じの作品。表現が大げさだと言う批判もありますが、いいのです。漢文では白髪が三千丈に伸び、名馬は一日に三千里を走る世界なのです。</p><p>「MATRIX」のようなアクション映画を期待するものは失望するであろう。比べるべきは寧ろ黒澤のような芸術映画である。色彩がとにかく美しい。眼福の至りである。</p><p>見所：</p><p>赤の布のしたで動く如月と残剣</p><p>切られて黄葉に落ちる飛雪の黒髪</p><p>剣のぶつかり合いで生じる音楽的ともいえる金属音</p><p>秦軍の掛け声「風！風！風！」</p><p>一斉にはらりと落ちる宮殿の緑布</p><p>無名の最後の微笑み</p><p>エピソードごとに一変する登場人物の表情</p><p>九月十四日（日） OB演奏会</p><p>一時間電車でかかる場所に八時半に集合なのに、家を出たら八時。こんなときは、いつもの手段。畷高に行くと案の定、楽器運びの車が会ったのでそれにヒッチハイクで乗せてもらう。</p><p>今日の仕事は写真撮影。人のお金で写真を撮るって素晴らしい！でも、「個人的な写真には応じないように」との通知があったそうな。なんてことだ。おまけに1500円のTシャツまで買わされてしまった。</p><p>リハー サル。写真をとりまくる。舞台の上に上がり無抵抗の人たちを撮っていく。70枚撮れるデジカメも渡され、フィルムカメラと併用したがリハだけで全部使い 切ってしまう。デジタルカメラを本格的に使うのは初めて。感じた利点は、何枚でも写真の取り直しが効くこと。不便な点は、モニターを見ないといけないの で、自分の目で被写体を直接見れないこと、特に色がモニターと現実ではかなり違うこと。あとモニターを通してではシャッターチャンスが非常につかみづら い。</p><p>赤ん坊がいたので、話し掛け、ブリッジ歩行を披露すると泣き出された。なるほど。</p><p>ほどなくして本番が始まる。みんな顔がリハのときとは全く違う。一部ではいい席がとれずにちゃんと撮れなかった。二部三部は一番前の席をとれ、迫力の写真を撮れた。</p><p>二部の威風堂々、アルルの女には感動で鳥肌が立った。</p><p>本番終了。みんなおつかれさまでした。</p><p>娘さんを連れたOBがいたので話し掛けてみた。（僕は34期なのでOB会には50代から10代までの人がそろっていることになる。）</p><p>「はじめまして、私の名前はヒラタトモヨシ。君の名は？」</p><p>「○○○○です。」</p><p>「○○○○さん。よろしく。ちなみにお年は？」</p><p>「13歳です。」</p><p>「13！僕は23歳です。僕の勝ちですな。ときに13といえば素数ですね。」</p><p>ここでJJ先輩が「あんたほんとにもう23になったんかいな？」と突っ込みを入れてきた。素数の意味を娘さんは分ってなかったので、説明しようとしたらまつぼに制止させられ、「とにかく13や23は特別な数ってことです。」と言って会話は終了。</p><p>全体写真を撮って、打ち上げ会場に移動。4000円の会費を回収するべく頑張って飲み食いする。よこに座った先見の明に長じたおばさまが「うちの娘、今年で二十二になるんだけどいらない？」っと言ってきたのが非常に印象に残った。</p><p>二次会は非常に長いスピーチタイムで幕を閉じる。多くは雑談が目的なのだから、もっと手短にすればよいと思う。</p><p>そして 三次会は四つ下の代を中心としたメンバーで喫茶店に入る。ちなみに三次会は三つに分かれた。現役を中心とするカラオケグループ。若手OBを中心とする喫茶 店でしゃべるグループ。「今でも若い人たち」を中心とする飲みグループ。なるほど、これが加齢に伴う嗜好の変化というやつか。</p><p>で、 喋っていくと、もはやすっかり忘れていた四つ下の代の暗黒史が次々と話題に蘇る。忘れていた、この世代の人たちは、演奏会の打ち上げで劇（不条理）を演じ ようとしたり、黙々と夜の八時ごろまで紙チャット（ノートなどを使ってある議題に関してチャットのように回しがきをしていく謎の遊び。「議題の例：カッパ かっぱらったを使って文を作れ。」）ような愛すべき人たちだったのだ。</p><p>で、これからの計画が色々と作られる。クリスマスには僕の家で劇をするらしい！</p><p>終電も近くになったので帰る。今日はいろいろありすぎて少しばかり疲れてしまった。</p><p>九月十三日（土）</p><p>朝早くクリムト展を見るため家を出る。現地でｋｍさんと待ち合わせ。</p><p>クリムト展は素晴らしかった。これぞ官能美の極み！</p><p>一時に梅田で解散して、僕はジュンク堂に向かう。ジュンク堂で、「栞と紙魚子の生首事件」と「栞と紙魚子の夜の魚」を購入。</p><p>その後、ハテナ村にほぐしされに行く。で、やってみるとびっくり、僕の凝りは全て消えてしまったようだ。原因はおそらく最近毎日7ｋｍ歩くか走るかしているからであろう。日々の運動の効力すごさが身にしみて分った。</p><p>高校生クイズを見た。結局最後に勝敗を決めるのは精神力の差なんだなあ。</p><p>ゲージ固定がよく分らないこのごろです。</p><p>九月十二日（金）</p><p>朝は緊張のために仕事にならず。で、昼頃、「落ちた落ちた。」と来年のどこも行く場所なかったときの生活プランを考えながら、結果発表を見に行く。そしたら、受験番号があった。「なんだやっぱりあるじゃないか、じゃあ昼ご飯を食べよう」といった程度に嬉しかった。</p><p>ストレスで、口内炎が出来てしまった。</p><p>K井くんとその自称従妹とカンフォーラでお食事。昼からワインで祝杯をあげる。</p><p>図書館への帰り道ぶんちゃんに偶然出会う。偶然ってやつもあるものだ。</p><p>まだむの演劇を見るために森之宮に一人で移動。偶然、中学時代の友人O川さんと会う。彼女は私と同年代ながら既に大学を卒業して働いている。スーツが似合い、あまりにしっかりしていたので、いつまでたっても若輩者の自分が恥かしくなってしまった。</p><p>で、マダムの公演。マダムがウェディングドレスを着てた！美しい！</p><p>公演終了後に写真を撮らせてもらった。</p><p>京都に家に戻り宴会。でも明日が早いので早々に退散する。</p><p>九月十一日（木）</p><p>スワンソンの「経路積分」のLSZを書いた章を読んでも分らなかった。それで「ゲージ場の量子論」とみちおかく「QFT」を読んでも分らない。午前終了</p><p>で、たどりついたのが、同じゼミの倭くんのまとめた講義レジュメ。非常にまとまってわかりやかった。一日中それをしていた。</p><p>夕ご飯は多田くんと食べる。素粒子論にはいるには今年は少なくとも十八番以内に入ってないとだめということを聞く。何！そんなに難しかったのか！それを知ってたのならもっと気合入れて問題を解いたものを！</p><p>夜になると、昨日のはた先生の態度から、「なんで教えてくれなかったんや。ひょっとして…」と恐怖を感じる。大きなストレスの為に三時まで眠れず。</p><p>九月十日（水）</p><p>夢：京大の筆記試験に三日目があるのを忘れていて（実際にはありません）三十分遅刻してしまうという話し。</p><p>学校には今日も途中から走っていった。3ｋｍ程度のランニングになる。ブッシュ大統領は週四回六キロのランニングをしているというのだから、これで大統領なみには運動していることになる。</p><p>三時頃ついて、スワンソンの「経路積分」の続きをする。この本は何故か原書より式の間違いが増えているそうな。どうしてもわからない部分をはた先生に聞きに行く。「これからこれが導き出せると書いているのですが、なんでですか？」「導けきだせないでしょう。」</p><p>はた先生に院試の結果を聞いてみたら「金曜まで恐怖を味わいなさい。」とありがたく答えてくれた。すてきな性格の先生だ。</p><p>それから、付属図書館にいって勉強を続ける。今日は計画の半分しか進まなかった。</p><p>今日は十五夜だ。月をベランダから眺める。美しい。</p><p>九月九日（火）</p><p>今日も一 日中スワンソンの「経路積分」を読む。グラスマン数の項で詰まってしまい、全然進まなかった。グラスマン数の量子力学が直感とかけ離れていて、精神的に受 け入れ難かった。あとわからない式もいっぱい出た。また誤植もかなり発見された（やっぱり初版の教科書はあかんわ）。</p><p>朝起きたら首が痛い。痛くて机に座ってられない。こんなときは魔法の薬、バファリンを飲んで耐える。</p><p>今日は御所の入り口で自転車を止めて徒歩で学校に行った。塀を登ったり穴の開いたフェンスをくぐるとそこは獣道。しばらく歩くと、人のいる道に戻り、水のみ場を発見。蛇口をくいっとあけると、水が3ｍほどにも上がった。楽しい！</p><p>物理学教室の図書館で五時まで勉強し、付属図書館で九時まで勉強。</p><p>ルネでご飯。グリーンカレーを食べた。これは…辛いを越して痛い。誰がこんなもの食べれるのだといった感じ。数口でもう食べれなくなったので、非常手段をとることに決定。しゃぶしゃぶの如くお茶で具を洗って食べた。なんとか食べれるがやっぱり口が痛い。ルーは全部残すことにした。悔しいので「わたしも一言」で投書した。「辛すぎます。なんとかなりませんか？」と。</p><p>家に帰る。</p><p>九月八日（月）</p><p>起きたら体がとても痛い。マラソンをした次の日のように。</p><p>一日中スワンソンの「経路積分」を読む。昼学校に行ったら理学部図書館がしまっていたので、しかたなく物理学教室図書館で、五時まで勉強。そのあと、ご飯を食べて、付属図書館で九時まで勉強。</p><p>自発的対称性のやぶれの章がよくわからない。あと拘束系の経路積分が難しい。Dirac括弧について勉強せねば。</p><p>山田先生に会ったら、「君は受かっているよね。」と言われた。</p><p>九時からも勉強できると思ったが、OB演奏会（宣伝HP<a href="http://homepage3.nifty.com/shigmo/">http://homepage3.nifty.com/shigmo/</a>）関連の雑用やら日記書きなどで勉強できなかった。</p><p>しみこさんに久し振りに電話で話ができ嬉しかった。</p><p>十二時就寝。</p><p>あずま氏のマンガ「よつばと」を買って読んだ。面白い！何がどう面白いのかと聞かれたら答えにくいけど、とても面白い。</p><p>あと最近マンガ「栞と紙魚子」諸星大二郎を購入した。諸星氏は「孔子暗黒伝」や「西遊妖猿伝」などの重厚な伝奇マンガで有名ですが、この作品はギャグ漫画でした。しかもホラーギャグ漫画というかなり異彩の放つ漫画です。登場人物の中にまともな人間が一人もいない…。こちらもかなりお勧めの漫画です。</p><p>九月七日（日）</p><p>夢： 久し振りに時間を停止できた。何らかの都合により、ある人の持っている書類を奪わなければならなかったので、物陰に隠れて時間停止。時が止まっている間に 書類を手から奪い逃げる。あと人をまるごと（時間静止ではなく）空間に固定させようとしたがこれは失敗した。空間固定は小さな範囲しかできないようだ。</p><p>はてな 村にヨガに行き、それからほぐしを受ける。今日は涙が出るほど痛かった。左半身の肩から足まで一直線に異様なコリがあるようだ。「バーバーの弦楽四重奏を かけて欲しいなあ」と口に出さずに思ってたら、バーバーの弦楽四重奏をかけてくれた。不思議なこともあるものだ。</p><p>それから、再びOB演（宣伝HP<a href="http://homepage3.nifty.com/shigmo/">http://homepage3.nifty.com/shigmo/</a>）の練習を見に行く。今度は帰りはじめですでに半数が帰っていたようだ。</p><p>以前四つ下の後輩からこんなメールが来ました。</p><p>「OB演の写真係になってください。有無は聞きません。可愛い子ばかり撮るのもだめです。」</p><p>ということで僕は不可効力的に写真係になってしまいました。</p><p>で、今日も何枚かの写真を撮りましたとさ。</p><p>本読みHP<a href="http://www.ne.jp/asahi/ymgs/hon/">http://www.ne.jp/asahi/ymgs/hon/</a> の「手袋を買いに走れ」<a href="http://www.ne.jp/asahi/ymgs/hon/yomimono_folder/yomimono17_tebukuro.htm">http://www.ne.jp/asahi/ymgs/hon/yomimono_folder/yomimono17_tebukuro.htm</a></p><p>著：太宰南吉 がかなり面白かった。</p><p>「走れメロス」と「手袋を買いに」のハイブリッド作品で中身はこんなのです。</p><p>引用</p><p>「おどろいた。母ちゃん何してんの、乱心か。」</p><p>「いいえ、乱心ではございませぬ。人を、信ずる事が出来ぬ、というのです。」そこで、しかたがないので、坊やだけを一人で町まで行かせることになりました。</p><p>「坊やお手々を片方お出し」とお母さん狐がいいました。</p><p>「だまれ、下賤の者。」子狐は、さっと顔を挙げて報いた。</p><p>で、夜中京都に戻る。</p><p>九月六日（土）四分音符と八分音符</p><p>今日は朝は半日かけて部屋の片付け、洗濯、古ダンボールをくくること、をしました。二週間ばかり家事を放棄していたので、それはもう大変な作業でした。</p><p>で、実家に帰る。おぉ。京阪の特急が枚方駅に止まるではないか。嬉しくなって、枚方から帰る。20ｋｍ程度の短縮になるはず。</p><p>で、乗り換えのために歩いていると、胸の鼓動が変になった。脈をとると明らかにおかしい。八分音符と四分音符がまじってやがる。めまいに酔いながら何とか家にたどり着く。</p><p>家でちょっと休憩したら回復。</p><p>ギタマンのOB演奏会（宣伝HP<a href="http://homepage3.nifty.com/shigmo/">http://homepage3.nifty.com/shigmo/</a>）が近く、練習を近所の小学校でやっているようなので見に行く。ちょうど練習が終わる頃に到着。これでいいのだ。</p><p>ふとグランドに目をやると登り棒があったので衝動的に登ってしまった。登り棒は楽しい。</p><p>で、帰る。六つ下の後輩がエヴァンゲリオンの映画パンフを所望していたので、家に取りに帰って、渡す。で、人類補完計画がどうした、ゼーレがどうした、戦略自衛隊がどうしたなんて話をしながら駅まで送る。</p><p>家に帰ると、父から指令が下る。「ドラゴンヘッドの七巻以降を買ってきなさい。金なら出す。」で、古本屋を探したが見つからなかった。映画前だから売れてるんですね。</p><p>九月五日（金）京大の奇妙な面接</p><p>なにか、一日前の日記に東大面接のことが書いてあるのが信じられません。僕の体内時計ではそれは一週間以上前の話です。</p><p>で、今日は九時集合。面接の時間割りが当日発表だっていうのはどうなのよ。人によっては、八時間九時間待たされることになります。</p><p>僕は三時半頃なので、ずーと待ちつづけることになる。でもそわそわして他の勉強が出来る訳でもなく無為に過ごす。</p><p>そうこ うしているうちに、色々な話が飛び込んでいる。流体研の面接で「もし（第一志望の）素粒子論が落ちても、他の所（他の大学とか）行かないで、私達のところ に来てくださいね。」と懇願された人がいたり、入ってくるなり「君、素粒子論落ちてるよ。」と言われたりした人がいたり…。</p><p>長時間経過後、ようやく僕の番。で、自由場の量子化の簡便な方法（途中ではっきりと、場が調和振動子の集まりであることが分って感動する。）を七分で説明する。</p><p>で、七分で場の量子化が完成する。</p><p>突っ込み：</p><p>「それは式変形だけで何が面白いの？」（ふん。感動の薄いやつだ。）</p><p>「そのハミルトニアンが作用する空間はどういう空間ですか？」</p><p>（それが学部学生に聞く質問か！と思いながら、これにはちゃんと、「全ての消滅演算子で消される元に対し、生成演算子を有限個かけたFock空間」と答えれた。）</p><p>「じゃあ、なぜ、生成演算子で消される元を真空と定義してはだめなのですか？」</p><p>（この質問には慌てて「負エネルギーになるから」としか答えれなかった。答えは負ノルム空間になるので。もごもごしていると、「じゃあ、何故か分らないけど消滅演算子で定義した真空を持ってきたら上手くいくと思っているわけなのですね、」といやみを言われた。）</p><p>（脈絡なく）「小柴さんがカミオカンデでノーベル賞をとったことについてどう思いますか？」</p><p>「君の他の試験の成績にしては、一つだけ悪かった問題がありますがこれは何でですか？」</p><p>（つまり総合的にはよく出来ていたということか？と思いつつ、「それは時間切れで解けなかったのです。」とAnswer。）</p><p>そしてかわいせんせいの突っ込み：</p><p>「自由場の量子化ぐらいなら、七秒あればできますよ。」</p><p>かわい先生強すぎです…。</p><p>といった感じの、とてもありえない面接でした。</p><p>その後、三回の実験メンバー+αで飲み会をする。学校内で飲み会…。yくんは二日目の試験行ってないのに、筆記試験合格していたらしい。すごい。</p><p>一時半ぐらいまで飲んでそして帰る。</p><p>九月四日（木）東大面接</p><p>東大の面接；心に傷が一本増えた。いきなり○×△近似について話せなんて、そんな殺生な。スピンの合成とか、E＝mc2 の証明なら簡単にできるものを…。動転して、いろいろあらぬ間違いをおかしてしまった。</p><p>ううう。こんな醜態をみせる為だけに東京に行ったとは…。人生で三番目ぐらいに嫌な思い出に認定ッ！</p><p>Greenさんと新幹線で帰る。3時間もあるのでいろいろ喋る。</p><p>京大筆記試験の結果発表を見に行く。受かっていた。少しは傷が癒された。</p><p>母に、「東大の試験は散々でした。」と電話でいうと、しばらく後に兄から電話がかかってきて何がだめなのか説明させられた。厳しい家族だ。</p><p>明日の発表は以前日記で書いた、自由場の量子化の簡便な方法について話そうと思う。U(1)ゲージから電磁気学が導けるというのも、やろうかなと思っていたが、二三分で終わりそうなのでやめた。</p><p>九月三日（水）京大筆記試験2</p><p>再び京大の試験。</p><p>問題を見て吃驚。天文の試験が三つはいっているので選択できる問題が少ない。</p><p>問3：量子力学の摂動論：とても時間がかかってしまう。二十分ぐらいオーバーしてしまう。完答！</p><p>問４：電 磁気学の回路：大学入試の問題にもできそうな問題であるが、計算が煩雑。相互インダクタンスの定義が少し曖昧だったので。これを相互インダクタンスと定義 する、と書く。で計算していって、仕事とジュール熱が同じであることを証明せよという問題、でちゃんと答えが一致しなかった。おそらくどこかの積分で間違 えたのだろう。残念だ。あと三十分しかないので次の問題に。</p><p>問5：統計力学：計算を速くしようという工夫が全て裏目に出る。結果として半分弱といて終了。見直す暇なし。</p><p>なんで、一日目の午後の試験より難しいのに、制限時間が短くなっているのであろうか？なぞである。</p><p>午後英語：問題配られたとき裏が透けていたので、逆向きに半分ぐらい英語が読めた。ファインマンのQEDという本からだった。この本持っているし。結果は非の打ち所ナシッ！って感じ。これじゃあ、全く差がつかないであろう問題であった。</p><p>そして東京に新幹線で向かう。ついたとき丁度山の手線が落雷の影響で止まってしまい。複雑な経路で上野まで行くことになる。東京ほど交通網が発達していれば、たとえ山手線がとまってもいく方法があるのか。つくと町は霧に覆われていた。</p><p>後はいかなる結果が出ようとも、それを運命として受け入れることにしよう。</p><p>九月二日（火曜日）京大筆記試験</p><p>夢：祖母をつれた家族旅行に行く。でなんでか、足場が幅10ｃｍぐらいしかない崖を通って名所に行く。で、帰り同じところを通ろうとするが、足がすくんで通れない。スピンと軌道角運動量が0。なんとか引っ張ってもらって通れたがすでに警察が呼ばれていた。</p><p>今日は京大の試験である。</p><p>朝三時間物理：</p><p>問一：1次元両端固定波動方程式をある初期条件で解けという問題。フーリエ展開がなんか上手くいかないので途中から飛ばして問二にうつる。</p><p>問二：（a）微分方程式を解けという問題。難なく解ける。（ｂ）ベルヌーイ数を三項まで求めさえて、奇数次はゼロである ことの証明。普通に解ける。（ｃ）cotｘをベルヌーイ数で展開せよという問題。cotxの定義式をいじると、ベルヌーイ数みたいになって解け る。（ｄ）coskxをフーリエ展開せよ。脈絡ねえ、と思いながら計算するだけ。</p><p>問三:二原子に二つ電子があって、ハミルトニアンをスピンの演算子で書けという問題。普通に計算するだけ。exp(ikx)/|x|の空間積分をやらされた。</p><p>ここまで解いてあと三十分程度。問一に再挑戦。まず、フーリエcos展開で十分だということが分る。</p><p>「でも、時間依存の初期位相がこれじゃあわからないじゃないか。条件が足りないんじゃないか。</p><p>そう条件が足りないんだ。だいたいこの問題間違っているのじゃないか、そもそも波動方程式ってやつは初期位置だけじゃとけないんだよ。初期時間微分が分らないと解けないんだよ。あ！初期時間微分は自明に0だ。なんだ簡単じゃないか。」</p><p>という心の経緯をたどり、解く方針が立つ。</p><p>あとはフーリエ展開を計算するだけ。</p><p>なんか微妙に間違っているっぽい答えが出たけど押し切る。終了。</p><p>あとで考えてみると、計算が間違っていたようだ。</p><p>午後試験三時間半物理：</p><p>問１：連成振動を解けという解析力学のレポートでやったぽい問題。最後には摩擦力や外力まで登場。</p><p>運動方程式を対角化して…。何かがおかしい。対角化行列AとA-1 がどこかで入れ替わったようだ。とりあえず答えを出して後で修正しようと心に決めて解く。</p><p>問2：円筒コンデンサーに誘電液体を入れて、それには表面張力が働きますよ、という問題。表面張力がどう円筒を押すかは、答えを書いた後、次元があとm一つ足りないので、そういうものかとｍの次元を持つ物理量をかけて求める。ビバ、次元解析。</p><p>コンデンサーに電圧をかけると液体があがってくるぞの問題は、仮想仕事の原理で0液体を上げる力を計算。ミクロ的にはどういう作用が働いて液体が上がるかは分りません。この辺りから計算が煩雑になる。</p><p>そして最後の問題は院試の歴史に残りそうなほど計算が煩雑なので、「代入すれば求まります。」と書いて次に。「でもやりたくありません」と書きたかった。</p><p>問3：Isingスピンの標準的問題。普通に計算すれば普通にもとまった。最後のグラフを書いて説明せよ、というのはグラフは書いても分らないので結局式で説明した。</p><p>ここで三十分余った。</p><p>問1の問題の微調整に入る。AとA-1 定義を逆にしていただけと気づき訂正。あと一つ計算間違えがあったのでそれも訂正。ここでもうのこり１０分全体的に見直して終了。問2の最後の問題を頑張って書けばよかったかもと後でちょっと後悔。</p><p>終了後、かわいせんせいに「東大の面接何が出ますか？」と聞きにいった。</p><p>聞いた話、過去にこんな問題が出題されたようだ。</p><p>最近「角運動量を合成せよ。」（結構何年にもわたって出題されているようだ。）</p><p>大昔（かわいせんせいが受けた頃）「ランダウ準位を説明せよ、水素が分子を作るのは何故か説明せよ。特殊相対論でE＝ｍとなるのはなぜかを説明せよ。同種粒子の散乱についてのべよ。」</p><p>九月1日（月曜日）</p><p>かなり前から曜日と日がずれていました。面倒なので訂正しません。曜日が正しいと思われます。</p><p>今日はテスト一日前。バルサンを炊くので昼に学校に避難。そして図書館でのんべんだらりと過去問の見直し。</p><p>図書館は五時をこすとドコモかしこもしまってしまったので、しかたがないのでご飯食べておうちに帰る。</p><p>帰ってからは東大の過去問の解いていない部分を解く。そうしているうちに、後輩のT嬢からお電話が来て、お悩み相談を受けた。たよりにしてくれるのはいささかありがたいものである。</p><p>それですんなり寝る。</p>
 
 </article>
 <footer class="site-foot">
-  <span>© 平田朋義 ・ since 2009</span>
-  <span><a href="../../index.html">ひらたともよし！</a></span>
+  <span>© TOMOYOSHI HIRATA — SINCE 2001</span>
+  <span><a href="../../index.html">HOME</a></span>
 </footer>
 </div>
 </body>

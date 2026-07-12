@@ -3,92 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>夢の話 | ひらたともよし！</title>
+<title>夢の話 | 平田朋義</title>
 <style>
 :root{
-  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
-  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
-  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+  --bg:#fdfdfb; --ink:#17181c; --muted:#5e6470; --faint:#9aa0ac;
+  --line:#e3e4e8; --blue:#2136c9; --blue-soft:#eceefb;
+  --sans:"Hiragino Sans","Yu Gothic","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
-    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+  :root{ --bg:#121318; --ink:#e8e9ee; --muted:#9aa0b0; --faint:#5e6470;
+    --line:#26282f; --blue:#8b9bff; --blue-soft:#1b2040; }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
-  -webkit-font-smoothing:antialiased}
-a{color:var(--link);text-underline-offset:.18em}
-a:hover{color:var(--accent)}
-.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
-.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
-.site-head .logo:hover{color:var(--accent)}
-.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
-.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
-.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
-.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
-.crumbs a{color:var(--muted);text-decoration:none}
-.crumbs a:hover{color:var(--accent);text-decoration:underline}
-h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
-.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
-.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
-.article p{margin:0 0 1.1em}
-.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-weight:300;line-height:2.0;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+b,strong,h1,h2,h3,h4{font-weight:600}
+.page{max-width:840px;margin:0 auto;padding:0 24px 72px}
+
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;padding:30px 0 26px}
+.site-head .logo{font-weight:700;font-size:1.02rem;letter-spacing:.16em;
+  text-decoration:none;color:var(--ink)}
+.site-head .logo:hover{color:var(--blue)}
+.site-head nav{display:flex;gap:26px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em}
+.site-head nav a{text-decoration:none;color:var(--muted);padding:2px 0;
+  border-bottom:1px solid transparent}
+.site-head nav a:hover{color:var(--blue)}
+.site-head nav a.here{color:var(--blue);border-bottom-color:var(--blue)}
+
+.crumbs{font-family:var(--mono);font-size:.72rem;color:var(--faint);
+  margin:26px 0 0;letter-spacing:.04em}
+.crumbs a{color:var(--faint);text-decoration:none}
+.crumbs a:hover{color:var(--blue);text-decoration:underline}
+
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--blue);margin:34px 0 0}
+h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
+  font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.article h2{font-size:1.22rem;margin:2.4em 0 .7em;line-height:1.6;
+  padding-bottom:.35em;border-bottom:1px solid var(--line)}
+.article h3{font-size:1.02rem;margin:2em 0 .5em}
+.article p{margin:0 0 1.2em}
+.article img{max-width:100%;height:auto;display:block;margin:1.4em 0}
 .article ul,.article ol{padding-left:1.5em}
-.article li{margin:.25em 0}
-.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
-.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
-.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.kids{list-style:none;padding:0;margin:20px 0}
+.article li{margin:.3em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1.2em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 12px;font-size:.9rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2.4em 0}
+
+.kids{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--line)}
 .kids li{margin:0;border-bottom:1px solid var(--line)}
-.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
-.kids a:hover{background:var(--paper)}
-.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
-.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
-  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
-.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
-.card .emoji{font-size:1.6rem}
-.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
-.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
-  text-decoration:none;background:var(--paper)}
-.chips a:hover{border-color:var(--accent)}
-.hero{padding:34px 0 8px}
-.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
-.hero .name .ex{color:var(--accent)}
-.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
-.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
-.diary-years{margin:20px 0}
-.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.kids a{display:block;padding:13px 2px;text-decoration:none;color:var(--ink);font-weight:400}
+.kids a:hover{color:var(--blue);padding-left:8px;transition:padding-left .15s}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted)}
+.kids-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--faint);margin:3.2em 0 0}
+
+/* ---------- index ---------- */
+.hero{padding:56px 0 0}
+.hero .name{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:800;line-height:1.15;
+  letter-spacing:.06em;margin:0}
+.hero .romaji{font-family:var(--mono);font-size:.78rem;letter-spacing:.34em;
+  color:var(--muted);margin:14px 0 0}
+.pi-line{font-family:var(--mono);font-size:.82rem;white-space:nowrap;overflow:hidden;
+  color:var(--faint);margin:34px 0 0;letter-spacing:.1em;
+  -webkit-mask-image:linear-gradient(90deg,#000 72%,transparent);
+  mask-image:linear-gradient(90deg,#000 72%,transparent)}
+.pi-line b{color:var(--blue);font-weight:600}
+.hero .tag{max-width:34em;color:var(--muted);margin:30px 0 0;font-size:.95rem}
+
+.index-list{margin:60px 0 0;border-top:1px solid var(--line)}
+.index-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:6px 18px;
+  align-items:baseline;padding:20px 2px;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink)}
+.index-list .key{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--muted)}
+.index-list .jp{font-size:1.18rem;font-weight:600}
+.index-list .jp .desc{display:block;font-size:.82rem;font-weight:300;color:var(--muted)}
+.index-list .n{font-family:var(--mono);font-size:.78rem;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+.index-list a:hover .jp,.index-list a:hover .key{color:var(--blue)}
+@media (max-width:560px){
+  .index-list a{grid-template-columns:1fr auto}
+  .index-list .key{grid-column:1 / -1}
+}
+
+.elsewhere{margin:58px 0 0}
+.elsewhere-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;color:var(--faint)}
+.elsewhere-links{display:flex;flex-wrap:wrap;gap:4px 26px;margin:10px 0 0;font-size:.88rem}
+.elsewhere-links a{text-decoration:none;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:1px}
+.elsewhere-links a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ---------- diary archive ---------- */
+.diary-years{margin:26px 0}
+.diary-years h2{font-family:var(--mono);font-size:.85rem;letter-spacing:.18em;
+  margin:2.4em 0 .6em;color:var(--muted);border:none;padding:0}
 .diary-months{display:flex;flex-wrap:wrap;gap:8px}
-.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
-  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
-.diary-months a:hover{border-color:var(--accent)}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
-.prevnext a{text-decoration:none}
-footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
-  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-footer.site-foot a{color:var(--muted)}
+.diary-months a{font-family:var(--mono);padding:7px 14px;border:1px solid var(--line);
+  text-decoration:none;font-size:.82rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--blue);color:var(--blue)}
+
+footer.site-foot{margin-top:88px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--faint)}
+footer.site-foot a{color:var(--faint);text-decoration:none}
+footer.site-foot a:hover{color:var(--blue)}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important}
+}
 </style>
 </head>
 <body>
 <div class="page">
 <header class="site-head">
-  <a class="logo" href="../index.html">ひらたともよし！</a>
-  <nav><a href="../mywork.html" class="here">つくったもの</a><a href="../favorites.html" class="">おきにいり</a><a href="../aboutme.html" class="">じこしょうかい</a><a href="../announce.html" class="">おしらせ</a></nav>
+  <a class="logo" href="../index.html">平田朋義</a>
+  <nav><a href="../mywork.html" class="here">WORKS</a><a href="../favorites.html" class="">FAVORITES</a><a href="../aboutme.html" class="">ABOUT</a><a href="../announce.html" class="">NEWS</a></nav>
 </header>
-<p class="crumbs"><a href="../index.html">Home</a> › <a href="../mywork.html">つくったもの</a> › 夢の話</p>
+<p class="crumbs"><a href="../index.html">Home</a> / <a href="../mywork.html">作ったもの</a> / 夢の話</p>
 <article class="article">
+<p class="eyebrow">WORKS</p>
 <h1>夢の話</h1>
 <p>僕の日記をみて、夢の記述が多くあることに気付いた方もおられるでしょう。ここでは僕の夢の変遷、夢の中での特殊能力について一筆書き上げたいと思います。ちなみに以下の文章は、一回生のときの英語の時間でスピーチとして発表したのに加筆した文章となっています。</p><p>僕が夢の中で空を飛ぶことを覚えたのは小学四年生のころでした。このころ僕は所謂「自覚夢」というのを立て続けに見ていました。自覚夢というのは 夢の中で夢と気付いている夢のことです。この機会を逃す手はないと考えた僕は空を飛ぶ訓練をしようと思い立ち実行に移しました。</p><p>最初はまず夢の中での墜落死に対する恐怖感をなくすために、わざわざ高い所に行きそこから落ちることを意識的に何度も繰り返しました（もちろん夢の中で）。何度かやっている内に慣れてきたので、次は空を飛ぶ訓練を開始しました。</p><p>訓練は高いところに登ってそこから空に泳ぎだすというやりかたで始めました。成功しました。それから、回を重ねる内に飛行能力も次第に上達してい きました。最初は前述の通り空を泳いでいたのですが、次第に泳ぐことは必要でなくなり、思っただけで空を飛べるようになりました。スピードも上達していき ました、最初は水中を泳ぐ程度の速度しか出せなかったのですが、次第にいくらでも速度を出せるようになりました。また自覚夢以外の夢でも普通に空を飛べる ようになりました。</p><p>飛行能力以外の特殊能力が発現したのは、主に浪人時代からです。手に入れた夢の能力とその特性を下に列挙します。</p><p>飛行能力：いつでも使える。完成した能力。</p><p>壁抜け：飛行能力の次に発現した能力。これと飛行能力は殆どの夢で使用可能。ほぼ完成。</p><p>瞬間移動：ときどき使用可能になる。方法はいろいろある。壁にむかって全力疾走するなどして脳にエラーを出させ、夢を途切れさせその隙に新たな状 景を作るのが一番初期の方法。最近は壁を次元の狭間としてそこに入る方法、空間に切れ目をいれてそこを抜ける方法などを使用している。</p><p>身体を小さくする、あるいは大きくする能力：ときどき使用可能になる。意外に役に立つ。</p><p>念動力：物に触らず、物を動かす能力。まれに使用可能。また使えるときも、単に透明で長い手が一本あるだけというときから、場の全ての力を操ると きまで能力の大きさに揺らぎがある。昔はこれを使うときは後頭部が痺れたものだが、最近は痺れない。基本的に精密動作性に欠けるのが欠点。結構簡単にでき るので、壁抜けと飛行（この二つは結構できる人がいるようだ）を修得した人は挑戦してはどうでしょうか？</p><p>壁を歩く：念動力の応用、壁の周りの重力を壁に垂直になるよう変更させることにより可能となる。ほとんど使わない。</p><p>時間を止める：2000年5月24日発現。止めれるのは長くて5秒。連続で止めようとすると、各一秒ごとが限界。だんだん、慣れて来た。</p><p>時間を戻す：二種類ある。1.局所的な時間を戻す。2.自分が過去へ時間移動する。1は結構な頻度で使えるようになってきた。イメージは「ジョジョの奇妙な冒険」の<a href="http://spw.at.infoseek.co.jp/stand-ka.htm#dia">クレイジー・ダイヤモンド</a>のようなもの。割れた卵を元に戻したり、人の怪我を治したりといろいろつかえる。</p><p>2は能力というよりストーリ上で起こるイベントのようなもの。殆ど発現しない。</p><p>夢で訪れた場所もさまざまです。核戦争後の世界、白亜紀、文明化された火星、本の中、関数空間、などなど枚挙に暇がありません。基本的に映画や小説を読んだ後はそれを舞台にした夢を見ることが多いようです。</p><p>自分の姿も様々です。普通のこの姿であることが一番多いですが、五歳ぐらいの女の子、老人、ロボット、宇宙、点粒子、関数空間上の点とこれも枚挙に暇がありません。</p><p>浪人時代に夢関連でもう一つ面白いことがありました。それは金縛りと所謂「幽体離脱」の体験です。（あとで書きますが、この二つは絶対に心霊現象などではありません）</p><p>そのころ僕は、夜九時に寝て夜二時に起きるというスケジュールを取ってました。するとすぐに気付いたのですが、二時に起きて朝の六時ごろに昼寝？をしようとすると必ず金縛りが起きるのでした。</p><p>最初の頃は、頭でこれは単なる生理的な現象に過ぎないとは分かっていたのですが、やはり恐怖が先行して赤ん坊の泣き声や女性の叫び声など様々な幻 聴を聞きました。また金縛り時に無理やり身体を動かそうとすると感覚だけが先行して夢に入ってしまい所謂幽体離脱状態に入ることも発見しました。</p><p>これが霊現象ではないことは簡単に確かめられました。なんといっても自分の部屋を離れて、外に出て塾に入ると普通に昼間と変わらず塾生がいるもの ですから。確証を得る為、さらに実験を重ねました。ある日幽体離脱をした後、その日の新聞を読みました、それの見出しを記憶し、次に起きてから新聞の見出 しを確認してみました。見出しは記憶と全く異なりました。その他、金縛り状態のときに兄や母が私の部屋に入ってきた幻覚を見、しかる後に本人に問い合わせ た所、そのような事実はないことを確かめたりして、この二つの現象が純粋に生理的な現象であることを確かめました。</p><p>慣れて来るとしだいに全く恐怖を感じなくなったので、幻聴は聞こえないようになりました。代わりに幻覚をデザインして遊んだりしました。もっとも更に慣れて来ると、金縛りかどうか確認する為に手足を動かすことすら億劫になっていきました。</p><p>金縛り現象にあうときは、前兆があります。頭の中にマイクのハウジングのようなウィーンウィーンと言う音が聞こえ、これがどんどん周期を高めていきます。音が連続的になるまで周期を高めると金縛りが起こります。</p><p>金縛り時に見る夢すなわち幽体離脱夢は普段の夢に比べかなり退屈なものです。なんせ舞台が常に自分の部屋から始まり、しかもたいていは夜です。夢 は極度に不安定ですぐにつぶれ、ストーリー性は全く無く、感覚が正確に再現されていないことも多くあります。また金縛りにあうとかなり疲労します。</p><p>まあとはいえ何かと不思議な感覚を味わえるので、金縛り及び「幽体離脱」は楽しいものです。今でも時々これらを味わうために、あえて九時に寝て二時に起き六時に寝るということをしています。</p><p>追記:2022/06/16</p><p>最近は超再生(不死身)とマインドコントロールが得意。</p><p>マインドコントロールは自分の人格の一部を切り出して頭に植えつけるイメージ｡</p>
 
 </article>
 <footer class="site-foot">
-  <span>© 平田朋義 ・ since 2009</span>
-  <span><a href="../index.html">ひらたともよし！</a></span>
+  <span>© TOMOYOSHI HIRATA — SINCE 2001</span>
+  <span><a href="../index.html">HOME</a></span>
 </footer>
 </div>
 </body>

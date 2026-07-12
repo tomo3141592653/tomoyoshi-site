@@ -3,92 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2003年7月の日記 | ひらたともよし！</title>
+<title>2003年7月の日記 | 平田朋義</title>
 <style>
 :root{
-  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
-  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
-  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+  --bg:#fdfdfb; --ink:#17181c; --muted:#5e6470; --faint:#9aa0ac;
+  --line:#e3e4e8; --blue:#2136c9; --blue-soft:#eceefb;
+  --sans:"Hiragino Sans","Yu Gothic","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
-    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+  :root{ --bg:#121318; --ink:#e8e9ee; --muted:#9aa0b0; --faint:#5e6470;
+    --line:#26282f; --blue:#8b9bff; --blue-soft:#1b2040; }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
-  -webkit-font-smoothing:antialiased}
-a{color:var(--link);text-underline-offset:.18em}
-a:hover{color:var(--accent)}
-.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
-.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
-.site-head .logo:hover{color:var(--accent)}
-.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
-.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
-.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
-.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
-.crumbs a{color:var(--muted);text-decoration:none}
-.crumbs a:hover{color:var(--accent);text-decoration:underline}
-h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
-.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
-.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
-.article p{margin:0 0 1.1em}
-.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-weight:300;line-height:2.0;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+b,strong,h1,h2,h3,h4{font-weight:600}
+.page{max-width:840px;margin:0 auto;padding:0 24px 72px}
+
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;padding:30px 0 26px}
+.site-head .logo{font-weight:700;font-size:1.02rem;letter-spacing:.16em;
+  text-decoration:none;color:var(--ink)}
+.site-head .logo:hover{color:var(--blue)}
+.site-head nav{display:flex;gap:26px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em}
+.site-head nav a{text-decoration:none;color:var(--muted);padding:2px 0;
+  border-bottom:1px solid transparent}
+.site-head nav a:hover{color:var(--blue)}
+.site-head nav a.here{color:var(--blue);border-bottom-color:var(--blue)}
+
+.crumbs{font-family:var(--mono);font-size:.72rem;color:var(--faint);
+  margin:26px 0 0;letter-spacing:.04em}
+.crumbs a{color:var(--faint);text-decoration:none}
+.crumbs a:hover{color:var(--blue);text-decoration:underline}
+
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--blue);margin:34px 0 0}
+h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
+  font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.article h2{font-size:1.22rem;margin:2.4em 0 .7em;line-height:1.6;
+  padding-bottom:.35em;border-bottom:1px solid var(--line)}
+.article h3{font-size:1.02rem;margin:2em 0 .5em}
+.article p{margin:0 0 1.2em}
+.article img{max-width:100%;height:auto;display:block;margin:1.4em 0}
 .article ul,.article ol{padding-left:1.5em}
-.article li{margin:.25em 0}
-.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
-.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
-.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.kids{list-style:none;padding:0;margin:20px 0}
+.article li{margin:.3em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1.2em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 12px;font-size:.9rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2.4em 0}
+
+.kids{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--line)}
 .kids li{margin:0;border-bottom:1px solid var(--line)}
-.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
-.kids a:hover{background:var(--paper)}
-.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
-.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
-  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
-.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
-.card .emoji{font-size:1.6rem}
-.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
-.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
-  text-decoration:none;background:var(--paper)}
-.chips a:hover{border-color:var(--accent)}
-.hero{padding:34px 0 8px}
-.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
-.hero .name .ex{color:var(--accent)}
-.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
-.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
-.diary-years{margin:20px 0}
-.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.kids a{display:block;padding:13px 2px;text-decoration:none;color:var(--ink);font-weight:400}
+.kids a:hover{color:var(--blue);padding-left:8px;transition:padding-left .15s}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted)}
+.kids-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--faint);margin:3.2em 0 0}
+
+/* ---------- index ---------- */
+.hero{padding:56px 0 0}
+.hero .name{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:800;line-height:1.15;
+  letter-spacing:.06em;margin:0}
+.hero .romaji{font-family:var(--mono);font-size:.78rem;letter-spacing:.34em;
+  color:var(--muted);margin:14px 0 0}
+.pi-line{font-family:var(--mono);font-size:.82rem;white-space:nowrap;overflow:hidden;
+  color:var(--faint);margin:34px 0 0;letter-spacing:.1em;
+  -webkit-mask-image:linear-gradient(90deg,#000 72%,transparent);
+  mask-image:linear-gradient(90deg,#000 72%,transparent)}
+.pi-line b{color:var(--blue);font-weight:600}
+.hero .tag{max-width:34em;color:var(--muted);margin:30px 0 0;font-size:.95rem}
+
+.index-list{margin:60px 0 0;border-top:1px solid var(--line)}
+.index-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:6px 18px;
+  align-items:baseline;padding:20px 2px;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink)}
+.index-list .key{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--muted)}
+.index-list .jp{font-size:1.18rem;font-weight:600}
+.index-list .jp .desc{display:block;font-size:.82rem;font-weight:300;color:var(--muted)}
+.index-list .n{font-family:var(--mono);font-size:.78rem;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+.index-list a:hover .jp,.index-list a:hover .key{color:var(--blue)}
+@media (max-width:560px){
+  .index-list a{grid-template-columns:1fr auto}
+  .index-list .key{grid-column:1 / -1}
+}
+
+.elsewhere{margin:58px 0 0}
+.elsewhere-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;color:var(--faint)}
+.elsewhere-links{display:flex;flex-wrap:wrap;gap:4px 26px;margin:10px 0 0;font-size:.88rem}
+.elsewhere-links a{text-decoration:none;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:1px}
+.elsewhere-links a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ---------- diary archive ---------- */
+.diary-years{margin:26px 0}
+.diary-years h2{font-family:var(--mono);font-size:.85rem;letter-spacing:.18em;
+  margin:2.4em 0 .6em;color:var(--muted);border:none;padding:0}
 .diary-months{display:flex;flex-wrap:wrap;gap:8px}
-.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
-  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
-.diary-months a:hover{border-color:var(--accent)}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
-.prevnext a{text-decoration:none}
-footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
-  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-footer.site-foot a{color:var(--muted)}
+.diary-months a{font-family:var(--mono);padding:7px 14px;border:1px solid var(--line);
+  text-decoration:none;font-size:.82rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--blue);color:var(--blue)}
+
+footer.site-foot{margin-top:88px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--faint)}
+footer.site-foot a{color:var(--faint);text-decoration:none}
+footer.site-foot a:hover{color:var(--blue)}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important}
+}
 </style>
 </head>
 <body>
 <div class="page">
 <header class="site-head">
-  <a class="logo" href="../../index.html">ひらたともよし！</a>
-  <nav><a href="../../mywork.html" class="here">つくったもの</a><a href="../../favorites.html" class="">おきにいり</a><a href="../../aboutme.html" class="">じこしょうかい</a><a href="../../announce.html" class="">おしらせ</a></nav>
+  <a class="logo" href="../../index.html">平田朋義</a>
+  <nav><a href="../../mywork.html" class="here">WORKS</a><a href="../../favorites.html" class="">FAVORITES</a><a href="../../aboutme.html" class="">ABOUT</a><a href="../../announce.html" class="">NEWS</a></nav>
 </header>
-<p class="crumbs"><a href="../../index.html">Home</a> › <a href="../../mywork.html">つくったもの</a> › <a href="../../mywork/old-diaries.html">むかしの日記 (2002–2006)</a> › 2003年7月の日記</p>
+<p class="crumbs"><a href="../../index.html">Home</a> / <a href="../../mywork.html">作ったもの</a> / <a href="../../mywork/old-diaries.html">むかしの日記 (2002–2009)</a> / 2003年7月の日記</p>
 <article class="article">
+<p class="eyebrow">WORKS</p>
 <h1>2003年7月の日記</h1>
 <p>7月三十一日（木）</p><p>院氏ゼミのためにまたもや、四時間の問題を三時間でやる。全部解けた。</p><p>答え合せをすると、二箇所ポカミスをしていた。やっぱりよく問題読んでみなおさないかんようだ。</p><p>そして、情報処理のレポートを学校のLinuxでする。結局、行列演算プログラムはDLできなかったのでM君のをメールで送ってもらう事になった。三時から八時までやる。学校のパソコンはなぜか、目も肩も痛くならない。なぜだろう。</p><p>また行き詰まる。編微分方程式の境界条件の入れ方がわからん！</p><p>家に帰ってからも考える。でも分らないからねる。</p><p>7月三十日（すい）</p><p>夢：失恋する。ちょっとみないうちにあの子がこんなにけばい人になっているとは！って夢。あと色々飛び回った。</p><p>朝は夢を引きずって、大いに凹む。</p><p>学校に行ってｋｍさんと食事。</p><p>物理情報処理のノートをプリントして、家に帰る。</p><p>住民関連でバーベキューがあるので行く。肉が食えた。そして友人の輪が広がったであろう。</p><p>帰ってから情報処理のレポートをするぜと意気込み、半徹夜する。終わるまでやるぜと気合を入れていたら、どうしても家では出来ない作業が出て、中断。行列演算プログラムがインストールできん！</p><p>7月二十九日（火）</p><p>朝起きて院試ゼミが一時からあることを思い出し、二時間半で四時間分解く。なせばなるものだ。</p><p>昼ご飯はカロリーメイトだけだったので非常にお腹がすく。</p><p>夜は住民ミーティングでつぶれる。</p><p>7月二十八日（月）</p><p>一日中、光子の四元ベクトルの対角化をしてました。クーロンゲージでは[A(x),π(x&#39;)]≠iδ(x-x&#39;)なので苦労します。</p><p>エネルギー成分はハミルトニアンH＝∑ｘ（1/2A2 + 1/2 π（-△）π）で最初から殆ど対角化された形になっているので楽です。</p><p>つまり</p><p>H＝∑ｘ ｛（1/2π†π+ 1/2 A†（-△）A）｝</p><p>ここでC上R3行R3列 Uｋｘ＝1/（2π）2/3 exp(-ikx)を定義し、</p><p>U A＝ｑ</p><p>U π＝ｐ と定義する。</p><p>すると</p><p>H＝1/2ｐ†UU-1ｐ +1/2 ｑ†U（-△）U-1ｑ</p><p>＝∑ｋ1/2 ｐ（ｋ）†ｐ（ｋ） +1/2 ｑ†（ｋ）ｋ2ｑ（ｋ）</p><p>となり。</p><p>a(k)＝root（ｋ0/2）ｑ(k)+i root(1/2ｋ0)ｐ(k)</p><p>where k0=|k|</p><p>なので</p><p>大体</p><p>H=∑ｋ ｋ0a†(k)a(k) +定数</p><p>とこのように古典力学での連成振動子系や一粒子量子力学での調和振動子の対角化のアナロジーで簡単に計算できます。</p><p>で、問題になるのは運動量成分</p><p>Pi=∑ｘ πｊ ∂i Aｊ</p><p>上と同様の計算をして</p><p> =∑ｋ-iki p† q</p><p> p†（ｋ）＝ｐ（-ｋ）なので</p><p> =1/2∑ｋ(-i ki p† q  +i ki  p q†）</p><p>ここでpとｑ†を交換すると、</p><p>＝1/2∑ｋ(-i ki p† q  +i ki  q† p）+const …式（1）</p><p>p =root(1/2k0) p </p><p>q = root(k0/2)  q</p><p>とすると、 </p><p>＝∑ｋki {1/2（q†-ip†）(q+ip)-1/2(q†+ip†)(q-ip)+const …式（2）</p><p>とかける。この変換は式（1）を二次形式とみなして、行列</p><p>0  i</p><p>-i 0</p><p>を対角化すると得られる。q - p ＝a（-k） なので、</p><p> =∑ｋ1/2 ki { a(k)† a(k) -a(-k) a(-k)† ｝+const</p><p> ＝∑ｋki a(k)† a(k) +const +const2</p><p>じつは面白いことにconstとconst2は打ち消しあう（ただの計算間違えかも知れないが）。</p><p>ということを一日かけてやりました。二次形式にもちこむと上手くいく形を模索するのに努力しました。</p><p>実際のレポートでは添え字が一杯で大変！</p><p>式2（をすこし変形したの）が土曜の日記の∑ｐ＾2/2ｍ+1/2 ｍω2ｘ2 の形式になっているわけです。</p><p>ということで、ここしばらくのプログラム「二次形式で書かれた量子場における四次元運動量の対角化の一般論。」（変数変換を繰り返し∑ｐ＾2/2ｍ+1/2 ｍω2ｘ2 の和に書き直す）が完成したので満足する。</p><p>7月二十七日（日）</p><p>宇治へT子先輩とI子先輩と三室戸寺を見に行く。</p><p>ハスの花が綺麗であった。</p><p>一年前に来たときは貴乃花の写真があったが今年はなくなっていた。これも時代の流れか。</p><p>宇治川はダムの放流で見たこともないような急流となっていた。</p><p>7月二十六日（土）</p><p>起きたら十一時。洗濯して、掃除して朝ご飯を食べてたらもう昼になってしまった。</p><p>依頼されてたWKBの反射率計算を終える。それから量子特論のレポートをずっとする。</p><p>γ5が偽スカラーであることはγ5＝(-i/4!) εμνρσ γμ γν γρ γσ</p><p>を使うのが吉ですぜ。</p><p>電磁場の運動量Pが∑ｋ a†a で書けることを楽に証明したいのだが。苦戦している。方針、まずP の各項を調和振動子の和つまり</p><p>∑ｐ＾2/2ｍ+1/2 ｍω2ｘ2 の形に書き直したいのだが、そして書き直せるはずなのだが、これが難しい。いいアイデアがないものか。</p><p>7月二十五日（金）</p><p>素粒子物理のテスト＠10：30：配り終わった後「では私はこれで失礼するので、出来あがったら二時までに研究室に答案を持ってきてください。」「図書館でやっても本をみてもいいですよ。ただし相談はしないで下さい。」なんと適当な！</p><p>で総人の図書館に行く。ノート見ても何を書いているのか分らないし、教科書にも載っていない。ハドロンの「化学」を記した本というのはないのですね。</p><p>問題はこんなんだった。</p><p>1：弱い相互作用がV-A型であることを示す実験を二つあげその理由を述べよ。</p><p>2.K+がKｓより寿命が100倍ほど長いのは何でか。</p><p>3.（1）ベータ崩壊を使って、「右」を定義せよ。</p><p>（2）1のやりかたでは、構成物質が反物質だと右と左の定義が入れ替わってしまう。これを示せ。</p><p>（3）常物質と反物質を見分ける実験を示せ。</p><p>答案の結果1は完全に答えれた。2が分らなかった。（答えはアイソスピンが二つ減らないと崩壊できないので）ずーと考えて二時になってしまった。だから3.を一気呵成に書かざるを得なく、あまり自信がない。3（3）の僕の答えは「CP対称性のやぶれを利用する。あるいは地球上の物質と対消滅するかどうか試してみる。」</p><p>3（3）の本当の答えは「K粒子を崩壊させて多く出る電子が反電子であるということを使う。」だそうですが、にしかわせんせいに聞いた所僕の答えでもOKにしてくれるそうです。</p><p>図書館を駆け巡り本を返しておしまい。</p><p>最近メールが少なくて寂しいのでいろいろな人にメールを出してみた。六割ぐらいしか帰ってこなかった。</p><p>ちゅきさんに電話した。</p><p>私曰く「僕たち友だちじゃないですか。」ちゅきさん曰く「ちがう。」</p><p>7月二十四日（木）</p><p>宇宙から肉眼で万里の長城が見えるというのは嘘だそうだ。</p><p>レミングが集団自殺するというのも嘘だそうだ。</p><p>「死とはモーツァルトが聞けなくなることです。」といったのはアルバート・アインシュタイン（物理学者）ではなくアルフレート・アインシュタイン（音楽学者）だそうだ。</p><p>夢：小学校時代の親友に何か恥かしいことを言ってしまい、それが中学の友だちじゃない人にばれて僕は発作的に四条畷駅から電車に乗る。田舎方面へ。辺鄙な駅に着く。そういえばこの駅はなんどか夢で来たことがある駅だ。</p><p>空を飛んで帰ろうとする。少し飛ぶと、線路が３方向に分かれていた。仕方ないので駅に戻って駅員に聞く。しばらく飛ぶと下に電車が走ってきた。</p><p>気が付くと中にいた。出ようと思って扉をすり抜けようとする。一般に金属はすり抜けにくいのだが、あせることはない、指から少しずつ体を扉に浸潤させてい く。少しずつ体が入っていく様は極めてシュール！右手右足を残したまま首を出すことが出来た。電車は猛スピードで走っている。殆どかすれて見えるほどだ。 こんな速度は飛行では出ないなと思い。飛んで帰るのはやめにする。</p><p>原子核物理のテスト：簡単だった。しかし、先生。「結合エネルギーの飽和性」は授業でやったのですか？</p><p>素粒子 物理の今年のノートを読むが全然分らない。文章が書いていないので、何をやっているのか分らない。家に帰ってから自分の去年のノートを見てみた。（今年よ り）分りやすい。やっぱり自分のノートはいい。毎週、一時間質問しただけあると、そう思った。質問の内容はいつもこんなんだった。「今日の授業は結局何を 言いたかったのですか？」</p><p>残念ながら去年と今年はやったことや順番がかなり違う。ということで今夜は今年のノート解読に全力を注ぐとしよう。</p><p>7月二十三日（すい）</p><p>1時間目：物理数学1試験</p><p>全問解けた！解析関数の絶対値に関する最大値の原理の証明が出たが、ちょっとまわりくどい方法をしてしまった。</p><p>1.もしなりたたないとすると、平均値の定理より、局所的に絶対値一定。</p><p>2.さらに局所的にlogをとって、実数部分が定数関数、ゆえにlogがその局所で定数。元の関数も定数。</p><p>3.一致の定理で全部で定数関数で矛盾。</p><p>こうとけば楽なのですね。</p><p>実部虚部に関して平均値の定理が成立。より実部虚部において最大値の原理が成立。よって（実部）2+（虚部）2も最大値原理成立。</p><p>2間目：物性物理2試験。</p><p>180点満点のテストだった…。しかも感想にも点がもらえるそうな。</p><p>まあ大丈夫かな…？</p><p>その後、原子核の勉強をする。漫然と読み返すだけ。</p><p>7月二十二日（火）</p><p>物性の勉強を続ける。そして三時に終わる。質問をしに行くと先生はいない。かわりに院生のS.S氏に質問をした。</p><p>こんなに質問付箋がついたノートを持って。</p><p>明日は八時には出発しなければならない。こんな早くに起きるのは久し振りなので、起きれるかどうか心配で、夜も眠れなかった。</p><p>7月二一日（月）</p><p>物理数学を二時までに読み終わらす。</p><p>それから物性物理の勉強。</p><p>わからないところに付箋を貼っていく。四十箇所を越えた。分らない所は稠密に存在するようだ。</p><p>夕暮れ時が暑い。思考の停まる暑さだ。</p><p>夕食は作ってくれた。ビールが出た。試験中なのでと断ると、「定期試験ごときで飲まなかったら、院試落ちるよ。」と説得？されて結局飲んだ。</p><p>夕食後も物理数学の続き。漸近展開の意味がついに分った。logΓの二回微分がきれい。</p><p>7月二十日（日）</p><p>物理数学のお勉強。テスト中というのはやっぱり集中して勉強できるので少し楽しい。</p><p>1.時間的に限られている。</p><p>2.範囲が限られている。</p><p>の二つの点で。</p><p>で物理数学。100ｐを越えるあのレジュメを途中まで読んだ。</p><p>夕食はリゾットとなすの煮物といわしの煮つけを作った。</p><p>7月十九日（土）</p><p>今年のテストは</p><p>1.物性物理2（水）</p><p>2.物理数学1（水）</p><p>3.原子核（木）</p><p>の三点です。気が向けば素粒子（金）も受けますが、去年レポート貰って「遅れてもいいよ」と確かに聞いたので、それを出せばよいのかもしれません。</p><p>今日は原子核をお勉強。一年前のノートを読みかえす。</p><p>丁度先生の書いた本を手に入れた。殆どがそこからの引用（適当度をあげての）なので助かる。</p><p>夕方にpigeonさんに会い、今年の原子核のノートを借りる。</p><p>他人の書いたノートはなんと見やすいのだろうか！関係ない数式の落書きとかないし。謝礼のお菓子が高くついた。</p><p>夕食はpigeonさんとルネで食べる。二十世紀の芸術の興亡について話をした。</p><p>原子核の勉強終了。</p><p>モーツァルトの「プラハ」を聞いた。一楽章で魔笛のテーマが流れたとき、涙が出そうになった。</p><p>1956年、モーツァルト生誕200年の記念講演で、カール・バルトの言葉</p><p>モーツァルトの音楽の軽やかさが、何か人の心を不安にさせるものを持っている・・・、この両面性を受けつ けない人はモーツァルトによって心を軽くすることはないでしょう。最近「重さが浮かび、軽さが限りなく重い」という言葉を聞いて、自分の言いたいことを得 ました。モーツァルトの特異性はこの矛盾と結びついています。いや、彼にあっては矛盾ではないのです。</p><p>7月十八日（金）</p><p>最近見た夢：</p><p>1.卵を割り、次に時間を戻し卵を直した。</p><p>2.小さな双子の女の子に見たら死ぬ鏡を見せられた。</p><p>3.上の二つの夢についてT子先輩と喫茶店で話し合った。</p><p>4.迷路に閉じ込められた。迷路の各部屋は普通の家の部屋風。三人の仲間が居た。一人は「体になんでも物体をくっつけれる。」という特殊能力を持っていた。もう一人は足が骨折していたが、僕が足の時間を戻して直してあげた。</p><p>5.ひたすら飛び回った。</p><p>院試ゼミで解き残していた問題に再チャレンジ。WKBでの透過率が出なくて苦しんでいたら、入射波と反射波を間違えていたようだ。</p><p>√（二次式/二次式） の積分は一般に楕円関数が出るようだ。</p><p>昼からB1のレポートをする。六時に僕のｄutyは全て果たす。パソコンを五時間以上使用すると殆ど目が機能を果たさなくなる。パソコンなんて大嫌いだ。</p><p>七時から打ち合わせ。話し合いにより問題は解決された。</p><p>7月十七日（木）</p><p>十時間寝た。</p><p>洗濯を二回に分けてして、院試の問題自分が当たっている所をしたら。なんかもう四時になってしまった。</p><p>時間泥棒に時間を盗まれたらしい。</p><p>7月十六日（水）</p><p>一時間で書類を完成。物性物理の授業を受けて、書類を提出して、虎猫君、おおかわくんとで宵山を見に行く。昼の二時から。</p><p>雪駄が潰れたのでゴミ箱に捨てる。そして裸足になる。サンダルを買ったがあわなかったので、脱いだりはいたりして過ごす。</p><p>池坊学園で生け花の展示会がやっていたのでそれにもよる。生け花は何がいいのか分りません。シュールリアニスムな生け花とかないのかな。</p><p>色々な山鉾を見てまわる。二百円で乗れるやつがあったので乗る。上からの眺めは気持ちいい。どうやればこれに乗って巡行できるのだろうか？</p><p>ここで御池通りまで戻って、ｋ君を待つ。待っている間に日は暮れる。</p><p>ｋ君来る。そろそろ屋台が完全に開店し、人間密度は飽和に達した。途中でおたべ屋によって虎猫君がおたべを夕食として一気に食べるが、やはりそれは胸焼けを引き起こしたようだ。</p><p>一度三条通に出て、また戻る。ある元小学校前で休憩をとりそこで、ブリッジ歩きの動画を撮ったりする。ブリッジで前進できるようになりました。</p><p>そして御所に戻り、夜中の御所を通る。</p><p>夜中御所の壁を触ると警報がなるという噂があったので、試して見た。確かに鳴った！「ここはみんなの文化財です大切にしましょう。」と大音量で鳴り響いた。</p><p>結局今日は十時間歩いたことになる。</p><p>7月十五日（火）</p><p>願書の書類を集めるのに半日費やす。もう半日は今日の自主ゼミの発表の準備と発表。最後の所はよく分らずに発表してしまう。</p><p>解ける微分方程式の範囲が広がった。</p><p>dX(t)/dt=[H,X(t)]+B(t) のタイプ。</p><p>夜に書類を書き始める。書類の山につぶされる、精神的に。断念。続きはまた明日。</p><p>7月十四日（月）</p><p>今日が最後の授業のはず。</p><p>7月十三日（日）</p><p>おきて、ギタマンのOB演奏会の練習場へ遊びに向かう。練習をするために行ったのではない。アルバムを返してもらいにために行ったのだ。</p><p>既に行った時には「僕が来る」という注意報が報じられていたそうで、だれも驚きはしなかった。</p><p>おぐありさんと交渉をする。心理学の被験者になるかわりに写真を撮らせてと。契約は成立した。</p><p>京都に行く頃には大雨。傘をコンビニで取られてしまう。旅行者に二条きゃそはどこですか。と尋ねられる。きゃそ＝城 としばらくして気づく。つい間違った道を教えてしまった。</p><p>九時から二時まで住人ミーティングで時間を取られてしまった。</p><p>7月十二日（土）</p><p>大阪に行って、ちゅーりっぱーさんと食事。食事の後はケーキ。久し振りにたくさんの人間を見た気がする。</p><p>四條畷に行って、はてな村でありさんと二人大富豪をして楽しむ。僕が。</p><p>その後、兎やんのおうちにアポ無しでいって、町を歩いて話をする。</p><p>実家で寝る。</p><p>7月十一日（金）たくさんかいたけど消えちゃった。</p><p>昨日の問題解決。答えは「フォトンはグランドカノニカルが使えないから。」(ゼミ中でもこの結論に足したのだが、自分なりに理解したということ。グランドカノニカルをミクロカノニカルから導くとき、粒子数保存を使っている。)</p><p>ウィッテんの講演会。グロスの話しのみが面白かった。もうすぐLHCが稼動する。私は幸せな時代に生まれてきたのかもしれない。</p><p>7月十日（木）たくさんかいたけど消えちゃった。</p><p>昨日の問題解決。過程を書いていないが結論[q†i,pj]=iδij のとき、ユニタリ行列Uijに関して[（Uｑ）†i,Upj]=iδij</p><p>これにより、任意の二次形式型ハミルトニアンから瞬時に生成消滅演算子を作れるようになった。</p><p>ゼミ中に新たな問題が出た。なぜフォトンをグランドカノニカルで扱うときにはμ＝0なのか。いろいろ説明されたが、溜飲は下りなかった。</p><p>Γ関数を形式的に不定積分すると変な級数解が得られた。収束半径0だが、形式的に微分するとΓ関数になる。</p><p>7月九日（水）</p><p>東大を受けるか受けないか迷い中。受けない方に片寄ってきた感じです。誰か素論の先生に相談しに行こう。</p><p>朝起きたら、10：35。授業は五分前に始まっているぜ。ということで慌てて出発したが結局一時間も遅刻してしまった。</p><p>今日は入試の事務手続きを終わらせるぜ、と思ったが学生書を忘れたために出来なかった。最近どじが多い。</p><p>自由な時間（1：00から6：00まで）自由スカラー場の量子化を考えた。</p><p>目標「ハミルトニアンが個数演算子の和でかけることを示す。</p><p>ただし</p><p>1.よく行われるδ関数の煩雑な計算はしない、フーリエ変換がユニタリ変換であることをフルに使う。</p><p>2途中にハイゼンベルグ方程式は用いない。交換関係だけでがんばる。</p><p>3.天下りで行う変換は全く行わず自明で意味が明白な式変換だけでがんばる.」</p><p>の条件で行う。</p><p>」</p><p>結果一部気になるところを除いて1.2.3.の条件を満たす簡単な証明が出来た。</p><p>途中で松清さんに出会って、「遺伝アルゴリズム」と「思考による機械操作」の最近の技術進歩についての講釈をした。</p><p>7月八日（火）</p><p>情報処理論では簡単そうなことをしていた。特論4は電磁場の量子化。いろいろ誤魔化しているなあと思いながら受ける。この二つの授業中に、生成消滅演算子の多項式P(a,a†)についてコーヒーレント状態|α&gt;で平均を取る際の一般的な方法について考察した。</p><p>1.まず演算子を展開定理を用いて正規順序（aを右側に、a†を左側に持っていく。）にする。</p><p>2.正規順序に並び替えたのちaをα、a†をα* に書き換える。</p><p>実験ゼ ミ発表の前に発表する部分を見直すと何も頭に入ってないことに気が付いたので、慌ててまとめなおす。今日は全員がちょっとずつ発表の予定だったが、一番目 の人が1時間半僕が三十分ほど喋った時点で、「じゃあ、のこり各人5分でやって」ということになった。おかけで分らんとこはすっ飛ばすことができた。</p><p>自主ゼミ。僕が発表の予定だったそうだが、その予定は忘却のかなたであった。ということで来週にお流れに。</p><p>今日は水道代等の清算日。財布には20円しか残らなかった。しかも11000円の借金を作った。</p><p>7月七日（月）ヒタ</p><p>非常に興味深いことだが、七タ（漢字の七とカタカナのた）でgoogle検索すると214件も出てきた。</p><p>In the first class we studied thermodynamics in the name of “space physics”. Stephan-Boltzmann low and black body radiation and so on are what we studied.</p><p>The second class: condensed matter physics</p><p>Only 5 students were in the lecture room when the lecture started.</p><p>Today’s topic was Macroscopic Quantum Theory. I’m interested in whether it is possible to regard macroscopic variables as variables of quantum theory.</p><p>Today is Tanabata. But there is no Bamboo grass in front of 6th building.</p><p>So I corrected Minami and F to buy and install it.</p><p>We bought it at a near flower shop and install it with the help of office workers of the faculty.</p><p>面倒なので約はなし。以下日本語で。</p><p>今年も奇怪な願い事が出た。列記すると。</p><p>「女子高生と仲良くなりたい。」「特異点になりたい」「ベッセル関数が勝てますように。」「収率が上がりますように」「ボゴリュ-ゴフをボブリョーゴフといい間違えませんように。」「人生がゆらぎますように。プランク定数＝1010ぐらい」「」トンネル効果で壁が抜けれますように」「月へ行きたい。」</p><p>今年の僕が選ぶ願い事グランプリは</p><p>「ここにある願い事が全てかないませんように。」（自己言及文）</p><p>ちなみに僕の願い事は、ささやかに</p><p>「真空が崩壊しますように」</p><p>「よくなりますように」</p><p>「不老不死」</p><p>の三つでした。</p><p>川合ゼミでは川合せんせいが休講ということで自主ゼミになった。</p><p>今日はγ体操をした。γ体操とはγ行列のトレース計算のことである。γ行列多数のトレースにもWickの定理的なものがあるので、縮約記号やダイアグラムでもっと簡単に計算できるのではないかと思った。</p><p>帰ってから二時間ほど悪夢に彩られた非常に浅い眠りをとり、それからずっと明日の実験ゼミの発表の準備（アノ-マリーについてとかGUTについてとか）で夜を明かす。寝るのを忘れていたので五時から七時半まで寝る。</p><p>7月6日（日）</p><p>I&#39;m very happy that I have been set free from the duty of B1.</p><p>B1の義務から解放され非常に幸福に思う。</p><p>In the morning, time flied like an arrow while I cleaned my room and did the wash.</p><p>朝、時は私が掃除洗濯をする間に矢の如く過ぎ去る。</p><p>I, who love solitude (or who have no friends to play with), went to Shiga modern art museum to see Tunetomi KITANO’s pictures</p><p>(see <a href="http://www.biwa.ne.jp/%7Esg-kinbi/exhibition/exhibition_database/pressrelease/exhibition_03-2.html">http://www.biwa.ne.jp/~sg-kinbi/exhibition/exhibition_database/pressrelease/exhibition_03-2.html</a>).</p><p>孤独を愛する私（或は遊ぶ友人の居ない私）は滋賀近代美術館に北野恒富の絵画を見に行く。</p><p> His paintings remind me Junichiro TANIZAKI’s aesthetic works.</p><p>彼の絵は谷崎潤一郎の耽美的作品を髣髴させる。</p><p> After appreciating I explored the park in which the museum is.</p><p>I was alone so I was able to walk with my pace. Sometime I run like a child and another time I walked at quite slow pace.</p><p>鑑賞の後、美術館のある公園を逍遥する。</p><p>我の孤なれば、自らの歩調で歩くを得る。時に子供の如く走り、また時に至極ゆっくり歩む。</p><p> On the way to home, a heavy downpour came. As I had hanged washing out, I felt OH MY GOD.</p><p>帰路、驟雨降る。洗濯を干していたので、「なんてこったい」と思う。</p><p>But when I came back ,I found thatτis so kind to take the washing in before they had got wet. I am so much thankful to him.</p><p>だが、帰ってみると親切にもτが洗濯物を濡れる前に取り込んでくれていた。彼に感謝の意を捧げる。</p><p>7月五日（土）課題演習B１の発表会。</p><p>朝十一時に集まる。発表の練習をするつもりだったが、コピーをとって製本してご飯を食べるだけで、一時になってしまった。</p><p>一時半から発表。私達のチームから発表。いろいろ突っ込まれて苦しい思いをした。まあ、大部分は細かい箇所なのですぐレポートで訂正は可能だろう。もっとも、今日でB１は終わりだと思っていただけに、辛いものがある。</p><p>発表会は四時半まで続く。他の二つの班は相転移がはっきりでていなかったようだ。ということは私達磁化率班は楽だったのでは…。と思う。</p><p>ｋ君とご飯を食べた後、孤独を愛する（=誰も一緒に遊んでくれない）平田朋義は単身、京大交響楽団を聞きに行く。演奏は素晴らしかったと書きたいところだが、好評のため当日券が手に入らず聞けなかった。</p><p>誰かと一緒に来なくて良かった…。学生の演奏会でもちゃんと前売りで手に入れるべきだということを平田朋義は学習した。しかしこのままではもったいないと思い、北山の雑貨屋をめぐる。部屋を見えなくする、洒落たすだれがあったので買った。</p><p>ジョジョの最終巻を購入した。あまりいい評判ではないけど、この終わり方はこれでいいかもしれない、そう思いました。ただ、思うに丞太郎さんはもっと工夫して戦うべきだと思った。ナイフやパチンコ球などを常備するとか。</p><p>くやしいので映画「ハリーポッタと秘密の部屋」を借りた。「今日は1日から五日までの日記を書いた。」と数日前に書いたが実はハリーポッターと秘密の部屋を見たためにくたびれて書けなかった。</p><p>幽霊の女の子がいいあじ出していた。</p><p>7月4日（金）</p><p>朝：B1の発表会の準備</p><p>昼；B1の発表会の準備で集まる。ｋ君と発表の練習をする。上手くいった。</p><p>帰ってから、今日の訂正箇所を訂正。夜中の三時半までかかる。ご飯は作ってもらった。</p><p>7月三日（木）</p><p>統一論の授業の後。ちょっと図書館で寝込む。自主ゼミの問題を一問解き忘れていたことに気が付いて慌てて10分でとく。初期条件がδ関数のときの熱方程式の解。</p><p>途中であきらめた真空の問題は実は良問だということがわかった。</p><p>終わった後B1発表会準備。</p><p>たしか今日は大雨。寒いなかバスで帰る。</p><p>帰った後も遅くまでB1発表会準備。</p><p>雨続きで洗濯物がたまる一方です。</p><p>7月二日（水）ローレンツ祭</p><p>数メートル空に上がり手鏡で太陽光を反射させて、その光の圧力を利用して空を動き回ったという夢。</p><p>ローレンツ祭。それは物理学科のお祭り。</p><p>寝坊して10時に目覚める。ガイダンスを聞かずにオープンラボに行く。</p><p>流体研：何も用意していなかったようだ。院生にナビエストークス方程式と髪型（何故院生は二人とも髪の毛をそっているのか）について質問する。藤先生もいずれあの髪型にさせるそうだ。</p><p>光物性学：超高出力レーザーで遊ばせてもらう。紙から煙出させたり。集光させると、空気がイオン化されそれが振動して高い音が聞こえるのが面白い。「手、焼いてみる？黒い点点の焼け跡ができるよ。」と薦められたが辞退する。</p><p>量子工学：お話しはよく聞く話だった。実験装置類を見せてもらった。めっちゃかっこよかった。</p><p>素粒子論：標準理論や超紐の初心者向けの話しをしていた。愛媛から見学に来ている人がいた。友だちになればよかった。</p><p>講演：たかはし先生 あまり覚えていない。</p><p>くご先生：標準模型とGUTの話し。あの時間であれぐらいの密度を分りやすく喋れるのはすごいものだ。クォーク混合がすっきりと分った。授業「統一理論」のいい復習と予習になった。</p><p>ビアパーティ：知らない人に「大阪大学から見に来ました。HP読んでます。」と話し掛けられた。そして色々な人と話をした。来年からローレンツ祭はスタッフに浴衣着用義務を課して欲しい。そう思った。</p><p>7月1日（火）</p><p>In the lecture ”advanced quantum mechanism” as I was so tedious that I found the enlarged virial theorym.</p><p>That is</p><p>nk&lt;K&gt;-nu&lt;U&gt;=3PV,where K is kinetic energy ,and U is potential energy,ne is the virial coefficient of e.</p><p>For example ,when the gas now  concerned is photonic gas nk is equal to 1, and U=0 , therefore ,&lt;K&gt;=3PV.</p><p>This is right.</p><p>Today I presented in the experimental seminar of Nishikawa.</p><p> What I presented was about neutorino oscillation. s the part I had to talk about is not well wrttien. Not until I was taught in the lecture did I understand its contents.</p><p> There was a party to celebrate τ&#39;s retirement  of job in my dormitory.</p><p>機械和訳</p><p>講義の中で「定量メカニズムを進めました」非常に退屈だったので、私が拡大したvirial theorymを見つけたとともに。それはそうです。nk&lt;K&gt;ニュー&lt;U&gt;=3PV、Kが運動エネルギーである場合、neはe のvirialなcoefficentです、また、Uが位置エネルギーである。例えば、ガスが今関係があった時、光子のガスnkである、したがって1およ びU=0に等しい、&lt;K&gt;=3PV。これは正しい。今日、私は西川の実験のセミナーの中で示しました。私が示したものはneutorino発 振に関係していました。私が講義の中で教えなって初めて、私が話さなければならなかった部分が上手に書かれていないとともに、行った、私はその内容を理解 します。私の寮でτの仕事の引退を祝うパーティーがいました。</p>
 
 </article>
 <footer class="site-foot">
-  <span>© 平田朋義 ・ since 2009</span>
-  <span><a href="../../index.html">ひらたともよし！</a></span>
+  <span>© TOMOYOSHI HIRATA — SINCE 2001</span>
+  <span><a href="../../index.html">HOME</a></span>
 </footer>
 </div>
 </body>

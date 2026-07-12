@@ -3,92 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2005年7月の日記 | ひらたともよし！</title>
+<title>2005年7月の日記 | 平田朋義</title>
 <style>
 :root{
-  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
-  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
-  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+  --bg:#fdfdfb; --ink:#17181c; --muted:#5e6470; --faint:#9aa0ac;
+  --line:#e3e4e8; --blue:#2136c9; --blue-soft:#eceefb;
+  --sans:"Hiragino Sans","Yu Gothic","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
-    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+  :root{ --bg:#121318; --ink:#e8e9ee; --muted:#9aa0b0; --faint:#5e6470;
+    --line:#26282f; --blue:#8b9bff; --blue-soft:#1b2040; }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
-  -webkit-font-smoothing:antialiased}
-a{color:var(--link);text-underline-offset:.18em}
-a:hover{color:var(--accent)}
-.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
-.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
-.site-head .logo:hover{color:var(--accent)}
-.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
-.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
-.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
-.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
-.crumbs a{color:var(--muted);text-decoration:none}
-.crumbs a:hover{color:var(--accent);text-decoration:underline}
-h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
-.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
-.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
-.article p{margin:0 0 1.1em}
-.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-weight:300;line-height:2.0;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+b,strong,h1,h2,h3,h4{font-weight:600}
+.page{max-width:840px;margin:0 auto;padding:0 24px 72px}
+
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;padding:30px 0 26px}
+.site-head .logo{font-weight:700;font-size:1.02rem;letter-spacing:.16em;
+  text-decoration:none;color:var(--ink)}
+.site-head .logo:hover{color:var(--blue)}
+.site-head nav{display:flex;gap:26px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em}
+.site-head nav a{text-decoration:none;color:var(--muted);padding:2px 0;
+  border-bottom:1px solid transparent}
+.site-head nav a:hover{color:var(--blue)}
+.site-head nav a.here{color:var(--blue);border-bottom-color:var(--blue)}
+
+.crumbs{font-family:var(--mono);font-size:.72rem;color:var(--faint);
+  margin:26px 0 0;letter-spacing:.04em}
+.crumbs a{color:var(--faint);text-decoration:none}
+.crumbs a:hover{color:var(--blue);text-decoration:underline}
+
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--blue);margin:34px 0 0}
+h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
+  font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.article h2{font-size:1.22rem;margin:2.4em 0 .7em;line-height:1.6;
+  padding-bottom:.35em;border-bottom:1px solid var(--line)}
+.article h3{font-size:1.02rem;margin:2em 0 .5em}
+.article p{margin:0 0 1.2em}
+.article img{max-width:100%;height:auto;display:block;margin:1.4em 0}
 .article ul,.article ol{padding-left:1.5em}
-.article li{margin:.25em 0}
-.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
-.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
-.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.kids{list-style:none;padding:0;margin:20px 0}
+.article li{margin:.3em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1.2em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 12px;font-size:.9rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2.4em 0}
+
+.kids{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--line)}
 .kids li{margin:0;border-bottom:1px solid var(--line)}
-.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
-.kids a:hover{background:var(--paper)}
-.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
-.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
-  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
-.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
-.card .emoji{font-size:1.6rem}
-.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
-.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
-  text-decoration:none;background:var(--paper)}
-.chips a:hover{border-color:var(--accent)}
-.hero{padding:34px 0 8px}
-.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
-.hero .name .ex{color:var(--accent)}
-.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
-.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
-.diary-years{margin:20px 0}
-.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.kids a{display:block;padding:13px 2px;text-decoration:none;color:var(--ink);font-weight:400}
+.kids a:hover{color:var(--blue);padding-left:8px;transition:padding-left .15s}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted)}
+.kids-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--faint);margin:3.2em 0 0}
+
+/* ---------- index ---------- */
+.hero{padding:56px 0 0}
+.hero .name{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:800;line-height:1.15;
+  letter-spacing:.06em;margin:0}
+.hero .romaji{font-family:var(--mono);font-size:.78rem;letter-spacing:.34em;
+  color:var(--muted);margin:14px 0 0}
+.pi-line{font-family:var(--mono);font-size:.82rem;white-space:nowrap;overflow:hidden;
+  color:var(--faint);margin:34px 0 0;letter-spacing:.1em;
+  -webkit-mask-image:linear-gradient(90deg,#000 72%,transparent);
+  mask-image:linear-gradient(90deg,#000 72%,transparent)}
+.pi-line b{color:var(--blue);font-weight:600}
+.hero .tag{max-width:34em;color:var(--muted);margin:30px 0 0;font-size:.95rem}
+
+.index-list{margin:60px 0 0;border-top:1px solid var(--line)}
+.index-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:6px 18px;
+  align-items:baseline;padding:20px 2px;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink)}
+.index-list .key{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--muted)}
+.index-list .jp{font-size:1.18rem;font-weight:600}
+.index-list .jp .desc{display:block;font-size:.82rem;font-weight:300;color:var(--muted)}
+.index-list .n{font-family:var(--mono);font-size:.78rem;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+.index-list a:hover .jp,.index-list a:hover .key{color:var(--blue)}
+@media (max-width:560px){
+  .index-list a{grid-template-columns:1fr auto}
+  .index-list .key{grid-column:1 / -1}
+}
+
+.elsewhere{margin:58px 0 0}
+.elsewhere-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;color:var(--faint)}
+.elsewhere-links{display:flex;flex-wrap:wrap;gap:4px 26px;margin:10px 0 0;font-size:.88rem}
+.elsewhere-links a{text-decoration:none;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:1px}
+.elsewhere-links a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ---------- diary archive ---------- */
+.diary-years{margin:26px 0}
+.diary-years h2{font-family:var(--mono);font-size:.85rem;letter-spacing:.18em;
+  margin:2.4em 0 .6em;color:var(--muted);border:none;padding:0}
 .diary-months{display:flex;flex-wrap:wrap;gap:8px}
-.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
-  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
-.diary-months a:hover{border-color:var(--accent)}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
-.prevnext a{text-decoration:none}
-footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
-  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-footer.site-foot a{color:var(--muted)}
+.diary-months a{font-family:var(--mono);padding:7px 14px;border:1px solid var(--line);
+  text-decoration:none;font-size:.82rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--blue);color:var(--blue)}
+
+footer.site-foot{margin-top:88px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--faint)}
+footer.site-foot a{color:var(--faint);text-decoration:none}
+footer.site-foot a:hover{color:var(--blue)}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important}
+}
 </style>
 </head>
 <body>
 <div class="page">
 <header class="site-head">
-  <a class="logo" href="../../index.html">ひらたともよし！</a>
-  <nav><a href="../../mywork.html" class="here">つくったもの</a><a href="../../favorites.html" class="">おきにいり</a><a href="../../aboutme.html" class="">じこしょうかい</a><a href="../../announce.html" class="">おしらせ</a></nav>
+  <a class="logo" href="../../index.html">平田朋義</a>
+  <nav><a href="../../mywork.html" class="here">WORKS</a><a href="../../favorites.html" class="">FAVORITES</a><a href="../../aboutme.html" class="">ABOUT</a><a href="../../announce.html" class="">NEWS</a></nav>
 </header>
-<p class="crumbs"><a href="../../index.html">Home</a> › <a href="../../mywork.html">つくったもの</a> › <a href="../../mywork/old-diaries.html">むかしの日記 (2002–2006)</a> › 2005年7月の日記</p>
+<p class="crumbs"><a href="../../index.html">Home</a> / <a href="../../mywork.html">作ったもの</a> / <a href="../../mywork/old-diaries.html">むかしの日記 (2002–2009)</a> / 2005年7月の日記</p>
 <article class="article">
+<p class="eyebrow">WORKS</p>
 <h1>2005年7月の日記</h1>
 <p>七月三十一日（日）</p><p>午前中はマンドリンの練習。</p><p>昼は、後輩が出てる演劇の公演へ誘われたので見に行く。</p><p>夜はいしがき寮祭を見に行った。</p><p>この前知り合った人にハイキングの会に誘われた。</p><p>七月三十日（土）</p><p>はてな村塾に行って、国語の授業に出た。</p><p>設問に無理があるもの以外は解けた。</p><p>ありさんにあった。ありさんを駅まで送り、いろいろと話をした。</p><p>せっかくなので塾で「春の祭典」を聞いた。でかいスピーカーで聞かないとこの音楽のよさは分かりにくいな。</p><p>七月二十九日（金）</p><p>実家に帰る。</p><p>七月二十七日（水）</p><p>物理学教室の草むしり大会が行われる。</p><p>僕は鱒寿司が振舞われるという嘘を信じていったら、タメマス掃除をさせられた。</p><p>いたのは鱒ではなくバブルスライム達だった。大量のバブルスライムが発生するのは構造的欠陥があると思われる。</p><p>終わった後、草むしりに強制参加させられる。</p><p>生きよう生きようとしている草を抜くのは非常に心苦しく、その後しばらく憂鬱になった。</p><p>それからビールを飲んでセミナーに戻る。</p><p>ゼミは十一時から。背中が眠い。HUNTER×HUNTERを毎日一巻ずつ読んでいる。かなり面白い。今、ゲームの中に入ったとこ。ヒソカがいいなあ。</p><p>七月二十六日（火）</p><p>突然中学の友人から電話かかってきた。「結婚するねん。」とのこと。</p><p>めでたい。結婚式の時には東京にいるので行くのは無理なので残念。</p><p>僕は結婚式に行ったことがないので、どんなものか研究室の人に聞いてみた。ある人いわく「生きているうちにする葬式。」また別の人いわく「数万円でやかんを貰う儀式。やかんを渡しても数万円はもらえない」とのこと。みんなひねくれています。</p><p>シュールレアニストである中学の友人への結婚祝いとして「ダリ全作品集」をアマゾンで買った。</p><p>今日のポルチンはGUTとリー代数の話。GUTもちゃんと勉強したい。</p><p>七月二十五日（月）</p><p>smolinの新しい論文を読む。論文というよりエッセイだった。一般向け出版が出来そうだった。the case for background independence。ダイナミカル単体分割は、四次元ユークリッドでは発散するがミンコフスキー空間では発散しないという記述が気になった。</p><p>七月二十四日（日）</p><p>夢:実家の近所の広場でキャンプファイヤを囲みながら大学の補修を受ける。終わったので、空を飛んで京都に戻る。ロードオブザリングに出てきそうな美しい湿地帯を高速で飛行するのは実に心地よい。</p><p>学校で起きる。</p><p>昼から映画「逆境ナイン」をS坂君と見に行った。面白いけど、これ漫画を読んでない人はどういう感想を抱くのか気になった。三条から歩いて出町柳に帰る。</p><p>大学の近くのお好み焼きやで食事。実は飲み屋だったので高かった。ビールを飲んで大学に戻って勉強を続けた。</p><p>七月二十三日（土） </p><p>起きると、はるかがミキサーで作ったバナナジュースをもらった。</p><p>庭ではあんちが、空池の中であんちの友人の髪を切っている。</p><p>玄関ではみつきちゃんが、ムビラの練習をしている。</p><p>そんな中、えりちゃんとその友達で玄関に座って風にあたりながらご飯を食べた。</p><p>昨日からファミコンのMOTHERをやり始めた。</p><p>前にやったのはもう十数年も昔のこと。</p><p>忘れられた男「なぜそんなにしつこくオレに話しかけるんだ。</p><p>お前も忘れられた男なのか？」</p><p>いいえ</p><p>「そうさ、そうだよな。</p><p>そうなんだ。</p><p>お前もはやくオレの事を無視しろよ」</p><p>はい</p><p>「そうだ、ありがとうよ」</p><p>男去る</p><p>なんてやりとりも昔は分からなかったけど今じゃわかる。</p><p>その中にマジカントという一つの異世界の国がある。</p><p>町並みはピンクの不思議で美しい造形をしていて、住民からは山ほどプレゼントがもらえて、女王からは「このマジカント国では、みんなが友達になれるし、</p><p>欲しいものはすきなだけ得られるのよ。</p><p>」と言われ、地面を泳ぐ猫がいるような所。</p><p>遥かな昔にこのゲームをしていらい、ずっとマジカントが心の中にあった。今日、今僕の住んでいる家がまさにマジカントであることに気がついた。</p><p>学校に行って、昼寝してストリングフィールド理論の勉強。</p><p>七月二十二日（金）</p><p>夏の学校のお金を振込みに行った。お金が足りなかったりして行ったりきたり、すると一回のときの先生に出会った。</p><p>授業をとったのは五年ぐらい前なのに覚えてくれていて、いろいろと話をしてくれた。物理に見切りをつけたら化学に来なさいと言ってくれた。（笑）このサイト見てくれているらしい。</p><p>てっきり化学でも複雑系やっている人多いと思っていたけど、殆どいないそうだ。これは意外だった。</p><p>ヒートアイランド現象が大変だそうなので、解決案を考えた。</p><p>その1.道路に使うアスファルトを白い素材にかえる。</p><p>その２.道路にたまっている熱を有効活用する。温水を作るとか、温度差発電するとか（このとき生じる廃熱は温水として再利用する。）。</p><p>七月二十一日（木）</p><p>アボリジニーの歌と踊りを京都の家族皆で聴きに行った。</p><p>うまく語りえぬが、とてもよかった。</p><p>七月二十日（水）</p><p>睡眠周期が安定してきた。一日を三分割して、六時間起きて二時間寝るといった。寝かた。これはずっと起きている気分で、一日のメリハリがなくなるということが分かった。「一日が終わる」ってことがなくなるんだ。</p><p>太陽の塔内覧の人数が集まってきた。はやいものだ。</p><p>七月十九日（火）</p><p>十六日から、寝ていないような気が。</p><p>正確に言うと細かい昼寝を一日何回かするだけで、まとめて寝ていません。</p><p>ポルチンの発表した。へてろてぃっくの話。</p><p>七月十八日（月）</p><p>超重力を考えると平気で、トーションでるけど、これは等価原理に反しない？</p><p>もっとも物質の運動方程式を考えると、トーションの寄与はない？</p><p>トーションの寄与はどこに出るのだろうか？</p><p>七月十七日（日）</p><p>OB演奏会の練習にでた。</p><p>眠い。</p><p>七月十六日（土）</p><p>今日は二十時間ぐらい寝た気が。</p><p>なっちゃんの家で五時に目覚め、なっちゃんと出発。</p><p>遅れて、あんち、えりちゃんと桂駅で合流。</p><p>そして電車で河原町へ、早朝の河原町はごみの山。若者たちが映画のようにたむろしている。そしてみんなと別れバスで学校へ。</p><p>学校に着いたら二度寝する。</p><p>起きたらなんと、夕方の四時！</p><p>それから、ご飯を食べてまた寝る。</p><p>起きたら夜の一時であった。</p><p>太陽の塔の中に入る企画を立ち上げました。</p><p>日にちは十月二十九日土曜日</p><p>十一時半から十二時に入ります。</p><p>最低人数２０人最大人数５０人です。</p><p>企画のページ早いうちに作ります。</p><p>行きたい人はメールしてください。</p><p>参加資格は、私、私の知り合い、私の知り合いの知り合い、私の知り合いの知り合いの知り合い、…です。</p><p>七月十五日（金）</p><p>京都の”家族”、下鴨サプライズ一家総出で祇園祭へ行った。</p><p>下鴨Girsはみんな浴衣。僕も和服を着たかったが、洗濯が間に合わなかったので無理だった。</p><p>山鉾の出ている街を歩いて、えりちゃんの浴衣をみんなで見立てて、ご飯を食べて、そしてなっちゃんの家へ。</p><p>なっちゃんの家にあった、「オズの魔法使い」と「不思議の国のアリス」の飛び出す絵本に感動した。</p><p>みんなで川川の字になって寝た。</p><p>今日の日は忘れがたい一日となった。</p><p>七月十四日（木）</p><p>カウンターが異様なことに。２１０を記録した。</p><p>理由は「素数の歌」がはてなでキーワード登録を受けたので。</p><p>しかし、なぜか今見るとない。</p><p>七月十一日</p><p>二ヶ月前ほどにあった面白い人と、石垣の上で再会。</p><p>やっぱり面白い人だった。</p><p>ドラえもんの「毎日がサプライズ」編を見る。クイック、スローとか人体切断機とか、ちょっとあぶない話がぎっしり詰まっていて大満足。</p><p>七月九日（土）</p><p>夜帰ったが寝れない。はるかの友達のまこが来たので深夜中おしゃべりする。</p><p>そうしているうちに、はるかの部屋中がはねありで一杯になった。</p><p>これが話に聞く蟻の結婚飛行か！と感動した。</p><p>太陽も出てきたので部屋に帰って寝た。寝ている間に多少蟻が体をはっていたような気配があった。</p><p>朝起きたら一匹もいなくなっていた。不思議だ。</p><p>七月七日（木）</p><p>実家から一人でゴッホ展見に行った。</p><p>平日なのに十分待ちの賑わいであった。</p><p>死ぬ直前の絵が胸に刺さる。ゴッホの青は穏やかで透き通るような青色だ。他にこの青を見たことがない。</p><p>帰ってから高校へ、五人同時に数学を教えた。</p><p>七月六日（水）</p><p>今年の物理のM１の面白い人と仲良くなった。</p><p>ダランベールと聞いて「百科全書派」と反応する人はなかなかいないんじゃないだろうか？</p><p>夜十時にゼミが終わって、それから実家に帰る。</p><p>七月四日（月）</p><p>今年も理学部で七夕の笹が出ていた。</p><p>昔、笹を買ってきてこっそりつけてたのが今ではすっかり理学部の行事の一つになっている。</p><p>今年の願い事は「ニュータイプ（強化人間）に成れますように」とか「神頼みせず生きていきたい」「世界平和」「世界革命」などがあった。</p><p>七月十一日（月）</p><p>「面白い漫画をHPで紹介してくれ」といわれているので、お勧め漫画百選を作ってみた。</p><p>順不同。僕と趣味の似ている「文芸ジャンキーパラダイス」さんの漫画選を大いに参考にしつつ、思いつくままに書いてみました。</p><p>火の鳥 手塚治虫</p><p>生徒諸君！ 庄司陽子</p><p>ざ・ちぇんじ！山内直美</p><p>カムイ伝 白土三平</p><p>ジョジョの奇妙な冒険 荒木飛呂彦</p><p>デビルマン 永井豪</p><p>逆境ナイン 島本和彦</p><p>風の谷のナウシカ 宮崎駿</p><p>MASTERキートン 浦沢直樹＆勝鹿北星</p><p>アドルフに告ぐ 手塚治虫</p><p>奇子 手塚治虫</p><p>きりひと讃歌 手塚治虫</p><p>陽だまりの樹 手塚治虫</p><p>ポーの一族 萩尾望都</p><p>精霊狩り 萩尾望都</p><p>百億の昼と千億の夜 萩尾望都</p><p>エレファントマン・ライフ 坂田靖子</p><p>AKIRA 大友克洋</p><p>漂流教室 楳図かずお</p><p>寄生獣 岩明均</p><p>ブラック・ジャック 手塚治虫</p><p>銃夢 木城ゆきと</p><p>ピンポン 松本大洋</p><p>ドラえもん 藤子・F・不二雄</p><p>藤子・F・不二雄のＳＦ短編集 藤子・F・不二雄</p><p>BASARA 田村由美</p><p>アフター０ 岡崎二郎</p><p>地球（テラ）へ… 竹宮恵子</p><p>ドラゴンボール 鳥山明</p><p>動物のお医者さん 佐々木倫子</p><p>２００１夜物語 星野之宣</p><p>攻殻機動隊 士郎正宗</p><p>笑う大天使（ミカエル）川原泉</p><p>パタリロ！ 魔夜峰央</p><p>pink 岡崎京子</p><p>めぞん一刻 高橋留美子</p><p>うる星やつら 高橋留美子</p><p>Pの悲劇などの短編集 高橋留美子</p><p>綿の国星 大島弓子</p><p>無能の人 つげ義春</p><p>竜の眠る星 清水玲子</p><p>20XX 清水玲子</p><p>美貌の果実 川原泉</p><p>カイジ 福本伸行</p><p>ぼくの地球を守って 日渡早紀</p><p>櫻の園 吉田秋生</p><p>１１人いる！ 萩尾望都</p><p>絶対安全剃刀 高野文子</p><p>ＯＺ 樹なつみ</p><p>未来の想い出 藤子・Ｆ・不二雄</p><p>ディスコミュニケーション 植芝理一</p><p>ワタナベ 窪之内英策</p><p>Spirit of Wonder 鶴田謙二</p><p>アタゴオルシリーズ ますむらひろし</p><p>あずまんが大王 あずまきよひこ</p><p>栞と紙魚子シリーズ 諸星大二郎</p><p>諸怪史異 諸星大二郎</p><p>BLUE 山本直樹</p><p>ビリーバーズ 山本直樹</p><p>さくらの唄 安達 哲</p><p>ネコじゃないもん！ 矢野健太郎</p><p>銀河鉄道９９９ 松本零士</p><p>猫楠 水木しげる</p><p>電波オデッセイ 永野のりこ</p><p>わたしは真悟 謀図かずお</p><p>タンタンシリーズ エルジェ</p><p>蒼天航路 李学仁 王欣太</p><p>バビル２世 横山光輝</p><p>番長惑星 石ノ森章太郎</p><p>リュウの道 石ノ森章太郎</p><p>かってに改蔵 久米田康治</p><p>伝染るんです 吉田戦車</p><p>神聖モテモテ王国 ながいけん</p><p>ピーナッツ（=スヌーピー） シュルツ</p><p>墨攻 森秀樹</p><p>DOMINION 士郎正宗</p><p>ジオラマボーイ パノラマガール 岡崎京子</p><p>アウターゾーン 光原伸</p><p>サルでも描けるまんが教室 相原コージ、竹熊健太郎</p><p>ＧＳ美神 極楽大作戦！！ 椎名 高志</p><p>つるばら つるばら 大島弓子</p><p>サバの秋の夜長 大島弓子</p><p>お～い！竜馬 小山ゆう 武田鉄矢</p><p>究極超人あ～る ゆうきまさみ</p><p>銀のロマンティック…わはは 川原泉</p><p>花園メリーゴーランド 柏木ハルコ</p><p>プラネテス 幸村 誠</p><p>バケツでごはん 玖保 キリコ</p><p>DEATH NOTE 大場 つぐみ, 小畑 健</p><p>エリア88 新谷かおる</p><p>覚悟のススメ 山口貴由</p><p>レッツゴー武芸帳 よしもとよしとも</p><p>BANANA FISH 吉田 秋生</p><p>さんさんさん 柳原望</p><p>石の花 坂口尚</p><p>レベルE 冨樫義博</p><p>うずまき 伊藤潤二</p><p>座敷女 望月 峯太郎</p><p>ニッポニア・ニッポン 杉浦日向子</p><p>鳥頭紀行 西原理恵子</p><p>これで百選。かぶってなければいいのだが。</p><p>「ベルサイユのバラ」とか「ガラスの仮面」とか「イティハーサ」とかといった少女マンガの大作を読みたい。</p><p>(補遺)多作でありかつ、かく漫画はたいてい傑作という漫画家</p><p>手塚治虫</p><p>萩尾望都</p><p>坂田靖子</p><p>藤子・F・不二雄</p><p>竹宮恵子</p><p>川原泉</p><p>岡崎京子</p><p>高橋留美子（短編）</p><p>大島弓子</p><p>清水玲子</p><p>ますむらひろし</p><p>諸星大二郎</p><p>山本直樹</p><p>七月十日（日）</p><p>ミュージックバトンってやつが何人から回ってきたので、ようやく書いてみる。五つの質問に答えて次の人に質問を回せという企画。</p><p>Total volume of music files on my computer (コンピュータに入ってる音楽ファイルの容量)=</p><p>ついに16GBに達した。 ちなみに音楽ファイル以外の容量は１０GB</p><p>Song playing right now (今聞いている曲) ＝なし</p><p>The last CD I bought (最後に買ったCD) ＝グレングールドのゴールドベルク変奏曲（55年モノラル盤） 感想：速い！</p><p>Five songs(tunes) I listen to a lot, or that mean a lot to me (よく聞く、または特別な思い入れのある5曲)</p><p>＝1. Eight Melodies（鈴木 慶一/田中 宏和）ファミコンソフトMOTHERで集める曲。十五年前に聞いて以来、忘れられない。</p><p>2.ブランデンブルク協奏曲（Bach） 肺炎で寝込んでいるときこれを聞いてよく泣いた。</p><p>3.メサイヤ（Handel） よく歌った。</p><p>4.交響曲第四十一番「ジュピター」（Mozart）kubelikがお勧め。</p><p>5.ピアノ協奏曲第三番（Rachmaninoｆｆ）中学ではやっていた。</p><p>Five people to whom I&#39;m passing the baton (バトンを渡す5人) ＝なし</p><p>十時ごろ起きた。</p><p>朝は家のなっちゃんと縁側でおしゃべり。チョウチンアンコウの生態とかについて語る。昼は学校に。でも行ってまた寝る。夜からずっと起きて、朝六時にまた寝る。赤子並みに寝た日。</p><p>七月九日（土）</p><p>周りの人がみんな言語を使って会話している事実が何か突然不思議に面白く思えてくる。</p><p>北部食堂の赤い帽子のおじさんにスイカを貰ったのでS君と食った。</p><p>カウンターの数字が、「更新しろ」という言葉に聞こえてきたので書いてみる。S君と、お好み焼きを食いに行った。よいお好み焼きやを発見した。経の日は家に帰った。</p><p>2003年写真ベストも完成させた。</p><p>京橋の京阪モール内のカメラの八雲は品質は良いし、安くてよい。</p><p>いやそもそも京都と大阪で写真の物価が違うような…。</p><p>2004年ベストは30枚あったのに対して、2003年はわずかに10枚であった。</p><p>この調子で、２０００年までさかのぼる予定。</p><p>京大の北部食堂は世界一うまい大学食堂だそうだ。たしかに、東大や阪大やKEKを食べた経験からはそうかも知れない。昔北部食堂で食べたフカひれスープはうまかった。</p><p>七月八日（金）</p><p>バリーロンドン見てから、実家から学校へ。</p><p>最近、漫画をよく読んでます。</p><p>今週は、HUNTER×HUNTERを一巻から八巻。手塚治虫の鳥人体系、ミクロイドSを読んだ。</p><p>どれもよい。</p><p>七月三日（日）</p><p>ソファーで目覚める。</p><p>昼一時ごろ家に帰り、服を着替えて少し雨宿りして再び学校へ。</p><p>ようやく梅雨らしくなってきた。移動には手間取るが風流がありよい。涼しいのもよい。</p><p>今日は素粒子論に不気味なほど人がいない。正月の三が日より人が少ないのではないかと思われる。合計二人しか見なかった。</p><p>六時から「江州・河内音頭タイフーン2005」 へ行く。江州音頭を覚えて、そして忘れた。河内音頭はうちの地方とまったく違う踊り方だったので適当に踊った。しだいに会場は熱狂的な空気をおび、少年少女も青年も中年も老人も我を忘れて踊った。</p><p>なぜかカメラが動かなくなった。</p><p>研究室に戻り寝た。</p><p>七月一日（金曜日）</p><p>二日連続徹夜中！ゼミの発表まであと四時間。</p><p>二日徹夜は初めて。朝、顔を洗っただけで鼻血がでて、ちょっとやばいなと思う。</p><p>今回のループ方程式の論文は経験値が高かった。はぐれメタル一匹程度、頭の中でレベルアップのファンファーレが聞こえた。</p><p>シュウィンガーダイソン方程式や、拘束があるときの微分（拘束方向への射影演算子をつけること）、TrABのB微分はAではなくAの転値であることなどが分かった。特に最後のやつは気づかず、ゼミ中ずっと計算が合わず二時間ほど無駄にしてしまった。</p><p>終わったら寝た。昼の二時から九時までと、夜の三時から朝の九時までと。</p>
 
 </article>
 <footer class="site-foot">
-  <span>© 平田朋義 ・ since 2009</span>
-  <span><a href="../../index.html">ひらたともよし！</a></span>
+  <span>© TOMOYOSHI HIRATA — SINCE 2001</span>
+  <span><a href="../../index.html">HOME</a></span>
 </footer>
 </div>
 </body>

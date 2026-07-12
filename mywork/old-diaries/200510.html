@@ -3,92 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2005年10月の日記 | ひらたともよし！</title>
+<title>2005年10月の日記 | 平田朋義</title>
 <style>
 :root{
-  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
-  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
-  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+  --bg:#fdfdfb; --ink:#17181c; --muted:#5e6470; --faint:#9aa0ac;
+  --line:#e3e4e8; --blue:#2136c9; --blue-soft:#eceefb;
+  --sans:"Hiragino Sans","Yu Gothic","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
-    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+  :root{ --bg:#121318; --ink:#e8e9ee; --muted:#9aa0b0; --faint:#5e6470;
+    --line:#26282f; --blue:#8b9bff; --blue-soft:#1b2040; }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
-  -webkit-font-smoothing:antialiased}
-a{color:var(--link);text-underline-offset:.18em}
-a:hover{color:var(--accent)}
-.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
-.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
-.site-head .logo:hover{color:var(--accent)}
-.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
-.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
-.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
-.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
-.crumbs a{color:var(--muted);text-decoration:none}
-.crumbs a:hover{color:var(--accent);text-decoration:underline}
-h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
-.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
-.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
-.article p{margin:0 0 1.1em}
-.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-weight:300;line-height:2.0;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+b,strong,h1,h2,h3,h4{font-weight:600}
+.page{max-width:840px;margin:0 auto;padding:0 24px 72px}
+
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;padding:30px 0 26px}
+.site-head .logo{font-weight:700;font-size:1.02rem;letter-spacing:.16em;
+  text-decoration:none;color:var(--ink)}
+.site-head .logo:hover{color:var(--blue)}
+.site-head nav{display:flex;gap:26px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em}
+.site-head nav a{text-decoration:none;color:var(--muted);padding:2px 0;
+  border-bottom:1px solid transparent}
+.site-head nav a:hover{color:var(--blue)}
+.site-head nav a.here{color:var(--blue);border-bottom-color:var(--blue)}
+
+.crumbs{font-family:var(--mono);font-size:.72rem;color:var(--faint);
+  margin:26px 0 0;letter-spacing:.04em}
+.crumbs a{color:var(--faint);text-decoration:none}
+.crumbs a:hover{color:var(--blue);text-decoration:underline}
+
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--blue);margin:34px 0 0}
+h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
+  font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.article h2{font-size:1.22rem;margin:2.4em 0 .7em;line-height:1.6;
+  padding-bottom:.35em;border-bottom:1px solid var(--line)}
+.article h3{font-size:1.02rem;margin:2em 0 .5em}
+.article p{margin:0 0 1.2em}
+.article img{max-width:100%;height:auto;display:block;margin:1.4em 0}
 .article ul,.article ol{padding-left:1.5em}
-.article li{margin:.25em 0}
-.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
-.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
-.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.kids{list-style:none;padding:0;margin:20px 0}
+.article li{margin:.3em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1.2em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 12px;font-size:.9rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2.4em 0}
+
+.kids{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--line)}
 .kids li{margin:0;border-bottom:1px solid var(--line)}
-.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
-.kids a:hover{background:var(--paper)}
-.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
-.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
-  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
-.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
-.card .emoji{font-size:1.6rem}
-.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
-.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
-  text-decoration:none;background:var(--paper)}
-.chips a:hover{border-color:var(--accent)}
-.hero{padding:34px 0 8px}
-.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
-.hero .name .ex{color:var(--accent)}
-.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
-.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
-.diary-years{margin:20px 0}
-.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.kids a{display:block;padding:13px 2px;text-decoration:none;color:var(--ink);font-weight:400}
+.kids a:hover{color:var(--blue);padding-left:8px;transition:padding-left .15s}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted)}
+.kids-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--faint);margin:3.2em 0 0}
+
+/* ---------- index ---------- */
+.hero{padding:56px 0 0}
+.hero .name{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:800;line-height:1.15;
+  letter-spacing:.06em;margin:0}
+.hero .romaji{font-family:var(--mono);font-size:.78rem;letter-spacing:.34em;
+  color:var(--muted);margin:14px 0 0}
+.pi-line{font-family:var(--mono);font-size:.82rem;white-space:nowrap;overflow:hidden;
+  color:var(--faint);margin:34px 0 0;letter-spacing:.1em;
+  -webkit-mask-image:linear-gradient(90deg,#000 72%,transparent);
+  mask-image:linear-gradient(90deg,#000 72%,transparent)}
+.pi-line b{color:var(--blue);font-weight:600}
+.hero .tag{max-width:34em;color:var(--muted);margin:30px 0 0;font-size:.95rem}
+
+.index-list{margin:60px 0 0;border-top:1px solid var(--line)}
+.index-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:6px 18px;
+  align-items:baseline;padding:20px 2px;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink)}
+.index-list .key{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--muted)}
+.index-list .jp{font-size:1.18rem;font-weight:600}
+.index-list .jp .desc{display:block;font-size:.82rem;font-weight:300;color:var(--muted)}
+.index-list .n{font-family:var(--mono);font-size:.78rem;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+.index-list a:hover .jp,.index-list a:hover .key{color:var(--blue)}
+@media (max-width:560px){
+  .index-list a{grid-template-columns:1fr auto}
+  .index-list .key{grid-column:1 / -1}
+}
+
+.elsewhere{margin:58px 0 0}
+.elsewhere-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;color:var(--faint)}
+.elsewhere-links{display:flex;flex-wrap:wrap;gap:4px 26px;margin:10px 0 0;font-size:.88rem}
+.elsewhere-links a{text-decoration:none;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:1px}
+.elsewhere-links a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ---------- diary archive ---------- */
+.diary-years{margin:26px 0}
+.diary-years h2{font-family:var(--mono);font-size:.85rem;letter-spacing:.18em;
+  margin:2.4em 0 .6em;color:var(--muted);border:none;padding:0}
 .diary-months{display:flex;flex-wrap:wrap;gap:8px}
-.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
-  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
-.diary-months a:hover{border-color:var(--accent)}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
-.prevnext a{text-decoration:none}
-footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
-  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-footer.site-foot a{color:var(--muted)}
+.diary-months a{font-family:var(--mono);padding:7px 14px;border:1px solid var(--line);
+  text-decoration:none;font-size:.82rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--blue);color:var(--blue)}
+
+footer.site-foot{margin-top:88px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--faint)}
+footer.site-foot a{color:var(--faint);text-decoration:none}
+footer.site-foot a:hover{color:var(--blue)}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important}
+}
 </style>
 </head>
 <body>
 <div class="page">
 <header class="site-head">
-  <a class="logo" href="../../index.html">ひらたともよし！</a>
-  <nav><a href="../../mywork.html" class="here">つくったもの</a><a href="../../favorites.html" class="">おきにいり</a><a href="../../aboutme.html" class="">じこしょうかい</a><a href="../../announce.html" class="">おしらせ</a></nav>
+  <a class="logo" href="../../index.html">平田朋義</a>
+  <nav><a href="../../mywork.html" class="here">WORKS</a><a href="../../favorites.html" class="">FAVORITES</a><a href="../../aboutme.html" class="">ABOUT</a><a href="../../announce.html" class="">NEWS</a></nav>
 </header>
-<p class="crumbs"><a href="../../index.html">Home</a> › <a href="../../mywork.html">つくったもの</a> › <a href="../../mywork/old-diaries.html">むかしの日記 (2002–2006)</a> › 2005年10月の日記</p>
+<p class="crumbs"><a href="../../index.html">Home</a> / <a href="../../mywork.html">作ったもの</a> / <a href="../../mywork/old-diaries.html">むかしの日記 (2002–2009)</a> / 2005年10月の日記</p>
 <article class="article">
+<p class="eyebrow">WORKS</p>
 <h1>2005年10月の日記</h1>
 <p>十月三十一日（月曜日）</p><p>せいさんと朝は七時半に銀閣寺前で待ち合わせ。</p><p>夢の中で時計を見たら九時五十二分で、慌てた。</p><p>今日は十時に京大で待ち合わせなのだ。</p><p>起きたら九時五十二分だった、慌てた。</p><p>今日は十時に京大で待ち合わせなのだ。</p><p>五分遅れたもののなんとか間に合った。</p><p>それから大文字山を登る。とてもさわやかに。</p><p>山の上でご飯を食べて、下山。</p><p>帰り道は膝がかたかた笑ってしまう。修練不足だなあ。</p><p>十月三十日（日曜日）</p><p>昨日の疲れがたまって一日誰とも会わず実家で寝て過ごす。</p><p>十月二十九日（土曜日）</p><p>太陽の塔！</p><p>朝から土砂降り、メールがばんばん来ます。</p><p>八時五十分に出町柳集合。京都組が集まる。京都組はテンションが低いなあ。</p><p>YOが遅刻したが、ともかく出発、途中きた君とか、ターナとか合流した。</p><p>記念公園前駅に着くと、ビッシーら畷同期組みがいた。</p><p>ゲート前に着くと、もう人だかりができていた。</p><p>とりあえず、誰が来て誰が着てないかを確認。スナフきんが「時間一時間間違えていまご飯食べている」と電話してくる。「食べずに濃い」とのたまう。</p><p>ここまでで四人の脱落者が出たが、とにかく中に入る。</p><p>太陽の党は近くで見ると異様な物体感が。</p><p>スナフきん君が手に目玉を書いて、「ともだち！」ってやっていた。</p><p>そして太陽の塔の内部へ。中は赤かった。時間の止まったような空間。七十年代の空気、岡本太郎の情熱が今も感じられる。求む完全復元。当時のビデオを見て、ああこの男の子が、K教授とかになったんだろうなと勝手な想像を膨らました。</p><p>それから、紆余曲折して、ご飯は休憩所で、学校の食堂のような休憩所だった。</p><p>そこで和気藹々とする。お金も集める。四条畷学園中卒業一年目の人と、卒業十年目の人で学園話がもりあがったのが印象的。学園は教師の移動がないからなあ。</p><p>集合写真を太陽の塔前で撮った。</p><p>そして、民族博物館へ。ここは広い、とても広い。みんなで入ったのに、広すぎて途中で人っ子一人見えなくなるほど分散する。</p><p>でて、サリー展も行って、あとは博物館前で、ギター弾いたり、太鼓叩いたり、縦笛を吹いたりと、無秩序な空間が生まれる。こんな空間ってどこかで見たことあるなあ。ああ<a href="http://ishigakicafe.hp.infoseek.co.jp/image/cartier.jpg">ここか</a>。</p><p>サリー展のバイトさんとも仲良くなる。</p><p>だんだん人も集まり、ハーモニカと縦笛で蛍の光が流れ始めて、公園からもそろそろ帰れとの放送が流れたので帰る。</p><p>途中からは晴れたので、行けたら他の所も行きたかったが、いかんせん博物館は広かった。ここで一日を過ごすことも可能だろう。</p><p>そして、飲み会へやりたいといったスナフきんに「じゃあ、君が幹事だ。」と命ずる。</p><p>ゆきゆきて、梅田へ。多くの別れありて残ったのは大体大学生、大学院生、物理率が高いような。</p><p>それから飲みまくって、家に帰ったそうな。</p><p>今日は十五歳から三十台の方までと、幅広い人たちが四十六人も集まり、不思議な交流の場を作ることができてよかった。</p><p>次は何をしよう？</p><p>参考文献（人の日記）：</p><p><a href="http://blog.livedoor.jp/humming555/archives/50184121.html">http://blog.livedoor.jp/humming555/archives/50184121.html</a> （スナフきん）</p><p><a href="http://d.hatena.ne.jp/ja5ytd/20051030">http://d.hatena.ne.jp/ja5ytd/20051030</a> （Y.O）</p><p><a href="http://ameblo.jp/qubit/entry-10005629792.html">http://ameblo.jp/qubit/entry-10005629792.html</a> （かつゆきさん）</p><p><a href="http://blog.drecom.jp/hirokororing/archive/170">http://blog.drecom.jp/hirokororing/archive/170</a> （ひろこさん）</p><p><a href="http://diary.jp.aol.com/t3maufyhmcut/68.html">http://diary.jp.aol.com/t3maufyhmcut/68.html</a> （オガくん）</p><p><a href="http://fjs.s41.xrea.com/diary/20051029.html">http://fjs.s41.xrea.com/diary/20051029.html</a> （ふじー紙）</p><p>十月二十八日（金曜日）</p><p>お酒を飲んで書くとキーボードのすべりがはやいです。</p><p>学振書類審査受かっちゃった。残念ながら面接免除にはならず。</p><p>受かった喜びよりも、面接面倒って気分の方が勝っている今日のこのごろ。</p><p>正直、あの書類は超キワモノだからなあ。書いたときの気持ちになれないは。</p><p>受かったら月二十万貰えるか。</p><p>毎日六千円使えるじゃん。とか考えています。</p><p>私信：母へ、土曜日帰ります。</p><p>太陽の塔：おひろが抜けて超ショック、久しぶりに会えると思ったのに。</p><p>夢：ネパールの山奥に取り残されたので空を飛んで日本へ帰ろうとした。誰か知らない女の人をパートナーにして。長い旅だった。</p><p>ネパールでは落ちたら生きては帰れないといわれている谷に落ちそうになる。地上すれすれで飛んでいく。線路に沿って飛んでいく。</p><p>中国のつく、白と赤の花が一面に広がる原野を飛んでいく。原野が夕陽に染まって美しい。地理学博物館に入る巨大な地図の上を飛んでいく。</p><p>博物館を抜けてさらに飛ぶ。方角を間違えて、東南アジアの街に着陸する。数日振りに人の姿を見る。日本円をなんとか崩せて、食事をした。言葉が通じないのが大変。海を飛ぶのは辛いので、このまま日本への航空機のチケットを買って帰ろうとしばらく滞在する。</p><p>女の人とはここで別れ、無事に日本に戻ったというエンディングが出ておしまい。</p><p>十月二十七日（木曜日）</p><p>夢：長い夢だった。中で楽団が演奏していた音楽は、モーツァルトのような西洋民族音楽のような不思議で美しい調べだった。</p><p>出ている料理もおいしかったし、舞台芸術も美しかった。</p><p>ストーリーは忘れた。誰か超越者のもとで働いて、寿司食ったり、音楽聴いたり。</p><p>朝は、十時に起きて、昨日の弁当を食べた。</p><p>それが胃にずんときて、しんどくなる。</p><p>二時からS坂くんの超重力の話を聞いた。眼鏡が壊れたが、手持ちの工具で全快させた。</p><p>六時から、総人のT置さん所へ行って、LQGの話を聞いて、玉置さんと食事。</p><p>指導教官のS山さんと会うべく、もう一度総人へ。</p><p>来ないのでぼーとしていた。O村君が、旧軍のなんとか将軍の写真を渡してきた。</p><p>で、教官と話して、理学部へ戻って、一時まで学校にいて帰る。</p><p>太陽の塔、ちゃんとできるか不安です。</p><p>当日は天気予報によると雨らしい。</p><p>終わったあとの夕食、飲み会の類は各自で散会してやってください。</p><p>十月二十六日（水曜日）</p><p>朝四時に起きる。</p><p>頭が痛い。何もかけずに寝たので調子が悪い。</p><p>セミナーはサボって、学士堂という古い喫茶店へ行った。</p><p>ずっと野球の話をしている人がいた。</p><p>その人が帰ってから、店員と話する。ずいぶん歴史のある喫茶店らしい。</p><p>十月二十五日（火曜日）</p><p>朝十時におきて、学校へ。</p><p>勉強して帰らなかった。</p><p>九時ごろソファーで寝る。</p><p>院長の笑顔と「スタッフは全員女性です」という言葉に魅せられて、<a href="http://www.okubodental.com/">おおくぼ歯科</a>へ行ってきた。このHPから院長のブログやスタッフの顔写真、プロフィールまで見れる。世の中にはいろんな歯医者があるもんだなあ。</p><p>たまたま、高校の同級生に会って驚いた。</p><p>めちゃくちゃ丁寧な歯医者さんだった。一つ説明するたびに「いままでのところで何か質問はありますか？」と聞いてくる。</p><p>デジカメで歯の写真を撮られた。ついでに顔の写真も撮られた。</p><p>治療を受けながら、モンスターズインクも見れた。でも、顔を上げているときは見えないので話が良く分からなかった。</p><p>じっくり丁寧に丁寧に歯を治したい人にはお勧めの歯医者だと思います。サービスも素晴らしいし。</p><p>十月二十四日（月曜日）</p><p>ようやく机を動かせた。</p><p>そして、新しい部屋へ。コンセントが足りなくて探していると、M先輩が、「どうかしたの？」と聞いてくれて、話をすると「じゃあ、僕の延長コードあげるよ。」といってくれた。親切心に心が癒された。</p><p>うちの部屋は常時滞在型の人を集められた感がある。</p><p>太陽の塔、電話で人数を五十人として登録した。キャンセル待ちがある状態だと、人数が変動しなくてこちらは助かる。</p><p>六時にお嬢と北大路堀川で待ち合わせ、ちょっと遅れてしまう。</p><p>お嬢はお嬢っぽい服を着ていた。</p><p>そして汚点紫というあやしい喫茶店へ行って、カレーを食べ、チャイを飲みながら、いろいろ喋った。</p><p>お嬢と別れた後、研究室に戻って、人の修士論文をコピーして読んだりとした。</p><p>十二時に下校。</p><p>十月二十三日（日曜日）</p><p>今日も引越しの続きして、寝て、家へ。</p><p>今日ははるかの誕生日＋なっちゃんの退院祝い。</p><p>ご飯がとってもおいしかった。</p><p>十月二十二日（土曜日）</p><p>今日は研究室内の引越しの日。</p><p>風邪明けなのに、肉体労働する。</p><p>でも、引越し先の机の人が風邪で寝込んでいるので、やったことは、本を移動さしただけ。</p><p>勉強と関係ない趣味の本をまとめると、スーツケース一杯分になった。</p><p>十月二十一日 （金曜日）</p><p>自宅静養中。もういいかい。まあだだよ。</p><p>とはいえ少し治ってきた様子。明日は強制出勤の日。やれやれだぜ。</p><p>十月二十日（木曜日）</p><p>風邪さらにひどく、実家に帰って栄養とってずっと寝る。</p><p>夜は思考がループしたり、サイケな夢を見たりして、熱にうなされる。</p><p>十月十九日 （水曜日）</p><p>風邪だ。秋風邪だ。「義朝の心に似たり秋の風邪」とよめりければ、皆人、乾飯のうえに涙落してほとびにけり。ちなみに秋の風邪と春の風邪は毎年必ず引いています。二年前は秋の風邪から肺炎に移行して驚いた。</p><p>今日は学校へ行ったけど、机の上にうつぶせになって耐えにけり。</p><p>帰りに、倒れているおばさんがいたので、「大丈夫ですか！」と声をかけて脈を取ろうとすると、のろのろと立ち上がり。</p><p>「自殺しようと思って、酒を飲んで、道で寝ていたの。でもやっぱりだめよね。」「あなたのおかげで助かった。助かった。」と号泣しながら抱きつかれ、感謝された。</p><p>まあそういう、普通の一日。</p><p>十月十八日（火曜日） なんだか全身筋肉痛。ひょっとして、あれか、あの年をとると運動した後の筋肉痛が翌日とか一週間後にでるというやつか。（←単なる風邪でした。）夜中、某さんと会って、深夜もあいているカフェでお話。でもしんどいんで、寝ながら喋っていた。</p><p>十月十七日（月曜日）</p><p>今日は朝は八時におきて三つのことをした。</p><p>１、S山さんに送る読みたい論文集の選別。パソコンの前にずっと座っていると疲労困憊します。朝の九時から夜の十二時半まで。</p><p>２、プールへ行った。夕の八時半から夜の九時まで。</p><p>３、物理学会誌の９９年のブラックホールエントロピーのまとめの記事を読んだ。これは非常に分かりやすかった。なるほど！と思う所多かった。夜の十二時半から夜の三時半まで。</p><p>四時に寝た。</p><p>せっかく朝方に戻したのになあ。</p><p>十月十六日（日曜日）</p><p>たいちんちでギタマン演奏会のビデオ上映会。</p><p>とりあえず、誕生日プレゼントとして適当なやつをベトナム雑貨屋で買っておく。</p><p>で、電車で行く。だんだん人が集まってきて、あとは<a href="http://blog.livedoor.jp/humming555/archives/50152688.html#comments">http://blog.livedoor.jp/humming555/archives/50152688.html#comments</a></p><p>にある通り。</p><p>高二のときのロックフェスのビデオ良かった。あの日のことはたぶんはっきりと覚えている。ビッシーのを聞いた後、演劇部へ行ってU西とコタツを囲んで喋ってたんだったっけ。あの頃は毎日、演劇部でU西とコタツを囲んで喋っていたんだからたぶんそうだ。</p><p>ビデオの中には懐かしい人々が、京ちゃんとかダニーとか本当に会ってないなあ。割烹着着て歌っているマメがかわいかった。うさやんは、ここ八年でおばさん化が進んでいた。</p><p>で、それから演奏会のビデオ、さっきのビデオで精神力を使い切ったので寝ながら聞いた。</p><p>それから色々あって、四時ごろからすでに、僕と肝機能に問題があるたいちとの間には酒が入る。</p><p>たいちはそこにいるみんなをmixiへと勧誘した。ついでに、mixiで五つ下の後輩をがんばって探した。</p><p>で、八犬伝へ。２７００のダメージを受けて帰る。</p><p>十月十五日（土曜日）</p><p>S山さんに送る論文を考えねばと考えて、太田さんのDブレインの本を読む。</p><p>そんな一日。</p><p>十月十四日（金曜日）</p><p>太鼓をたたきに、三条鴨川へ六時。</p><p>ジュジュさん他いろいろな人が太鼓をたたきに来ていた。</p><p>なぜか、ファイヤーダンスの伴奏をすることに。一人だけあってませんでした。</p><p>そのような感じで夜も更けていった。</p><p>十月十三日（木曜日）</p><p>起床時間の変化をグラフに取ると明白な周期性があることを発見した。</p><p>二日周期で動いているようだ。</p><p>早起きの後は遅おきが来るようだ。</p><p>発表のため三時ごろ集まる。ものすごく重い雰囲気。</p><p>発表始まる。結局三分ぐらいで終わってしまった。</p><p>S山さんになった。僕のしたいことはあまり知らないと言っているんだけど大丈夫だろうか。</p><p>修士論文は国会図書館に残らないから大丈夫って言ってた、いやその大丈夫じゃなくて…。</p><p>自分でやるしかないか。とりあえず、読みたい論文送ってといわれる。</p><p>終了後、水泳してせいと飲み会。お土産に世界写真全集を持っていったら大喜びされた。</p><p>今日も朝五時まで飲み語りした。酒が弱いので分解のほうが速くてまったく酔えなかった。</p><p>十月十二日（水曜日）</p><p>研究室会議、明日に修士論文の担当教官ぎめのために、十分以内でスピーチしなさいと言い渡される。</p><p>玉置さんのところに質問に行くがいなかった。</p><p>そう人の建物は懐かしい匂いがする。</p><p>十月十一日（火曜日）</p><p>特に思い出すことなく。</p><p>どうやって、一週間も二週間も前のことを日記に書くかというと、メールを見て思い出して書いているのです。</p><p>この日はメール見ても思い出せないので書くことがない。</p><p>最近買った本。</p><p>「不幸になりたがる人たち―自虐指向と破滅願望」</p><p>「人はなぜはまるのか」←内容を見ずにamazonで買ったが、薬物依存について多くのページを割いていてそれ以外の依存症についてはあまり書かれていなかったのが残念。</p><p>「マンレイ図録」←古本屋で衝動買い。展覧会で売られるような本。</p><p>「世界写真全集 human figure (邦題 ヌードフォトグラフィティ)」←定価３５００円が、amazonで950円で売られていたので買った。七年前に図書館で読んで感動した本。</p><p>「銀狼の花嫁」「魔術師の娘」←小説 僕の好きなファンタジーベルガリアード物語の前史。</p><p>十月十日（月曜日）</p><p>確か十時ごろ起きた。</p><p>この日は、確かtuliperとあったんだった。十一時に北新地で待ち合わせて、ベトナム料理屋？でご飯。と思ったら、まだ開店してないので、ジュンク堂を散策してから、改めてご飯。</p><p>近況を報告した。</p><p>それから、広い所でコーヒーとケーキを食べて、ジュンク堂を散策して三時ごろに散会。</p><p>そのまま、僕は帰京す。</p><p>学校へ行って、寝る。</p><p>十月九日（日曜日）</p><p>朝ははてな村で二時間半ヨガした。後半はボーっとなってしまった。</p><p>一時にT先輩と会って、大阪の国際美術館へ。</p><p>東欧の現代美術の展覧会へ行った。</p><p>感想は高校の文化祭みたい。面白いのもあるけど、何かしょぼくれた感じがある。</p><p>美術館の中のおしゃれな喫茶店で食べる。</p><p>それから隣の科学館へ行こうとしたが閉まっていたので断念。</p><p>歩いて梅田まで戻る。途中でうどん屋があったのでそこでご飯。</p><p>T先輩はこの前バリへ行ったそうなのだが。旅行中、ホテルから歩いて五分ぐらいの所のビルがテロで爆破されたそうな。そこに契約していた旅行会社もあって結構大変だったそうだ。</p><p>うどん食ったあとは実家に戻ってすぐに寝る。</p><p>十月八日（土曜日）</p><p>十二時ごろ起きる。今日は特に何もなし。</p><p>Dブレインからブラックホールエントロピーを出す論文を読み始めるが。進まない。</p><p>実家に帰った。</p><p>九月の写真を選抜して焼きまわしの注文をした。</p><p>一部フィルムに傷が入って一本線が中に入って台無しになっている写真が惜しい。</p><p>太陽の塔そろそろ満員に近づいてきた。</p><p><a href="http://6303.teacup.com/hougi/bbs">交流掲示板</a>書く人が少なくて寂しい。</p><p>十月七日（金曜日）</p><p>朝起きると家に、フランスの漫画家のウェリアさんが来ていた。</p><p>はるかが道で出会ったそうだ。</p><p>漫画の話をする。</p><p>昼はちゅんたとフランス会館で食事。猫がかわいかった。</p><p>夜プールへ行った後、せいと会う。</p><p>そして北大路堀川にある汚点紫というギャラリー＋雑貨屋風の喫茶店へ行く。店頭にはつぶれた空き缶が飾ってある。</p><p>中は天井に鯉のぼりがかかっていたり、猫が足元に寄ってきたりととってもあやしい感じ。何風とも言いがたい空間だった。</p><p>そこでチャイをたらふく飲む。一杯の量が多い。スパイスが多い。</p><p>それから、二次会として下鴨サプライズでヘンプビールを飲みながら語る。</p><p>せいと会うのは今日が二回目だが、夜九時半からぶっ通しで朝の四時まで語った。</p><p>十月六日（木曜日）</p><p>目が覚めるとなんと、昼の十二時半。驚いた。</p><p>洗濯をしている間に、HPを更新して、瞑想しながら洗濯物を干す。</p><p>学校に着いたのは二時で、それからWaldエントロピーの論文を読む。</p><p>五時から八時まで昼寝。幼児並みの睡眠時間を確保しています。</p><p>今日中にWaldのエントロピーの論文は読み終わった。</p><p>午前一時から一時間かけて、焼きまわすべき八月の写真を選択。先月はあまりいい写真なかった。</p><p>ついでに一枚写真場に更新。</p><p>二時に学校を出て。寝たのは四時。</p><p>我ながら面白くない日記だ。</p><p>太陽の塔内部見学の連絡でメールがたいへん。今日だけでも来たメールは二十件にも及ぶ。</p><p>確定者現在四十人。保留等五人です。制限は五十人なので申し込みはお早めに。</p><p>十月五日（水曜日）</p><p>一時間ばかし日記を書いた。</p><p>それから学校へ行って九時から十二時までお勉強。Waldエントロピーの元論文。今日中に読み終わる予定だったが結局読み終えれなかった。</p><p>そして、研究室会議。研究室ゼミ。</p><p>４回生のヌッシーが来ていた。</p><p>あとで、「これは一般相対論の授業じゃなかったんですね。」と言っていた。間違えていたようだ。</p><p>今日は特にこともなく、過ぎ去る。帰宅は二時。いきなり生活改善計画から外れてしまいました。</p><p>今週のマガジンの「絶望先生」には笑った。</p><p>太陽の塔人数がそろそろ四十人超えそうです。確定三十二人。連絡帰ってこない人三人、保留二人。</p><p>十月四日（火曜日）</p><p>ついうっかりして、トップページに書いていた日記を消してしまった。忘れよう。</p><p>朝はしんどくて十二時に起きる。で机に着いたのは二時ごろ。でもすぐにお買い物ツアーでルネにいく。２Gのメモリースティックを買ってもらった。太陽の塔関連のメールのやりとりが大変です。今日受信したメール件数は合計４０件にも及ぶ。</p><p>驚くべきことに国勢調査の未回収率は２０００年度でわずか1.7％だそうだ。僕の周りを見ると出している人の方が 少ない気が。調査員が勝手に書いているんじゃないだろうか？役所が横のつながりをしっかりすれば不要な調査であると思うが。住民票だって電子化されたわけ だし。</p><p>ネットによるとしつこく回収に来るとあったが、取りに来ないのであきらめた。</p><p>今日はWaldエントロピーの原論文を読んだけどあんまし進まんかった。</p><p>夜はプールへ。体調不良で５００ｍ泳いだだけで終えておく。</p><p>第ｎ回生活改善計画「一時までには家に帰る。二時までには寝る。八時までには起きる。」を打ち立てた。とりあえず今日は十二時半に家に帰る。</p><p>太陽の塔内部見学申込書をファックスで送った。</p><p>いろいろ人が増減して、現在二十七人＋α。ないと思うけど、四十人を超えたら、人数には気をつけないといけない。五十人が限度だから。</p><p>修士論文の方向性を決めた。方向だけだが。</p><p>十月三日（月曜日）</p><p>八時には起きたと思うが、朝は太陽の塔の明細HPを作るのに費やされる。やれやれだな。</p><p>お昼から学校。体を動かしていないのでしんどい。数日プールに行かないとみるみる血流が滞ってしまう。</p><p>一般相対論のお勉強。あんまし進まなかったが。</p><p>将来別件逮捕のネタに使われるのを恐れ（「国勢調査を出さなかったり嘘を書いたものは、6箇月以下の懲役若しくは禁錮又は10万円以下の罰金」統計法十九条（ただし死文））国勢調査に協力してみた（もっとも回答不能の場所が多いので空白が多いが）。でも取りに来なかった。</p><p>十月二日（日曜日）</p><p>最近徹夜できない体になってきたようだ。三時ぐらいに寝てしまう。朝起きてずっと、ワルトエントロピーの発表の準備。そして、夕方の六時に、S坂君とお好み焼きを食べに行った。</p><p>最近日曜はいつもS坂君とお好み焼きを食いに行っている。京大付近のお好み焼き屋は大体行った。お好み焼きという のはまずく作るのが難しい食べ物なのに、まずい所が結構多い事に気づく。今日は普通レベルだった。でも風月とかにはかなわんなあ。京都は大阪にくらべお好 み焼きレベルが低い。</p><p>七時から二人ゼミの発表。日曜なのに。分からないことおおし。「ブラックホール解のハミルトニアンは質量にも核運動量にも依存しない」と読めてしまうのだが。</p><p>十月一日（土曜日）</p><p>夢；高校の修学旅行の話。飛行機事故を食い止めたり、天候を変えて一瞬だけ大雨にしたり、怒る教師に催眠術をかけたりといろいろやりたいほうだいした。</p><p>ゼミの予習で大変でした。徹夜しようと思ったけどできなかった。</p>
 
 </article>
 <footer class="site-foot">
-  <span>© 平田朋義 ・ since 2009</span>
-  <span><a href="../../index.html">ひらたともよし！</a></span>
+  <span>© TOMOYOSHI HIRATA — SINCE 2001</span>
+  <span><a href="../../index.html">HOME</a></span>
 </footer>
 </div>
 </body>

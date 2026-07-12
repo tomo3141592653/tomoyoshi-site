@@ -3,92 +3,137 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>太陽の塔内部見学会 | ひらたともよし！</title>
+<title>太陽の塔内部見学会 | 平田朋義</title>
 <style>
 :root{
-  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
-  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
-  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+  --bg:#fdfdfb; --ink:#17181c; --muted:#5e6470; --faint:#9aa0ac;
+  --line:#e3e4e8; --blue:#2136c9; --blue-soft:#eceefb;
+  --sans:"Hiragino Sans","Yu Gothic","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
-    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+  :root{ --bg:#121318; --ink:#e8e9ee; --muted:#9aa0b0; --faint:#5e6470;
+    --line:#26282f; --blue:#8b9bff; --blue-soft:#1b2040; }
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
-  -webkit-font-smoothing:antialiased}
-a{color:var(--link);text-underline-offset:.18em}
-a:hover{color:var(--accent)}
-.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
-  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
-.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
-.site-head .logo:hover{color:var(--accent)}
-.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
-.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
-.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
-.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
-.crumbs a{color:var(--muted);text-decoration:none}
-.crumbs a:hover{color:var(--accent);text-decoration:underline}
-h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
-.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
-.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
-.article p{margin:0 0 1.1em}
-.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-weight:300;line-height:2.0;font-size:15.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+b,strong,h1,h2,h3,h4{font-weight:600}
+.page{max-width:840px;margin:0 auto;padding:0 24px 72px}
+
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;padding:30px 0 26px}
+.site-head .logo{font-weight:700;font-size:1.02rem;letter-spacing:.16em;
+  text-decoration:none;color:var(--ink)}
+.site-head .logo:hover{color:var(--blue)}
+.site-head nav{display:flex;gap:26px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em}
+.site-head nav a{text-decoration:none;color:var(--muted);padding:2px 0;
+  border-bottom:1px solid transparent}
+.site-head nav a:hover{color:var(--blue)}
+.site-head nav a.here{color:var(--blue);border-bottom-color:var(--blue)}
+
+.crumbs{font-family:var(--mono);font-size:.72rem;color:var(--faint);
+  margin:26px 0 0;letter-spacing:.04em}
+.crumbs a{color:var(--faint);text-decoration:none}
+.crumbs a:hover{color:var(--blue);text-decoration:underline}
+
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--blue);margin:34px 0 0}
+h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
+  font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.article h2{font-size:1.22rem;margin:2.4em 0 .7em;line-height:1.6;
+  padding-bottom:.35em;border-bottom:1px solid var(--line)}
+.article h3{font-size:1.02rem;margin:2em 0 .5em}
+.article p{margin:0 0 1.2em}
+.article img{max-width:100%;height:auto;display:block;margin:1.4em 0}
 .article ul,.article ol{padding-left:1.5em}
-.article li{margin:.25em 0}
-.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
-.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
-.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
-.kids{list-style:none;padding:0;margin:20px 0}
+.article li{margin:.3em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1.2em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 12px;font-size:.9rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2.4em 0}
+
+.kids{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--line)}
 .kids li{margin:0;border-bottom:1px solid var(--line)}
-.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
-.kids a:hover{background:var(--paper)}
-.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
-.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
-  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
-.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
-.card .emoji{font-size:1.6rem}
-.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
-.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
-  text-decoration:none;background:var(--paper)}
-.chips a:hover{border-color:var(--accent)}
-.hero{padding:34px 0 8px}
-.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
-.hero .name .ex{color:var(--accent)}
-.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
-.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
-.diary-years{margin:20px 0}
-.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.kids a{display:block;padding:13px 2px;text-decoration:none;color:var(--ink);font-weight:400}
+.kids a:hover{color:var(--blue);padding-left:8px;transition:padding-left .15s}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted)}
+.kids-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
+  color:var(--faint);margin:3.2em 0 0}
+
+/* ---------- index ---------- */
+.hero{padding:56px 0 0}
+.hero .name{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:800;line-height:1.15;
+  letter-spacing:.06em;margin:0}
+.hero .romaji{font-family:var(--mono);font-size:.78rem;letter-spacing:.34em;
+  color:var(--muted);margin:14px 0 0}
+.pi-line{font-family:var(--mono);font-size:.82rem;white-space:nowrap;overflow:hidden;
+  color:var(--faint);margin:34px 0 0;letter-spacing:.1em;
+  -webkit-mask-image:linear-gradient(90deg,#000 72%,transparent);
+  mask-image:linear-gradient(90deg,#000 72%,transparent)}
+.pi-line b{color:var(--blue);font-weight:600}
+.hero .tag{max-width:34em;color:var(--muted);margin:30px 0 0;font-size:.95rem}
+
+.index-list{margin:60px 0 0;border-top:1px solid var(--line)}
+.index-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:6px 18px;
+  align-items:baseline;padding:20px 2px;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink)}
+.index-list .key{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--muted)}
+.index-list .jp{font-size:1.18rem;font-weight:600}
+.index-list .jp .desc{display:block;font-size:.82rem;font-weight:300;color:var(--muted)}
+.index-list .n{font-family:var(--mono);font-size:.78rem;color:var(--faint);
+  font-variant-numeric:tabular-nums}
+.index-list a:hover .jp,.index-list a:hover .key{color:var(--blue)}
+@media (max-width:560px){
+  .index-list a{grid-template-columns:1fr auto}
+  .index-list .key{grid-column:1 / -1}
+}
+
+.elsewhere{margin:58px 0 0}
+.elsewhere-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;color:var(--faint)}
+.elsewhere-links{display:flex;flex-wrap:wrap;gap:4px 26px;margin:10px 0 0;font-size:.88rem}
+.elsewhere-links a{text-decoration:none;color:var(--muted);
+  border-bottom:1px solid var(--line);padding-bottom:1px}
+.elsewhere-links a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ---------- diary archive ---------- */
+.diary-years{margin:26px 0}
+.diary-years h2{font-family:var(--mono);font-size:.85rem;letter-spacing:.18em;
+  margin:2.4em 0 .6em;color:var(--muted);border:none;padding:0}
 .diary-months{display:flex;flex-wrap:wrap;gap:8px}
-.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
-  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
-.diary-months a:hover{border-color:var(--accent)}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
-.prevnext a{text-decoration:none}
-footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
-  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-footer.site-foot a{color:var(--muted)}
+.diary-months a{font-family:var(--mono);padding:7px 14px;border:1px solid var(--line);
+  text-decoration:none;font-size:.82rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--blue);color:var(--blue)}
+
+footer.site-foot{margin-top:88px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--faint)}
+footer.site-foot a{color:var(--faint);text-decoration:none}
+footer.site-foot a:hover{color:var(--blue)}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important}
+}
 </style>
 </head>
 <body>
 <div class="page">
 <header class="site-head">
-  <a class="logo" href="../index.html">ひらたともよし！</a>
-  <nav><a href="../mywork.html" class="">つくったもの</a><a href="../favorites.html" class="">おきにいり</a><a href="../aboutme.html" class="">じこしょうかい</a><a href="../announce.html" class="here">おしらせ</a></nav>
+  <a class="logo" href="../index.html">平田朋義</a>
+  <nav><a href="../mywork.html" class="">WORKS</a><a href="../favorites.html" class="">FAVORITES</a><a href="../aboutme.html" class="">ABOUT</a><a href="../announce.html" class="here">NEWS</a></nav>
 </header>
-<p class="crumbs"><a href="../index.html">Home</a> › <a href="../announce.html">おしらせ</a> › 太陽の塔内部見学会</p>
+<p class="crumbs"><a href="../index.html">Home</a> / <a href="../announce.html">お知らせ</a> / 太陽の塔内部見学会</p>
 <article class="article">
+<p class="eyebrow">NEWS</p>
 <h1>太陽の塔内部見学会</h1>
 <p>これは終了したイベントです。またこのページ内のリンク、メールアドレスは当時のものです。</p><h3><a href="#h.p_ID_34">#h.p_ID_34</a>告知文</h3><p>日時：十月二十九日 十一時半から十二時</p><p>参加人数：二十人から五十人</p><p>参加資格：平田朋義の直接の知り合い、あるいはその知り合い、その知り合いの知り合い、…、であること。</p><p>お値段：３５０００円/人数 つまり、７００円から１７５０円 ＋入園料金１２０円（小学生中学生は４０円）</p><p>当日予定（仮）：十時半中央口ゲート集合、十一時入園、十一時二十分までに太陽の塔の裏（北側道路）集合、十二時終了、一時半ぐらいまで太陽の塔前の広場で弁当を食べたり遊んだりして、それから公園内をあたかも小学生がごとく遠足。</p><p>持ち物：お金、弁当、シート、遊び道具（ボールとか楽器とか）。</p><p>公園アクセスマップ：<a href="http://park.expo70.or.jp/access.html">http://park.expo70.or.jp/access.html</a></p><p>公園の地図等：<a href="http://park.expo70.or.jp/download.html">http://park.expo70.or.jp/download.html</a></p><p>内覧に関しての注意：内覧は一階のフロアからのみで、階上にはあがれません。通路内太陽の塔内は写真撮影禁止（携帯のカメラを含む）。飲食、喫煙は当然禁止です。</p><p>申し込み方法：</p><p>平田朋義にメールで連絡してください。<a href="mailto:tomo_3141592653@hotmail.com">tomo_3141592653@hotmail.com</a></p><p>友達を連れて行くときには、その人からもメールお願いします。</p><p>締め切り：</p><p>十月二十三日としておきますが、できるだけ早くにお願いします。</p><p>交流掲示板：<a href="http://6303.teacup.com/hougi/bbs">http://6303.teacup.com/hougi/bbs</a> 自己紹介等にご利用ください。</p><p>現状（十月三日）：二十六人集まっています、その人がつれてくる友達も合わせると三十人前後になると思いますが、友達の分は把握していません。その二十六人には、今日中に確認メールを出します。人数はあとで変えれるようなので、今日中に本予約の手紙を出しておきます。</p><p>十月四日：手紙、メールとも内容は書いたが未投函。今日こそ。メールアドレスをまとめるのが大変。</p><p>十月五日：手紙はファックスで送った、届いているのか不安。メールは個別に送ることにした。半分ぐらい送った。いろいろ誘う人を増やしてみた。今日受信したメールは四十件…。</p><p>写真</p><img src="https://sites.google.com/sitesv-images-rt/ACHe0d21CxjoeX7uLksa2_iW0cPVFjKb9Bu6IR4YHS2CqzC1KVD8L36BNHXKLuwxPfD_vrAzlwW1mcWySxJL7igUX73qKWG1u0WnYOOnkcXva6pGbfauuqnJWCWOYUG1gKtrZ3ziwBK083ynsWAV-alGnwA-fjWANfyC6qnKS3b9AOedlpeHUt32mthacEJYiN3VpRu1LwTCDh8mCCvJvpg=w1280" alt="" loading="lazy"><p>交流掲示板ログ</p><h2><a href="#h.p_ID_130">#h.p_ID_130</a><a href="http://6303.teacup.com/hougi/bbs/1">漸く</a></h2><p> 投稿者：ひらたともよし  投稿日：2005年10月 3日(月)11時45分4秒</p><p>主催者です。自己紹介等に使ってください。</p><p>ふみ姐さんにせかされて漸く重い腰をあげて計画を進行させました。</p><p>あとここの背景画像はやはり、太陽の塔がいいですね。近くに変更します。</p><p>自己紹介ですね。京大の院で素粒子理論をやっている修士二回です。</p><p>いろいろなことに興味があります。</p><p>太陽の塔はやはり関西の人には特別な存在のようですね。話の食いつきが違う感じがしました。</p><p>この前岡本太郎記念館へ行きました。太陽の塔の原型があったりしてなかなか感慨深かったです。</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fhomepage2.nifty.com%2Fhougi%2F">http://homepage2.nifty.com/hougi/</a></p><h2><a href="#h.p_ID_182">#h.p_ID_182</a><a href="http://6303.teacup.com/hougi/bbs/2">はじめまして</a></h2><p> 投稿者：獄本芙美  投稿日：2005年10月 3日(月)23時07分18秒</p><p>ひらた先輩を急かしてしまった獄本芙美です。</p><p>最初の獄の字に山かんむりをつけると本名になります。</p><p>一応大学伏字ということで(笑)</p><p>読み方はたけもとふみです。</p><p>関西大学商学部３回生です。</p><p>何を学ぶわけでもなく、バイトや大学で勉強している会計学（つか経理）を生かして</p><p>就職できたらなーとか適当な事を考えてる、ダメ学生ですorz</p><p>よろしくお願いします(ﾉ´∀｀*)</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fniyaniya.moo.jp">http://niyaniya.moo.jp</a></p><h2><a href="#h.p_ID_236">#h.p_ID_236</a><a href="http://6303.teacup.com/hougi/bbs/3">訂正</a></h2><p> 投稿者：獄本芙美  投稿日：2005年10月 3日(月)23時09分36秒</p><p>＞一応大学伏字ということで(笑)</p><p>一応伏字ということで(笑)に訂正です。</p><p>なんでこんなこと書いてんねん(´Д｀；)あほですいません。</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fniyaniya.moo.jp">http://niyaniya.moo.jp</a></p><h2><a href="#h.p_ID_288">#h.p_ID_288</a><a href="http://6303.teacup.com/hougi/bbs/4">初めまして！！</a></h2><p> 投稿者：まっきょ  投稿日：2005年10月 4日(火)00時33分38秒</p><p>こんばんは、京大理学部４回生の松井響子です。</p><p>まっきょ（まつきよ）と呼んで下さい。</p><p>かなり前に友達を誘ったところ、</p><p>近くならないと予定が分からないと言われてしまったので、</p><p>今、もう１回声をかけているところです。</p><p>もし友達も来ることになったら、友達もよろしくお願いします！</p><h2><a href="#h.p_ID_341">#h.p_ID_341</a><a href="http://6303.teacup.com/hougi/bbs/5">こんばんわ</a></h2><p> 投稿者：はしもと  投稿日：2005年10月 4日(火)22時54分44秒</p><p>みなさまはじめまして。管理人さんとは高校の部活以来の長い付き合いです。</p><p>管理人さんより直接連絡会ったので、ちょっと行ってみようかと思いました。</p><p>機械メーカーの営業マン（研修中）です。僕の知らない人が多いとのことです。それもまぁ面白そう♪</p><p>わけわからん文章ですが、どうぞよろしくm(__)m</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fblog.livedoor.jp%2Fhumming555%2F">http://blog.livedoor.jp/humming555/</a></p><h2><a href="#h.p_ID_395">#h.p_ID_395</a><a href="http://6303.teacup.com/hougi/bbs/6">よろしくお願いします</a></h2><p> 投稿者：アレン  投稿日：2005年10月 5日(水)19時39分20秒</p><p>はじめましての方、お久しぶりの方よろしくお願いします。</p><p>本名を名乗るのが苦手なので、ひらた先輩サイトの日記に登場する名前で。</p><p>高校時代に、いつの間にか知り合いという設定になっていました。</p><p>獄本さんの1つ上です。現在はフリーターという説が有力です。</p><p>そんな訳で…誰やねん、て感じですが、よろしゅうに。</p><h2><a href="#h.p_ID_438">#h.p_ID_438</a><a href="http://6303.teacup.com/hougi/bbs/7">ありがとうございます。</a></h2><p> 投稿者：ひらた  投稿日：2005年10月 5日(水)20時19分42秒</p><p>ふみさん、まつきよさん、はしもとくん、アレンさん、書き込みありがとうございます。</p><p>現在三十二人集まっています。ひょっとしたら、五十人いくかも知れませんね。</p><p>年齢も出身もバラバラの人が集まるのでどうなるか楽しみです。</p><p>では、よろしくお願いします。</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fhomepage2.nifty.com%2Fhougi%2F">http://homepage2.nifty.com/hougi/</a></p><h2><a href="#h.p_ID_492">#h.p_ID_492</a><a href="http://6303.teacup.com/hougi/bbs/8">おかもたろー</a></h2><p> 投稿者：前田 かつゆき  投稿日：2005年10月 7日(金)00時13分58秒</p><p>こんにちは、初めまして。前田といいます。近畿大学４回生で大学院は物性理論専攻の予定になってます。</p><p>いやいや、さすがに初めてだと緊張してお堅い文になってしまいますね。</p><p>趣味はいろいろあるのですが、特にあげるならジャズですかね。というか今のところマイルス・デイビスという人を音楽史上最高の人として崇拝してます。演奏は出来ないんですが、パーカッションで勘弁してください（笑）</p><p>あと、キャッチボールやコミュニーケーションぐらいの球技や格闘、及び雑用や掃除などは多分出来ると思うので手軽にご利用ください。</p><p>皆さんと会えるの楽しみにしています。</p><h2><a href="#h.p_ID_535">#h.p_ID_535</a><a href="http://6303.teacup.com/hougi/bbs/9">楽しみにしてますよ</a></h2><p> 投稿者：マツナリ  投稿日：2005年10月 7日(金)00時16分24秒</p><p>こんばんは。始めましての方、はじめまして。</p><p>ひらたくんとは大学からの友達で、今は海洋化学を勉強しています。</p><p>ラッキーなことに今年の元旦は南極海で迎えました。</p><p>太陽の塔の中ももちろんですけど、参加するみなさんと出会えるも楽しみです。</p><p>類は友を呼ぶっていうし、個性の強い人がたくさん集まるかな？</p><p>それではまた。</p><h2><a href="#h.p_ID_580">#h.p_ID_580</a><a href="http://6303.teacup.com/hougi/bbs/10">ひらた先輩！！</a></h2><p> 投稿者：獄本芙美  投稿日：2005年10月 7日(金)23時25分32秒</p><p>お忙しいのにＨＰ更新したり連絡とりあったり…</p><p>本当にありがとうございます！！感謝感謝です。</p><p>それにしても参加者がすごい数になっていますね。</p><p>最初に太陽の塔に行こうという話になった時、</p><p>まさかここまでの数になるとは予想もしませんでした。</p><p>＞マツナリさん</p><p>＞類は友を呼ぶっていうし、個性の強い人がたくさん集まるかな？</p><p>私の知っている人も何人か参加するみたいですが、皆本当に個性的です。</p><p>ひらた先輩の強烈な（？）個性が、今回彼らをひきつけたのかもしれませんね(笑)</p><p>かく言う私は気弱でおとなしいので、彼らのパワーに負けないように当日は頑張ります！</p><p>皆さんどうぞ仲良く遊んでやって下さいね(^^)</p><p><a href="http://6303.teacup.com/hougi/bbs?M=RSINFR&amp;">RSS</a></p><p>page: <a href="http://6303.teacup.com/hougi/bbs?OF=10&amp;REV=1">2</a></p><p>全46件の内、過去の記事から10件ずつ表示します。</p><p><a href="http://6303.teacup.com/hougi/bbs?OF=0&amp;REV=1">1</a><a href="http://6303.teacup.com/hougi/bbs?OF=10&amp;REV=1">2</a><a href="http://6303.teacup.com/hougi/bbs?OF=20&amp;REV=1">3</a><a href="http://6303.teacup.com/hougi/bbs?OF=30&amp;REV=1">4</a><a href="http://6303.teacup.com/hougi/bbs?OF=40&amp;REV=1">5</a>  |  <a href="http://6303.teacup.com/hougi/bbs?OF=0&amp;REV=1">《前のページ</a> |  <a href="http://6303.teacup.com/hougi/bbs?OF=20&amp;REV=1">次のページ》</a></p><h2><a href="#h.p_ID_728">#h.p_ID_728</a><a href="http://6303.teacup.com/hougi/bbs/11">(無題)</a></h2><p> 投稿者：サリー  投稿日：2005年10月 9日(日)14時35分13秒</p><p>こんにちは☆姉と参加予定のサリーです。ひらた先輩と同じ高校に行ってまして今は大学２回生してます♪よろしくお願いします(^▽^)</p><h2><a href="#h.p_ID_763">#h.p_ID_763</a><a href="http://6303.teacup.com/hougi/bbs/12">はじめまして。</a></h2><p> 投稿者：ちゅーりっぱー  投稿日：2005年10月 9日(日)20時39分59秒</p><p>はじめまして、tuliper（英文科の方がなんと言おうとちゅーりっぱーと読みます。）です。</p><p>ちゅーりっぷをこよなく愛する前途ある若者です。</p><p>最近、就職先が決まりました。残念ながらちゅーりっぷ秘密結社ではないのですが。。。</p><p>平田くんとは・・・高校時代に知り合いました。</p><p>当時、私は彼のことを友達とは認識していなかったのですが。</p><p>友達認定の基準は人によって様々でおもしろいですね～☆ちなみに私の方が若者です。</p><p>太陽の塔「侵入」楽しみしてます☆</p><p>初対面の方ばっかりだと思いますが、よろしくお願いします。</p><p>濃いメンバーになりそうな予感ですね。私は激薄ですけどね。</p><p>ではでは☆</p><h2><a href="#h.p_ID_816">#h.p_ID_816</a><a href="http://6303.teacup.com/hougi/bbs/13">ものすごく暇なもので。。。</a></h2><p> 投稿者：前田 かつゆき  投稿日：2005年10月11日(火)21時12分27秒</p><p>おお、人数が凄いことになっていますね。</p><p>よかった早く気付いて。</p><p>しかし、ここに書き込む人を見ていると、皆さん個性ありますなぁ。</p><p>いやはや、我輩も負けてられませんな。</p><p>そういえば。。。太陽の塔、「侵入」なんですね。</p><p>美術館侵入といえば、友人と長崎県美術館に行ったときを思い出しますなぁ。。。</p><p>旅館が近くにあって、ダリ好きの友人がいたので（ここはダリの作った像で有名）偶々よってみたら、閉まっているじゃないですか。</p><p>せっかく来たんだからと思って、いろいろ散策してるうちに、なんか入れそうだな…ということになって、正面玄関から悠々と失敬。</p><p>入ってみると、中には日本画の美術品の数々じゃないですか…</p><p>………</p><p>まぁ、善人の我輩たちは、なにもしませんでしたがね。こういう体験を出来たことは非常に貴重ですね。</p><p>太陽の塔も、このようなスリリング、期待しています（笑）</p><p>なんか分けわかんないこと書いてますが、実はＨＰが見せれる状態になって来たので、紹介をさせていただこうかなと思いまして。。。</p><p>太陽の塔では、よろしくです。</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fwww.geocities.jp%2Fthe_thinking_cat%2F">http://www.geocities.jp/the_thinking_cat/</a></p><h2><a href="#h.p_ID_882">#h.p_ID_882</a><a href="http://6303.teacup.com/hougi/bbs/14">(無題)</a></h2><p> 投稿者：ひらた  投稿日：2005年10月12日(水)21時58分6秒</p><p>＞前田君</p><p>おお。君のＨＰ知ってました。</p><p>君でしたか。</p><p>どうどうと入れましたか。</p><p>それはよかったです。</p><p>太陽の塔はちゃんと書類提出したりしているので見つかっても大丈夫ですよ。</p><p>＞まつなり ＞ふみ</p><p>ついに五十人行きましたね。</p><p>いろんな人集まっていますよ。</p><p>知らない人にも積極的に話しかけてください。</p><p>＞サリー</p><p>君のお姉さんに会うのは久しぶりです。</p><p>というか実質二回目ですね。</p><p>よろしくお願いします。</p><p>＞チューリッパー</p><p>就職おめでとう。</p><p>友達と認識してなかったって…（笑）</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fhomepage2.nifty.com%2Fhougi%2F">http://homepage2.nifty.com/hougi/</a></p><h2><a href="#h.p_ID_954">#h.p_ID_954</a><a href="http://6303.teacup.com/hougi/bbs/15">(無題)</a></h2><p> 投稿者：中才よしえ  投稿日：2005年10月13日(木)22時05分43秒</p><p>みなさんこんばんわ。周りからはお嬢と呼ばれていますが庶民代表です。平田先輩の高校の後輩で今 は大学１年生です。えっと、太陽の塔は入り口がセメントで固められて入れなくなっていると長年信じていたので今回の「侵入」は非常に楽しみにしておりま す。実は人見知りっ子なので初めましての方が多くて少々緊張気味ですが、よろしくお願いします。</p><h2><a href="#h.p_ID_989">#h.p_ID_989</a><a href="http://6303.teacup.com/hougi/bbs/16">(無題)</a></h2><p> 投稿者：おがわたかふみ  投稿日：2005年10月17日(月)00時35分55秒</p><p>初めまして。平田先輩の高校の後輩で、嶽本先輩の２コ下でサリーさんの同期でお嬢の１コ上の通称オガ＠大学一回生(非留年者)です。</p><p>面白そうな企画なので参加することにしてみました☆</p><p>参加メンバーを見ていると、直接知っている人やネット上でだけ知っている人など様々でとても楽しみです(同時に周りのキャラに押されて埋没しそうな気もしておりますが(汗))。</p><p>とにもかくにも皆さん宜しくお願いいたします。</p><h2><a href="#h.p_ID_1030">#h.p_ID_1030</a><a href="http://6303.teacup.com/hougi/bbs/17">(無題)</a></h2><p> 投稿者：ふじしげななえ  投稿日：2005年10月18日(火)21時56分44秒</p><p>いやはや初めまして皆様・そしてご無沙汰しております一部の方々。私を知る人はそれほど多くないと思いますが私フジシゲと申しますハイ。</p><p>現在は一応就職している？という感じです（なんやねん）</p><p>少々人見知りする奴なんで声をかけてやってください。</p><p>あっそう、遊び道具で軟式テニスしてみたい人いますか？一人で力いっぱい打って遊ぶ道具が手元にあるのですがもし「やってみたい！！」という人がいたらもって行きますがどうでしょう？</p><h2><a href="#h.p_ID_1071">#h.p_ID_1071</a><a href="http://6303.teacup.com/hougi/bbs/18">(無題)</a></h2><p> 投稿者：ふじしげななえ  投稿日：2005年10月18日(火)22時02分44秒</p><p>あ・</p><p>色々と書き忘れたことが・・・。</p><p>平田先輩の二つ下、ふみ嬢の一つ上。高校時代に奇妙な縁からお知り合いとなりました。今思うと高校時代が一番充実していたなと思います。イヤ本当に。</p><p>なんやだらだらと書き連ねそうなんでここいらへんで。では。</p><h2><a href="#h.p_ID_1112">#h.p_ID_1112</a><a href="http://6303.teacup.com/hougi/bbs/19">(無題)</a></h2><p> 投稿者：前田 かつゆき  投稿日：2005年10月19日(水)00時20分2秒</p><p>ハイ！飛び道具として軟式テニスしてみたいです（笑）</p><p>僕はやはらかいボールなんか、持ってきますわ。</p><p>もし、軟球で（公園でできるのかな？）キャッチボールしたい、というかする人がおれば、自分のグローブ持ってきますし。</p><p>ひらたさん＞</p><p>それはそうでしょう。</p><p>あんなバンバンあなたのページに飛んでたら（笑）</p><p>認識ありがとうございます。無駄にカウント上げてすいません。</p><p>暇なんです。許してください、なは。</p><p>見つかってもＯＫなんですか…、出来れば気持ち見つからないようにして頑張ってみます。</p><h2><a href="#h.p_ID_1163">#h.p_ID_1163</a><a href="http://6303.teacup.com/hougi/bbs/20">はじめまして</a></h2><p> 投稿者：くっすー  投稿日：2005年10月19日(水)22時06分58秒</p><p>はじめまして♪</p><p>ひらた先輩とは高校で知り合いました。ひらた先輩の９つ下で、なにかしらご縁があって出身中学校まで一緒という、くっすーというものです。</p><p>今回はとても楽しみにしています(*^_^*)どうぞみなさんよろしくお願いします(^人^)</p><p><a href="http://6303.teacup.com/hougi/bbs?M=RSINFR&amp;OF=10">RSS</a></p><p>page: <a href="http://6303.teacup.com/hougi/bbs?OF=20&amp;REV=1">3</a></p><p>全46件の内、過去の記事から10件ずつ表示します。</p><p><a href="http://6303.teacup.com/hougi/bbs?OF=0&amp;REV=1">1</a><a href="http://6303.teacup.com/hougi/bbs?OF=10&amp;REV=1">2</a><a href="http://6303.teacup.com/hougi/bbs?OF=20&amp;REV=1">3</a><a href="http://6303.teacup.com/hougi/bbs?OF=30&amp;REV=1">4</a><a href="http://6303.teacup.com/hougi/bbs?OF=40&amp;REV=1">5</a>  |  <a href="http://6303.teacup.com/hougi/bbs?OF=10&amp;REV=1">《前のページ</a> |  <a href="http://6303.teacup.com/hougi/bbs?OF=30&amp;REV=1">次のページ》</a></p><h2><a href="#h.p_ID_1287">#h.p_ID_1287</a><a href="http://6303.teacup.com/hougi/bbs/21">(無題)</a></h2><p> 投稿者：みつたに  投稿日：2005年10月20日(木)14時52分50秒</p><p>平田君松成君久しぶり。（平田君はそうでもないが）</p><p>それ以外のかたはじめまして。</p><p>三ツ谷和也です。</p><p>平田君とは学部のときクラスが同じでした。</p><p>ファーストインプレッションは「世の中には色々な生き物が居るもんだな・・・」みたいな。（失礼）</p><p>同学年のM2で原子核理論を専攻しています。</p><p>原子核といっても原爆は作りません。原子炉にも就職しません。</p><p>むしろ、一時代前の素粒子論みたいな感じです。</p><p>趣味は油絵、音楽（特にジャズ：昔ウッドベースを弾いてたけど今はぜんぜんダメ）</p><p>それ以外にも駄文を書き連ねる（d.hatena.ne.jp/bluesy-k/：*1）こととか。</p><p>そんな感じです。皆さんよろしくお願いします。</p><p>*1：平田君へ。平田君のページからリンクを張ったりはしないでください。その筋の人が大流入してくるとなんとなくやりづらいので。特に基研スタッフとか。</p><h2><a href="#h.p_ID_1347">#h.p_ID_1347</a><a href="http://6303.teacup.com/hougi/bbs/22">(無題)</a></h2><p> 投稿者：きた  投稿日：2005年10月21日(金)00時47分33秒</p><p>平田君とは高校の同窓生です。</p><p>毎朝太陽の塔を見て大学に通っています。</p><p>いろいろな人が参加されるようなので面白くなりそうですね。</p><p>平田君と会うのも高校卒業以来なので非常に楽しみにしています。</p><h2><a href="#h.p_ID_1388">#h.p_ID_1388</a><a href="http://6303.teacup.com/hougi/bbs/23">(無題)</a></h2><p> 投稿者：もりゆ  投稿日：2005年10月21日(金)21時11分39秒</p><p>東京で学生してます、もりかわゆうすけといいます。</p><p>かねてから太陽の塔にやり場のない思いを抱いていたところ、偶然にもこの会の存在を知り、藁にもすがる思いで参加させていただくことになりました。</p><p>50人中、知ってる人は管理人さん含めわずかⅡ名(うちⅠ名肉親)ですが。</p><p>おそらく唯一の東京より参加と言うこともあり、少しでも多くの人の話を聞いて元を取れたら、と思ってます。当日はよろしくお願いします！</p><h2><a href="#h.p_ID_1429">#h.p_ID_1429</a><a href="http://6303.teacup.com/hougi/bbs/24">(無題)</a></h2><p> 投稿者：もりせ  投稿日：2005年10月22日(土)21時00分41秒</p><p>もりゆの姉のもりせといいます。もりせいともいいます。</p><p>ひらたくんとは学部の時、振動波動論の授業が一緒だったことからお近づきになりました。</p><p>時計の代わりにキッチンタイマーを持ってきてグレングールドについて熱く語る、印象深い人でした。</p><p>私は…オーケストラでちょこっとビオラを弾いていました。今は地球物理とやらを専攻しています。</p><p>では、当日を楽しみにしています。</p><h2><a href="#h.p_ID_1472">#h.p_ID_1472</a><a href="http://6303.teacup.com/hougi/bbs/25">こんばんは</a></h2><p> 投稿者：マツナリ  投稿日：2005年10月23日(日)03時17分41秒</p><p>三ツ谷くん、久しぶり。</p><p>はじめにこの特別ページをみて「みつたに」の名前を見たときにもしかしたらと思っとったよ。</p><p>来週はほんまに久々の再開になるなぁ。楽しみや。</p><p>さてさて、岡本太郎は「芸術は爆発だ」と本当に言ったんでしたっけ？</p><p>ここを見ていたり書き込みしている参加者のみなさんは、やっぱり芸術好きですか？</p><p>塔への侵入まであと150時間くらいですよ。じわじわ気分を盛り上げて行きたいと思います。とりあえず作品の背景を知っておこうと思って検索していて、こんなの発見。</p><p>『岡本太郎「明日の神話プロジェクト』</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fwww.ntv.co.jp%2Fdai2-junbi%2Fshinwa.html">http://www.ntv.co.jp/dai2-junbi/shinwa.html</a></p><p>ページの左上の動画は必見ですよ。</p><p>「爆発は芸術だ」</p><h2><a href="#h.p_ID_1528">#h.p_ID_1528</a><a href="http://6303.teacup.com/hougi/bbs/26">(無題)</a></h2><p> 投稿者：Moko  投稿日：2005年10月23日(日)12時51分14秒</p><p>あの参加者リストの中で意味不明な名前を際立たせているMokoです。</p><p>60期生です。楽しみにしております。</p><h2><a href="#h.p_ID_1565">#h.p_ID_1565</a><a href="http://6303.teacup.com/hougi/bbs/27">書き込みありがとうございます。</a></h2><p> 投稿者：ひらた  投稿日：2005年10月23日(日)16時41分55秒</p><p>＞moko</p><p>書き込みありがとう。</p><p>60期＝九つ下の高校の後輩のmokoさんですね。よろしくお願いします。</p><p>＞マツナリ</p><p>明日の神話プロジェクト見たよ。岡本太郎の言葉にしびれます。</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fwww.1101.com%2Ftaro%2Fforever_index.html">http://www.1101.com/taro/forever_index.html</a> の動画郡もいいですね。</p><p>＞もりゆ</p><p>会うのは二回目ですね。東京からの参加ありがとう。</p><p>＞もりせ</p><p>そんなこともありましたねえ。グールドのゴルトベルクのアナログ版手に入れたよ。</p><p>＞きた</p><p>卒業以来だね。他にも高校卒業以来の人たくさんくるよ。</p><p>あうの楽しみです。</p><p>＞みつたに</p><p>原子核の実験の人は市井の人からもっと誤解を受けて大変だそうだね。</p><p>＞くっすー</p><p>そういえば中学も一緒だったねえ。</p><p>君の会うのも約半年振りですね。</p><p>たぶん。</p><p>＞前田かつゆき</p><p>アクセス解析で分かりました。</p><p>時々見ています。</p><p>中原さんが担当なんですね。卒研は量子コンピューターかスピンネットワークの二択なんですか！？</p><p>&gt;ななえ</p><p>毎年会っているけどお久しぶりです。就職してたんですね。</p><p>おめでとうございます。</p><p>＞おがわ君</p><p>今回は君の協力でたくさん人が集まりました。</p><p>ありがとう。</p><p>本当、年齢も出身も異なるいろんな人が集まりましたね。</p><p>＞お嬢</p><p>君は人見知りっこだったんですか。知りませんでした。</p><p>もう大学一年になったんですねえ。しみじみします。</p><p>太陽の塔は地下から入るのだよ。</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fhomepage2.nifty.com%2Fhougi%2F">http://homepage2.nifty.com/hougi/</a></p><h2><a href="#h.p_ID_1674">#h.p_ID_1674</a><a href="http://6303.teacup.com/hougi/bbs/28">太陽の塔解説</a></h2><p> 投稿者：ひらた  投稿日：2005年10月23日(日)16時48分25秒</p><p>は<a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fwww.tv-tokyo.co.jp%2Fkyojin%2Fpicture%2F050730.htm">http://www.tv-tokyo.co.jp/kyojin/picture/050730.htm</a></p><p>もいいですね。</p><p>岡本太郎は太陽の塔を作るに際し「人類の進歩と調和なんて大嫌いだ。俺はベラボーなものを作る」と言ったそうです。</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fhomepage2.nifty.com%2Fhougi%2F">http://homepage2.nifty.com/hougi/</a></p><h2><a href="#h.p_ID_1721">#h.p_ID_1721</a><a href="http://6303.teacup.com/hougi/bbs/29">(無題)</a></h2><p> 投稿者：やすは  投稿日：2005年10月23日(日)23時50分28秒</p><p>こんにちは。６０期のやすはデス。正直本名で乗るとは思っとらんかったので面喰らいマシタ…それ はさておき。参加される方の名前を見させて頂きましたが全然分かりません…(おい。)初めての方と慣れた方とは全然態度が違う子らしいので最初はめっちゃ おとなしいと思いマス。どぉか生暖かい目で見守ってやって下さい。宜しくお願いしマス。</p><h2><a href="#h.p_ID_1756">#h.p_ID_1756</a><a href="http://6303.teacup.com/hougi/bbs/30">(無題)</a></h2><p> 投稿者：ひらたともよし  投稿日：2005年10月24日(月)00時08分32秒</p><p>＞やすはさん</p><p>ええと、畷高OBだけじゃなくて、僕のいろんな友達が来ます。</p><p>考えてみれば君達が最年少で、あとは少し上が離れていますね。</p><p>まあ、普段どおり元気にしてくださいませ。</p><p>ではでは。</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fhomepage2.nifty.com%2Fhougi%2F">http://homepage2.nifty.com/hougi/</a></p><p><a href="http://6303.teacup.com/hougi/bbs?M=RSINFR&amp;OF=20">RSS</a></p><p>page: <a href="http://6303.teacup.com/hougi/bbs?OF=30&amp;REV=1">4</a></p><p>全46件の内、過去の記事から10件ずつ表示します。</p><p><a href="http://6303.teacup.com/hougi/bbs?OF=0&amp;REV=1">1</a><a href="http://6303.teacup.com/hougi/bbs?OF=10&amp;REV=1">2</a><a href="http://6303.teacup.com/hougi/bbs?OF=20&amp;REV=1">3</a><a href="http://6303.teacup.com/hougi/bbs?OF=30&amp;REV=1">4</a><a href="http://6303.teacup.com/hougi/bbs?OF=40&amp;REV=1">5</a>  |  <a href="http://6303.teacup.com/hougi/bbs?OF=20&amp;REV=1">《前のページ</a> |  <a href="http://6303.teacup.com/hougi/bbs?OF=40&amp;REV=1">次のページ》</a></p><h2><a href="#h.p_ID_1889">#h.p_ID_1889</a><a href="http://6303.teacup.com/hougi/bbs/31">物理しっく</a></h2><p> 投稿者：前田 かつゆき  投稿日：2005年10月24日(月)00時46分15秒</p><p>＞ひらたさん</p><p>ありがとうございます。一年間休んでいましたが、モチベーション戻してまた日記書きます。よかったらまた見てくださいね。</p><p>中原先生は、基本的に何でもやる人なので、卒論は理論なら何でもＯＫです。</p><p>僕は、前のＨＰに書いていたように多世界解釈に希望を持っているので、昔からもくろんで、卒論を量子コンピューターにしました。僕は昔先生に、りょーし重 力に興味を持っていることを伝えていましたので（昔はソロン志望だった）、量子重力（スピンネットを使った、ループ量子重力に当たるのかな？）は先生が薦 めてくれたのでした。</p><p>他にも、物性論で僕と似たテーマが一人、ソロンに行く人は量子ブラックホール、複雑液体の実験に行く人は、カオスをやるみたいです。</p><p>ひらたさんの日記に先生のことがかかれてましたよね。</p><p>僕から見れば、河合さんや、九後さんの方が断然有名人です（笑）</p><p>じつは。。。余り大きな声ではいえないんですが、研究室には映画「リング」のワンシーンが貼られています。なぜかは。。。またお会いした時に話しますね。</p><p>ちょっとここに書き込むには物理ちっくになりすぎました、ごめんなさい。</p><p>「リング」を見て、「環」になっちゃう人は良かったかもしれませんが。。。（苦笑）</p><h2><a href="#h.p_ID_1942">#h.p_ID_1942</a><a href="http://6303.teacup.com/hougi/bbs/32">ごあいさつ</a></h2><p> 投稿者：ひろこ  投稿日：2005年10月24日(月)00時55分53秒</p><p>大阪は箕面から参加いたします。</p><p>同行する友人の太田さんの、友人のしらさかさんと、</p><p>ひらたさんが研究室が一緒ということで、</p><p>ひらたさんと直接お会いしたことはございませんが、</p><p>当日は楽しみにしています。よろしくお願いします。</p><p>皆さん、仲良くしてください。</p><p>岡本太郎のことを考えるとわくわくします。</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fblog.drecom.jp%2Fhirokororing%2F">http://blog.drecom.jp/hirokororing/</a></p><h2><a href="#h.p_ID_1994">#h.p_ID_1994</a><a href="http://6303.teacup.com/hougi/bbs/33">(無題)</a></h2><p> 投稿者：<a href="http://6303.teacup.com/hougi/bbs?M=BMFO&amp;CID=33&amp;OF=30&amp;REV=1">たなか</a>  投稿日：2005年10月25日(火)17時26分14秒</p><p>はじめまして。京都のとある研究所で宇宙を研究してる者です。</p><p>平田君とは大学院に入って知り合いになり、この１年間、彼の</p><p>独特な個性に日々、刺激を受けています。</p><p>太陽の搭に入ることができるなんて思いもしなかったので</p><p>楽しみにしています。あと、参加される方のほとんどが</p><p>知らないので、お会いできるのを楽しみにしています。</p><p>どうかよろしくお願いします。</p><h2><a href="#h.p_ID_2044">#h.p_ID_2044</a><a href="http://6303.teacup.com/hougi/bbs/34">よろしくお願いします。</a></h2><p> 投稿者：Ｏ田  投稿日：2005年10月26日(水)21時52分17秒</p><p>はじめまして。奈良に住んでいるＯ田といいます。</p><p>ひらた君とは、中・高いっしょでした。</p><p>もう半年以上会ってないので、たのしみです。</p><p>知らない方ばかりなので、みなさん仲良く遊んでください。</p><p>絵を描くのが好きです。</p><p>最近めちゃ寒いので、みなさん侵入に備えて体調管理をしましょうね。</p><p>では、土曜にお目にかかりたいと思います。</p><h2><a href="#h.p_ID_2091">#h.p_ID_2091</a><a href="http://6303.teacup.com/hougi/bbs/35">よろしくお願いします！</a></h2><p> 投稿者：Ｍａｋｉ  投稿日：2005年10月27日(木)21時33分5秒</p><p>こんにちは、はじめまして。</p><p>やまみえの姉のＭａｋｉです。</p><p>去年は青山の岡本太郎美術館にいきました。なんだかよくわからんけど、ものすごいパワーだけは感じました。私は個人的には植木犬が気に入りました。</p><p>今年は太陽の塔の内部をみれるなんて、すごい楽しみです。</p><p>よろしくお願いします。</p><h2><a href="#h.p_ID_2134">#h.p_ID_2134</a><a href="http://6303.teacup.com/hougi/bbs/36">(無題)</a></h2><p> 投稿者：はしもと  投稿日：2005年10月27日(木)23時50分58秒</p><p>すげー集まり具合。今度の選挙ではひらたともよしに１票入れます。</p><p>持ち物に楽器とあったので、ギターを持ってゆきます。社会人になってめっきり音色が渋くなったとかならないとか。</p><p>楽器持参一人はつらいのでお仲間募集。ギター、マンドリン、ウクレレ、コントラバス、バイオリン、フルート、サックス、チューバ、口笛、大太鼓、小太鼓、パンデイロ、ディジェルドゥ、チャランゴ、フィドル、パイプオルガンその他なんでも可。</p><p>高校の頃に聞いた、むこちゃんの腹太鼓が懐かしい！</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fblog.livedoor.jp%2Fhumming555%2F">http://blog.livedoor.jp/humming555/</a></p><h2><a href="#h.p_ID_2180">#h.p_ID_2180</a><a href="http://6303.teacup.com/hougi/bbs/37">よろしくお願いします。</a></h2><p> 投稿者：ユウコ  投稿日：2005年10月28日(金)18時43分24秒</p><p>はじめまして。</p><p>やまみえちゃんの姉のＭakiの友達の、ユウコと申します。</p><p>堺市から参加させて頂きます。</p><p>太陽の塔の顔は、何度も見に行ったことがあるのに、お腹の中に入るのは</p><p>初めてなので、すごーく楽しみにしています。</p><p>あすは、やまみえ姉妹以外、初めてお会いする方ばかりなので、</p><p>ちょっと緊張してしまいますが、どうぞよろしくお願いします。</p><h2><a href="#h.p_ID_2227">#h.p_ID_2227</a><a href="http://6303.teacup.com/hougi/bbs/38">(無題)</a></h2><p> 投稿者：Moko  投稿日：2005年10月29日(土)08時07分11秒</p><p>おはようございます。</p><p>現在私の住んでいる地域では、何を思ったかトチ狂ったように雨が降っております。</p><p>この場合どーなるのでありましょうか。</p><h2><a href="#h.p_ID_2266">#h.p_ID_2266</a><a href="http://6303.teacup.com/hougi/bbs/39">雨…(TдT)</a></h2><p> 投稿者：獄本芙美  投稿日：2005年10月29日(土)08時21分25秒</p><p>＞Ｍｏｋｏさん</p><p>大阪は随分降ってますよね(笑)</p><p>でも多分雨天決行やと思いますよ！</p><p>ひらた先輩に確認してみます。</p><h2><a href="#h.p_ID_2307">#h.p_ID_2307</a><a href="http://6303.teacup.com/hougi/bbs/40">雨ですが</a></h2><p> 投稿者：獄本芙美  投稿日：2005年10月29日(土)08時33分43秒</p><p>雨天決行です。</p><p>やりが降っても行きますとひらた先輩から返事いただきました。</p><p>というわけで皆さん、今日は雨で残念ですが万博公園でお会いしましょう★</p><p><a href="http://6303.teacup.com/hougi/bbs?M=RSINFR&amp;OF=30">RSS</a></p><p>page: <a href="http://6303.teacup.com/hougi/bbs?OF=40&amp;REV=1">5</a></p><p>全46件の内、過去の記事から10件ずつ表示します。</p><p><a href="http://6303.teacup.com/hougi/bbs?OF=0&amp;REV=1">1</a><a href="http://6303.teacup.com/hougi/bbs?OF=10&amp;REV=1">2</a><a href="http://6303.teacup.com/hougi/bbs?OF=20&amp;REV=1">3</a><a href="http://6303.teacup.com/hougi/bbs?OF=30&amp;REV=1">4</a><a href="http://6303.teacup.com/hougi/bbs?OF=40&amp;REV=1">5</a>  |  <a href="http://6303.teacup.com/hougi/bbs?OF=30&amp;REV=1">《前のページ</a> |  次のページ》 </p><h2><a href="#h.p_ID_2428">#h.p_ID_2428</a><a href="http://6303.teacup.com/hougi/bbs/41">(無題)</a></h2><p> 投稿者：ひらた  投稿日：2005年10月30日(日)00時03分45秒</p><p>mokoさん、欠席残念でした。</p><p>体調不良とのことお大事に。</p><p>みなさん！無事終わりました。</p><p>本日は悪天候の中、お集まりいただきありがとうございました。</p><p>また何かの機会にお会いしましょう。</p><h2><a href="#h.p_ID_2471">#h.p_ID_2471</a><a href="http://6303.teacup.com/hougi/bbs/42">集合写真</a></h2><p> 投稿者：マツナリ  投稿日：2005年10月30日(日)01時25分4秒</p><p>こんばんは。</p><p>朝は雨の中集まったみなさんと太陽の塔の見学を、夕方には雨も上がって楽器の演奏をしたり聴いたりと、いい時間をすごせました。</p><p>ろくに自己紹介もしていませんでしたけど、ひらたくんの代わりに集合写真を撮ったのが僕です。よろしく。</p><p>それで、あのカメラもデジカメじゃないので、集合写真は現像し次第画像ファイルにしてひらたくんに渡します。</p><p>メールとかでみなさんの手に渡ればいいなと思います。</p><p>また出来たときにここで連絡するのでお楽しみに。</p><h2><a href="#h.p_ID_2516">#h.p_ID_2516</a><a href="http://6303.teacup.com/hougi/bbs/43">ありがとうございました</a></h2><p> 投稿者：だんだん  投稿日：2005年10月30日(日)19時34分58秒</p><p>はじめまして。</p><p>太陽の塔への「侵入」！に参加させてもらいました。やまみえさんの友人ということで声をかけてもらったので、みなさま初対面でしたが、ああいう興奮をともにすると、旧知の仲のような気がしてきますね。</p><p>あいにく用があって途中で失礼しました。集合写真はきっとその後に撮られたのですね！ 残念なことをしてしまいました！！</p><p>またなにかの機会にご一緒させていただければなあと思っています。</p><p>みなさまおつかれさまでした。</p><p>ひらたさん、ありがとうございます。</p><h2><a href="#h.p_ID_2561">#h.p_ID_2561</a><a href="http://6303.teacup.com/hougi/bbs/44">楽しかった！</a></h2><p> 投稿者：前田 かつゆき  投稿日：2005年10月31日(月)20時31分15秒</p><p>こんにちは。皆さんと一緒に太陽の塔に侵入した前田です。</p><p>今回、僕は皆さんとは初対面だったので少し心配な面もありましたが、皆さん良い人で僕にも気を使っていただき本当にありがたかったです。</p><p>民族学博物館もとても興味深くて（サリーも綺麗でしたね）、本当に良い経験になりました。</p><p>写真楽しみにしています。それでは、また機会があればご一緒に！</p><p><a href="http://6303.teacup.com/hougi/bbs?M=JU&amp;JUR=http%3A%2F%2Fwww.geocities.jp%2Fthe_thinking_cat%2F">http://www.geocities.jp/the_thinking_cat/</a></p><h2><a href="#h.p_ID_2607">#h.p_ID_2607</a><a href="http://6303.teacup.com/hougi/bbs/45">集合写真できました</a></h2><p> 投稿者：マツナリ  投稿日：2005年11月26日(土)03時45分4秒</p><p>このあいだ写真を現像して、集合写真をひらたくんに送ったので時間が出来たらみなさんにも連絡がいったり、HPに告知があったりするかと思います。</p><p>写真屋の技術のせいか、そういうものなのか、等倍で見るとあまり綺麗じゃないですが、プリントアウトしたら普通に見られると思います。</p><p>お楽しみに。</p><p>＞ひらたくん</p><p>ということで、みなさんによろしく。</p>
 
 </article>
 <footer class="site-foot">
-  <span>© 平田朋義 ・ since 2009</span>
-  <span><a href="../index.html">ひらたともよし！</a></span>
+  <span>© TOMOYOSHI HIRATA — SINCE 2001</span>
+  <span><a href="../index.html">HOME</a></span>
 </footer>
 </div>
 </body>
