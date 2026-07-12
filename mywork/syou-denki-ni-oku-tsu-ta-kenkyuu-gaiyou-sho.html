@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究概要 | ひらたともよし！</title>
+<style>
+:root{
+  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
+  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
+  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
+    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--link);text-underline-offset:.18em}
+a:hover{color:var(--accent)}
+.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
+.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
+.site-head .logo:hover{color:var(--accent)}
+.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
+.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
+.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
+.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--accent);text-decoration:underline}
+h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
+.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
+.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
+.article p{margin:0 0 1.1em}
+.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+.article ul,.article ol{padding-left:1.5em}
+.article li{margin:.25em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.kids{list-style:none;padding:0;margin:20px 0}
+.kids li{margin:0;border-bottom:1px solid var(--line)}
+.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
+.kids a:hover{background:var(--paper)}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
+.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
+.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
+.card .emoji{font-size:1.6rem}
+.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
+.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
+  text-decoration:none;background:var(--paper)}
+.chips a:hover{border-color:var(--accent)}
+.hero{padding:34px 0 8px}
+.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
+.hero .name .ex{color:var(--accent)}
+.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
+.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
+.diary-years{margin:20px 0}
+.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.diary-months{display:flex;flex-wrap:wrap;gap:8px}
+.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
+  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--accent)}
+.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
+.prevnext a{text-decoration:none}
+footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer.site-foot a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="site-head">
+  <a class="logo" href="../index.html">ひらたともよし！</a>
+  <nav><a href="../mywork.html" class="here">つくったもの</a><a href="../favorites.html" class="">おきにいり</a><a href="../aboutme.html" class="">じこしょうかい</a><a href="../announce.html" class="">おしらせ</a></nav>
+</header>
+<p class="crumbs"><a href="../index.html">Home</a> › <a href="../mywork.html">つくったもの</a> › 研究概要</p>
+<article class="article">
+<h1>研究概要</h1>
+<p>研究興味</p><p>Ｄブレイン、ＡｄＳ/ＣＦＴ、エンタングルメントエントロピー、ブラックホール、Wilson loop、行列模型、変な重力の量子化。</p><p>2010年3月で素粒子論は引退しますが、何か面白い発展があれば教えてください。</p><p>研究概要</p><p>自然界には電磁相互作用、弱い相互作用、強い相互作用及び重力の4種類の相互作用が存在する。このうち重力を除く3つの相互作用は素粒子標準模型で量子論的に記述でき、重力の古典論は一般相対論で記述でき、この二つの理論は現在までのところ観測結果を非常に良く再現できている。だが、どうして標準模型の物質場、対称性がこのような形になっているのかが分からない点、重力が量子論として扱われていない点で今の枠組みは不満足な点が多く、今の枠組みを越えた“究極理論”の存在が期待されている。</p><p>現在“究極理論“のもっとも有力な候補として、超弦理論が提唱されている。私の現在までの研究は超弦理論に関するものである。私は超弦理論の中から特に4つの分野、 (1)AdS/CFT対応（重力理論と場の理論の間にあるホログラフィー的対応）とEntanglement Entropyに関する研究 (2)行列模型（弦理論の非摂動論的定式化などに使われる模型）に関する研究 (3)ブラックホールのホーキング輻射に関する研究(4)ブレイン（弦理論におけるソリトン的配位）-反ブレイン系に関する研究 を行った。</p><p>(1) AdS/CFT対応とEntanglement Entropyに関する研究（論文[1][2]）</p><p>CFT（共形場）の様々な物理量がCFTを境界としてもつ反ドシッター空間(AdS)における重力理論を用いて計算できるということが知られている。そして、量子情報理論でよく扱われるEntanglement Entropyもまたそのような物理量の一つであるということが提唱されている。このことを確認するために私はまずEntanglement Entropyにおいて成立するStrong Subadditivityという不等式に着目した。具体的な例を用いて数値的に計算することによりAdSサイドで計算した。そして、Entanglement Entropyが確かにStrong Subadditivity を満たしていることを確認した。（論文[1]）</p><p>次に私は（論文[2]）でWilson loopもまたEntanglement Entropy同様に、AdS空間のminimal surfaceで表されることに着目し、Wilson loopがStrong Subadditivityを満たすことを確認した。</p><p>私はBachas inequalityというWilson loopになりたつ不等式とStrong Subadditivityの類似点に着目しWilson loopの対称性が高い場合、任意の結合定数でStrong Subadditivityが確かにBachas inequalityで証明できることを示した。また、摂動論を用いて任意のWilson loopに対してStrong Subadditivityが弱結合で成り立つことを証明した。さらに副産物としてクォークポテンシャルの凸性、およびCusp anomalous dimension (角を持つWilson loopの発散係数)の凸性のホログラフィー的な理解を得ることに成功した。</p><p>(2)行列理論に関する研究 (論文[3][4][5][6])</p><p>Twisted Eguchi-Kawai行列模型はU(1)対称性が破れないという条件のもとで、large-N極限（Nは行列のサイズ）でYang-Mills場の理論と等価であることが示されていた。それゆえ、U(1)対称性が破れるか否かは大きな問題の一つであった。私たちはこのモデルの相構造についてモンテカルロシミュレーションの手法を用いて研究した。結果、行列サイズを大きくするにつれ、U(1)対称性が破れる領域が拡大することが明らかになった。対称性が破れている領域の拡大の速さと、繰り込み郡の流れ（スケール変換に対する応答）を比較した結果、これまでの期待とは逆に、この模型がlarge-N極限でYang-Mills理論を再現しないことが分かった（論文[3,4]）。また、同様の考察で非可換Yang-Mills理論としての極限もとることができないことが明らかになった。また「作用のゆらぎ」と「真空間のポテンシャルの差」を比較することにより、対称性が破れている領域の拡大の速さに対して定性的な解釈を与えた。(論文[5])</p><p>また私たちは同様に別の行列模型を用いてモンテカルロシミュレーションにより、ブラックホール、ブラックストリングの相転移の研究を行った。この研究において、我々は相転移の構造がAdS/CFTから予言されるものと同一であることを示した。また、私たちはmaximal diagonalizationという手法を開発し、行列の対角成分がDブレインの位置、非対角成分が弦の励起に対応することを確かめた。(論文[6])</p><p>(3)ホーキング輻射に関する研究 (論文[7])</p><p>超弦理論において、重力の作用は補正を受け、高回微分項を含むものとなることが知られている。故にこの補正された重力理論におけるホーキング輻射の研究は、超弦理論でブラックホールを扱う際に不可欠である。私はトレースアノマリーを用いることにより、補正された重力理論におけるホーキング輻射の具体的表式を得、それが通常の重力理論と同様に表面重力にのみ依存することを発見した。</p><p>(4)ブレイン-反ブレイン系に関する研究 (論文[8])</p><p>初期宇宙論において、Ｄブレインと反Ｄブレインの衝突は宇宙初期のインフレーションを説明するのに重要である。</p><p>本研究では私たちは衝突し対消滅していくＤブレイン上の物理は、境界条件が時間発展する系（moving mirror system）と同じ手法で取り扱えることを示し、ブレイン上の質量0の粒子のエネルギー運動量テンソルを計算した。</p><p>結果、ブレインの崩壊面の十分遠方で、熱分布を持つ輻射の存在が明らかになった。</p><p>論文リスト</p><p>1] Tomoyoshi Hirata, Tadashi Takayanagi1</p><p>AdS/CFT and strong subadditivity of entanglement entropy.</p><p>J. High Energy Phys. JHEP 0702:042,2007. (査読有)</p><p>[2] Tomoyoshi Hirata</p><p>New inequality for Wilson loops from AdS/CFT</p><p>J. High Energy Phys. JHEP03(2008)018 (査読有)</p><p>[3] Tatsuo Azeyanagi3, Tomoyoshi Hirata, Masanori Hanada2 and Tomomi Ishikawa4</p><p>Phase structure of twisted Eguchi-Kawai model</p><p>J. High Energy Phys. JHEP01(2008)025 (査読有)</p><p>[4] Tatsuo Azeyanagi3, Tomoyoshi Hirata, Masanori Hanada2 and Tomomi Ishikawa4</p><p>Phase structure of twisted Eguchi-Kawai model</p><p>J. High Energy Phys. PoS (LATTICE 2007) 054 (査読有)</p><p>[5] Tatsuo Azeyanagi, Masanori Hanada, Tomoyoshi Hirata.</p><p>On Matrix Model Formulations of Noncommutative Yang-Mills Theories</p><p>Phys.Rev.D78:105017,2008. (査読有)</p><p>[6] Tatsuo Azeyanagi, Masanori Hanada, Tomoyoshi Hirata,T Hidehiko Shimada</p><p>On the shape of a D-brane bound state and its topology change.</p><p>JHEP 0903:121,2009. (査読有)</p><p>[7] Akihide Shirasaka6, Tomoyoshi Hirata.</p><p>Higher Derivative Correction to the Hawking Flux via Trace Anomaly.</p><p>arXiv:0804.1910</p><p>[8] Tomoyoshi Hirata, Shinji Mukohyama5, Tadashi Takayanagi1</p><p>Decaying D-branes and Moving Mirrors</p><p>JHEP 0805:089,2008.</p><p>(査読有)</p><p>（注）論文著者の所属・職（論文執筆時）</p><p>1. 京都大学大学院理学研究科 助教</p><p>2. Department of Particle Physics, Weizmann Institute of Science PD研究員</p><p>3. 京都大学大学院理学研究科博士課程</p><p>4. RIKEN BNL Research Center 研究員</p><p>5. 東京大学ビッグバン宇宙国際研究センター 助教</p><p>6. 京都大学大学院理学研究科博士課程</p>
+
+</article>
+<footer class="site-foot">
+  <span>© 平田朋義 ・ since 2009</span>
+  <span><a href="../index.html">ひらたともよし！</a></span>
+</footer>
+</div>
+</body>
+</html>

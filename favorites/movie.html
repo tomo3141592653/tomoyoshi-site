@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>movie | ひらたともよし！</title>
+<style>
+:root{
+  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
+  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
+  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
+    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--link);text-underline-offset:.18em}
+a:hover{color:var(--accent)}
+.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
+.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
+.site-head .logo:hover{color:var(--accent)}
+.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
+.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
+.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
+.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--accent);text-decoration:underline}
+h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
+.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
+.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
+.article p{margin:0 0 1.1em}
+.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+.article ul,.article ol{padding-left:1.5em}
+.article li{margin:.25em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.kids{list-style:none;padding:0;margin:20px 0}
+.kids li{margin:0;border-bottom:1px solid var(--line)}
+.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
+.kids a:hover{background:var(--paper)}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
+.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
+.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
+.card .emoji{font-size:1.6rem}
+.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
+.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
+  text-decoration:none;background:var(--paper)}
+.chips a:hover{border-color:var(--accent)}
+.hero{padding:34px 0 8px}
+.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
+.hero .name .ex{color:var(--accent)}
+.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
+.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
+.diary-years{margin:20px 0}
+.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.diary-months{display:flex;flex-wrap:wrap;gap:8px}
+.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
+  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--accent)}
+.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
+.prevnext a{text-decoration:none}
+footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer.site-foot a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="site-head">
+  <a class="logo" href="../index.html">ひらたともよし！</a>
+  <nav><a href="../mywork.html" class="">つくったもの</a><a href="../favorites.html" class="here">おきにいり</a><a href="../aboutme.html" class="">じこしょうかい</a><a href="../announce.html" class="">おしらせ</a></nav>
+</header>
+<p class="crumbs"><a href="../index.html">Home</a> › <a href="../favorites.html">おきにいり</a> › movie</p>
+<article class="article">
+<h1>movie</h1>
+<p>面白いと思う映画</p><p>変態村：人がひたすらひどい目に合う映画。変態村ダンスがよい。変態島はいまいち。</p><p>ファニーゲーム：人がひたすらひどい目に合う映画。</p><p>マタンゴ：人がキノコになる映画。一人が死んだとき、一緒に見ている人が「一人減ったので見分けが付きやすくなった」と言っていた。</p><p>バーバパパのおんがくかい：粘性の生物の家庭劇。ホラー。</p><p>ディセント：洞窟に閉じ込められる映画。後半は科学的興味でホラー映画ではなくなる。DVDは表紙に重大なネタバレがある。</p><p>完全なる飼育：１００％の純愛映画。</p><p>恐怖奇形人間：『孤島の鬼』＋『パノラマ島奇談』＋『屋根裏の散歩者』＋『人間椅子』。明智が脈絡なしに解決してくれる。おかーさーん。</p><p>ソドムの市：面白い映画。</p><p>パプリカ：頭の中。</p><p>女学生ゲリラ：卒業式粉砕を企む女学生たちが、自衛隊を襲って武器を奪い、学生たちとともに渓谷に立てこもリ、次第にゲリラ化していく…（Amazonより）</p><p>ザ・セル：犯罪者の頭の中に入る映画。キッチュ感がいい。</p><p>ゾンビ（ドーン・オブ・ザ・デッド）：最高の映画。スーパーマーケットに入るとどう立てこもるか考えてしまう。</p><p>イノセンス：映像の麻薬。</p><p>アンダルシアの犬；ダリの作った映画。犬は出ない。</p><p>未来世紀ブラジル：素晴らしい映像美。音楽もよい。</p><p>Matrix:変な映画を見たあとの口直しに最適。</p><p>太陽を盗んだ男：高校教師が原爆を作ったものの何をしていいのか分からなくなる。原爆を作っているときに口ずさむ鉄腕アトムの主題歌がよい。</p><p>転校生：男女入れ替わりもの。尾道の風景が美しい。同監督の「ふたり」や「あした」も青春モノとして最高。</p><p>ユメ十夜：第六夜の踊りがよい。</p><p>渚にて：ひっそり人類が終焉する映画。</p><p>惑星ソラリス：途中の数分の音楽シーンのために全てがある。</p><p>SAW:謎解き要素が面白い。</p><p>ゴジラ対ヘドラ：ゴジラ対公害怪獣ヘドラ。これは死体をはっきり描写するゴジラ映画。水銀、コバルト、カドミウム♪</p><p>幻の海：動物とSFと戦国とサスペンスの要素を入れた超大作ジョギング映画。</p><p>デス・レース２０００：イマイチ盛り上がりにかける殺人レース。客をたくさんひき殺した人の勝ち。</p><p>サマーウォーズ：「ところで、私達になくてはならないもの。それはコミュニケーションです。」アナログでもデジタルでも。</p><p>パヒューム：匂いフェチ必見。プロジェクトXみたいな映画。変態も必見。</p><p>時計仕掛けのオレンジ；いい話。</p><p>キューブ：シンプルで美しい映画。</p><p>カンパニーマン：キューブと同じ監督。洗練された映像美。</p><p>鳥：鳥がなぜか人を襲う映画。不条理、よい。</p><p>ホワットライズビニース：在り来たりの怪談ではあるが、映像のありとあらゆるところに不自然な加工が意図的に加えられており、恐怖を起こすようになっている。ただ、劇場で見ないとこの効果は伝わらないと思う。</p><p>シャイニング：</p><p>All Work and No play Makes Jack A Dull Boy.All Work and No play Makes Jack A Dull Boy.</p><p>All Work and No play Makes Jack A Dull Boy.All Work and No play Makes Jack A Dull Boy.</p><p>All Work and No play Makes Jack A Dull Boy.All Work and No play Makes Jack A Dull Boy.</p><p>All Work and No play Makes Jack A Dull Boy.All Work and No play Makes Jack A Dull Boy.</p><p>All Work and No play Makes Jack A Dull Boy.All Work and No play Makes Jack A Dull Boy.</p><p>キサラギ：大変面白い。最後のシーンで踊ろう。</p><p>博士の異常な愛情：コメディタッチで世界の終わりを描く。相互確証破壊戦略なんて狂った世界で育った。</p><p>英雄(HERO)；大変中国的な世界。訓練された人が水の上を走れるなんて普通。とても美しい。</p><p>恋する惑星：よくわからないけど、いい気分になる香港恋愛映画。</p><p>シンクロボーイズ：かっこいい。</p><p>色即ぜねれーしょん；男子高校生がフリーセックスを求めて、ユースホステルにいく。痛い青春もの。</p><p>メトロポリス；白黒サイレント映画の傑作。音はなくても音は聞こえる。</p><p>地獄の黙示録：コーヒーをマグカップで飲んでるとこの映画を思い出す。</p><p>ハウス：大林監督の最高傑作。空は絵で代用するのは当たり前。とにかく変。</p><p>ねらわれた学園：もうひとつの大林監督の最高傑作。「私は宇宙だ！」</p><p>グリーンマイル：忘れたけどいい映画だった気がする。</p><p>千年女優：今見てる。よい。一人の人間の人生。</p><p>インタビューウィズバンパイヤ：永遠の生を描く。退廃的で美しい映画。</p><p>羊たちの沈黙；レクター先生の素敵さを描く映画。</p><p>乱歩地獄：最後の蠱が素晴らしい。</p><p>ジュマンジ；忘れた。すごろく、動物、よい。</p><p>ローズインタイドランド；外界から隔絶された小さな女の子が想像の中の世界を旅する映画。素晴らしい。この年に見た最高の傑作。</p><p>アリス（ヤンシュヴァンクマイエル）；人形劇。気持ち悪いアリス。素晴らしい。</p>
+
+</article>
+<footer class="site-foot">
+  <span>© 平田朋義 ・ since 2009</span>
+  <span><a href="../index.html">ひらたともよし！</a></span>
+</footer>
+</div>
+</body>
+</html>

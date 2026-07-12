@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Websites | ひらたともよし！</title>
+<style>
+:root{
+  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
+  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
+  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
+    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--link);text-underline-offset:.18em}
+a:hover{color:var(--accent)}
+.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
+.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
+.site-head .logo:hover{color:var(--accent)}
+.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
+.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
+.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
+.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--accent);text-decoration:underline}
+h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
+.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
+.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
+.article p{margin:0 0 1.1em}
+.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+.article ul,.article ol{padding-left:1.5em}
+.article li{margin:.25em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.kids{list-style:none;padding:0;margin:20px 0}
+.kids li{margin:0;border-bottom:1px solid var(--line)}
+.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
+.kids a:hover{background:var(--paper)}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
+.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
+.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
+.card .emoji{font-size:1.6rem}
+.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
+.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
+  text-decoration:none;background:var(--paper)}
+.chips a:hover{border-color:var(--accent)}
+.hero{padding:34px 0 8px}
+.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
+.hero .name .ex{color:var(--accent)}
+.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
+.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
+.diary-years{margin:20px 0}
+.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.diary-months{display:flex;flex-wrap:wrap;gap:8px}
+.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
+  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--accent)}
+.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
+.prevnext a{text-decoration:none}
+footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer.site-foot a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="site-head">
+  <a class="logo" href="../index.html">ひらたともよし！</a>
+  <nav><a href="../mywork.html" class="">つくったもの</a><a href="../favorites.html" class="here">おきにいり</a><a href="../aboutme.html" class="">じこしょうかい</a><a href="../announce.html" class="">おしらせ</a></nav>
+</header>
+<p class="crumbs"><a href="../index.html">Home</a> › <a href="../favorites.html">おきにいり</a> › Websites</p>
+<article class="article">
+<h1>Websites</h1>
+<ul><li><p><a href="http://art-random.main.jp/samescale/index.html">art random-人生のセイムスケール</a> 享年による人生の分類</p></li><li><p><a href="http://www.yung.jp/">クラシック音楽へのおさそい ～ユング君のホームページ～</a> 著作権の切れた大量のクラシックの音源を視聴、ダウンロードできる。</p></li><li><p><a href="http://www.salvastyle.com/index.html">サルヴァスタイル美術館</a> 古典を中心とする西洋絵画のWeb美術館</p></li><li><p><a href="http://www.geocities.co.jp/SilkRoad-Lake/2917/index.html">世界飛び地領土研究会（飛地）</a> 飛び地領土が好きな人向け。その上の階層の<a href="http://www.geocities.co.jp/SilkRoad/9613/">野次馬的アジア研究中心</a>もお勧め。</p></li><li><p><a href="http://www.hendora.com/">変ドラページ「なんだこりゃ？」</a> ドラえもん内の変な回の特集</p></li><li><p><a href="http://www.geocities.co.jp/Technopolis/9946/index.html">巨大数研究室</a> 巨大な数についてのまとめ</p></li><li><p><a href="http://ten.web.infoseek.co.jp/japan/guide/index.html">日本の 観光</a> 日本に関する嘘紹介。（ジョークサイト）</p></li><li><p><a href="http://www.aichi-gakuin.ac.jp/%7Ekamiyama/">物語要素事典</a> 物語の「要素」で分類した物語事典</p></li><li><p><a href="http://members.at.infoseek.co.jp/mastermind1/ugbar/stk.htm">尾行日記</a> ＨＵＮＴＥＲ×ＨＵＮＴＥＲの二次小説。設定をとても上手く活かしていて面白い。</p></li><li><p><a href="http://kajipon.sakura.ne.jp/">文芸ジャンキー・パラダイス</a> 映画、絵画、音楽、漫画、文学などあらゆる芸術ジャンルの紹介文のサイト。ジョジョ立ちはこのサイトから生まれた。</p></li><li><p><a href="http://chambre.fc2web.com/">北寮２９・３０号住人連合</a> 部屋で稲作をしたり、カンフォーラ（学内レストラン）を襲撃して「大衆食堂あけぼの」に変えたり。</p></li><li><p><a href="http://integrals.wolfram.com/">The Integrator</a> いろんな関数を不定積分をしてくれるサイト。</p></li><li><p><a href="http://schrodinger.haun.org/">シュレディンガー音頭</a> 量子的な踊り。</p></li><li><p><a href="http://www.asahi-net.or.jp/%7Eug7s-ktu/index.htm">加藤の鉱物、化石コレクション</a> 鉱物と化石の図鑑。</p></li><li><p><a href="http://quattro.phys.sci.kobe-u.ac.jp/nishino.html">西野の部屋</a> 物理学ジョークが豊富。</p></li><li><p><a href="http://www.h5.dion.ne.jp/%7Esurvivor/">Kの館</a> 『星をみるひと』・『たけしの挑戦状』・『武田信玄』等くそゲーの攻略ＨＰです。</p></li><li><p><a href="http://www.ceres.dti.ne.jp/%7Echu/law/">変な法律</a> 日本に実在する笑える法律を収録。</p></li><li><p><a href="http://www.ne.jp/asahi/ymgs/hon/">本読みHP</a> 本と活字が好きで好きでたまらぬ人の為のHPです。</p></li><li><p><a href="http://www.geocities.co.jp/Playtown-Domino/6317/">独創最前線</a> ドラクエⅣの4章でキングレオを倒したらどうなるかとか。</p></li><li><p><a href="http://www.geocities.co.jp/Bookend-Kenji/3992/">わにゆめ発信基地</a> 聖闘士星矢のダイジェストが面白い。</p></li><li><p><a href="http://koi2.chu.jp/">みんなきてＫＯＩＫＯＩ</a> お湯以外でカップ麺を作って食うＨＰ。</p></li><li><p><a href="http://yamnov.hp.infoseek.co.jp/">たまにはヤムチャが活躍する物語を考えようぜ</a> ヤムチャが活躍する二次小説ばかりを集めたページ。ヤムチャが人造人間を作ろうとする「ドクターヤムチャ」や、ドラゴンボールで１０００人になったヤムチャがサイヤ人を迎え撃つ「ヤムチャ最強への道」などが面白い。</p></li><li><p><a href="http://homepage1.nifty.com/iberia/score_gallery.htm">楽譜の風景</a> 美しい楽譜、奇妙な楽譜を集めたＨＰ。</p></li><li><p><a href="http://www.yuko2ch.net/rockman/">GamesTech</a> rockmanのTAS製作所</p></li><li><p><a href="http://www.moderns.co.jp/kyoto/">京都 お茶好き雑貨好き</a> 京都のカフェや雑貨屋の紹介 情報は多少古い</p></li><li><p><a href="http://www9.ocn.ne.jp/%7Euji/">宇治in茶筒</a> 旅行記。インドネシアでトラと戦ったり、ロシアでロシアンルーレットしたり。</p></li><li><p><a href="http://www.nazotoki.com/index.html">超常現象の謎解き</a> 懐疑的な視点から超常現象の謎解きを行うサイト。人体発火現象とかバミューダートライアングルとか超古代文明とか。</p></li><li><p><a href="http://www.nazoo.org/">気になる資料室</a> 歴史上の奇妙な事件や、オーパーツ、奇人伝に詳しい。</p></li><li><p><a href="http://shukukei.com/mirror/mirror_old/Report/Report17/index.html">ただいま実験中実験レポートNo.17</a> 男性は一ヶ月間射精しなければどうなるかという実験。</p></li><li><p><a href="http://www.h4.dion.ne.jp/%7Efeliz96/frame.htm">生きるって大変</a> 中南米を旅行していろいろな目にあう旅行記。メキシコでインチキ空手道場を開いたり、ブラジルで拉致されて運び屋にさせられたり。</p></li><li><p><a href="http://www.org-chem.org/yuuki/yuuki.html">有機化学美術館</a> 分子の姿とそれにまつわるエピソード</p></li><li><p><a href="http://coffeewriter.com/">カフェオレライター</a><a href="http://coffeewriter.com/text267.html">もしも「耳をすませば」の舞台が2008年だったら </a>などレビューが面白い。</p></li><li><p><a href="http://www.mapsofwar.com/index.html">Maps of War</a>  宗教史 イスラエル史などの地図アニメがよい。</p></li><li><p><a href="http://www.yasuienv.net/">市民のための環境学ガイド</a> ためになる環境学</p></li><li><p><a href="http://www.skepticalscience.com/">Skeptical Science </a>地球温暖化懐疑論に対する論理的な反論</p></li><li><p><a href="http://cardboard-house-painting.jp/mt/archives/cat1/index.php">新宿西口地下道段ボールハウス絵画集</a></p></li></ul><p>最近ははてなブックマークの殿堂タグで管理している。<a href="https://b.hatena.ne.jp/tomo31415926563/%E6%AE%BF%E5%A0%82/">b.hatena.ne.jp/tomo31415926563/%E6%AE%BF%E5%A0%82/</a></p>
+
+</article>
+<footer class="site-foot">
+  <span>© 平田朋義 ・ since 2009</span>
+  <span><a href="../index.html">ひらたともよし！</a></span>
+</footer>
+</div>
+</body>
+</html>

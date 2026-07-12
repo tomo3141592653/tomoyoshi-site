@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>200511 | ひらたともよし！</title>
+<style>
+:root{
+  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
+  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
+  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
+    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--link);text-underline-offset:.18em}
+a:hover{color:var(--accent)}
+.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
+.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
+.site-head .logo:hover{color:var(--accent)}
+.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
+.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
+.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
+.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--accent);text-decoration:underline}
+h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
+.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
+.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
+.article p{margin:0 0 1.1em}
+.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+.article ul,.article ol{padding-left:1.5em}
+.article li{margin:.25em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.kids{list-style:none;padding:0;margin:20px 0}
+.kids li{margin:0;border-bottom:1px solid var(--line)}
+.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
+.kids a:hover{background:var(--paper)}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
+.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
+.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
+.card .emoji{font-size:1.6rem}
+.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
+.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
+  text-decoration:none;background:var(--paper)}
+.chips a:hover{border-color:var(--accent)}
+.hero{padding:34px 0 8px}
+.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
+.hero .name .ex{color:var(--accent)}
+.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
+.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
+.diary-years{margin:20px 0}
+.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.diary-months{display:flex;flex-wrap:wrap;gap:8px}
+.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
+  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--accent)}
+.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
+.prevnext a{text-decoration:none}
+footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer.site-foot a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="site-head">
+  <a class="logo" href="../../index.html">ひらたともよし！</a>
+  <nav><a href="../../mywork.html" class="here">つくったもの</a><a href="../../favorites.html" class="">おきにいり</a><a href="../../aboutme.html" class="">じこしょうかい</a><a href="../../announce.html" class="">おしらせ</a></nav>
+</header>
+<p class="crumbs"><a href="../../index.html">Home</a> › <a href="../../mywork.html">つくったもの</a> › <a href="../../mywork/old-diaries.html">old-diaries</a> › 200511</p>
+<article class="article">
+<h1>200511</h1>
+<p>某日＋２</p><p>ゲストルームで目を覚ます。なんか名残惜しくなって、共有部屋で十時まで漫画を読んでいた。風呂にも入った。ここには大きな湯船があった。でも湯は入ってなかったのでシャワー。寒い寒い。もっとも東京は京都より暖かい。</p><p>出発した。東京駅に行き、新幹線に乗る。</p><p>新幹線での時間は短いようで長い。アイスクリームを食べたりしてすごす。</p><p>京都に到着。バスで出町柳へ。ものすごく混んでいる。バスに乗りながら、「今度入院したときは、病室をギャラリーかカフェにしよう。」なんてことを妄想した。学生なら安く借りれるギャラリーがあるので、論文終わったら、個展を開こうかなとも妄想した。</p><p>カフェピースで食事。知らない人と話しかけた。</p><p>そして、研究室に戻る。</p><p>某日＋１</p><p>ゲストルームで寝てました。</p><p>寝るとき、やけにいい布団だなあ、吉田寮とは違うなあ、マットレスっていいよなあ、買おうかな、などと思っていた。</p><p>そしたら、朝入ってきた人に、それ僕の私物って言われてしまった。</p><p>昼まで、ＢＥ ＦＲＥＥを読む。予想がつかない展開が面白かった。 結局笹錦って何者だったんだろう？神？</p><p>でそれから、浅草へ、都電は入るときにお金を入れるのか。ついつい無賃乗車してしまった。めぐみさんと待ち合わせる。浅草は京都のよう な大阪のような神戸のような所だった。カメラが欲分からない壊れ方をしたが、それまで撮ったフィルム一本を犠牲にして直った。原因不明。全てのモードがオ ンになっているという異常な状況だった。</p><p>もんじゃ焼きをはじめて食べた。正しい食べ方というのは予想もしていない食べ方だった。お好み焼きのように考えてはいけない。広げて薄く延ばしてフィルム状にして食べるようだ。</p><p>めぐみさんが、「近くに食品のプラスチック見本が売っている専門店があるので見に行きたい」というなぞの要求を出してきたのでそれに従う。</p><p>とても満足そうだった。それから、隅田川を見て、朝日の変な金色の彫刻のところへ行った。この辺は寂しくて暗くて、とても気分が欝めい てきた。めぐみさんは「この電車のがたがたいう音でますます犯罪をしなくてはならないって気分になるね。」というなぞの発言をしていた。</p><p>ご飯を寂れたレストランで食べて、別れる。このあたりは本当に寂しい。大阪の中心部近くにある暗い商店街のようだ。</p><p>電車のなかで優先座席と気づかずに座って、携帯で日記を書いていたら、前の人にこれでもかというぐらい激しい叱責を受けた。で、まあそのことは僕のミスなんでいいんだが。不思議なことに、その怒られたことによるどきどき感で、欝が吹っ飛んだ。人間の心は不思議だ。</p><p>寮に戻る。寮祭が始まっていた。</p><p>だれも知り合いがいないので、とりあえず近くの人と飲んで喋った。そのうち、もりゆも戻ってきて、飲んで語り合った。後は飲んだり踊ったり、京都の話しをしたり、カップルの写真を撮ったり。そして祭りは終わった。</p><p>いろんな人と話しかけて少し仲良くなったけど、殆どの人とは、今生の別れなんだな。生きるということは哀しいものだ。</p><p>寝た。</p><p>某日</p><p>所用ありて東京へ。ちゃんと書けないのはしがらみからです。</p><p>高揚した私はまずコンビニでポスターを捨て身軽になった。</p><p>その足で電車に飛び乗りお茶大まで行く。あーさは駅で待っていてくれた。</p><p>お茶大のイチョウは今が見頃だった。京都より季節が少し遅いようだ。</p><p>あーさとお茶大の中を歩く。研究室には見慣れた物理の本がならんでいた。</p><p>大学のなかを一回りした後、近くの喫茶店で紅茶を飲みながら話をした。</p><p>あーさと別れ、池袋に向かう。高校の五つ下の後輩であるワカちゃんと劇を見る約束をしているのだ。</p><p>待ち合わせの時間まで一時間もあるので、サンシャインビルの中を散策する。民族雑貨を売っている店の店長と友達になった。詳しいつながりは分からないけど、友達の友達だろう。フェアトレードの話や豆料理クラブの話がもりあがった。</p><p>ようやくワカちゃんが来て、劇場に入る。中では劇団のＤＶＤやポストカードが売られてたりファンクラブの申し込みがあったりとこの劇団の人気っぷりをがかもしだされていた。</p><p>劇が始まった。十年も前によんだ大好きな話。懐かしい。終わる頃には、感きわまってぼろぼろに泣いてしまった。</p><p>ワカちゃんと食事をして少しの間語り合った。</p><p>そしてワカちゃんとも別れ、もりゆ（Ｍ川嬢の弟）の住む寮へ向かう。途中で終電を逃したので、線路の上を１キロ歩くという珍しい体験をした。</p><p>もりゆの寮はまるで九龍城のような雰囲気だった。眠くなったので少ししか話もせず、床に就いてしまった。</p><p>１１月２６日（土）</p><p>ふみ画伯と、京大の文化祭を周る。</p><p>嚆矢は北部から。まずみかん売りの人にあって、みかんジュースをもらう。そのあと、農学部の人たちのタイカレーを食べた。</p><p>南下していく。いった所と感想を箇条書きで。</p><p>教育学部のメイド喫茶：客引きの女の子が可愛かった。中はいかにも教室。がんばって小物で高級感を出そうとしていているところが、高校の文化祭っぽい。</p><p>古本市：最終日なのでいい本がない。パタリロだけ買う。</p><p>未来寺：今回で一番良かった。三角形分割で洞窟をつくってそれに白い紙をかぶせて、参堂にし、中には白い大仏が。そしてテクノががんがんかかっている。これはすばらしかった。</p><p>総人のメイド喫茶：あやしい雰囲気だった。コーヒーはおいしい。これは何の集まりですか？と店員に聞くと、「多留の会です」と返ってきた。留年を多くすると入れる会らしい。一番偉い人は九回生で、あだなはナインだそうだ。</p><p>写真部、美術部：なんだこれは！というのはなかった。</p><p>デジタル写真部：ビリビリ来る写真を撮っている人が一人いた。</p><p>吉田寮の知り合いの部屋に行って、まったりとすごす。漫画太郎のZOO１を読んだ。素晴らしかった。</p><p>ふみさんと、西部の広場で焚き火に当たりながらうどんを食べた。</p><p>１１月二十五日（金）</p><p>合宿最終日、一日前に発表テーマを変更するという荒業を使ったが、まあなんとかいけた。</p><p>変えた理由は気分。</p><p>電車にのって、実家に帰る。</p><p>そんで、高校へ。生徒会のサイトができつつあるようだ。</p><p>それにつけても、mokoさんって面白い人だなあ。</p><p>研究室に帰る。</p><p>十一月二十四日（木）</p><p>合宿なのに一人四時に起きるって迷惑なことして、勉強。</p><p>午後から自由時間。M1の人たちと山に登る。以外にすぐに登れてしまった。</p><p>だから、単独行動でその後、高野山に登った。</p><p>すぐに着くと思いきや、一時間電車にのって、ケーブルカーにも乗って、ようやく着いたと思ったら、まだそこからバスだった。くじけそうになった。</p><p>適当な所で降りて、閉館ぎりぎりの金剛峰寺に入った。だれもいない寺をまわるって新鮮。もらったお菓子はおいしかった。弘法大師とソウルトークして寺を出る。</p><p>それから来た道を帰る。宴会に十五分ぐらい遅刻するかとおもいきや、一つ前の駅で、電車が人身事故で止まってしまって立ち往生する。</p><p>ヒッチハイクで行くか、歩いていくか迷ったが結局、旅館の人を呼びつけるというもっとも基本的なやりかたで帰った。</p><p>宴会には一時間遅れた。</p><p>それから、明日の準備。結局やることは一から変えてしまった。よりエンターテーメント性の高い発表へ。</p><p>あと、大富豪したり、殺しの七並べをM1に教えたりした。M1は殺しの七並べのルール改良に取り付かれたように、徹夜でよりよりルールを求めて議論していた。</p><p>十一月二十三日（水）</p><p>忙しいよお。今日から研究室合宿。金曜日に発表。</p><p>で、電車に載って合宿の宿へ、一人で向かう。</p><p>他の人より一時間早く出て、一時間遅く着いた。不思議に。今日中に着くのが目標だったのでまあよし。</p><p>そして、発表聞いて、オセロを真剣勝負して、早めに寝る。</p><p>十一月二十二日（火）</p><p>学校で起きる。発表の準備で徹夜。一度ご飯を食べに家に帰った。家にきていたカフェピースの人たちと友達になった。</p><p>十一月二十一日（月）</p><p>学校で起きる。発表の準備をしようとしたが、逡巡すること多く、二行しか進まなかった。</p><p>歯医者での最近の会話。</p><p>先々週：</p><p>院長のブログにコメント書いたら。</p><p>「コメントありがとうございます、ぜひ私達も平田さんのHP見させていただきます。」と言われた。</p><p>先週：</p><p>すみからすみまで読んでくれたようで、写真の話題とか、下鴨サプライズの話題やら、はてな村の話題やら、夢の話の話題などで盛り上がった。</p><p>夢で空を自由に飛ぶ方法について指導したりした。うちにもみんなで遊びにおいでと言った。</p><p>今週；</p><p>バイトで写真をやっている人がいるらしく、「その人、夕方しか来ないので次の診察は夕方にしましょうか？」といわれたので次の診察は夕方にした。</p><p>十一月二十日（日）</p><p>実家で「トリック」を見た。面白かった。今日は移動するだけ。</p><p>十一月十九日（土）</p><p>高校のクラブの同窓会。人はあまり集まらなかった。忙しい時期のようだ。</p><p>たまたまM村さんを道で発見したので、一緒に連れて行った。</p><p>そしてまったりと飲んだ。詳しいことはスナフきんの日記でも読んで。</p><p>１１月十六日（水）</p><p>マキシムの送別会の幹事をした。連れて行った店、「いっぱいいっぱい」がぼったくりで非難轟々。</p><p>終わってからもりせいと飲みに行く。</p><p>A地下バーへ。</p><p>何かというと、京大の地下には十年前から学生主催のバーがあるのです。怪しい感じの。</p><p>もりせいがお酒強くて強くて、困った。ソフトドリンクを飲んでいると怒られた。</p><p>アスベスト吹き付けの素敵な地下部屋で飲む。ここも知り合いの知り合いだらけであった。</p><p>十一月十三日（日）</p><p>朝はヨガ。</p><p>カズミＯとお好み焼きの風月で食べた。おいしい。</p><p>久しぶりに学園中学に行った。昔の学び舎は取り壊されていて、面影なし。</p><p>変わりっぷりが楽しかった。</p><p>京都に戻る、昔、はるひさんと飲んだ喫茶店に入り、はるひさんが飲んでいたおいしい紅茶を飲む。</p><p>石垣カフェの同窓会みたいなもので、映画「幻の湖」を見た。</p><p>ちひろちゃんとの久しぶりの再開。おどった。</p><p> 支離滅裂のすばらしい映画だった。脈絡なし。大爆笑だった。</p><p>十一月十二日（土）</p><p>せいさんと飲む。</p><p>せいさんは、用意周到、なんとホットペッパーを切り抜いて持ってきてくれた。</p><p>ご飯をスパゲティー屋で食べて、</p><p>一杯二百円という安い店で飲んで語った。</p><p>十一月十一日（金）</p><p>徹夜して発表。</p><p>そしてフミ画伯と会う。</p><p>下鴨サプライズで家族食事。</p><p>十一月七日（月）</p><p>昼はちゅんたとその友達で食事した。</p><p>発表した。よく分かった。</p><p>そして寝た。</p><p>十一月六日（日）</p><p>停電なので、学校では勉強ができない。</p><p>電気がないのはいいとして、水道も使えなくなった。</p><p>今日は高二のみかさんを連れて、せいさんの演劇を見に行った。</p><p>雨の中、下鴨神社を参拝した。みかさんは入院した親戚の人のためにお守りを買っていた。</p><p>下鴨サプライズに着く。パンを買ってきてうちでご飯、それから少しお茶などを飲んでのんびりして、演劇へと向かう。</p><p>演劇の内容は、完全な抽象劇、心にグサグサくるいい劇だった。ちょっと、きつい場面もあって、みかさん大丈夫かなと思ったが、まあ大丈夫だったようだ。</p><p>鴨川を通って出町駅までおくり、むまのはなむけする。</p><p>ご飯を食べて、徹夜して明日の発表の準備をした。</p><p>十一月五日（土）</p><p>昼ごはんは、元宇宙物理の秘書さんと一緒にカンフォーラで食べた。</p><p>楽しかった。</p><p>明日は停電だ。</p><p>月曜日に発表が決まり大変だ。</p><p>十一月四日（金）</p><p>夜、太鼓を叩きに三条の川原へ。</p><p>会って五秒で友達になった太鼓のふみさんに教えてもらう。叩き方は「女の子のお尻をたたく感じで」と言われる、そういわれてもなあ。</p><p>またフランスの人と踊ったりした。</p><p>ジュジュが来て、ファイヤーダンスの伴奏をしていたが、警察が来てうるさいと演奏は中止されおしまい。</p><p>十一月三日（木）</p><p>朝十時に門で待ち合わせてＴ澤さんと古本祭へ行く。</p><p>一軒一軒じっくりと見て行く。</p><p>山本直樹の旧ペンネームでの作品とかがあり、驚く。</p><p>買わなかったけど。</p><p>ニーデルンベルクの指輪 超豪華本が三冊七千円で売っていてＴ澤さんは欲しいと言っていた。</p><p>ニーチェの正かなでの古本やら、少女マンガ「Ｐ．Ａ」やらセネカやら芸術新潮やらを買い込む。</p><p>それから、チャーリーブラウンで食事してから、二条城へ結構ぎりぎりで間に合った。</p><p>場内に入ったのは、ひょっとしたら初めてかもしれない。</p><p>帰り方を間違ってかなり歩くことになる、二条城から御所あたりまであるいてしまった。</p><p>Ｔ澤さんとは熊野寮で別れ、からふね屋でカレーとコーヒーを食い、Ｐ．Ａを読んで帰った。 P.Aは手塚治虫風だった。つまり一芸に長けた人がいて、その人が引き起こす人情ドラマって感じ。</p><p>１１月２日（水曜日）</p><p>一年ぶりに、セミナーで来た人の接待に行った。</p><p>楽しくなかったので、次に行くのはまた一年後になるであろう。</p><p>１１月１日（火曜日）</p><p>歯医者に行った。今日は検査結果の発表と歯周病についてのレクチャー。</p>
+
+</article>
+<footer class="site-foot">
+  <span>© 平田朋義 ・ since 2009</span>
+  <span><a href="../../index.html">ひらたともよし！</a></span>
+</footer>
+</div>
+</body>
+</html>

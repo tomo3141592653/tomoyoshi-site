@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>200504 | ひらたともよし！</title>
+<style>
+:root{
+  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
+  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
+  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
+    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--link);text-underline-offset:.18em}
+a:hover{color:var(--accent)}
+.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
+.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
+.site-head .logo:hover{color:var(--accent)}
+.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
+.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
+.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
+.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--accent);text-decoration:underline}
+h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
+.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
+.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
+.article p{margin:0 0 1.1em}
+.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+.article ul,.article ol{padding-left:1.5em}
+.article li{margin:.25em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.kids{list-style:none;padding:0;margin:20px 0}
+.kids li{margin:0;border-bottom:1px solid var(--line)}
+.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
+.kids a:hover{background:var(--paper)}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
+.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
+.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
+.card .emoji{font-size:1.6rem}
+.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
+.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
+  text-decoration:none;background:var(--paper)}
+.chips a:hover{border-color:var(--accent)}
+.hero{padding:34px 0 8px}
+.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
+.hero .name .ex{color:var(--accent)}
+.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
+.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
+.diary-years{margin:20px 0}
+.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.diary-months{display:flex;flex-wrap:wrap;gap:8px}
+.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
+  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--accent)}
+.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
+.prevnext a{text-decoration:none}
+footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer.site-foot a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="site-head">
+  <a class="logo" href="../../index.html">ひらたともよし！</a>
+  <nav><a href="../../mywork.html" class="here">つくったもの</a><a href="../../favorites.html" class="">おきにいり</a><a href="../../aboutme.html" class="">じこしょうかい</a><a href="../../announce.html" class="">おしらせ</a></nav>
+</header>
+<p class="crumbs"><a href="../../index.html">Home</a> › <a href="../../mywork.html">つくったもの</a> › <a href="../../mywork/old-diaries.html">old-diaries</a> › 200504</p>
+<article class="article">
+<h1>200504</h1>
+<p>30(土)午前四時、体温は七度七分だいぶ調子がいい。</p><p>午前十時、体温は六度七分まで下がった。今日安静にすれば完治するだろう。栄養と薬を手に入れに実家に戻る。実家では日常必要となるどんな薬でも手に入るのがよい。</p><p>２９（金）</p><p>風邪を引いて一日寝込む。午後九時半、体温三十八度七分、食料と抗生剤が必要だ。OTCを飲むべきか。</p><p>２６火 友人（中学時代の友人 SI嬢）が事故電車に乗っていたという話を聞く。</p><p>ほどなくして同姓同名同年齢の他人ということが分かった。</p><p>２５月 odeuを京大の食堂とあのカフェに招待した。とても喜んでいたようだ。</p><p>２４日 六つ下の後輩RSと遊びに行った。広隆寺行って、四条大宮で食事。四条川原町でぶらぶら。そして映画。RSはネタになるからと、内容も知らないプリキュアかテニスの王子様の映画を見たがってたが見たのはアビエイター。</p><p>23土 誕生日 一緒に住んでいるみんな＋いろんな人で祝ってくれた。わーい。二十五歳だ。あと何年生きれるか楽しみだ。</p><p>四月二十二日 金</p><p>リンク集を整理</p><p>死んでたリンクを削除し、<a href="http://niyaniya.moo.jp/">多分映画と日記のサイト</a> （まだ名無しｗさん）、<a href="http://chambre.fc2web.com/">北寮２９・３０号住人連合</a>（北寮２９・３９号住人連合さん）、<a href="http://blog.goo.ne.jp/k1z2/">花ごよみ</a>（母）を追加。</p><p>四月二十一日 木</p><p>八時におきて学校へ。この時間に起きるのは三つの意味で都合がいい。</p><p>１．同居人達の起きる時間なので勝手に起きれる。</p><p>２．これ以降はみんなバタバタしてて眠りにくい。</p><p>３．同居人たちと会える。</p><p>十二時まで徒然とすごす。それから「relational quantum mecanics 」を読む。観測問題に関する新たな論文。</p><p>半分ぐらい読んだ。</p><p>四月二十日 水</p><p>発表、ぼこぼこにされる。ありがたき幸せ。ちゃんとした計算をした論文を精読してなかったのは手落ち。</p><p>終わったあと。漫画「バケツでごはん」を読む。中学のときシュールな人が進めていていたのでシュールな漫画と思いきや、普通の漫画だった。動物漫画であった。動物たちの人間ドラマが現実味あふれてて面白い。</p><p>四月十九日 火</p><p>発表の準備終了。結論としてはやっぱりこの論文は救いようがないということ。なんでこんな論文に捕まってしまったというのは、<a href="http://blog.goo.ne.jp/zet80008000/e/83efcd0e0196d051eb6334ad06a41b18">ドルオークション</a>と同じ原理。</p><p>四月十八日 月</p><p>低血圧と発表準備で死に掛けです。低血圧といえばこの前はかった値は、上が８５だった。塩珈琲でも飲むべきか。</p><p>珈琲に唐辛子とニンニクを入れてみた。一口ごとに汗がだらだら出てくる究極の珈琲であった。</p><p>プールへ行った。</p><p>四月十七日 日</p><p>夜もりせと、☆カフェへ行く。横にいたおじさんがひたすら歴史と将棋の話をしてきた。「京大に強い女将棋士がいてね…」なんて言ってたので、ふと思いつく所ありて「それ、う○ださんじゃないですか、」と聞いたら「そう何で知ってるの？」てことになった。</p><p>世の中は狭いものだ。</p><p>四月十六日 土</p><p>今日は合計十五時間は寝ただろうか？</p><p>十一時間寝て十二時ごろ起き、それから学校へ行って、ご飯を食べてまた睡魔に襲われ椅子で寝る。</p><p>夜中五時まで起きてそれからまた寝る。</p><p>寝すぎなのは精神力が衰えているため。</p><p>生活リズムが掴めない。</p><p>mixiを人から強く勧められていたので、はじめてみた。</p><p>桜散る。あと何度桜を見ることができるのだろうか？</p><p>Mozart十二歳の時の作品「孤児院ミサ」を聞く。十二歳のMozartはすでにMozartであった。後期作品の悲壮感はないものの全く遜色なし。</p><p>ダンベルを研究室に発見したので肩こりの治療にやりはじめた。</p><p>四月十五日 金</p><p>国交断絶していた人からメールが来て大喜び。</p><p>曜日感覚もとうに失われた。</p><p>三月は夢でなぜか飛べなくなっていたが、再び飛べるようになった。</p><p>夢：山奥の高校に編入した。ところがなにかおかしい。あるキーワードを喋ると、みんな目が虚ろになり、催眠状態になることを発見した。</p><p>休み時間中に調査しているうちに、教師群から追われて山奥を飛び回って逃げる。顔は割れてないので、再び高校に戻って調査を続けた。</p><p>桜も散りかけだ。</p><p><a href="http://homepage3.nifty.com/TAD/poems_3/poem_35.htm">今年花落顔色改</a></p><p><a href="http://homepage3.nifty.com/TAD/poems_3/poem_35.htm">明年花開復誰在</a></p><p><a href="http://homepage3.nifty.com/TAD/poems_3/poem_35.htm">年年歳歳花相似</a></p><p><a href="http://homepage3.nifty.com/TAD/poems_3/poem_35.htm">歳歳年年人不同</a></p><p>プールで一キロ泳いだ。</p><p>四月十四日 木</p><p>二日酔い＋低血圧＋何か病気で一日中不調。おまけに足に神経痛までする。</p><p>勉強したがあまり進まなかった。もうそろそろまとめに入るか。</p><p>四月十三日 水</p><p>朝：花見のための買い物→朝食→家に写真CDをとりに行く。→家でもらった調理パンがとても美味しかった。</p><p>昼：研究室会議→M２発表今日はK君とO君。いろいろ来週の発表の参考になった。→花見</p><p>夜：花見とは名ばかりで暗闇の中、バーベキュー。→途中で抜けて、K野へ演奏会のCDおよび着物を渡しに四条まで行く。→花見再開。→ドクターの人たちと二次会で居酒屋へ。限界まで飲んでしまった。</p><p>四月十二日 火</p><p>シャノンのエントロピー S= - ｋ_B Σp_i log p_iから統計力学が出ることをはじめて知った。かなり万能。エントロピーをTで微分すると比熱と関係するがそれが、エネルギーの分散と関係していることを知った。これはなぜなんだろう？</p><p>四月十一日 月</p><p>疲労気味。プールに行った。朝型に直そうとするが、夜型の人から引き込み同調を受けてしまう。夜の十二時から議論が始まって三時までとか。</p><p>四月十日 日</p><p>一日学校にいる。こっそりたこ部屋に泊まった。</p><p>夜から質問（グリーン関数って何ですか？不確定性原理をどう理解していますか）をしに四回生が来る。喋っててやはり不思議に思うのは、波動関数はおそらく実在のものであるにも関わらず、観測できるのはある場所に位置する電子でしかないこと。</p><p>その後、電話がかかってきて二時間ばかし喋った。</p><p>四月九日 土</p><p>五つ下の後輩T山と花見に行った。メール会社の陰謀で待ち合わせ確認メールが届かず十分ほど遅れてしまった。</p><p>三条で待ち合わせし、平安神宮へ。人、人、人。今年の平安神宮の枝垂れは例年になく美しかった。</p><p>それから美術館のレストランで食事。合席したおばちゃんと話をした。面白い人だった。</p><p>食事後は哲学の道を目指す。人の流れで哲学の道がどこか分かってしまうほど。</p><p>満開の桜が夕陽に映える。</p><p>途中で喫茶店に入り、京大近くまで歩き。それから、くだんのcafeに入る。喜んでくれて嬉しい。</p><p>そして別れて、私は学校へ。十二時ごろ家に帰る。</p><p>四月八日 金</p><p>昼はたこ部屋の引継ぎガイダンス。新M１と会う。今年は女の子が多めだ。</p><p>「東京の友達から平田さんと友達になるようにと言われてきました」って人がいた。</p><p>夜はたこ部屋の新歓、座った所はM２に囲まれた所だった。S坂君、いさとで、インドネシアから来たキキさんを囲んで、英会話教室した。</p><p>四月六日 水</p><p>四時から六時ごろまで 二つ下の後輩Aの演劇があるというので見に行く。</p><p>やってたのは「ホントに！」って劇。この劇は見るのは三回目だけど、何度見ても楽しめる。</p><p>前に見たのは四年ほど前。懐かしい。</p><p>四月五日</p><p>グーグルデスクトップ検索は便利。パソコンの中の文章を検索してくれる。ppdfとかエクセルとかパソコンの中ですら片付けられないあなたにお勧め。http://desktop.google.co.jp/ （インストールが必要）</p><p>たこ部屋引継ぎまであと三日。大掃除をし、軽く酒を飲む。</p><p>たぶん四月四日</p><p>loop重力の分からないところをｋ玉先生に聞きにいく。僕はloop重力の専門家じゃないんだけどと、言っておられた。loop重力の専門家は日本にいるのだろうか…不安だ。</p><p>で質問したところは全部未解決問題だった…。loop重力に一抹の不安を感じる。</p><p>質問した内容 1.ウィラーディット方程式を考えることにより、時間概念が消えているが、時間はどこから出るのか。時間が離散的とは？</p><p>2.スピンフォームとの対応は？ちゃんとした導出はできるのか？</p><p>3.スピンネットワークが乗る三次元多様体はなんだ？</p><p>1.に関しては考えがある。そもそも宇宙には時間がないのではないだろうか？ただたんに、物と物との相関があるだけで、例えば振り子二つのダイナ ミックスを考えるとき、振り子Aの場所がなになにのとき、振り子Bの場所は？を記述できればいいんじゃないだろうか？あえて時間をいれるならそれは宇宙の 体積とかでいいんじゃないだろうか？ 宇宙項が入らない時空が作れないのは、時空は本質的に宇宙項を持つと考えるのはだめなんだろうか？</p><p>たぶん四月三日</p><p>京都に帰って、虎猫氏たちと遊ぶ。彼は南極に行っていたので、お土産は南極の氷。</p><p>南極の氷を溶かして、珈琲を造りました。一杯目はホットで二杯目は氷を浮かべてアイスで。南極の氷は中に気泡が金平糖のように入っている。数百年 ひょっとすると数万年に氷に入った空気なのだろうか？非常に贅沢なものを飲ませてもらった。ちなみに日本で買うと一キロ四万円だそうだ。300mlは飲み 食いしたはず。今まで飲んだ飲み物の中で一等高い。あと航海中の写真も見せてもらった。楽しすぎて一度いったら娑婆には戻れんだろうな、と思った。</p><p>四月二日</p><p>朝はtuliperと会う。お好み焼き食べて、歩いて喫茶店で珈琲を飲む。人生について語る。人生苦しかろうが楽しかろうが、面白ければよしという同意に達した。あと道徳や価値、男女論についても語る。</p><p>男性の良いところと女性の良いところ両方を吸収した人間になろうなんてことを話した。</p><p>帰る予定だったが、父母と「イノセンス」を見た。見るのは三回目。見終わった後DVDにbefore viewingというおまけがあって、電脳や義体やゴーストについての解説映像があった。なんて親切な！これを先に見ろということか。</p><p>しかし何度見ても飽きない。映画というより音楽のような作品。「鳥の血に悲しめど、魚の血に悲しまず。声あるものは幸いなり。」ってのは人形には なりたくないと泣く子供と、人形になってしまったが不満もいえない二人を対比させている言葉だとはじめて気づいた。しかしこの言葉は深い。本質をついてい る。</p><p>四月一日</p><p>久しく家に帰っていない気がする。家族サービスで梨の木神社に水をくみ家に持って帰る。ついでに自転車もあげた。んで実家に帰った。実家にかえるべき用事は電車中きたメールにより消えた。</p>
+
+</article>
+<footer class="site-foot">
+  <span>© 平田朋義 ・ since 2009</span>
+  <span><a href="../../index.html">ひらたともよし！</a></span>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>むかしの日記 (2002–2006) | ひらたともよし！</title>
+<style>
+:root{
+  --bg:#faf7f1; --paper:#ffffff; --ink:#26221c; --muted:#7a7264;
+  --line:#e6dfd2; --accent:#c2502e; --link:#2b5b8c;
+  --sans:"Hiragino Sans","Yu Gothic","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#191613; --paper:#211d19; --ink:#ece7dd; --muted:#9a917f;
+    --line:#38322a; --accent:#e0784f; --link:#7aa8d8; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.9;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--link);text-underline-offset:.18em}
+a:hover{color:var(--accent)}
+.page{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.site-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding:22px 0 14px;border-bottom:2px solid var(--accent);margin-bottom:8px}
+.site-head .logo{font-size:1.15rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:.02em}
+.site-head .logo:hover{color:var(--accent)}
+.site-head nav{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
+.site-head nav a{text-decoration:none;color:var(--muted);font-weight:600}
+.site-head nav a:hover,.site-head nav a.here{color:var(--accent)}
+.crumbs{font-size:.8rem;color:var(--muted);margin:14px 0 0}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--accent);text-decoration:underline}
+h1{font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.5;margin:14px 0 6px;letter-spacing:.01em}
+.article h2{font-size:1.25rem;margin:2.2em 0 .6em;padding-left:12px;border-left:4px solid var(--accent);line-height:1.5}
+.article h3{font-size:1.05rem;margin:1.8em 0 .5em}
+.article p{margin:0 0 1.1em}
+.article img{max-width:100%;height:auto;border-radius:6px;border:1px solid var(--line)}
+.article ul,.article ol{padding-left:1.5em}
+.article li{margin:.25em 0}
+.article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1em 0}
+.article td,.article th{border:1px solid var(--line);padding:6px 10px;font-size:.92rem}
+.article hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.kids{list-style:none;padding:0;margin:20px 0}
+.kids li{margin:0;border-bottom:1px solid var(--line)}
+.kids a{display:block;padding:12px 4px;text-decoration:none;font-weight:600}
+.kids a:hover{background:var(--paper)}
+.kids .sub{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:26px 0}
+.card{display:block;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:20px 18px;text-decoration:none;color:var(--ink);transition:transform .12s, border-color .12s}
+.card:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--ink)}
+.card .emoji{font-size:1.6rem}
+.card b{display:block;font-size:1.06rem;margin:6px 0 2px;color:var(--accent)}
+.card span{font-size:.85rem;color:var(--muted);line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chips a{font-size:.82rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;
+  text-decoration:none;background:var(--paper)}
+.chips a:hover{border-color:var(--accent)}
+.hero{padding:34px 0 8px}
+.hero .name{font-size:clamp(2rem,7vw,3rem);font-weight:800;letter-spacing:.02em;line-height:1.3;margin:0}
+.hero .name .ex{color:var(--accent)}
+.hero .tag{color:var(--muted);margin:10px 0 0;font-size:1rem}
+.h2line{font-size:1.15rem;margin:34px 0 4px;padding-left:12px;border-left:4px solid var(--accent)}
+.diary-years{margin:20px 0}
+.diary-years h2{font-size:1.1rem;margin:1.6em 0 .4em;color:var(--accent)}
+.diary-months{display:flex;flex-wrap:wrap;gap:8px}
+.diary-months a{padding:6px 13px;border:1px solid var(--line);border-radius:8px;
+  text-decoration:none;font-size:.9rem;background:var(--paper);font-variant-numeric:tabular-nums}
+.diary-months a:hover{border-color:var(--accent)}
+.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;font-size:.88rem}
+.prevnext a{text-decoration:none}
+footer.site-foot{margin-top:54px;padding-top:18px;border-top:1px solid var(--line);
+  color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer.site-foot a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="site-head">
+  <a class="logo" href="../index.html">ひらたともよし！</a>
+  <nav><a href="../mywork.html" class="here">つくったもの</a><a href="../favorites.html" class="">おきにいり</a><a href="../aboutme.html" class="">じこしょうかい</a><a href="../announce.html" class="">おしらせ</a></nav>
+</header>
+<p class="crumbs"><a href="../index.html">Home</a> › <a href="../mywork.html">つくったもの</a> › むかしの日記 (2002–2006)</p>
+<article class="article">
+<h1>むかしの日記 (2002–2006)</h1>
+<p>日記</p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2009/09/index.html">2009年9月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2009/08/index.html">2009年8月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2009/07/index.html">2009年7月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2009/06/index.html">2009年6月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2009/05/index.html">2009年5月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2009/04/index.html">2009年4月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2009/03/index.html">2009年3月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2009/02/index.html">2009年2月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2009/01/index.html">2009年1月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2008/12/index.html">2008年12月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2008/11/index.html">2008年11月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2008/10/index.html">2008年10月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2008/09/index.html">2008年9月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2008/08/index.html">2008年8月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2008/07/index.html">2008年7月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2008/06/index.html">2008年6月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2008/05/index.html">2008年5月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2008/04/index.html">2008年4月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2008/03/index.html">2008年3月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2008/02/index.html">2008年2月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2008/01/index.html">2008年1月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2007/12/index.html">2007年12月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2007/11/index.html">2007年11月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2007/10/index.html">2007年10月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2007/09/index.html">2007年9月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2007/08/index.html">2007年8月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2007/07/index.html">2007年7月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2007/06/index.html">2007年6月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2007/05/index.html">2007年5月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2007/04/index.html">2007年4月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2007/03/index.html">2007年3月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2007/02/index.html">2007年2月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2007/01/index.html">2007年1月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2006/12/index.html">2006年12月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2006/11/index.html">2006年11月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2006/10/index.html">2006年10月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2006/09/index.html">2006年9月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2006/08/index.html">2006年8月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2006/07/index.html">2006年7月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2006/06/index.html">2006年6月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2006/05/index.html">2006年5月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2006/04/index.html">2006年4月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2006/03/index.html">2006年3月</a></p><p><a href="http://hougi-diary.cocolog-nifty.com/blog/2006/02/index.html">2006年2月</a></p><p><a href="../mywork/old-diaries/200602.html">2006年2月</a></p><p><a href="../mywork/old-diaries/200601.html">2006年1月</a></p><p><a href="../mywork/old-diaries/200512.html">2005年12月</a></p><p><a href="../mywork/old-diaries/200511.html">2005年11月</a></p><p><a href="../mywork/old-diaries/200510.html">2005年10月</a></p><p><a href="../mywork/old-diaries/200509.html">2005年9月</a></p><p><a href="../mywork/old-diaries/200508.html">2005年8月</a></p><p><a href="../mywork/old-diaries/200507.html">2005年7月</a></p><p><a href="../mywork/old-diaries/200506.html">2005年6月</a></p><p><a href="../mywork/old-diaries/200505.html">2005年5月</a></p><p><a href="../mywork/old-diaries/200504.html">2005年4月</a></p><p><a href="../mywork/old-diaries/200503.html">2005年3月</a></p><p><a href="../mywork/old-diaries/200502.html">2005年2月</a></p><p><a href="../mywork/old-diaries/200501.html">2005年1月</a></p><p><a href="../mywork/old-diaries/200412.html">2004年12月</a></p><p><a href="../mywork/old-diaries/200411.html">2004年11月</a></p><p><a href="../mywork/old-diaries/200410.html">2004年10月</a></p><p><a href="../mywork/old-diaries/200409.html">2004年9月</a></p><p><a href="../mywork/old-diaries/200408.html">2004年8月</a></p><p><a href="../mywork/old-diaries/200407.html">2004年7月</a></p><p><a href="../mywork/old-diaries/200406.html">2004年6月</a></p><p><a href="../mywork/old-diaries/200405.html">2004年5月</a></p><p><a href="../mywork/old-diaries/200404.html">2004年4月</a></p><p><a href="../mywork/old-diaries/200403.html">2004年3月</a></p><p><a href="../mywork/old-diaries/200402.html">2004年2月</a></p><p><a href="../mywork/old-diaries/200401.html">2004年1月</a></p><p><a href="../mywork/old-diaries/200312.html">2003年12月</a></p><p><a href="../mywork/old-diaries/200311.html">2003年11月</a></p><p><a href="../mywork/old-diaries/200310.html">2003年10月</a></p><p><a href="../mywork/old-diaries/200309.html">2003年9月</a></p><p><a href="../mywork/old-diaries/200308.html">2003年8月</a></p><p><a href="../mywork/old-diaries/200307.html">2003年7月</a></p><p><a href="../mywork/old-diaries/200306.html">2003年6月</a></p><p><a href="../mywork/old-diaries/200305.html">2003年5月</a></p><p><a href="../mywork/old-diaries/200304.html">2003年4月</a></p><p><a href="../mywork/old-diaries/200303.html">2003年3月</a></p><p><a href="../mywork/old-diaries/200302.html">2003年2月</a></p><p><a href="../mywork/old-diaries/200301.html">2003年1月</a></p><p><a href="../mywork/old-diaries/200212.html">2002年12月</a></p><p><a href="../mywork/old-diaries/200211.html">2002年11月</a></p><p><a href="../mywork/old-diaries/200210.html">2002年10月</a></p><p><a href="../mywork/old-diaries/200209.html">2002年9月</a></p><p><a href="../mywork/old-diaries/200208.html">2002年8月</a></p><p><a href="../mywork/old-diaries/200207.html">2002年7月</a></p><p><a href="../mywork/old-diaries/200206.html">2002年6月</a></p><p><a href="../mywork/old-diaries/200205.html">2002年5月</a></p><p><a href="../mywork/old-diaries/200204.html">2002年4月</a></p><p>主な出来事</p><p>Ｄ４進学 超誕生日会が盛況</p><p>学振に落ちた。社会に出ることをこのあたりで決意。</p><p>インドの研究会に１ヶ月ほど行った。</p><p>Ｄ３進学 トルコ旅行 部屋替え</p><p>ベトナム旅行 母乳カクテル</p><p>誕生一万日</p><p>stringsでマドリードへ</p><p>Ｄ２進学 吉田寮入寮</p><p>下鴨サプライズを出る。</p><p>京都大学大学院博士後期課程（Ｄ１）進学</p><p>初海外一人旅フランス ベルギー オランダ</p><p>日記をブログに移転</p><p>修士論文で頭がおかしくなっている。</p><p>M2進学</p><p>M1進学</p><p>大学院入試</p><p>学部四回進学</p><p>学部三回生</p>
+<div class="diary-years"><h2>2002年</h2><div class="diary-months"><a href="old-diaries/200204.html">4月</a><a href="old-diaries/200205.html">5月</a><a href="old-diaries/200206.html">6月</a><a href="old-diaries/200207.html">7月</a><a href="old-diaries/200208.html">8月</a><a href="old-diaries/200209.html">9月</a><a href="old-diaries/200210.html">10月</a><a href="old-diaries/200211.html">11月</a><a href="old-diaries/200212.html">12月</a></div><h2>2003年</h2><div class="diary-months"><a href="old-diaries/200301.html">1月</a><a href="old-diaries/200302.html">2月</a><a href="old-diaries/200303.html">3月</a><a href="old-diaries/200304.html">4月</a><a href="old-diaries/200305.html">5月</a><a href="old-diaries/200306.html">6月</a><a href="old-diaries/200307.html">7月</a><a href="old-diaries/200308.html">8月</a><a href="old-diaries/200309.html">9月</a><a href="old-diaries/200310.html">10月</a><a href="old-diaries/200311.html">11月</a><a href="old-diaries/200312.html">12月</a></div><h2>2004年</h2><div class="diary-months"><a href="old-diaries/200401.html">1月</a><a href="old-diaries/200402.html">2月</a><a href="old-diaries/200403.html">3月</a><a href="old-diaries/200404.html">4月</a><a href="old-diaries/200405.html">5月</a><a href="old-diaries/200406.html">6月</a><a href="old-diaries/200407.html">7月</a><a href="old-diaries/200408.html">8月</a><a href="old-diaries/200409.html">9月</a><a href="old-diaries/200410.html">10月</a><a href="old-diaries/200411.html">11月</a><a href="old-diaries/200412.html">12月</a></div><h2>2005年</h2><div class="diary-months"><a href="old-diaries/200501.html">1月</a><a href="old-diaries/200502.html">2月</a><a href="old-diaries/200503.html">3月</a><a href="old-diaries/200504.html">4月</a><a href="old-diaries/200505.html">5月</a><a href="old-diaries/200506.html">6月</a><a href="old-diaries/200507.html">7月</a><a href="old-diaries/200508.html">8月</a><a href="old-diaries/200509.html">9月</a><a href="old-diaries/200510.html">10月</a><a href="old-diaries/200511.html">11月</a><a href="old-diaries/200512.html">12月</a></div><h2>2006年</h2><div class="diary-months"><a href="old-diaries/200601.html">1月</a><a href="old-diaries/200602.html">2月</a></div></div>
+</article>
+<footer class="site-foot">
+  <span>© 平田朋義 ・ since 2009</span>
+  <span><a href="../index.html">ひらたともよし！</a></span>
+</footer>
+</div>
+</body>
+</html>
