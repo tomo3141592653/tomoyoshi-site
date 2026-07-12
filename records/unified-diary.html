@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>統合日記 — 平田朋義 - 2002年〜2025年</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e8e8e8;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #ffd700, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4ecdc4;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Search & Filter */
+        .search-filter {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 16px 16px;
+            padding: 30px;
+            margin: 0 0 30px 0;
+            border-bottom: 1px solid rgba(78, 205, 196, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            border-radius: 25px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #e8e8e8;
+            transition: border-color 0.3s;
+        }
+
+        .search-box::placeholder {
+            color: #888;
+        }
+
+        .search-box:focus {
+            border-color: #4ecdc4;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .filter-section {
+            margin-top: 15px;
+        }
+
+        .filter-label {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 6px 14px;
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 13px;
+        }
+
+        .filter-btn:hover {
+            border-color: #4ecdc4;
+            color: #4ecdc4;
+            background: rgba(78, 205, 196, 0.1);
+        }
+
+        .filter-btn.active {
+            background: #4ecdc4;
+            color: #1a1a2e;
+            border-color: #4ecdc4;
+        }
+
+        .year-btn {
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+
+        /* Year Slider */
+        .year-slider-container {
+            margin-top: 10px;
+        }
+
+        .year-slider-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .year-display {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+
+        .year-label {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .year-slider-wrapper {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .year-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .year-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4ecdc4;
+            cursor: pointer;
+            border: 3px solid #1a1a2e;
+            box-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+            transition: all 0.3s;
+        }
+
+        .year-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.8);
+        }
+
+        .year-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4ecdc4;
+            cursor: pointer;
+            border: 3px solid #1a1a2e;
+            box-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+            transition: all 0.3s;
+        }
+
+        .year-slider::-moz-range-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.8);
+        }
+
+        .year-range-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #4ecdc4, #45b7d1, #ffd700, #ff6b6b);
+            border-radius: 2px;
+        }
+
+        .entry {
+            position: relative;
+            margin: 30px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .entry-dot {
+            position: absolute;
+            left: 30px;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4ecdc4;
+            border: 4px solid #1a1a2e;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+
+        .entry-dot:hover {
+            transform: translateX(-50%) scale(1.3);
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.6);
+        }
+
+        .entry.reply .entry-dot {
+            background: #764ba2;
+        }
+
+        .entry.blog .entry-dot {
+            background: #ff7043;
+        }
+
+        .entry.blog.cocolog .entry-dot {
+            background: #26a69a;
+        }
+
+        .entry.blog.google-sites .entry-dot {
+            background: #5c6bc0;
+        }
+
+        .entry-content-wrapper {
+            flex: 1;
+            max-width: 900px;
+            margin-left: 70px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .entry-content-wrapper:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(78, 205, 196, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .entry-meta {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .entry-date {
+            font-size: 14px;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+
+        .entry-year {
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .entry-type {
+            background: #764ba2;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+        }
+
+        .entry-type.reply {
+            background: #9c27b0;
+        }
+
+        .entry-type.blog {
+            background: #ff7043;
+        }
+
+        .entry-type.blog.cocolog {
+            background: #26a69a;
+        }
+
+        .entry-type.blog.google-sites {
+            background: #5c6bc0;
+        }
+
+        .entry-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #e8e8e8;
+        }
+
+        .entry-content {
+            color: #ddd;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+
+        .entry-content a {
+            color: #4ecdc4;
+            text-decoration: underline;
+        }
+
+        .entry-content a:hover {
+            color: #45b7d1;
+        }
+
+        .entry-url {
+            margin-top: 10px;
+        }
+
+        .entry-url a {
+            color: #4ecdc4;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .entry-url a:hover {
+            text-decoration: underline;
+        }
+
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(78, 205, 196, 0.3);
+            border-top: 3px solid #4ecdc4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 10px;
+        }
+
+        .loading-more {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .entry-dot {
+                left: 20px;
+            }
+
+            .entry-content-wrapper {
+                margin-left: 50px !important;
+            }
+
+            .stats { gap: 20px; }
+            .stat-value { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body><div style="font-family:ui-monospace,Consolas,monospace;font-size:12px;letter-spacing:.18em;padding:14px 24px"><a href="../index.html" style="color:inherit;text-decoration:none">&larr; 平田朋義 HOME</a></div>
+    <div class="container">
+        <header>
+            <h1>統合日記</h1>
+            <p class="subtitle">2002年からの記録を一つの時系列で — サイト日記・ブログ・Twitter・映画記録</p>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value" id="totalCount">-</div>
+                    <div class="stat-label">総記録数</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="dateRange">-</div>
+                    <div class="stat-label">期間</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="filteredCount">-</div>
+                    <div class="stat-label">表示中</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="search-filter">
+            <input type="text" class="search-box" id="searchBox" placeholder="キーワードで検索（例: 京都、花見、シェアハウス...）">
+
+            <div class="filter-section">
+                <span class="filter-label">年月フィルタ</span>
+                <div class="year-slider-container">
+                    <div class="year-slider-header">
+                        <div class="year-display" id="month-display">すべて</div>
+                        <div class="year-label">年月を選択してスクロール</div>
+                    </div>
+                    <div class="year-slider-wrapper">
+                        <input type="range" class="year-slider" id="month-slider" min="0" max="0" value="0" step="1">
+                        <div class="year-range-labels">
+                            <span id="min-month">すべて</span>
+                            <span id="max-month">すべて</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <span class="filter-label">タイプ</span>
+                <div class="filter-buttons" id="typeFilters">
+                    <button class="filter-btn active" data-type="all">すべて</button>
+                    <button class="filter-btn" data-type="tweet">ツイート</button>
+                    <button class="filter-btn" data-type="reply">リプライ</button>
+                    <button class="filter-btn" data-type="blog">ブログ</button>
+                    <button class="filter-btn" data-type="google_sites">個人サイト</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline" id="timeline">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>データを読み込み中... (約18MB)</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 設定
+        const INITIAL_LOAD_COUNT = 100; // 最初に表示する件数
+        const LOAD_MORE_COUNT = 50; // 追加読み込み時の件数
+
+        // 状態
+        let allEntries = [];
+        let filteredEntries = [];
+        let displayedCount = 0; // 現在表示している件数
+        let currentYear = 'all';
+        let currentMonth = 'all';
+        let currentType = 'all';
+        let searchQuery = '';
+        let stats = null;
+        let entryElements = {}; // エントリのDOM要素を保持（スクロール用）
+        let isLoadingMore = false; // 追加読み込み中フラグ
+
+        // URLパラメータ解析
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                year: params.get('year'),
+                month: params.get('month')
+            };
+        }
+
+        // データ読み込み
+        fetch('data/unified-diary.json')
+            .then(response => response.json())
+            .then(data => {
+                // データは新しい順なので、古い順にreverse
+                allEntries = data.entries.slice().reverse();
+                stats = data.stats;
+
+                // 統計表示
+                document.getElementById('totalCount').textContent = data.entry_count.toLocaleString();
+                document.getElementById('dateRange').textContent = data.date_range || '-';
+
+                // 月スライダー初期化（allEntriesが必要なので、データ読み込み後に実行）
+                initYearSlider(stats.years);
+
+                // URLパラメータから初期フィルタ設定
+                const urlParams = getUrlParams();
+                if (urlParams.year && urlParams.month) {
+                    const yearMonth = `${urlParams.year}-${urlParams.month.padStart(2, '0')}`;
+                    // スライダーを該当する年月に設定
+                    const yearMonths = [...new Set(allEntries.map(e => e.date.substring(0, 7)))].sort();
+                    const index = yearMonths.indexOf(yearMonth);
+                    if (index !== -1) {
+                        const slider = document.getElementById('month-slider');
+                        const display = document.getElementById('month-display');
+                        slider.value = index + 1; // 0は「すべて」なので+1
+                        currentYear = urlParams.year;
+                        currentMonth = urlParams.month.padStart(2, '0');
+                        display.textContent = yearMonth;
+                    }
+                }
+
+                // 初期表示
+                applyFilters();
+
+                // URLパラメータで指定された月のエントリまでスクロール
+                if (urlParams.year && urlParams.month) {
+                    setTimeout(() => {
+                        scrollToMonth(urlParams.year, urlParams.month);
+                    }, 500);
+                }
+            })
+            .catch(error => {
+                console.error('データ読み込みエラー:', error);
+                document.getElementById('timeline').innerHTML = '<div class="no-results">データの読み込みに失敗しました</div>';
+            });
+
+        // 月スライダー初期化
+        function initYearSlider(years) {
+            const slider = document.getElementById('month-slider');
+            const display = document.getElementById('month-display');
+            const minMonthLabel = document.getElementById('min-month');
+            const maxMonthLabel = document.getElementById('max-month');
+
+            // 全エントリから年月のリストを生成（重複除去、ソート）
+            const yearMonths = [...new Set(allEntries.map(e => e.date.substring(0, 7)))].sort();
+            
+            if (yearMonths.length === 0) {
+                slider.style.display = 'none';
+                return;
+            }
+
+            const minMonth = yearMonths[0];
+            const maxMonth = yearMonths[yearMonths.length - 1];
+
+            // スライダーの範囲: 0 = すべて, 1以降 = 各年月
+            slider.min = 0;
+            slider.max = yearMonths.length;
+            slider.value = 0; // デフォルトは「すべて」
+            currentYear = 'all';
+            currentMonth = 'all';
+            display.textContent = 'すべて';
+            minMonthLabel.textContent = 'すべて';
+            maxMonthLabel.textContent = maxMonth;
+
+            slider.addEventListener('input', (e) => {
+                const index = parseInt(e.target.value);
+                if (index === 0) {
+                    currentYear = 'all';
+                    currentMonth = 'all';
+                    display.textContent = 'すべて';
+                } else {
+                    const yearMonth = yearMonths[index - 1];
+                    const [year, month] = yearMonth.split('-');
+                    currentYear = year;
+                    currentMonth = month;
+                    display.textContent = yearMonth;
+                    
+                    // 該当する年月の最初のエントリまでスクロール
+                    setTimeout(() => {
+                        scrollToMonth(year, month);
+                    }, 100);
+                }
+                applyFilters();
+            });
+        }
+
+        // タイプフィルタ
+        document.getElementById('typeFilters').querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById('typeFilters').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentType = btn.dataset.type;
+                applyFilters();
+            });
+        });
+
+        // 検索
+        let searchTimeout;
+        document.getElementById('searchBox').addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                searchQuery = e.target.value.toLowerCase();
+                applyFilters();
+            }, 300);
+        });
+
+        // フィルタ適用
+        function applyFilters() {
+            filteredEntries = allEntries.filter(entry => {
+                const matchesYear = currentYear === 'all' || String(entry.year) === currentYear;
+                const matchesMonth = currentMonth === 'all' || entry.date.substring(5, 7) === currentMonth;
+                const matchesType = currentType === 'all' ||
+                    entry.type === currentType ||
+                    entry.source === currentType ||
+                    (currentType === 'blog' && (entry.source === 'hatena_blog' || entry.source === 'cocolog'));
+                const matchesSearch = !searchQuery || entry.content.toLowerCase().includes(searchQuery);
+
+                return matchesYear && matchesMonth && matchesType && matchesSearch;
+            });
+
+            document.getElementById('filteredCount').textContent = filteredEntries.length.toLocaleString();
+            displayedCount = 0; // リセット
+            renderEntries();
+        }
+
+        // 指定された年月の最初のエントリまでスクロール
+        function scrollToMonth(year, month) {
+            const targetDate = `${year}-${month.padStart(2, '0')}`;
+            // 該当する年月の最初のエントリを探す
+            const targetEntry = filteredEntries.find(entry => entry.date.startsWith(targetDate));
+            if (targetEntry) {
+                const elementId = `entry-${targetEntry.date}-${targetEntry.id || 0}`;
+                const element = entryElements[elementId];
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // ハイライト効果
+                    element.style.background = 'rgba(78, 205, 196, 0.2)';
+                    setTimeout(() => {
+                        element.style.transition = 'background 2s';
+                        element.style.background = '';
+                    }, 100);
+                }
+            }
+        }
+
+        // 追加読み込み
+        function loadMoreEntries() {
+            if (isLoadingMore || displayedCount >= filteredEntries.length) return;
+            
+            isLoadingMore = true;
+            const start = displayedCount;
+            const end = Math.min(start + LOAD_MORE_COUNT, filteredEntries.length);
+            const newEntries = filteredEntries.slice(start, end);
+            
+            const timeline = document.getElementById('timeline');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            
+            // ローディング表示
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'block';
+            }
+            
+            // 少し遅延させてUIをブロックしないように
+            setTimeout(() => {
+                const entriesHtml = newEntries.map((entry, idx) => {
+                    const globalIdx = displayedCount + idx;
+                    return renderEntry(entry, globalIdx);
+                }).join('');
+                
+                // ローディング表示を削除してから追加
+                if (loadingIndicator) {
+                    loadingIndicator.remove();
+                }
+                
+                timeline.insertAdjacentHTML('beforeend', entriesHtml);
+                
+                // DOM要素を保持
+                newEntries.forEach((entry, idx) => {
+                    const globalIdx = displayedCount + idx;
+                    const elementId = `entry-${entry.date}-${entry.id || globalIdx}`;
+                    const element = document.getElementById(elementId);
+                    if (element) {
+                        entryElements[elementId] = element;
+                    }
+                });
+                
+                displayedCount = end;
+                isLoadingMore = false;
+                
+                // まだ読み込むべきエントリがある場合はローディング表示を追加
+                if (displayedCount < filteredEntries.length) {
+                    timeline.insertAdjacentHTML('beforeend', '<div id="loading-indicator" class="loading-more"><div class="loading-spinner"></div><p>読み込み中...</p></div>');
+                }
+            }, 50);
+        }
+
+        // エントリ1件をレンダリング
+        function renderEntry(entry, idx) {
+                let typeClass = '';
+            let typeLabel = '';
+            let linkLabel = '';
+
+            if (entry.source === 'hatena_blog') {
+                typeClass = 'blog';
+                typeLabel = 'はてな';
+                linkLabel = '元の記事を見る →';
+            } else if (entry.source === 'cocolog') {
+                typeClass = 'blog cocolog';
+                typeLabel = 'ココログ';
+                linkLabel = '元の記事を見る →';
+            } else if (entry.source === 'google_sites') {
+                typeClass = 'blog google-sites';
+                typeLabel = '個人サイト';
+                linkLabel = '元の記事を見る →';
+            } else if (entry.type === 'reply') {
+                typeClass = 'reply';
+                typeLabel = 'リプライ';
+                linkLabel = '元のツイートを見る →';
+            } else {
+                typeLabel = 'ツイート';
+                linkLabel = '元のツイートを見る →';
+            }
+
+            // コンテンツ内のURLをリンク化 + 改行を<br>に変換
+            const content = entry.content
+                .replace(/\n/g, '<br>')
+                .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+
+            // ブログの場合はタイトルを表示
+            const titleHtml = entry.title ? `<div class="entry-title">${entry.title}</div>` : '';
+            const elementId = `entry-${entry.date}-${entry.id || idx}`;
+
+            return `
+                <div class="entry ${typeClass}" id="${elementId}" style="animation-delay: ${idx * 0.05}s">
+                    <div class="entry-dot"></div>
+                    <div class="entry-content-wrapper">
+                        <div class="entry-header">
+                            <div class="entry-meta">
+                                <span class="entry-date">${entry.date}</span>
+                                <span class="entry-year">${entry.date.substring(0, 4)}</span>
+                                <span class="entry-type ${typeClass}">${typeLabel}</span>
+                            </div>
+                        </div>
+                        ${titleHtml}
+                        <div class="entry-content">${content}</div>
+                        ${entry.url ? `<div class="entry-url"><a href="${entry.url}" target="_blank">${linkLabel}</a></div>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // エントリ表示（初期表示）
+        function renderEntries() {
+            const timeline = document.getElementById('timeline');
+            entryElements = {}; // リセット
+
+            if (filteredEntries.length === 0) {
+                timeline.innerHTML = '<div class="no-results">該当するエントリがありません</div>';
+                return;
+            }
+
+            // 最初の100件だけ表示
+            const initialEntries = filteredEntries.slice(0, INITIAL_LOAD_COUNT);
+            displayedCount = initialEntries.length;
+
+            const entriesHtml = initialEntries.map((entry, idx) => {
+                return renderEntry(entry, idx);
+            }).join('');
+
+            // ローディング表示を追加（まだエントリがある場合）
+            const loadingHtml = displayedCount < filteredEntries.length 
+                ? '<div id="loading-indicator" class="loading-more"><div class="loading-spinner"></div><p>読み込み中...</p></div>'
+                : '';
+
+            timeline.innerHTML = entriesHtml + loadingHtml;
+
+            // DOM要素を保持（スクロール用）
+            initialEntries.forEach((entry, idx) => {
+                const elementId = `entry-${entry.date}-${entry.id || idx}`;
+                const element = document.getElementById(elementId);
+                if (element) {
+                    entryElements[elementId] = element;
+                }
+            });
+
+            // スクロールイベントリスナーを設定
+            setupScrollListener();
+        }
+
+        // スクロール監視（無限スクロール）
+        function setupScrollListener() {
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    // 画面下部に近づいたら追加読み込み
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const windowHeight = window.innerHeight;
+                    const documentHeight = document.documentElement.scrollHeight;
+                    
+                    // 下部100px以内に来たら読み込み
+                    if (documentHeight - (scrollTop + windowHeight) < 100) {
+                        loadMoreEntries();
+                    }
+                }, 100);
+            });
+        }
+    </script>
+</body>
+</html>
