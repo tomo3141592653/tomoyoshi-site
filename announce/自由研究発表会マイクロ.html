@@ -6,33 +6,39 @@
 <title>自由研究発表会マイクロ | 平田朋義</title>
 <style>
 :root{
-  --bg:#fdfdfb; --ink:#17181c; --muted:#5e6470; --faint:#9aa0ac;
-  --line:#e3e4e8; --blue:#2136c9; --blue-soft:#eceefb;
-  --sans:"Hiragino Sans","Yu Gothic","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
+  --bg:#fbfbfd; --ink:#1d1d1f; --muted:#6e6e73; --faint:#a1a1a6;
+  --line:#d2d2d7; --blue:#0071e3; --blue-soft:#e8f0fe;
+  --ease:cubic-bezier(.28,0,0,1);
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Hiragino Sans","Yu Gothic","Noto Sans JP","Helvetica Neue",Arial,sans-serif;
   --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#141828; --ink:#e6e8f0; --muted:#9aa2ba; --faint:#5d647e;
-    --line:#272e45; --blue:#93a4ff; --blue-soft:#1c2340; }
+  :root{ --bg:#000000; --ink:#f5f5f7; --muted:#98989d; --faint:#6e6e73;
+    --line:#3d3d41; --blue:#2997ff; --blue-soft:#0f1f30; }
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
-  font-weight:300;line-height:2.0;font-size:15.5px;-webkit-font-smoothing:antialiased}
-a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:.22em}
+  font-weight:300;line-height:1.76;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:.22em;
+  transition:color .18s var(--ease)}
 a:hover{text-decoration-thickness:2px}
-:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
 b,strong,h1,h2,h3,h4{font-weight:600}
 .page{max-width:840px;margin:0 auto;padding:0 24px 72px}
 
 .site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
-  flex-wrap:wrap;padding:30px 0 26px}
+  flex-wrap:wrap;padding:18px 0;position:sticky;top:0;z-index:10;margin:0 -24px;
+  padding-left:24px;padding-right:24px;
+  background:color-mix(in srgb, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px)}
 .site-head .logo{font-weight:700;font-size:1.02rem;letter-spacing:.16em;
-  text-decoration:none;color:var(--ink)}
+  text-decoration:none;color:var(--ink);transition:color .18s var(--ease)}
 .site-head .logo:hover{color:var(--blue)}
 .site-head nav{display:flex;gap:26px;flex-wrap:wrap;
   font-family:var(--mono);font-size:.72rem;letter-spacing:.18em}
 .site-head nav a{text-decoration:none;color:var(--muted);padding:2px 0;
-  border-bottom:1px solid transparent}
+  border-bottom:1px solid transparent;transition:color .18s var(--ease),border-color .18s var(--ease)}
 .site-head nav a:hover{color:var(--blue)}
 .site-head nav a.here{color:var(--blue);border-bottom-color:var(--blue)}
 
@@ -43,13 +49,13 @@ b,strong,h1,h2,h3,h4{font-weight:600}
 
 .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
   color:var(--blue);margin:34px 0 0}
-h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
-  font-weight:700;letter-spacing:.01em;text-wrap:balance}
-.article h2{font-size:1.22rem;margin:2.4em 0 .7em;line-height:1.6;
-  padding-bottom:.35em;border-bottom:1px solid var(--line)}
-.article h3{font-size:1.02rem;margin:2em 0 .5em}
+h1{font-size:clamp(1.75rem,4.6vw,2.5rem);line-height:1.4;margin:8px 0 10px;
+  font-weight:700;letter-spacing:-.01em;text-wrap:balance}
+.article h2{font-size:1.28rem;margin:2.4em 0 .7em;line-height:1.6;
+  padding-bottom:.4em;border-bottom:1px solid var(--line);letter-spacing:-.005em}
+.article h3{font-size:1.04rem;margin:2em 0 .5em}
 .article p{margin:0 0 1.2em}
-.article img{max-width:100%;height:auto;display:block;margin:1.4em 0}
+.article img{max-width:100%;height:auto;display:block;margin:1.4em 0;border-radius:12px}
 .article ul,.article ol{padding-left:1.5em}
 .article li{margin:.3em 0}
 .article table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto;margin:1.2em 0}
@@ -58,34 +64,41 @@ h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
 
 .kids{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--line)}
 .kids li{margin:0;border-bottom:1px solid var(--line)}
-.kids a{display:block;padding:13px 2px;text-decoration:none;color:var(--ink);font-weight:400}
-.kids a:hover{color:var(--blue);padding-left:8px;transition:padding-left .15s}
+.kids a{display:block;padding:13px 10px;margin:0 -10px;border-radius:10px;
+  text-decoration:none;color:var(--ink);font-weight:400;
+  transition:background .18s var(--ease),transform .18s var(--ease),color .18s var(--ease)}
+.kids a:hover{color:var(--blue);background:var(--blue-soft);transform:translateX(4px)}
 .kids .sub{display:block;font-size:.8rem;color:var(--muted)}
 .kids-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
   color:var(--faint);margin:3.2em 0 0}
 
 /* ---------- index ---------- */
-.hero{padding:56px 0 0}
-.hero .name{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:800;line-height:1.15;
-  letter-spacing:.06em;margin:0}
+.hero{padding:64px 0 0;animation:rise .6s var(--ease) both}
+.hero .name{font-size:clamp(2.6rem,9vw,4.6rem);font-weight:700;line-height:1.1;
+  letter-spacing:-.02em;margin:0}
 .hero .romaji{font-family:var(--mono);font-size:.78rem;letter-spacing:.34em;
   color:var(--muted);margin:14px 0 0}
 .pi-line{font-family:var(--mono);font-size:.82rem;white-space:nowrap;overflow:hidden;
   color:var(--faint);margin:34px 0 0;letter-spacing:.1em;
   -webkit-mask-image:linear-gradient(90deg,#000 72%,transparent);
-  mask-image:linear-gradient(90deg,#000 72%,transparent)}
+  mask-image:linear-gradient(90deg,#000 72%,transparent);
+  animation:reveal 1.1s var(--ease) .15s both}
 .pi-line b{color:var(--blue);font-weight:600}
 .hero .tag{max-width:34em;color:var(--muted);margin:30px 0 0;font-size:.95rem}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes reveal{from{opacity:0;letter-spacing:.02em}to{opacity:1;letter-spacing:.1em}}
 
 .index-list{margin:60px 0 0;border-top:1px solid var(--line)}
 .index-list a{display:grid;grid-template-columns:7.5em 1fr auto;gap:6px 18px;
-  align-items:baseline;padding:20px 2px;border-bottom:1px solid var(--line);
-  text-decoration:none;color:var(--ink)}
+  align-items:baseline;padding:20px 12px;margin:0 -12px;border-radius:12px;
+  border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);
+  transition:background .18s var(--ease),transform .18s var(--ease)}
 .index-list .key{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;color:var(--muted)}
 .index-list .jp{font-size:1.18rem;font-weight:600}
 .index-list .jp .desc{display:block;font-size:.82rem;font-weight:300;color:var(--muted)}
 .index-list .n{font-family:var(--mono);font-size:.78rem;color:var(--faint);
   font-variant-numeric:tabular-nums}
+.index-list a:hover{background:var(--blue-soft);transform:translateX(4px)}
 .index-list a:hover .jp,.index-list a:hover .key{color:var(--blue)}
 @media (max-width:560px){
   .index-list a{grid-template-columns:1fr auto}
@@ -96,7 +109,8 @@ h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
 .elsewhere-head{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;color:var(--faint)}
 .elsewhere-links{display:flex;flex-wrap:wrap;gap:4px 26px;margin:10px 0 0;font-size:.88rem}
 .elsewhere-links a{text-decoration:none;color:var(--muted);
-  border-bottom:1px solid var(--line);padding-bottom:1px}
+  border-bottom:1px solid var(--line);padding-bottom:1px;
+  transition:color .18s var(--ease),border-color .18s var(--ease)}
 .elsewhere-links a:hover{color:var(--blue);border-bottom-color:var(--blue)}
 
 /* ---------- diary archive ---------- */
@@ -104,17 +118,18 @@ h1{font-size:clamp(1.6rem,4.2vw,2.3rem);line-height:1.5;margin:6px 0 10px;
 .diary-years h2{font-family:var(--mono);font-size:.85rem;letter-spacing:.18em;
   margin:2.4em 0 .6em;color:var(--muted);border:none;padding:0}
 .diary-months{display:flex;flex-wrap:wrap;gap:8px}
-.diary-months a{font-family:var(--mono);padding:7px 14px;border:1px solid var(--line);
-  text-decoration:none;font-size:.82rem;color:var(--ink);font-variant-numeric:tabular-nums}
-.diary-months a:hover{border-color:var(--blue);color:var(--blue)}
+.diary-months a{font-family:var(--mono);padding:7px 16px;border:1px solid var(--line);
+  border-radius:980px;text-decoration:none;font-size:.82rem;color:var(--ink);
+  font-variant-numeric:tabular-nums;transition:border-color .18s var(--ease),color .18s var(--ease),background .18s var(--ease)}
+.diary-months a:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-soft)}
 
 footer.site-foot{margin-top:88px;padding-top:20px;border-top:1px solid var(--line);
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
   font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--faint)}
-footer.site-foot a{color:var(--faint);text-decoration:none}
+footer.site-foot a{color:var(--faint);text-decoration:none;transition:color .18s var(--ease)}
 footer.site-foot a:hover{color:var(--blue)}
 @media (prefers-reduced-motion: reduce){
-  *{transition:none!important}
+  *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
@@ -128,7 +143,7 @@ footer.site-foot a:hover{color:var(--blue)}
 <article class="article">
 <p class="eyebrow">NEWS</p>
 <h1>自由研究発表会マイクロ</h1>
-<p>概要</p><ol><li><p>読んでる本とか、行ったとことか、作ったものとかを発表する会。</p></li><li><p>内容はまとまってなくてもいい。</p></li><li><p>誰でも参加歓迎</p></li><li><p>場所は <a href="http://us02web.zoom.us/j/83796899268">http://us02web.zoom.us/j/83796899268</a> パスワードは５５１１２２を半角数字で</p></li><li><p>発表時間は5分から30分ぐらい</p></li><li><p>発表方式は自由</p></li><li><p>隔週水曜日8時から(変動あり)</p></li><li><p>聞くだけの参加も自由</p></li></ol><h2><a href="#h.l7ueogcfwnq2">#h.l7ueogcfwnq2</a>次回</h2><p>2026/03/0420時 (2026/03/04更新) </p><h2><a href="#h.b3qh0zei95dh">#h.b3qh0zei95dh</a>発表記録</h2><p>2026/02/18</p><p>イタリア旅行、プロジェクトヘイルメアリ、リーマンサット、エレキ法螺貝、馬の絵、usb power delivery</p><p>2026/02/04</p><p>幾何学、顔検索、位置情報からのうんちく</p><p>2026/01/20</p><p>描いた絵、ak280分解、looking glass</p><p>2025/12/10</p><p>3dプリンタ義手、ayumu記憶リンク、ai人狼、新興宗教、紅葉</p><p>2025/11/26</p><p>手芸、wordのデザイン調整、ayumu</p><p>2025/10/29</p><p>まぼろし堂、ガールズインラブ、lenia、育てている植物</p><p>2025/10/15</p><p>イエアマガエルの飼育、床上浸水になった、小学校幾何学の難問、土の話、コーカサス旅行記</p><p>2025/09/17</p><p>突発性難聴、岩、植物、民事裁判、原付二種千葉旅行</p><p>2025/07/29</p><p>twilog mcp, 不動谷窪地, 星状神経節ブロックをした, ヨーロッパ旅行</p><p>2025/07/16</p><p>境界線のないマウス、働き始めたところ bambu lab、リアルタイム自動生成wikipedia、コロナ後遺症</p><p>2025/07/02</p><p>類似画像検索アプリの制作、ガマランド、manusを使ってvibe codingバージョン管理ツールの作成</p><p>2025/06/17</p><p>AIによる間違い探し、楳図かずおお別れ会、描いている絵、twitter位置情報可視化、行動ログ、写真サイト作成、見たものを説明するアプリ、ブリーチ風詩作成アプリ</p><p>2025/06/05</p><p>impressに動画を挿入するとき起きる不思議な現象、cloude code actionでホームページを作った、賃貸を追い出されそうな話、コーディング支援AI julesを使って人の顔を回転する、ある回転体の体積の不変性について</p><p>2025/05/21</p><p>geminiの回答をフォトムービーにする、vibe codingでつくる画像→文字列→画像変換サイト、自作pcのケースを自作する、ui pocket、減圧蒸留機、絵しりとり</p><p>2025/05/07</p><p>重慶旅行、Chromeos  flexのインストール、mcp AI agentによるカメラと接続した目覚ましエージェント</p><p>2025/04-15</p><p>パワーオートメーター、目の手術、障害者専用マッチングアプリ、対人関係療法で改善する夫婦パートナー関係、弁証的行動療法、mcp、chatgpt plusの契約を安くする方法、英会話オンラインサービス</p><p>2025/03/17</p><p>Androidの画面をクロームキャストでパソコンに送る、ほだれ祭り、open ai agentframeworkで人狼、google alertを使ったニュース記事自動生成</p><p>2025/03/05</p><p>androidをchrome castでミラーリング、障害者雇用、xttsによる音声合成</p><p>2025/02/19</p><p>seversmans sim、twitter apiをiftttで代替してllmに通す、ころとろ新作</p><p>2025/02/05</p><p>１円スマホ０円シム、ベン図、ナレッジグラフ</p><p>2025/01/22</p><p>tinkercad, 岩倉具視:明治と江戸の政治, トラウマ克服, google alertをAIでblogにする, langgraph, 黄金の釈迦如来像, 小学校風居酒屋, 直角三角形との内接円の性質, ウィーン旅行</p><p>2025/01/08</p><p>lean4, 人割当最適化, o1 pro, 腰掛け扇風機, mixi2をpcでする</p><p>2024/12/11</p><p>smote tomek links cluster centroidsによるアップサンプリングとダウンサンプリング</p><p>2024/11/25</p><p>claude aiによるwebアプリ作成</p><p>2024/11/07</p><p>2024/10/02</p><p>rstpで監視カメラの画像をpythonで取得する｡ピザの定理｡e-simに移行した｡高速顔認証｡</p><p>2024/09/10</p><p>Segment-any-anomaly 筋トレをする リーマンサット3 エレガントな回答求む</p><p>2024/08/14</p><p>美的判定localで動かすやつ,原付き旅行,npuを使用した顔変換アプリ,llavaをlocalで動かす</p><p>2024/07/31</p><p>dualism dualstandby, pdca回すやつ,美的判定localで動かすやつ</p><p>2024/07/17</p><p>新しいドローン兵器の提案､AndroidをPCモニタにミラーリングする､完全数､円の面積を微積を用いず厳密に求める､組み合わせ最適化問題とperplexity ai､エレガントな解答求める､美的判定AI､集合の濃度の足し算について</p><p>2024/07/3</p><p>伊豆旅行､exif情報編集プログラムを作成したこと､グラフ理論解析プログラム</p><p>2024/06/19</p><p>AIアートの新時代から美的評価モデルについて､容器ミュージアムに行ったこと､アマチュア数学会の問題､保険救済手続き自動化アプリケーションを作った､心停止について､依存症について</p><p>2024/06/05</p><p>超実数､斜視手術､openAI assitant apiについて､突発性難聴になった話､数学セミナーのエレガントな解答求むを解いた､VBAでexcelからoutlookのスケジューラー操作</p><p>2024/05/15</p><p>Difyについて</p><p>2024/04/17<br>量子密度行列について、進化的学習の最近の発展について</p><p>2024/04/03</p><p>猫地蔵､claude ai api と whisper apiの使い方､ITパスポート</p><p>2024/03/22<br>金を借りる人はなぜ一階に住みがちか、幾何学の問題、claude aiを使ったcloud function設計、珍スポツアー</p><p>2024/03/06</p><p>ドバイ旅行記､幾何学の問題､横浜マニアなツアー</p><p>2024/02/07</p><p>power automatorによる自動化, gpuによる顔認識の高速化､streamlitによる簡単なweb制作</p><p>2024/01/25</p><p>photomaker 数学の大学入試問題</p><p>2024/01/10</p><p>浅虫温泉、七福神めぐり、makeによるline bot開発、冬休みの旅行</p><p>2023/12/13</p><p>segment anything demo</p><p>デルファイでバッテリー管理アプリを作成した</p><p>2023/11/19</p><p>GPTsで世界史教師作成</p><p>GPTsでカメラの説明書作成</p><p>初等幾何学</p><p>2023/11/15</p><p>IEC61131-3でストップウォッチを作ってみた　<br>GPTsでノベルゲームを作った。<br>3Dプリンタでボタンホールを作った<br>GPTsでgit logの要約 </p><p>2023/10/31</p><p>お気に入りに入れそうな写真を入れそうなやつを選ぶモデルを作ったよ2</p><p>二項係数が整数になることに証明</p><p>なんば駅からアメ村まで仮装で歩いてみた｡何人で声をかけられたか｡</p><p>初等幾何学の問題､論理パズル</p><p>m+sqrt(2)n | m,n∈ZはRの位相で離散集合でない事を示せ Weylの一様定理</p><p>初等幾何をグレブナー基底を解く話｡https://zukeitanoshii.hatenablog.com/entry/2018/08/16/222534</p><br><p>2023/10/18</p><p>1.タイに行ったこと 2.modの計算について </p><p>2023/09/20</p><p>1.質の高い写真自動選別</p><p>2023/08/23</p><p>1.location履歴可視化 2.刺し身を作る 3. 転職について</p><p>2023/08/09</p><ol><li><p><a href="https://docs.google.com/presentation/d/1SkaH8Qoz9H_AmLIrGdFcV0311cz8LJvjt7t9YxLnwo0/edit#slide=id.p">LK-99の現状まとめ</a> 2.初等幾何の問題 3.<a href="https://scrapbox.io/omoikane/%E3%82%AA%E3%83%A2%E3%82%A4%E3%82%AB%E3%83%8D%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88:%E3%81%BF%E3%82%93%E3%81%AA%E3%81%A8AI%E3%81%A7%E6%9C%AA%E6%9D%A5%E3%82%92%E4%BD%9C%E3%82%8B%E5%A0%B4%E6%89%80">オモイカネプロジェクト</a></p></li></ol><p>2023/07/26</p><p>1.勉強したことのメモ、心理学の閾値についてなど 2.岩手県大船渡に行ったこと うにを剥いたこと3,google books api、太陽光発電と植林の二酸化炭素排出削減能比較、絵金祭りに行ったこと、新方式の核融合について 4.N^5- N == mod 15について</p><br><p>2023/07/12</p><p>1.code interpreter  2. ネッククーラー を買った 3.  解けた数学の問題 4.いわてで行ったところ </p><p>2023/06/28</p><p>1.BabyAGI 2.langchain</p><br><p>2023/06/13</p><p>1.CLIP論文解説 2.chatGPTを英語学習に使う方法</p><p> 2023/06/01</p><p>1.vision questioning ansering 2,最近読んだ本、買ってよかったもの 3, 最近作ったもの、道の駅で買えるもの</p><p>2023/05/17</p><ol><li><p>寄り目でサイゼの間違い探し  2. 正多面体同士の関係 3.whisper+ chatgptで録音文字起こし要約 4.tabcloud extension, arc browserについて</p></li></ol><p>2023/04/19</p><p>1.stable diffusion + lora で画家の絵を学習させる。</p><p>2023-04-05</p><p>1.javascriptだけの画像分類機を作ってみた。2.マインスイーパーとそのアドバイザーをchatgptで作ってみた。3.住居と社会学。</p><br><p>2023-03-22</p><p>1.マンデルブロー集合を作ってみた。2.アルジャーノンに花束を</p><p>2023-03-08</p><p>1.chatgpt apiを使ってみた。それを使ったlinuxコマンド作成支援ツール使ってみた。2.対話型AIによる学術研究支援について3.最近読んだ本　自分では気づかない、ココロの盲点 完全版　4.東欧旅行</p><p>2023-02-22</p><p>虫食い算のソルバー作成:幅優先探索と深さ優先探索の比較。魔方陣の未解決問題。</p><p>2023-02-08</p><p>lang chain、juliaによる常微分方程式解法、図形から線対称な図形を切り出すパズル、社会福祉士について。</p><p>2023-01-25</p><p>gpt-indexによるドキュメントを取り込んだchat bot作成。excelによる業務改善。ゲーム理論と情報の信頼性の担保。秘書問題。</p><p>2023-01-11<br>text読み上げ「voicevox, goole speech」と口パク人形、Julia言語入門、paypayドームの横でpaypayを使ったこと、3円定理</p><p>2022-12-28 <br>exif の編集、数学パズルの解法、C++、今年やった初めてのこと</p><p>2022-04-20<br>子宮スピリチュアリズム、映画における客観、立体魔法陣、人工生命、友情</p><p>2022-04-06<br>社会学総論、精神医学、論理学における不動点定理とゲーデル定理、保険の資格試験、自己教師あり学習</p><p>2022-02-02<br>深度推定、フォンノイマン宇宙とグラフ理論、フォトグラメトリのAR表示、オカンアートと民藝、東京で今焦土作戦をするには、さっき解いた数学の問題</p><p>2022-01-19<br>グラフ理論、趣味の起源、刺繍、数独、テューキーの補題</p><p>2021-12-01<br>workroomsやってみた,「人怖」感想,neosvrやってみた,シェア居住と利他行動(卒論プレ発表),</p><p>(赤字は平田の発表)</p>
+<p>概要</p><ol><li><p>読んでる本とか、行ったとことか、作ったものとかを発表する会。</p></li><li><p>内容はまとまってなくてもいい。</p></li><li><p>誰でも参加歓迎</p></li><li><p>場所は <a href="http://us02web.zoom.us/j/83796899268">http://us02web.zoom.us/j/83796899268</a> パスワードは５５１１２２を半角数字で</p></li><li><p>発表時間は5分から30分ぐらい</p></li><li><p>発表方式は自由</p></li><li><p>隔週水曜日8時から(変動あり)</p></li><li><p>聞くだけの参加も自由</p></li></ol><h2>次回</h2><p>隔週水曜20時から(変動あり)。直近の開催: 2026/08/06 (2026/08/08更新)</p><h2>発表記録</h2><p>2026/08/06</p><p>霧の地図、3dアバター、経験市、熊本復興マップ、就労支援</p><p>2026/07/24</p><p>イマジナリーフレンド作った話、家系図位置ログ、デッサン、寅さん新作ポスター</p><p>2026/07/08</p><p>パーツカットアプリ、描いてる絵、コンピュータナブラ演算子ゲーム、学園ハンサムの顎をお菓子を刺せるやつ、smバー、ak280の回路図</p><p>2026/06/24</p><p>熊野町レトロ、精神科に入院してたこと、vqgan、pdf本の分類、3D写真美術館、AIの幻聴</p><p>2026/06/11</p><p>ナンバーリンクソルバー、claudeによる3D制作(庭と建物)、北朝鮮帰国事業、ミッテラ会館のバー69、謎風邪にかかったこと</p><p>2026/05/27</p><p>codexでずんだモンを動かす、山手線一周、西成ツアー体験レポート、自分の写真からAIでフィギュア作成、esimの開通</p><p>2026/04/28</p><p>AIから通話が来るアプリ、平面写真からgpt image 2で球面写真を生成する</p><p>2026/02/18</p><p>イタリア旅行、プロジェクトヘイルメアリ、リーマンサット、エレキ法螺貝、馬の絵、usb power delivery</p><p>2026/02/04</p><p>幾何学、顔検索、位置情報からのうんちく</p><p>2026/01/20</p><p>描いた絵、ak280分解、looking glass</p><p>2025/12/10</p><p>3dプリンタ義手、ayumu記憶リンク、ai人狼、新興宗教、紅葉</p><p>2025/11/26</p><p>手芸、wordのデザイン調整、ayumu</p><p>2025/10/29</p><p>まぼろし堂、ガールズインラブ、lenia、育てている植物</p><p>2025/10/15</p><p>イエアマガエルの飼育、床上浸水になった、小学校幾何学の難問、土の話、コーカサス旅行記</p><p>2025/09/17</p><p>突発性難聴、岩、植物、民事裁判、原付二種千葉旅行</p><p>2025/07/29</p><p>twilog mcp, 不動谷窪地, 星状神経節ブロックをした, ヨーロッパ旅行</p><p>2025/07/16</p><p>境界線のないマウス、働き始めたところ bambu lab、リアルタイム自動生成wikipedia、コロナ後遺症</p><p>2025/07/02</p><p>類似画像検索アプリの制作、ガマランド、manusを使ってvibe codingバージョン管理ツールの作成</p><p>2025/06/17</p><p>AIによる間違い探し、楳図かずおお別れ会、描いている絵、twitter位置情報可視化、行動ログ、写真サイト作成、見たものを説明するアプリ、ブリーチ風詩作成アプリ</p><p>2025/06/05</p><p>impressに動画を挿入するとき起きる不思議な現象、cloude code actionでホームページを作った、賃貸を追い出されそうな話、コーディング支援AI julesを使って人の顔を回転する、ある回転体の体積の不変性について</p><p>2025/05/21</p><p>geminiの回答をフォトムービーにする、vibe codingでつくる画像→文字列→画像変換サイト、自作pcのケースを自作する、ui pocket、減圧蒸留機、絵しりとり</p><p>2025/05/07</p><p>重慶旅行、Chromeos  flexのインストール、mcp AI agentによるカメラと接続した目覚ましエージェント</p><p>2025/04-15</p><p>パワーオートメーター、目の手術、障害者専用マッチングアプリ、対人関係療法で改善する夫婦パートナー関係、弁証的行動療法、mcp、chatgpt plusの契約を安くする方法、英会話オンラインサービス</p><p>2025/03/17</p><p>Androidの画面をクロームキャストでパソコンに送る、ほだれ祭り、open ai agentframeworkで人狼、google alertを使ったニュース記事自動生成</p><p>2025/03/05</p><p>androidをchrome castでミラーリング、障害者雇用、xttsによる音声合成</p><p>2025/02/19</p><p>seversmans sim、twitter apiをiftttで代替してllmに通す、ころとろ新作</p><p>2025/02/05</p><p>１円スマホ０円シム、ベン図、ナレッジグラフ</p><p>2025/01/22</p><p>tinkercad, 岩倉具視:明治と江戸の政治, トラウマ克服, google alertをAIでblogにする, langgraph, 黄金の釈迦如来像, 小学校風居酒屋, 直角三角形との内接円の性質, ウィーン旅行</p><p>2025/01/08</p><p>lean4, 人割当最適化, o1 pro, 腰掛け扇風機, mixi2をpcでする</p><p>2024/12/11</p><p>smote tomek links cluster centroidsによるアップサンプリングとダウンサンプリング</p><p>2024/11/25</p><p>claude aiによるwebアプリ作成</p><p>2024/11/07</p><p>2024/10/02</p><p>rstpで監視カメラの画像をpythonで取得する｡ピザの定理｡e-simに移行した｡高速顔認証｡</p><p>2024/09/10</p><p>Segment-any-anomaly 筋トレをする リーマンサット3 エレガントな回答求む</p><p>2024/08/14</p><p>美的判定localで動かすやつ,原付き旅行,npuを使用した顔変換アプリ,llavaをlocalで動かす</p><p>2024/07/31</p><p>dualism dualstandby, pdca回すやつ,美的判定localで動かすやつ</p><p>2024/07/17</p><p>新しいドローン兵器の提案､AndroidをPCモニタにミラーリングする､完全数､円の面積を微積を用いず厳密に求める､組み合わせ最適化問題とperplexity ai､エレガントな解答求める､美的判定AI､集合の濃度の足し算について</p><p>2024/07/3</p><p>伊豆旅行､exif情報編集プログラムを作成したこと､グラフ理論解析プログラム</p><p>2024/06/19</p><p>AIアートの新時代から美的評価モデルについて､容器ミュージアムに行ったこと､アマチュア数学会の問題､保険救済手続き自動化アプリケーションを作った､心停止について､依存症について</p><p>2024/06/05</p><p>超実数､斜視手術､openAI assitant apiについて､突発性難聴になった話､数学セミナーのエレガントな解答求むを解いた､VBAでexcelからoutlookのスケジューラー操作</p><p>2024/05/15</p><p>Difyについて</p><p>2024/04/17<br>量子密度行列について、進化的学習の最近の発展について</p><p>2024/04/03</p><p>猫地蔵､claude ai api と whisper apiの使い方､ITパスポート</p><p>2024/03/22<br>金を借りる人はなぜ一階に住みがちか、幾何学の問題、claude aiを使ったcloud function設計、珍スポツアー</p><p>2024/03/06</p><p>ドバイ旅行記､幾何学の問題､横浜マニアなツアー</p><p>2024/02/07</p><p>power automatorによる自動化, gpuによる顔認識の高速化､streamlitによる簡単なweb制作</p><p>2024/01/25</p><p>photomaker 数学の大学入試問題</p><p>2024/01/10</p><p>浅虫温泉、七福神めぐり、makeによるline bot開発、冬休みの旅行</p><p>2023/12/13</p><p>segment anything demo</p><p>デルファイでバッテリー管理アプリを作成した</p><p>2023/11/19</p><p>GPTsで世界史教師作成</p><p>GPTsでカメラの説明書作成</p><p>初等幾何学</p><p>2023/11/15</p><p>IEC61131-3でストップウォッチを作ってみた　<br>GPTsでノベルゲームを作った。<br>3Dプリンタでボタンホールを作った<br>GPTsでgit logの要約 </p><p>2023/10/31</p><p>お気に入りに入れそうな写真を入れそうなやつを選ぶモデルを作ったよ2</p><p>二項係数が整数になることに証明</p><p>なんば駅からアメ村まで仮装で歩いてみた｡何人で声をかけられたか｡</p><p>初等幾何学の問題､論理パズル</p><p>m+sqrt(2)n | m,n∈ZはRの位相で離散集合でない事を示せ Weylの一様定理</p><p>初等幾何をグレブナー基底を解く話｡https://zukeitanoshii.hatenablog.com/entry/2018/08/16/222534</p><br><p>2023/10/18</p><p>1.タイに行ったこと 2.modの計算について </p><p>2023/09/20</p><p>1.質の高い写真自動選別</p><p>2023/08/23</p><p>1.location履歴可視化 2.刺し身を作る 3. 転職について</p><p>2023/08/09</p><ol><li><p><a href="https://docs.google.com/presentation/d/1SkaH8Qoz9H_AmLIrGdFcV0311cz8LJvjt7t9YxLnwo0/edit#slide=id.p">LK-99の現状まとめ</a> 2.初等幾何の問題 3.<a href="https://scrapbox.io/omoikane/%E3%82%AA%E3%83%A2%E3%82%A4%E3%82%AB%E3%83%8D%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88:%E3%81%BF%E3%82%93%E3%81%AA%E3%81%A8AI%E3%81%A7%E6%9C%AA%E6%9D%A5%E3%82%92%E4%BD%9C%E3%82%8B%E5%A0%B4%E6%89%80">オモイカネプロジェクト</a></p></li></ol><p>2023/07/26</p><p>1.勉強したことのメモ、心理学の閾値についてなど 2.岩手県大船渡に行ったこと うにを剥いたこと3,google books api、太陽光発電と植林の二酸化炭素排出削減能比較、絵金祭りに行ったこと、新方式の核融合について 4.N^5- N == mod 15について</p><br><p>2023/07/12</p><p>1.code interpreter  2. ネッククーラー を買った 3.  解けた数学の問題 4.いわてで行ったところ </p><p>2023/06/28</p><p>1.BabyAGI 2.langchain</p><br><p>2023/06/13</p><p>1.CLIP論文解説 2.chatGPTを英語学習に使う方法</p><p> 2023/06/01</p><p>1.vision questioning ansering 2,最近読んだ本、買ってよかったもの 3, 最近作ったもの、道の駅で買えるもの</p><p>2023/05/17</p><ol><li><p>寄り目でサイゼの間違い探し  2. 正多面体同士の関係 3.whisper+ chatgptで録音文字起こし要約 4.tabcloud extension, arc browserについて</p></li></ol><p>2023/04/19</p><p>1.stable diffusion + lora で画家の絵を学習させる。</p><p>2023-04-05</p><p>1.javascriptだけの画像分類機を作ってみた。2.マインスイーパーとそのアドバイザーをchatgptで作ってみた。3.住居と社会学。</p><br><p>2023-03-22</p><p>1.マンデルブロー集合を作ってみた。2.アルジャーノンに花束を</p><p>2023-03-08</p><p>1.chatgpt apiを使ってみた。それを使ったlinuxコマンド作成支援ツール使ってみた。2.対話型AIによる学術研究支援について3.最近読んだ本　自分では気づかない、ココロの盲点 完全版　4.東欧旅行</p><p>2023-02-22</p><p>虫食い算のソルバー作成:幅優先探索と深さ優先探索の比較。魔方陣の未解決問題。</p><p>2023-02-08</p><p>lang chain、juliaによる常微分方程式解法、図形から線対称な図形を切り出すパズル、社会福祉士について。</p><p>2023-01-25</p><p>gpt-indexによるドキュメントを取り込んだchat bot作成。excelによる業務改善。ゲーム理論と情報の信頼性の担保。秘書問題。</p><p>2023-01-11<br>text読み上げ「voicevox, goole speech」と口パク人形、Julia言語入門、paypayドームの横でpaypayを使ったこと、3円定理</p><p>2022-12-28 <br>exif の編集、数学パズルの解法、C++、今年やった初めてのこと</p><p>2022-04-20<br>子宮スピリチュアリズム、映画における客観、立体魔法陣、人工生命、友情</p><p>2022-04-06<br>社会学総論、精神医学、論理学における不動点定理とゲーデル定理、保険の資格試験、自己教師あり学習</p><p>2022-02-02<br>深度推定、フォンノイマン宇宙とグラフ理論、フォトグラメトリのAR表示、オカンアートと民藝、東京で今焦土作戦をするには、さっき解いた数学の問題</p><p>2022-01-19<br>グラフ理論、趣味の起源、刺繍、数独、テューキーの補題</p><p>2021-12-01<br>workroomsやってみた,「人怖」感想,neosvrやってみた,シェア居住と利他行動(卒論プレ発表),</p><p>(赤字は平田の発表)</p>
 
 </article>
 <footer class="site-foot">
